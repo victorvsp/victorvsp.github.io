@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.29">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>afonso – MAC5005</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9724cf4b05150a4d2634f8236da9eae7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">MAC5005</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Início</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule.html"> 
+<span class="menu-text">Cronograma</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#resenha-bandit-algorithms-for-prophet-inequality-and-pandoras-box" id="toc-resenha-bandit-algorithms-for-prophet-inequality-and-pandoras-box" class="nav-link active" data-scroll-target="#resenha-bandit-algorithms-for-prophet-inequality-and-pandoras-box">Resenha: <em>Bandit Algorithms for Prophet Inequality and Pandora’s Box</em></a>
+  <ul class="collapse">
+  <li><a href="#resumo" id="toc-resumo" class="nav-link" data-scroll-target="#resumo">Resumo</a></li>
+  <li><a href="#opinião-pessoal" id="toc-opinião-pessoal" class="nav-link" data-scroll-target="#opinião-pessoal">Opinião Pessoal</a></li>
+  <li><a href="#recomendação-de-leitura" id="toc-recomendação-de-leitura" class="nav-link" data-scroll-target="#recomendação-de-leitura">Recomendação de Leitura</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="resenha-bandit-algorithms-for-prophet-inequality-and-pandoras-box" class="level1">
+<h1>Resenha: <em>Bandit Algorithms for Prophet Inequality and Pandora’s Box</em></h1>
+<p><strong>Afonso Sant’Anna</strong></p>
+<hr>
+<section id="resumo" class="level2">
+<h2 class="anchored" data-anchor-id="resumo">Resumo</h2>
+<p>Imagine que você quer vender um item perecível, digamos, um acarajé em São Paulo, numa tenda que funciona por um único dia. Oito compradores chegam um por hora, cada um com uma disposição a pagar desconhecida. Quando um comprador chega, você precisa decidir na hora se aceita o valor oferecido ou recusa e espera pelo próximo. Se recusar, não pode voltar atrás. Qual é a melhor estratégia?</p>
+<p>Esse é essencialmente o problema da <em>Desigualdade do Profeta</em>: dadas <span class="math inline">\(n\)</span> variáveis aleatórias <span class="math inline">\(X_1, \ldots, X_n\)</span> reveladas em sequência, o objetivo é aceitar exatamente uma delas para maximizar o valor esperado do item selecionado. O nome vem da comparação com um profeta que enxerga todos os valores de antemão e escolhe o máximo — um algoritmo razoável consegue, em expectativa, pelo menos metade do que o profeta obteria. Quando as distribuições são conhecidas, a política ótima é simples: definir um <em>threshold</em> <span class="math inline">\(\tau_i^*\)</span> para cada posição e aceitar <span class="math inline">\(X_i\)</span> se e somente se <span class="math inline">\(X_i &gt; \tau_i^*\)</span>.</p>
+<p>Agora considere uma variação: você é um pesquisador avaliando tecnologias concorrentes para um projeto. Investigar cada tecnologia custa tempo e dinheiro, mas você só precisa escolher uma ao final. Como decidir quais tecnologias investigar e em que ordem, de forma a maximizar o valor esperado do que você escolher menos o custo total de investigação?</p>
+<p>Esse é o problema da <em>Caixa de Pandora</em>: há <span class="math inline">\(n\)</span> caixas, cada uma com um valor aleatório <span class="math inline">\(X_i\)</span> e um custo de abertura <span class="math inline">\(c_i\)</span>. Você abre as caixas na ordem que quiser, pagando <span class="math inline">\(c_i\)</span> para ver o valor de cada uma, e ao final fica com <span class="math inline">\(\max_{i \in S} X_i - \sum_{i \in S} c_i\)</span>, onde <span class="math inline">\(S\)</span> é o conjunto de caixas abertas.</p>
+<p>Weitzman (1979) mostrou que a política ótima é surpreendentemente elegante: calcular para cada caixa um índice de reserva <span class="math inline">\(\tau_i^*\)</span>, definido pela equação <span class="math inline">\(\mathbb{E}[\max\{X_i - \tau_i^*, 0\}] = c_i\)</span>, e abrir as caixas em ordem decrescente desses índices, parando quando nenhuma caixa restante tiver índice maior que o melhor valor já observado.</p>
+<p>Em ambos os problemas, o algoritmo ótimo assume que as distribuições são conhecidas. Na prática, isso raramente é verdade: você não sabe de antemão como os compradores de São Paulo valorizam o acarajé, nem qual é a distribuição dos valores das tecnologias que está avaliando.</p>
+<p>O modelo natural para lidar com isso é o de <em>Multi-Armed Bandits</em>, que vimos em aula como uma versão do problema dos Experts com menos informação. No problema dos Experts, o jogador observa na rodada <span class="math inline">\(t\)</span> o custo <span class="math inline">\(\ell_t(i)\)</span> de <em>todos</em> os Experts, o que faz sentido em alguns contextos, como acompanhar ações na bolsa, mas é irrealista em outros, como escolher entre tratamentos médicos sem aplicá-los.</p>
+<p>No modelo Bandit, o jogador escolhe uma ação <span class="math inline">\(i_t\)</span> e observa apenas <span class="math inline">\(\ell_t(i_t)\)</span>, o custo da ação que efetivamente tomou. Como vimos, essa restrição não piora o regret assintoticamente: ambos os modelos admitem algoritmos com regret <span class="math inline">\(O(\sqrt{T})\)</span>, embora as constantes e as técnicas sejam diferentes.</p>
+<p>O desafio no artigo é que o feedback é ainda mais restrito que o bandit clássico: o algoritmo não escolhe uma única ação, mas sim uma <em>política</em>, e observa apenas o resultado final dessa política, sem saber nem qual <span class="math inline">\(X_i\)</span> foi selecionado ao longo do processo. Aqui, uma <em>política</em> nada mais é do que um plano de ação completo: por exemplo, um vetor de thresholds que diz quando aceitar ou rejeitar valores ao longo do processo.</p>
+<p>O artigo de Gatmiry, Kesselheim, Singla e Wang (2023) combina esses dois mundos. Considera-se uma versão repetida dos problemas: a cada rodada <span class="math inline">\(t\)</span>, o algoritmo escolhe uma política (um vetor de thresholds), recebe como feedback <em>apenas a recompensa final</em>, sem saber qual <span class="math inline">\(X_i\)</span> foi selecionado, sem ver os outros valores, e precisa usar essa informação mínima para melhorar sua estratégia nas rodadas seguintes.</p>
+<p>Voltando ao exemplo do acarajé: você não sabe nem qual comprador aceitou a oferta, apenas quanto recebeu no final do dia. Os resultados principais mostram que mesmo com esse feedback extremamente limitado é possível obter regret <span class="math inline">\(O(n^3 \sqrt{T} \log T)\)</span> para a Desigualdade do Profeta e <span class="math inline">\(O(n^{5.5} \sqrt{T} \log T)\)</span> para a Caixa de Pandora, ambos alcançados por algoritmos polinomiais.</p>
+<p>Esses resultados são essencialmente ótimos: o artigo também prova que nenhum algoritmo pode ter regret melhor que <span class="math inline">\(\Omega(\sqrt{T})\)</span> para inputs estocásticos, e que para inputs adversariais o regret é necessariamente <span class="math inline">\(\Omega(T)\)</span>, mostrando que a estrutura probabilística dos problemas é fundamental.</p>
+<p>A técnica central, que estudei com foco no caso <span class="math inline">\(n = 2\)</span>, é o algoritmo de <em>Interval Shrinking</em>. Em vez de tentar descobrir diretamente qual é o threshold ótimo, o algoritmo começa com um intervalo grande que certamente contém esse valor e vai, aos poucos, diminuindo esse intervalo. A cada fase, ele testa apenas os dois extremos do intervalo atual e usa as recompensas observadas para decidir quais thresholds ainda podem ser bons candidatos.</p>
+<p>A ideia é a seguinte: se um threshold está muito longe do ótimo, então ele já deve apresentar uma perda esperada grande. O algoritmo consegue estimar essa perda de forma indireta, sem precisar ver todas as informações escondidas do problema. Com isso, ele descarta os thresholds que parecem ruins e mantém apenas aqueles que continuam plausíveis.</p>
+<p>O ponto importante é que essa atualização é feita sem precisar explorar políticas muito ruins. Assim, o algoritmo aprende e ao mesmo tempo mantém o erro acumulado pequeno. Repetindo esse processo em várias fases, o intervalo vai encolhendo cada vez mais, até que qualquer threshold dentro dele fique muito perto do ótimo.</p>
+<p>Essa é a razão pela qual o artigo consegue obter regret sublinear mesmo com feedback muito limitado: em vez de aprender toda a distribuição dos valores, o algoritmo aprende apenas o suficiente para localizar boas políticas dentro de um intervalo cada vez menor.</p>
+<hr>
+</section>
+<section id="opinião-pessoal" class="level2">
+<h2 class="anchored" data-anchor-id="opinião-pessoal">Opinião Pessoal</h2>
+<p>É um bom artigo, bem motivado. Acredito que, pelo fato de eu não conhecer completamente a Desigualdade do Profeta e a Caixa de Pandora, senti que os autores poderiam ter dedicado um pouco mais de espaço para explicar esses problemas. No entanto, imagino que isso aconteça por serem temas já bastante consolidados na área.</p>
+<p>O problema estudado no artigo também me pareceu bem motivado. Em particular, fiquei interessado logo no começo e achei a proposta bastante instigante. Gostei bastante da ideia do algoritmo de <em>interval shrinking</em>, que me pareceu ao mesmo tempo simples e sofisticada. Como não tenho muita familiaridade com esse tipo de técnica, ela me pareceu bastante surpreendente e potencialmente relevante para outros problemas.</p>
+<p>A leitura, de modo geral, não foi extremamente difícil, principalmente por eu já ter cursado a disciplina, o que ajudou bastante a entender várias das ideias apresentadas. Ainda assim, algumas partes exigiram mais esforço — especialmente o entendimento do algoritmo de <em>interval shrinking</em>, que levou um tempo para fazer sentido (e mesmo assim, não tenho certeza de ter compreendido todos os detalhes).</p>
+<p>Além disso, senti a necessidade de revisar previamente os problemas da Desigualdade do Profeta e da Caixa de Pandora para acompanhar melhor o artigo, o que acabou tornando a leitura um pouco mais trabalhosa. Mesmo assim, considero que foi uma experiência positiva e interessante, especialmente por apresentar uma combinação de ideias que eu ainda não conhecia.</p>
+<hr>
+</section>
+<section id="recomendação-de-leitura" class="level2">
+<h2 class="anchored" data-anchor-id="recomendação-de-leitura">Recomendação de Leitura</h2>
+<p>Sobre a recomendação, eu recomendo o artigo principalmente para quem cursou a disciplina ou já tem alguma familiaridade com bandits e aprendizado com experts, pois essas ferramentas aparecem bastante ao longo do texto. Quem já conhece a Desigualdade do Profeta também pode se interessar bastante pelo problema estudado, e o mesmo vale para quem trabalha com a Caixa de Pandora.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
