@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript" async
+	    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+    </script>
+
+    <title>Online Convex Optimization: Algorithms, Learning, and
+    Duality</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="starter_template.css" rel="stylesheet">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">OCO</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <!-- <li><a href="poster.pdf">Poster</a></li> -->
+            <li><a href="https://slides.com/victorsp/oco-defense">Slide Show</a></li>
+	    <li><a href="thesis.pdf">Thesis</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="starter-template">
+        <h1>Online Convex Optimization: Algorithms, Learning, and
+    Duality</h1>
+	<h3> Author: Victor Sanches Portella</h3>
+	<h4> Advisor: <a href="https://www.ime.usp.br/~mksilva/"> prof. Marcel Kenji de Carli Silva </a></h4>
+	
+        <br><p class="lead" align="left" style="text-justify: auto">
+	Online Convex Optimization (OCO) is a field in the
+	intersection of game theory, optimization, and machine
+	learning which has been receiving increasing attention due to
+	its recent applications to a wide range of topics such as
+	complexity theory and graph sparsification. Besides the
+	usually simple description and implementation of OCO
+	algorithms, a lot of this recent success is due to a deepening
+	of our understanding of the OCO setting and their algorithms
+	by using cornerstone ideas from convex analysis and
+	optimization such as the powerful results from convex duality
+	theory.
+
+	In this text we present a mostly self-contained introduction
+	to the field of online convex optimization. We first describe the
+	online learning and online convex optimization settings, proposing
+	an alternative way to formalize both of them so we can make formal
+	claims in a clear and unambiguous fashion while not cluttering the
+	readers understanding. We then present an overview of the main
+	concepts of convex analysis we use, with a focus on building
+	intuition. With respect to algorithms for OCO, we first present and
+	analyze the Adaptive Follow the Regularized Leader (AdaFTRL)
+	together with an analysis which relies mainly on the duality between
+	strongly convex and strongly smooth functions. We then describe the
+	Adaptive Online Mirror Descent (AdaOMD) and the Adaptive Dual
+	Averaging (AdaDA) algorithms and analyze both by writing them as
+	special cases of the AdaFTRL algorithm. Additionally, we show simple
+	sufficient conditions for Eager and Lazy Online Mirror Descent (the
+	non-adaptive counter-parts of AdaOMD and AdaDA) to be equivalent. We
+	also present the well-known AdaGrad and Online Newton Steps
+	algorithms as special cases of the AdaReg algorithm, proposed by
+	Gupta, Koren, and Singer, which is itself a special case of the
+	AdaOMD algorithm. We conclude by taking a bird's-eyes view of the
+	connections shown throughout the text, forming a ``genealogy'' of
+	OCO, and discuss some possible path for future research.
+	 </p>
+      </div>
+
+    </div><!-- /.container -->
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+    <!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script> -->
+    <!-- <script src="../../dist/js/bootstrap.min.js"></script> -->
+    <!-- <\!-- IE10 viewport hack for Surface/desktop Windows 8 bug -\-> -->
+    <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+  </body>
+</html>

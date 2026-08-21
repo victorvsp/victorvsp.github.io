@@ -1,0 +1,61 @@
+.portrait {
+    height: auto;
+    max-width: 100%;
+    border-radius: 50%;
+    }
+
+.header {
+    font-weight: 200;
+  }
+
+/* LISTS */
+
+dt::before {
+  content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: rgb(92, 92, 92); 
+  font-weight: bold; 
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 0.5em; /* Also needed for space (tweak if needed) */
+  margin-left: -1em; /* Also needed for space (tweak if needed) */
+}
+
+
+
+
+/* *********** FOOTER **************** */
+  
+footer {
+  margin: 40px;
+}
+
+#footer-sec {
+  max-width: 1260px;
+  width: 100%
+}
+
+#footer-made, #footer-name, #footer-logo {
+  margin-top: 0;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+#footer-name {
+  font-weight: 700;
+}
+
+#footer-link {
+  font-size: 16px;
+  color: #111111;
+  text-decoration: none;
+}
+
+
+hr {
+  border: none;
+  height: 1px;
+  /* Set the hr color */
+  /* color: rgb(131, 131, 131); 
+  background-color: rgb(131, 131, 131);  */
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+}
