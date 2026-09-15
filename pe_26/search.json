@@ -7,515 +7,599 @@
     "text": "About this site"
   },
   {
-    "objectID": "slides/pe01_intro.html#hoje",
-    "href": "slides/pe01_intro.html#hoje",
-    "title": "Introdução à linguagem C",
-    "section": "Hoje",
-    "text": "Hoje\n\n\\[\n\\def\\argmin{\\operatorname*{argmin}}\n\\def\\Regret{\\operatorname*{Regret}}\n\\def\\PRegret{\\operatorname*{P-Regret}}\n\\def\\WL{\\operatorname*{WL}}\n%\n\\def\\T{\\mathsf{T}}\n\\def\\prob{\\mathbb{P}}\n\\def\\expect{\\mathbb{E}}\n\\def\\ones{\\mathbf{1}}\n\\def\\eps{\\varepsilon}\n\\def\\ERM{\\mathrm{ERM}}\n\\def\\DESC{\\mathrm{DESC}}\n\\def\\VC{\\mathrm{VC}}\n\\def\\LDim{\\mathrm{LDim}}\n\\def\\bR{\\mathbb{R}}\n\\def\\bN{\\mathbb{N}}\n\\def\\cC{\\mathcal{C}}\n\\def\\cD{\\mathcal{D}}\n\\def\\cH{\\mathcal{H}}\n\\def\\cB{\\mathcal{B}}\n\\def\\cX{\\mathcal{X}}\n\\def\\cY{\\mathcal{Y}}\n\\def\\cV{\\mathcal{V}}\n\\]\n\n\nInformações sobre a disciplina\nBreve introdução ao Linux e ao terminal\nIntrodução à linguagem C"
-  },
-  {
-    "objectID": "slides/pe01_intro.html#questões-logísticas",
-    "href": "slides/pe01_intro.html#questões-logísticas",
-    "title": "Introdução à linguagem C",
-    "section": "Questões logísticas",
-    "text": "Questões logísticas\nSite da disciplina:\nMoodle:"
-  },
-  {
-    "objectID": "slides/pe01_intro.html#objetivos",
-    "href": "slides/pe01_intro.html#objetivos",
-    "title": "Introdução à linguagem C",
-    "section": "Objetivos",
-    "text": "Objetivos\n\nApresentar noções básica e intermediárias sobre algoritmos;\nProgramação em linguagem compilada (C nesse caso)\nVetores, strings, matrizes, registros, arquivos, …\nRecursão\nManipulação de memória (ponteiros e alocação estática/dinâmica)"
-  },
-  {
-    "objectID": "slides/pe01_intro.html#avaliação",
-    "href": "slides/pe01_intro.html#avaliação",
-    "title": "Introdução à linguagem C",
-    "section": "Avaliação",
-    "text": "Avaliação\n\n\n\n\n\nComponente\nPeso\n\n\n\n\nLaboratórios\n15%\n\n\nEP1 + EP2\n15%\n\n\nProva 1\n30%\n\n\nProva 2\n40%\n\n\n\n\nIdeia principal\n\nLaboratórios e EPs: prática .\nProvas: avaliação individual.\nPrecisa de média \\(\\geq 5\\) também nas provas.\n\n\nMédia final: \\[\nM = 0.15 \\cdot L + 0.15 \\cdot  \\mathrm{EP} + 0.3 \\cdot \\mathrm{P1} + 0.4 \\cdot  \\mathrm{P2}\n\\]\nCritério de Aprovação: \\[M \\geq 5 \\quad \\text{e} \\quad M_P = \\frac{0.3 \\cdot \\mathrm{P1} + 0.4 \\cdot  \\mathrm{P2}}{0.7} \\geq 5\\]"
-  },
-  {
-    "objectID": "slides/pe01_intro.html#ia-generativa---o-elefante-na-sala",
-    "href": "slides/pe01_intro.html#ia-generativa---o-elefante-na-sala",
-    "title": "Introdução à linguagem C",
-    "section": "IA Generativa - o elefante na sala",
-    "text": "IA Generativa - o elefante na sala"
-  },
-  {
-    "objectID": "slides/pe01_intro.html#o-que-é-linux",
-    "href": "slides/pe01_intro.html#o-que-é-linux",
-    "title": "Introdução à linguagem C",
-    "section": "O que é Linux?",
-    "text": "O que é Linux?\nLinux é uma família de sistemas operacionais de código aberto\n Construídos em torno do Kernel Linux, criado por Linus Torvalds em 1991\n Unix-like: segue a organização e as principais convenções dos sistemas Unix (arquivos hierárquico, permissões, shells, etc.)\n\nUma distribuição Linux é um sistema operacional completo\n Inclui kernel, utilitários, bibliotecas e aplicativos\n Exemplos: Ubuntu, Fedora, Debian, Arch Linux, etc.\n\nAulas e laboratórios serão realizados em ambiente Linux. Detalhes para outros sistemas operacionais não devem ser difíceis de encontrar."
-  },
-  {
-    "objectID": "slides/pe01_intro.html#hierarquia-do-sistema-de-arquivos",
-    "href": "slides/pe01_intro.html#hierarquia-do-sistema-de-arquivos",
-    "title": "Introdução à linguagem C",
-    "section": "Hierarquia do sistema de arquivos",
-    "text": "Hierarquia do sistema de arquivos\n/\n├─ bin      # programas essenciais do sistema\n├─ boot     # arquivos do boot loader\n├─ dev      # dispositivos do sistema\n├─ etc      # arquivos de configuração do sistema\n├─ home     # pastas dos usuários\n│  ├─ user1\n│  └─ user2\n├─ usr      # utilidades dos usuários\n│  ├─ bin   # programas do usuário\n│  │  ├─ gcc\n│  │  └─ firefox\n│  ├─ share # arquivos compartilhados\n│  │  ├─ doc\n│  │  ├─ fonts\n│  │  ├─ themes\n│  │  └─ vim\n│  └─ local\n│     ├─ bin\n│     └─ share\n└─ ..."
-  },
-  {
-    "objectID": "slides/pe01_intro.html#diretórios-e-arquivos",
-    "href": "slides/pe01_intro.html#diretórios-e-arquivos",
-    "title": "Introdução à linguagem C",
-    "section": "Diretórios e arquivos",
-    "text": "Diretórios e arquivos\nO sistema de arquivos Linux é organizado em diretórios e arquivos\n\nCada diretório pode conter arquivos e outros diretórios (subdiretórios)\nTodos os arquivos e diretórios estão contidos no diretório raiz / (root)\nA sequência de diretórios até arquivo é chamada de caminho (path)\n\n\n\n\n/\n├─ home   \n│  └─ user1\n      └─ prog_estruturada\n         └─ slides.pdf\n\n\nCaminho: /home/user1/prog_estruturada/slides.pdf"
-  },
-  {
-    "objectID": "slides/pe01_intro.html#endereçamento-relativo",
-    "href": "slides/pe01_intro.html#endereçamento-relativo",
-    "title": "Introdução à linguagem C",
-    "section": "Endereçamento relativo",
-    "text": "Endereçamento relativo\nCada diretório (e arquivo) pode ser endereçado listando o caminho de diretórios relativo a pasta atual\n\nDiretório atual: . (ponto)\nDiretório superior: .. (dois pontos)\nDiretório home do usuário: ~ (til)\n\n\nExemplo se o diretório atual é /home/user1:\n\nprog_estruturada/slides.pdf é o caminho relativo\n../user2/arquivo.txt é o caminho relativo para um arquivo em outro diretório"
-  },
-  {
-    "objectID": "slides/pe01_intro.html#interface-de-linha-de-comando-e-terminal",
-    "href": "slides/pe01_intro.html#interface-de-linha-de-comando-e-terminal",
-    "title": "Introdução à linguagem C",
-    "section": "Interface de linha de comando e terminal",
-    "text": "Interface de linha de comando e terminal\nEm sistemas Unix-like, é muito comum interagir com o sistema por meio de uma interface de linha de comando (command-line interface ou CLI).\n\nO terminal é o ambiente no qual digitamos comandos e vemos sua saída.\nO programa que interpreta esses comandos é chamado de shell.\nNo Linux, um dos shells mais comuns é o Bash\n\nOs comandos são iguais ou muito semelhantes na maioria dos shells.\n\nA linha de comando é especialmente conveniente para programadores e administradores de sistemas (e agentes de IA)."
-  },
-  {
-    "objectID": "slides/pe01_intro.html#alguns-comandos-básicos",
-    "href": "slides/pe01_intro.html#alguns-comandos-básicos",
-    "title": "Introdução à linguagem C",
-    "section": "Alguns comandos básicos",
-    "text": "Alguns comandos básicos\nA sintaxe da linha de commando frequentemente é\nnome_do_comando [opções] [argumentos]\nO comando pode ser algum comando do shell ou um programa externo. Alguns comandos básicos:\n\n\ncd [bla]: muda o diretório atual para aquele em bla\nls: lista os arquivos e diretórios no diretório atual\npwd: exibe o caminho do diretório atual\nmkdir [nome]: cria um novo diretório com o nome especificado\nrm [arquivo]: remove um arquivo\ncp [origem] [destino]: copia um arquivo de uma localização para outra\nmv [origem] [destino]: move ou renomeia um arquivo"
-  },
-  {
-    "objectID": "slides/pe01_intro.html#dicas-sobre-o-terminal",
-    "href": "slides/pe01_intro.html#dicas-sobre-o-terminal",
-    "title": "Introdução à linguagem C",
-    "section": "Dicas sobre o terminal",
-    "text": "Dicas sobre o terminal\nAlgumas dicas do terminal\n\nUse Ctrl+C para interromper um comando em execução\nUse man &lt;comando&gt; para ver o manual do comando. Exemplo: man ls\nMutios comandos aceitam --help para exibir ajuda rápida\nUse a tecla Tab para completar nomes de arquivos e diretórios\nUse as setas para cima/baixo para navegar pelo histórico de comandos\nUse Ctrl+R para buscar comandos anteriores no histórico"
-  },
-  {
-    "objectID": "slides/pe01_intro.html#algoritmos",
-    "href": "slides/pe01_intro.html#algoritmos",
-    "title": "Introdução à linguagem C",
-    "section": "Algoritmos",
-    "text": "Algoritmos\nUm algoritmo é uma sequência de etapas bem definidas para realizar uma tarefa.\n\nExemplos:\n\nVerificar se um número é primo;\nOrdenar uma lista de números;\nEncontrar uma palavra em um arquivo de texto."
-  },
-  {
-    "objectID": "slides/pe01_intro.html#computador-e-instruções",
-    "href": "slides/pe01_intro.html#computador-e-instruções",
-    "title": "Introdução à linguagem C",
-    "section": "Computador e instruções",
-    "text": "Computador e instruções\nA CPU (Central Processing Unit) executa sequências de instruções.\n\n\nCada CPU possui um conjunto finito de instruções que varia com a arquitetura (x86, ARM, etc.)\n Conhecido como linguagem de máquina\n\n\n\nPodemos descrever algoritmos em linguagm de máquina, gerando um programa."
-  },
-  {
-    "objectID": "slides/pe01_intro.html#linguagens-de-programação",
-    "href": "slides/pe01_intro.html#linguagens-de-programação",
-    "title": "Introdução à linguagem C",
-    "section": "Linguagens de programação",
-    "text": "Linguagens de programação\nUma linguagem de programação é uma linguagem com regras precisas usada para descrever operações que um computador pode exercutar.\n\n\nInicialmente, existia somente as intruções da CPU\n Programas simples já são complexos de se descrever com tais intruções.\n\n\n\nLinguagens de alto nível: Linguagens mais expressivas, com maiores abstrações servindo como intermediárias entre o programador e a linguagem de máquina."
-  },
-  {
-    "objectID": "slides/pe01_intro.html#linguagens-compiladas-e-interpretadas",
-    "href": "slides/pe01_intro.html#linguagens-compiladas-e-interpretadas",
-    "title": "Introdução à linguagem C",
-    "section": "Linguagens compiladas e interpretadas",
-    "text": "Linguagens compiladas e interpretadas\nModos como as linguagens de programação são executadas:\n\nCompiladas: um compilador traduz o código-fonte para código de máquina (executável).\nInterpretadas: Um outro programa (interpretador) executa o código-fonte diretamente.\n\n\nEssa distinção pode ser mais sutil por uso de máquinas virtuais e compilação just-in-time, por exemplo. C é um exemplo clássico de linguagem normalmente compilada para código nativo."
-  },
-  {
-    "objectID": "slides/pe01_intro.html#paradigmas-de-programação",
-    "href": "slides/pe01_intro.html#paradigmas-de-programação",
-    "title": "Introdução à linguagem C",
-    "section": "Paradigmas de programação",
-    "text": "Paradigmas de programação\nLinguagens também podem ser classificadas por paradigma.\n\nEstruturado: C\nOrientado a objetos: Java, C++, Python\nFuncional: Haskell, OCaml, partes de Python/JavaScript\nLógico: Prolog"
-  },
-  {
-    "objectID": "slides/pe01_intro.html#o-que-é-compilação",
-    "href": "slides/pe01_intro.html#o-que-é-compilação",
-    "title": "Introdução à linguagem C",
-    "section": "O que é compilação?",
-    "text": "O que é compilação?\nCompilar é traduzir um programa de uma linguagem para outra.\n\n\n\n\n\nExiste diversos compiladores de C: gcc, clang, etc.\n\nProgramas executáveis são específicos da plataforma (sistema operacional, arquitetura, etc.)"
-  },
-  {
-    "objectID": "slides/pe01_intro.html#compilação-de-múltiplos-arquivos",
-    "href": "slides/pe01_intro.html#compilação-de-múltiplos-arquivos",
-    "title": "Introdução à linguagem C",
-    "section": "Compilação de múltiplos arquivos",
-    "text": "Compilação de múltiplos arquivos\nÉ possível compilar um programa a partir de diversos arquivos-fonte\n Cada arquivo fonte gera um arquivos-objeto (executáveis com partes faltando)\n Arquivos-objeto são ligados (linked) gerando o executável final."
-  },
-  {
-    "objectID": "slides/pe01_intro.html#código-fonte-e-executável",
-    "href": "slides/pe01_intro.html#código-fonte-e-executável",
-    "title": "Introdução à linguagem C",
-    "section": "Código-fonte e executável",
-    "text": "Código-fonte e executável\n#include &lt;stdio.h&gt;\n\nint main() {\n    printf(\"Hello World!\\n\");\n    return 0;\n}"
-  },
-  {
-    "objectID": "slides/pe01_intro.html#flags-úteis-eou-recomendadas-do-gcc",
-    "href": "slides/pe01_intro.html#flags-úteis-eou-recomendadas-do-gcc",
-    "title": "Introdução à linguagem C",
-    "section": "Flags úteis e/ou recomendadas do gcc",
-    "text": "Flags úteis e/ou recomendadas do gcc\nFlags recomendadas:\n\n-Wall: dá mais warnings de compilação (muito recomendado)\n-Wextra: dá warnings adicionais de compilação\n-Wpedantic: avisa sobre construções fora do padrão ISO C escolhido\n\nFlags adicionais úteis:\n\n-Werror: warnings viram erros de compilação\n-g: permite usar gdb e valgrind (mas deixa programa mais pesado)\n-lm: permite usar funções matemáticas\n\nExemplo de compilação recomendada:\ngcc -Wall -Wextra -Wpedantic programa.c -o programa"
-  },
-  {
-    "objectID": "slides/pe01_intro.html#linguagem-c-1",
-    "href": "slides/pe01_intro.html#linguagem-c-1",
-    "title": "Introdução à linguagem C",
-    "section": "Linguagem C",
-    "text": "Linguagem C\nA linguagem C foi criada por Dennis Ritchie no início dos anos 1970.\nAlguns marcos/padrões importantes:\n\nK&R C, associado ao livro de Kernighan e Ritchie;\nC89/C90;\nC99;\nC11;\nC17/C18;\nC23."
-  },
-  {
-    "objectID": "slides/pe01_intro.html#por-que-estudar-c",
-    "href": "slides/pe01_intro.html#por-que-estudar-c",
-    "title": "Introdução à linguagem C",
-    "section": "Por que estudar C?",
-    "text": "Por que estudar C?\nC continua importante porque aparece em contextos como, sistemas operacionais, compiladores, sistemas embarcado, etc.\n\nAlém disso, C nos força a entender conceitos que outras linguagens escondem parcialmente, como:\n\nendereços de memória;\nalocação dinâmica;\nrepresentação dos dados."
-  },
-  {
-    "objectID": "slides/pe01_intro.html#popularidade-de-linguagens",
-    "href": "slides/pe01_intro.html#popularidade-de-linguagens",
-    "title": "Introdução à linguagem C",
-    "section": "Popularidade de linguagens",
-    "text": "Popularidade de linguagens"
-  },
-  {
-    "objectID": "slides/pe01_intro.html#programa-mínimo-em-c",
-    "href": "slides/pe01_intro.html#programa-mínimo-em-c",
-    "title": "Introdução à linguagem C",
-    "section": "Programa mínimo em C",
-    "text": "Programa mínimo em C\n#include &lt;stdio.h&gt;\n\nint main() {\n    printf(\"Hello World!\\n\");\n    return 0;\n}\n\nPara compilar:\ngcc teste.c -o teste\n\n\nPara executar:\n./teste"
-  },
-  {
-    "objectID": "slides/pe01_intro.html#um-programa-ainda-menor",
-    "href": "slides/pe01_intro.html#um-programa-ainda-menor",
-    "title": "Introdução à linguagem C",
-    "section": "Um programa ainda menor",
-    "text": "Um programa ainda menor\nint main() {\n    return 0;\n}\nEsse programa não imprime nada, mas é um programa C válido.\n\n\nA função main é o que vai ser executado quando o programa é iniciado.\n\n\n\nO return 0; indica, por convenção, que o programa terminou com sucesso.\n Valores diferentes indicam diferentes tipos de erro"
-  },
-  {
-    "objectID": "slides/pe01_intro.html#tipos-de-dados",
-    "href": "slides/pe01_intro.html#tipos-de-dados",
-    "title": "Introdução à linguagem C",
-    "section": "Tipos de dados",
-    "text": "Tipos de dados\n\n\n\nTipo\nTamanho típico\nFaixa típica\n\n\n\n\nchar\n1 byte\n-128 a 127\n\n\nshort int\n2 bytes\n\\(-2^{15}\\) a \\(2^{15}-1\\)\n\n\nint\n4 bytes\n\\(-2^{31}\\) a \\(2^{31}-1\\)\n\n\nlong int\n8 bytes\n\\(-2^{63}\\) a \\(2^{63}-1\\)\n\n\nlong long int\n8 bytes\n\\(-2^{63}\\) a \\(2^{63}-1\\)\n\n\nfloat\n4 bytes\n~7 casas de precisão\n\n\ndouble\n8 bytes\n~15–16 casas precisão\n\n\n\n\nTamanhos/faixas exatapas dependem do compilador/sistema. Valores acima são típicos para gcc em sistemas Linux de 64 bits."
-  },
-  {
-    "objectID": "slides/pe01_intro.html#atenção-aos-limites",
-    "href": "slides/pe01_intro.html#atenção-aos-limites",
-    "title": "Introdução à linguagem C",
-    "section": "Atenção aos limites",
-    "text": "Atenção aos limites\nTipos numéricos têm limites.\n\nUm int não representa todos os inteiros matemáticos.\nUm float/double não representa todos os números reais.\nOperações podem sofrer overflow, perda de precisão ou truncamento.\n\nVamos usar o computador não apenas como uma calculadora, mas como uma máquina com representações finitas."
-  },
-  {
-    "objectID": "slides/pe01_intro.html#declaração-de-variáveis",
-    "href": "slides/pe01_intro.html#declaração-de-variáveis",
-    "title": "Introdução à linguagem C",
-    "section": "Declaração de variáveis",
-    "text": "Declaração de variáveis\nint main() {\n    int num_matricula = 1234;\n    return 0;\n}"
-  },
-  {
-    "objectID": "slides/pe01_intro.html#c-diferencia-maiúsculas-de-minúsculas",
-    "href": "slides/pe01_intro.html#c-diferencia-maiúsculas-de-minúsculas",
-    "title": "Introdução à linguagem C",
-    "section": "C diferencia maiúsculas de minúsculas",
-    "text": "C diferencia maiúsculas de minúsculas\nC é case-sensitive.\nint num_matricula = 1234;\nint Num_matricula = 5678;\nOs nomes num_matricula e Num_matricula são diferentes.\n\nUse nomes representativos. Evite nomes como tmp1, tmp2, aux50, exceto em situações muito locais e claras."
-  },
-  {
-    "objectID": "slides/pe01_intro.html#biblioteca-padrão-de-entrada-e-saída",
-    "href": "slides/pe01_intro.html#biblioteca-padrão-de-entrada-e-saída",
-    "title": "Introdução à linguagem C",
-    "section": "Biblioteca padrão de entrada e saída",
-    "text": "Biblioteca padrão de entrada e saída\nEm C, usamos funções para entrada e saída.\nAs funções mais básicas ficam em stdio.h.\n#include &lt;stdio.h&gt;\nDurante o curso, praticamente todos os programas usarão essa biblioteca."
-  },
-  {
-    "objectID": "slides/pe01_intro.html#saída-com-printf",
-    "href": "slides/pe01_intro.html#saída-com-printf",
-    "title": "Introdução à linguagem C",
-    "section": "Saída com printf",
-    "text": "Saída com printf\n#include &lt;stdio.h&gt;\n\nint main() {\n    printf(\"ABC\\n\");\n    return 0;\n}\nA função printf imprime texto formatado.\nint printf(const char *format, ...);\nA string format descreve como imprimir os valores."
-  },
-  {
-    "objectID": "slides/pe01_intro.html#exemplos-de-printf",
-    "href": "slides/pe01_intro.html#exemplos-de-printf",
-    "title": "Introdução à linguagem C",
-    "section": "Exemplos de printf",
-    "text": "Exemplos de printf\n#include &lt;stdio.h&gt;\n\nint main() {\n    int num = 507;\n\n    printf(\"ABC\");\n    printf(\"%d\", num);\n    printf(\"%d\\n\", num);\n    printf(\"A sala do professor eh a %d\\n\", num);\n    printf(\"%c + %c = %d\\n\", 'A', 'B', num);\n\n    return 0;\n}"
-  },
-  {
-    "objectID": "slides/pe01_intro.html#alguns-especificadores-de-formato",
-    "href": "slides/pe01_intro.html#alguns-especificadores-de-formato",
-    "title": "Introdução à linguagem C",
-    "section": "Alguns especificadores de formato",
-    "text": "Alguns especificadores de formato\n\n\n\nEspecificador\nTipo\n\n\n\n\n%d\nint\n\n\n%ld\nlong int\n\n\n%lld\nlong long int\n\n\n%f\nfloat/double em printf\n\n\n%lf\ndouble em scanf\n\n\n%c\nchar\n\n\n%s\nstring\n\n\n%p\nponteiro/endereço\n\n\n\n\nAlguns detalhes de formatação serão refinados ao longo do curso. Por enquanto, o essencial é saber imprimir inteiros, reais, caracteres e strings simples."
-  },
-  {
-    "objectID": "slides/pe01_intro.html#entrada-com-scanf",
-    "href": "slides/pe01_intro.html#entrada-com-scanf",
+    "objectID": "slides/pe02.html#entrada-com-scanf",
+    "href": "slides/pe02.html#entrada-com-scanf",
     "title": "Introdução à linguagem C",
     "section": "Entrada com scanf",
     "text": "Entrada com scanf\nPara ler valores, usamos scanf.\nint scanf(const char *format, ...);\nA diferença crucial:\n\nprintf recebe os valores a imprimir;\nscanf recebe os endereços das variáveis onde deve escrever."
   },
   {
-    "objectID": "slides/pe01_intro.html#exemplo-de-scanf",
-    "href": "slides/pe01_intro.html#exemplo-de-scanf",
+    "objectID": "slides/pe02.html#exemplo-de-scanf",
+    "href": "slides/pe02.html#exemplo-de-scanf",
     "title": "Introdução à linguagem C",
     "section": "Exemplo de scanf",
     "text": "Exemplo de scanf\n#include &lt;stdio.h&gt;\n\nint main() {\n    int num_int;\n\n    printf(\"Digite um numero inteiro:\\n\");\n    scanf(\"%d\", &num_int);\n\n    printf(\"O numero eh %d\\n\", num_int);\n    return 0;\n}\nO operador & obtém o endereço da variável.\n\nQuando estudarmos ponteiros, isso ficará muito mais claro."
   },
   {
-    "objectID": "slides/pe01_intro.html#mais-exemplos-de-leitura",
-    "href": "slides/pe01_intro.html#mais-exemplos-de-leitura",
+    "objectID": "slides/pe02.html#mais-exemplos-de-leitura",
+    "href": "slides/pe02.html#mais-exemplos-de-leitura",
     "title": "Introdução à linguagem C",
     "section": "Mais exemplos de leitura",
     "text": "Mais exemplos de leitura\n#include &lt;stdio.h&gt;\n\nint main() {\n    int num_int;\n    double num_frac;\n    int a, b;\n\n    printf(\"Digite um numero inteiro:\\n\");\n    scanf(\"%d\", &num_int);\n\n    printf(\"Digite um numero fracionario:\\n\");\n    scanf(\"%lf\", &num_frac);\n\n    printf(\"INT=%d DOUBLE=%lf\\n\", num_int, num_frac);\n\n    printf(\"Digite dois numeros:\\n\");\n    scanf(\"%d %d\", &a, &b);\n    printf(\"A=%d B=%d\\n\", a, b);\n\n    return 0;\n}"
   },
   {
-    "objectID": "slides/pe01_intro.html#sizeof",
-    "href": "slides/pe01_intro.html#sizeof",
+    "objectID": "slides/pe02.html#sizeof",
+    "href": "slides/pe02.html#sizeof",
     "title": "Introdução à linguagem C",
     "section": "sizeof",
     "text": "sizeof\nPara verificar quantos bytes uma variável ou tipo ocupa, usamos sizeof.\n#include &lt;stdio.h&gt;\n\nint main() {\n    int a;\n    long int b;\n    long long int c;\n    float d;\n    double e;\n    char f;\n\n    printf(\"%zu %zu %zu %zu %zu %zu\\n\",\n           sizeof a,\n           sizeof b,\n           sizeof c,\n           sizeof d,\n           sizeof e,\n           sizeof f);\n\n    return 0;\n}\n\nO tipo do resultado de sizeof é size_t. Por isso, usamos %zu em printf."
   },
   {
-    "objectID": "slides/pe01_intro.html#conversão-de-tipo-primeiro-exemplo",
-    "href": "slides/pe01_intro.html#conversão-de-tipo-primeiro-exemplo",
+    "objectID": "slides/pe02.html#conversão-de-tipo-primeiro-exemplo",
+    "href": "slides/pe02.html#conversão-de-tipo-primeiro-exemplo",
     "title": "Introdução à linguagem C",
     "section": "Conversão de tipo: primeiro exemplo",
     "text": "Conversão de tipo: primeiro exemplo\nQual é a saída?\n#include &lt;stdio.h&gt;\n\nint main() {\n    float num;\n\n    num = 4 / 2;\n    printf(\"%.2f\\n\", num);\n\n    num = 10 / 2.5;\n    printf(\"%.2f\\n\", num);\n\n    return 0;\n}\n\n2.00\n4.00"
   },
   {
-    "objectID": "slides/pe01_intro.html#inteiros-versus-ponto-flutuante",
-    "href": "slides/pe01_intro.html#inteiros-versus-ponto-flutuante",
+    "objectID": "slides/pe02.html#inteiros-versus-ponto-flutuante",
+    "href": "slides/pe02.html#inteiros-versus-ponto-flutuante",
     "title": "Introdução à linguagem C",
     "section": "Inteiros versus ponto flutuante",
     "text": "Inteiros versus ponto flutuante\nQual é a saída?\n#include &lt;stdio.h&gt;\n\nint main() {\n    float num;\n\n    num = 4 / 2;\n    printf(\"%.2f\\n\", num);\n\n    num = 5 / 2;\n    printf(\"%.2f\\n\", num);\n\n    return 0;\n}\n\n2.00\n2.00"
   },
   {
-    "objectID": "slides/pe01_intro.html#divisão-inteira",
-    "href": "slides/pe01_intro.html#divisão-inteira",
+    "objectID": "slides/pe02.html#divisão-inteira",
+    "href": "slides/pe02.html#divisão-inteira",
     "title": "Introdução à linguagem C",
     "section": "Divisão inteira",
     "text": "Divisão inteira\nEm C:\n5 / 2\né uma divisão entre inteiros, cujo resultado inteiro é 2.\nPara obter um resultado fracionário:\n5 / 2.0\n5 / ((float) 2)\n((float) 5) / 2"
   },
   {
-    "objectID": "slides/pe01_intro.html#conversões-perigosas",
-    "href": "slides/pe01_intro.html#conversões-perigosas",
+    "objectID": "slides/pe02.html#conversões-perigosas",
+    "href": "slides/pe02.html#conversões-perigosas",
     "title": "Introdução à linguagem C",
     "section": "Conversões perigosas",
     "text": "Conversões perigosas\nConversões de um tipo com maior faixa/precisão para um tipo com menor faixa/precisão podem perder informação.\nint n1 = 50000;\nshort int n2 = n1;\nO resultado depende dos limites do tipo short int na implementação.\n\nA mensagem importante para os alunos: conversões não são apenas uma formalidade sintática; elas podem mudar o valor armazenado."
   },
   {
-    "objectID": "slides/pe01_intro.html#conversão-de-reais-para-inteiros",
-    "href": "slides/pe01_intro.html#conversão-de-reais-para-inteiros",
+    "objectID": "slides/pe02.html#conversão-de-reais-para-inteiros",
+    "href": "slides/pe02.html#conversão-de-reais-para-inteiros",
     "title": "Introdução à linguagem C",
     "section": "Conversão de reais para inteiros",
     "text": "Conversão de reais para inteiros\n#include &lt;stdio.h&gt;\n\nint main() {\n    float f1 = 2.782;\n    int n2 = f1;\n\n    printf(\"%d\\n\", n2);\n    return 0;\n}\n\n2\nA parte fracionária é descartada."
   },
   {
-    "objectID": "slides/pe01_intro.html#cast-explícito",
-    "href": "slides/pe01_intro.html#cast-explícito",
+    "objectID": "slides/pe02.html#cast-explícito",
+    "href": "slides/pe02.html#cast-explícito",
     "title": "Introdução à linguagem C",
     "section": "Cast explícito",
     "text": "Cast explícito\nPodemos forçar algumas conversões com cast.\nfloat n = (float) 507;\nint t = (int) n;\nMas usar cast não torna uma conversão necessariamente segura."
   },
   {
-    "objectID": "slides/pe01_intro.html#precedência-do-cast",
-    "href": "slides/pe01_intro.html#precedência-do-cast",
+    "objectID": "slides/pe02.html#precedência-do-cast",
+    "href": "slides/pe02.html#precedência-do-cast",
     "title": "Introdução à linguagem C",
     "section": "Precedência do cast",
     "text": "Precedência do cast\nQual é a saída?\n#include &lt;stdio.h&gt;\n\nint main() {\n    float r1 = 7 / 2;\n    float r2 = ((float) 7) / 2;\n    float r3 = 7 / ((float) 2);\n    float r4 = ((float) 7) / ((float) 2);\n    float r5 = (float) 7 / 2;\n    float r6 = (float) (7 / 2);\n\n    printf(\"%.1f %.1f %.1f\\n\", r1, r2, r3);\n    printf(\"%.1f %.1f %.1f\\n\", r4, r5, r6);\n\n    return 0;\n}"
   },
   {
-    "objectID": "slides/pe01_intro.html#precedência-do-cast-resposta",
-    "href": "slides/pe01_intro.html#precedência-do-cast-resposta",
+    "objectID": "slides/pe02.html#precedência-do-cast-resposta",
+    "href": "slides/pe02.html#precedência-do-cast-resposta",
     "title": "Introdução à linguagem C",
     "section": "Precedência do cast: resposta",
     "text": "Precedência do cast: resposta\n3.0 3.5 3.5\n3.5 3.5 3.0\nO cast tem precedência alta.\nA expressão\n(float) (7 / 2)\nprimeiro calcula 7 / 2 como divisão inteira e só depois converte o resultado para float."
   },
   {
-    "objectID": "slides/pe01_intro.html#sempre-inicialize-variáveis",
-    "href": "slides/pe01_intro.html#sempre-inicialize-variáveis",
+    "objectID": "slides/pe02.html#sempre-inicialize-variáveis",
+    "href": "slides/pe02.html#sempre-inicialize-variáveis",
     "title": "Introdução à linguagem C",
     "section": "Sempre inicialize variáveis",
     "text": "Sempre inicialize variáveis\nQuando uma variável local é declarada, o programa reserva espaço de memória para ela.\nEsse espaço não é necessariamente inicializado.\n#include &lt;stdio.h&gt;\n\nint main() {\n    int num;\n    printf(\"%d\\n\", num);\n    return 0;\n}\nO programa pode imprimir um valor arbitrário."
   },
   {
-    "objectID": "slides/pe01_intro.html#compilador-como-aliado",
-    "href": "slides/pe01_intro.html#compilador-como-aliado",
+    "objectID": "slides/pe02.html#compilador-como-aliado",
+    "href": "slides/pe02.html#compilador-como-aliado",
     "title": "Introdução à linguagem C",
     "section": "Compilador como aliado",
     "text": "Compilador como aliado\nCompilando com warnings:\ngcc -Wall -Wextra teste.c -o teste\nO compilador pode avisar sobre problemas como uso de variável não inicializada.\nteste.c: In function 'main':\nteste.c: warning: 'num' is used uninitialized\n\nDurante o curso, tratem warnings como sinais importantes. Código que compila com warnings pode estar errado."
   },
   {
-    "objectID": "slides/pe01_intro.html#operadores-aritméticos",
-    "href": "slides/pe01_intro.html#operadores-aritméticos",
+    "objectID": "slides/pe02.html#operadores-aritméticos",
+    "href": "slides/pe02.html#operadores-aritméticos",
     "title": "Introdução à linguagem C",
     "section": "Operadores aritméticos",
     "text": "Operadores aritméticos\n\n\n\nOperador\nOperação\n\n\n\n\n+\nsoma\n\n\n-\nsubtração\n\n\n*\nmultiplicação\n\n\n/\ndivisão\n\n\n%\nresto da divisão"
   },
   {
-    "objectID": "slides/pe01_intro.html#operadores-relacionais",
-    "href": "slides/pe01_intro.html#operadores-relacionais",
+    "objectID": "slides/pe02.html#operadores-relacionais",
+    "href": "slides/pe02.html#operadores-relacionais",
     "title": "Introdução à linguagem C",
     "section": "Operadores relacionais",
     "text": "Operadores relacionais\n\n\n\nOperador\nSignificado\n\n\n\n\n&lt;\nmenor que\n\n\n&gt;\nmaior que\n\n\n&lt;=\nmenor ou igual a\n\n\n&gt;=\nmaior ou igual a\n\n\n==\nigual a\n\n\n!=\ndiferente de"
   },
   {
-    "objectID": "slides/pe01_intro.html#operadores-lógicos",
-    "href": "slides/pe01_intro.html#operadores-lógicos",
+    "objectID": "slides/pe02.html#operadores-lógicos",
+    "href": "slides/pe02.html#operadores-lógicos",
     "title": "Introdução à linguagem C",
     "section": "Operadores lógicos",
     "text": "Operadores lógicos\n\n\n\nOperador\nSignificado\n\n\n\n\n&&\ne\n\n\n||\nou\n\n\n!\nnegação"
   },
   {
-    "objectID": "slides/pe01_intro.html#operadores-de-atribuição",
-    "href": "slides/pe01_intro.html#operadores-de-atribuição",
+    "objectID": "slides/pe02.html#operadores-de-atribuição",
+    "href": "slides/pe02.html#operadores-de-atribuição",
     "title": "Introdução à linguagem C",
     "section": "Operadores de atribuição",
     "text": "Operadores de atribuição\n\n\n\nOperador\nSignificado\n\n\n\n\n++\nincremento unitário\n\n\n--\ndecremento unitário\n\n\n+=\natribuição por soma\n\n\n-=\natribuição por subtração\n\n\n*=\natribuição por multiplicação\n\n\n/=\natribuição por divisão\n\n\n%=\natribuição por resto\n\n\n\n\nEvite usar operadores como ++ e -- mais de uma vez na mesma linha. Escreva código claro antes de escrever código compacto."
   },
   {
-    "objectID": "slides/pe01_intro.html#if-e-else",
-    "href": "slides/pe01_intro.html#if-e-else",
+    "objectID": "slides/pe02.html#if-e-else",
+    "href": "slides/pe02.html#if-e-else",
     "title": "Introdução à linguagem C",
     "section": "if e else",
     "text": "if e else\nif (condicao) {\n    // bloco executado se condicao for verdadeira\n}\nif (condicao) {\n    // caso verdadeiro\n} else {\n    // caso falso\n}\nTambém existe o operador ternário:\ncondicao ? valor_se_verdadeiro : valor_se_falso"
   },
   {
-    "objectID": "slides/pe01_intro.html#atenção-versus",
-    "href": "slides/pe01_intro.html#atenção-versus",
+    "objectID": "slides/pe02.html#atenção-versus",
+    "href": "slides/pe02.html#atenção-versus",
     "title": "Introdução à linguagem C",
     "section": "Atenção: = versus ==",
     "text": "Atenção: = versus ==\nQual é a saída?\n#include &lt;stdio.h&gt;\n\nint main() {\n    int n = 507;\n\n    if (n = 5)\n        printf(\"n eh 5.\\n\");\n    else\n        printf(\"n nao eh 5.\\n\");\n\n    return 0;\n}"
   },
   {
-    "objectID": "slides/pe01_intro.html#versus-resposta",
-    "href": "slides/pe01_intro.html#versus-resposta",
+    "objectID": "slides/pe02.html#versus-resposta",
+    "href": "slides/pe02.html#versus-resposta",
     "title": "Introdução à linguagem C",
     "section": "= versus ==: resposta",
     "text": "= versus ==: resposta\nO código compila, mas está errado.\nif (n = 5)\nfaz uma atribuição.\nO teste de igualdade seria:\nif (n == 5)\n\nCom warnings ativados, o compilador pode ajudar a detectar esse tipo de erro."
   },
   {
-    "objectID": "slides/pe01_intro.html#while",
-    "href": "slides/pe01_intro.html#while",
+    "objectID": "slides/pe02.html#while",
+    "href": "slides/pe02.html#while",
     "title": "Introdução à linguagem C",
     "section": "while",
     "text": "while\nwhile (condicao) {\n    // repete enquanto condicao for verdadeira\n}\nExemplo:\nint i = 0;\nwhile (i &lt; 3) {\n    i++;\n    printf(\"%d\\n\", i);\n}\n\n1\n2\n3"
   },
   {
-    "objectID": "slides/pe01_intro.html#pós-incremento",
-    "href": "slides/pe01_intro.html#pós-incremento",
+    "objectID": "slides/pe02.html#pós-incremento",
+    "href": "slides/pe02.html#pós-incremento",
     "title": "Introdução à linguagem C",
     "section": "Pós-incremento",
     "text": "Pós-incremento\nQual é a saída?\nint i = 0;\nwhile (i &lt; 3) {\n    printf(\"%d\\n\", i++);\n}\n\n0\n1\n2"
   },
   {
-    "objectID": "slides/pe01_intro.html#pré-incremento",
-    "href": "slides/pe01_intro.html#pré-incremento",
+    "objectID": "slides/pe02.html#pré-incremento",
+    "href": "slides/pe02.html#pré-incremento",
     "title": "Introdução à linguagem C",
     "section": "Pré-incremento",
     "text": "Pré-incremento\nQual é a saída?\nint i = 0;\nwhile (i &lt; 3) {\n    printf(\"%d\\n\", ++i);\n}\n\n1\n2\n3"
   },
   {
-    "objectID": "slides/pe01_intro.html#do-while",
-    "href": "slides/pe01_intro.html#do-while",
+    "objectID": "slides/pe02.html#do-while",
+    "href": "slides/pe02.html#do-while",
     "title": "Introdução à linguagem C",
     "section": "do while",
     "text": "do while\ndo {\n    // executa pelo menos uma vez\n} while (condicao);\nExemplo:\nint i = 0;\ndo {\n    printf(\"1\\n\");\n    i++;\n} while (i &lt; 3);\n\n1\n1\n1"
   },
   {
-    "objectID": "slides/pe01_intro.html#for",
-    "href": "slides/pe01_intro.html#for",
+    "objectID": "slides/pe02.html#for",
+    "href": "slides/pe02.html#for",
     "title": "Introdução à linguagem C",
     "section": "for",
     "text": "for\nfor (inicializacao; condicao; passo) {\n    // corpo do laço\n}\nExemplo:\nfor (int i = 0; i &lt; 3; i++) {\n    printf(\"%d\\n\", i);\n}\n\n0\n1\n2"
   },
   {
-    "objectID": "slides/pe01_intro.html#um-erro-comum-com-for",
-    "href": "slides/pe01_intro.html#um-erro-comum-com-for",
+    "objectID": "slides/pe02.html#um-erro-comum-com-for",
+    "href": "slides/pe02.html#um-erro-comum-com-for",
     "title": "Introdução à linguagem C",
     "section": "Um erro comum com for",
     "text": "Um erro comum com for\nQual é o problema?\nint i;\nfor (I = 0; I &lt; 3; I++) {\n    printf(\"%d\\n\", i);\n}\n\nI e i são identificadores diferentes. O código não compila."
   },
   {
-    "objectID": "slides/pe01_intro.html#estilo-de-codificação",
-    "href": "slides/pe01_intro.html#estilo-de-codificação",
+    "objectID": "slides/pe02.html#estilo-de-codificação",
+    "href": "slides/pe02.html#estilo-de-codificação",
     "title": "Introdução à linguagem C",
     "section": "Estilo de codificação",
     "text": "Estilo de codificação\nObserve o estilo adotado nos exemplos.\n\nindentação consistente;\nnomes de variáveis representativos;\nposição das chaves consistente;\numa ideia por bloco de código;\nclareza acima de compactação.\n\n\nCódigo é escrito para duas audiências: o computador e as pessoas que precisam ler, corrigir ou modificar esse código — incluindo você no futuro."
   },
   {
-    "objectID": "slides/pe01_intro.html#padrões-recorrentes",
-    "href": "slides/pe01_intro.html#padrões-recorrentes",
+    "objectID": "slides/pe02.html#padrões-recorrentes",
+    "href": "slides/pe02.html#padrões-recorrentes",
     "title": "Introdução à linguagem C",
     "section": "Padrões recorrentes",
     "text": "Padrões recorrentes\nAo programar, veremos muitos padrões repetidos.\n\nprograma mínimo;\nleitura de uma quantidade conhecida de valores;\nleitura até sentinela/fim de entrada;\nacumuladores;\nmanter maior/menor valor visto até agora;\ncontadores;\nmenus simples."
   },
   {
-    "objectID": "slides/pe01_intro.html#leitura-de-n-elementos",
-    "href": "slides/pe01_intro.html#leitura-de-n-elementos",
+    "objectID": "slides/pe02.html#leitura-de-n-elementos",
+    "href": "slides/pe02.html#leitura-de-n-elementos",
     "title": "Introdução à linguagem C",
     "section": "Leitura de n elementos",
     "text": "Leitura de n elementos\n#include &lt;stdio.h&gt;\n\nint main() {\n    int qtd;\n    scanf(\"%d\", &qtd);\n\n    for (int i = 0; i &lt; qtd; i++) {\n        int numero;\n        scanf(\"%d\", &numero);\n\n        // Faz alguma coisa com numero\n        printf(\"Leu numero!\\n\");\n    }\n\n    printf(\"Saiu!\\n\");\n    return 0;\n}"
   },
   {
-    "objectID": "slides/pe01_intro.html#leitura-até-sentinela",
-    "href": "slides/pe01_intro.html#leitura-até-sentinela",
+    "objectID": "slides/pe02.html#leitura-até-sentinela",
+    "href": "slides/pe02.html#leitura-até-sentinela",
     "title": "Introdução à linguagem C",
     "section": "Leitura até sentinela",
     "text": "Leitura até sentinela\n#include &lt;stdio.h&gt;\n\nint main() {\n    int numero;\n    scanf(\"%d\", &numero);\n\n    while (numero &gt;= 0) {\n        // Faz alguma coisa com numero\n        printf(\"Leu numero!\\n\");\n        scanf(\"%d\", &numero);\n    }\n\n    printf(\"Saiu!\\n\");\n    return 0;\n}\nAqui, um número negativo encerra a leitura."
   },
   {
-    "objectID": "slides/pe01_intro.html#exercício-1",
-    "href": "slides/pe01_intro.html#exercício-1",
+    "objectID": "slides/pe02.html#exercício-1",
+    "href": "slides/pe02.html#exercício-1",
     "title": "Introdução à linguagem C",
     "section": "Exercício 1",
     "text": "Exercício 1\nFaça um programa que leia um inteiro e imprima todos os divisores desse número.\n\nNeste exercício, um divisor é um número que divide o outro com resto zero."
   },
   {
-    "objectID": "slides/pe01_intro.html#exercício-2-lista-de-números-1",
-    "href": "slides/pe01_intro.html#exercício-2-lista-de-números-1",
+    "objectID": "slides/pe02.html#exercício-2-lista-de-números-1",
+    "href": "slides/pe02.html#exercício-2-lista-de-números-1",
     "title": "Introdução à linguagem C",
     "section": "Exercício 2 — Lista de números 1",
     "text": "Exercício 2 — Lista de números 1\nFaça um programa que leia um número n.\nDepois, o programa deve ler n números.\nAo final, considerando os n números, o programa deve imprimir:\n\nmaior número;\nmenor número;\nsoma de todos os números.\n\n\nNão use vetor/array neste exercício."
   },
   {
-    "objectID": "slides/pe01_intro.html#exercício-3-lista-de-números-2",
-    "href": "slides/pe01_intro.html#exercício-3-lista-de-números-2",
+    "objectID": "slides/pe02.html#exercício-3-lista-de-números-2",
+    "href": "slides/pe02.html#exercício-3-lista-de-números-2",
     "title": "Introdução à linguagem C",
     "section": "Exercício 3 — Lista de números 2",
     "text": "Exercício 3 — Lista de números 2\nModifique o programa anterior para não solicitar a quantidade n no início.\nAgora, o programa deve ler números até que o usuário digite um número negativo.\nAo final, imprima:\n\nmaior número;\nmenor número;\nsoma de todos os números."
   },
   {
-    "objectID": "slides/pe01_intro.html#exercício-4",
-    "href": "slides/pe01_intro.html#exercício-4",
+    "objectID": "slides/pe02.html#exercício-4",
+    "href": "slides/pe02.html#exercício-4",
     "title": "Introdução à linguagem C",
     "section": "Exercício 4",
     "text": "Exercício 4\nFaça um programa que leia um número n.\nDepois, o programa deve ler n números.\nAo final, considerando esses números, imprima:\n\nquantos são pares;\nquantos são ímpares."
   },
   {
-    "objectID": "slides/pe01_intro.html#exercício-5-menu-de-operações",
-    "href": "slides/pe01_intro.html#exercício-5-menu-de-operações",
+    "objectID": "slides/pe02.html#exercício-5-menu-de-operações",
+    "href": "slides/pe02.html#exercício-5-menu-de-operações",
     "title": "Introdução à linguagem C",
     "section": "Exercício 5 — Menu de operações",
     "text": "Exercício 5 — Menu de operações\nFaça um programa com um menu de operações.\nO programa deve ler um código:\n\n1: soma dois números;\n2: soma três números;\n3: multiplica dois números;\n0: sair.\n\nSe o usuário escolher sair, o programa imprime o menor resultado obtido e encerra.\nCaso contrário, lê os números necessários, imprime o resultado da operação e volta ao menu."
   },
   {
-    "objectID": "slides/pe01_intro.html#exemplo-de-interação",
-    "href": "slides/pe01_intro.html#exemplo-de-interação",
+    "objectID": "slides/pe02.html#exemplo-de-interação",
+    "href": "slides/pe02.html#exemplo-de-interação",
     "title": "Introdução à linguagem C",
     "section": "Exemplo de interação",
     "text": "Exemplo de interação\nOperacao? 1\n-2\n1\n-1\nOperacao? 3\n2\n90\n180\nOperacao? 2\n80\n2\n5\n87\nOperacao? 0\n-1\n\nTODO: revisar se estes exercícios ficarão nos slides ou serão movidos para o Lab 1/VPL."
-  },
-  {
-    "objectID": "slides/pe01_intro.html#referências",
-    "href": "slides/pe01_intro.html#referências",
-    "title": "Introdução à linguagem C",
-    "section": "Referências",
-    "text": "Referências\n\nPaulo Henrique Pisani. Slides de Introdução à Linguagem C, Programação Estruturada, UFABC, 2021.\nB. W. Kernighan e D. M. Ritchie. The C Programming Language. 2nd ed. Prentice Hall, 1988.\nS. J. Matthews, T. Newhall e K. C. Webb. Dive Into Systems: A Gentle Introduction to Computer Systems. No Starch Press, 2022.\nP. Feofiloff. Algoritmos em Linguagem C. Elsevier, 2009."
   },
   {
     "objectID": "cronograma.html",
     "href": "cronograma.html",
     "title": "Cronograma e materiais",
     "section": "",
-    "text": "Data\nTipo\nTópicos\nMateriais\n\n\n\n\n15/09\nLaboratório\nIntrodução ao curso, à linguagem C e ao Linux"
+    "text": "Data\nTipo\nTópicos\nMateriais\n\n\n\n\n15/09\nLaboratório\nIntrodução ao curso, à linguagem C e ao Linux\nSlides"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#hoje",
+    "href": "slides/pe01_intro.html#hoje",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Hoje",
+    "text": "Hoje\n\n\\[\n\\def\\argmin{\\operatorname*{argmin}}\n\\def\\Regret{\\operatorname*{Regret}}\n\\def\\PRegret{\\operatorname*{P-Regret}}\n\\def\\WL{\\operatorname*{WL}}\n%\n\\def\\T{\\mathsf{T}}\n\\def\\prob{\\mathbb{P}}\n\\def\\expect{\\mathbb{E}}\n\\def\\ones{\\mathbf{1}}\n\\def\\eps{\\varepsilon}\n\\def\\ERM{\\mathrm{ERM}}\n\\def\\DESC{\\mathrm{DESC}}\n\\def\\VC{\\mathrm{VC}}\n\\def\\LDim{\\mathrm{LDim}}\n\\def\\bR{\\mathbb{R}}\n\\def\\bN{\\mathbb{N}}\n\\def\\cC{\\mathcal{C}}\n\\def\\cD{\\mathcal{D}}\n\\def\\cH{\\mathcal{H}}\n\\def\\cB{\\mathcal{B}}\n\\def\\cX{\\mathcal{X}}\n\\def\\cY{\\mathcal{Y}}\n\\def\\cV{\\mathcal{V}}\n\\]\n\n\nInformações sobre a disciplina\nBreve introdução ao Linux e ao terminal\nIntrodução à linguagem C"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#questões-logísticas",
+    "href": "slides/pe01_intro.html#questões-logísticas",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Questões logísticas",
+    "text": "Questões logísticas\n\nSite da disciplina: https://victorvsp.github.io/pe_26/\n\nMoodle:\nPE-2026.3: Programação Estruturada (MCTA028-15) - Victor Sanches Portella"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#objetivos",
+    "href": "slides/pe01_intro.html#objetivos",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Objetivos",
+    "text": "Objetivos\n\nApresentar noções básica e intermediárias sobre algoritmos;\nProgramação em linguagem compilada (C nesse caso)\nVetores, strings, matrizes, registros, arquivos, …\nRecursão\nManipulação de memória (ponteiros e alocação estática/dinâmica)"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#avaliação",
+    "href": "slides/pe01_intro.html#avaliação",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Avaliação",
+    "text": "Avaliação\n\n\n\n\n\nComponente\nPeso\n\n\n\n\nLaboratórios\n15%\n\n\nEP1 + EP2\n15%\n\n\nProva 1\n30%\n\n\nProva 2\n40%\n\n\n\n\nIdeia principal\n\nLaboratórios e EPs: prática .\nProvas: avaliação individual.\nPrecisa de média \\(\\geq 5\\) também nas provas.\n\n\nMédia final: \\[\nM = 0.15 \\cdot L + 0.15 \\cdot  \\mathrm{EP} + 0.3 \\cdot \\mathrm{P1} + 0.4 \\cdot  \\mathrm{P2}\n\\]\nCritério de Aprovação: \\[M \\geq 5 \\quad \\text{e} \\quad M_P = \\frac{0.3 \\cdot \\mathrm{P1} + 0.4 \\cdot  \\mathrm{P2}}{0.7} \\geq 5\\]"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#ia-generativa---o-elefante-na-sala",
+    "href": "slides/pe01_intro.html#ia-generativa---o-elefante-na-sala",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "IA Generativa - o elefante na sala",
+    "text": "IA Generativa - o elefante na sala\nAs ferramentas de IA Generativa (em particular coding models/agents) está mudando a indústria (e pesquisa acadêmica) em computação de forma profunda.\n\nMuitos programadores deixaram de escrever código “manualmente”\nVelocidade de produção e auditação de código super-humana\nEscrever código correto está se tornando cada vez mais barato.\n\n\n\nAssim, surge a pergunta:\n\nAinda vale a pena aprender a programar?"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#ia-generativa---o-elefante-na-sala-1",
+    "href": "slides/pe01_intro.html#ia-generativa---o-elefante-na-sala-1",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "IA Generativa - o elefante na sala",
+    "text": "IA Generativa - o elefante na sala\n\nAinda vale a pena aprender a programar?\n\nMinha resposta: Na minha opinião, por enquanto, sim\n\nProgramar nos ensina a traduzir ideia em passos concretos;\nSaber programar te permite se comunicar com pessoas/agentes de forma mais concreta sobre programação;\nOs modelos/agentes fazem escolhas a todo momento. Como saber se a escolha, além de funcionar, é boa?\n\n\nComo gosto de pensar sobre como usar os modelos de IA generativos:\n\nÉ possível delegar o ato de “pensar”, mas não o de “entender”"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#o-que-muda-com-ia",
+    "href": "slides/pe01_intro.html#o-que-muda-com-ia",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "O que muda com IA?",
+    "text": "O que muda com IA?\nSe produzir código ficou mais fácil, outras habilidades se tornam mais importantes:\n\nespecificar precisamente o que queremos;\nler, compreender, e depurar código;\ntestar e encontrar casos em que ele falha;\navaliar escolhas de algoritmos, estrutura de dados, e arquitetura;\nmodificar código sem introduzir novos erros."
+  },
+  {
+    "objectID": "slides/pe01_intro.html#uma-ressalva-importante",
+    "href": "slides/pe01_intro.html#uma-ressalva-importante",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Uma ressalva importante",
+    "text": "Uma ressalva importante\nNão sabemos como programação será ensinada daqui alguns anos.\nExistem propostas recentes bastante radicais:\n\nensinar primeiro especificação, testes e avaliação;\nusar agentes para gerar grande parte do código;\nintroduzir escrita manual de código mais tarde.\n\n\nAinda não sabemos se isso funciona bem para formar cientistas da computação e como a área vai evoluir no futuro."
+  },
+  {
+    "objectID": "slides/pe01_intro.html#sobre-o-uso-de-ia-na-disciplina",
+    "href": "slides/pe01_intro.html#sobre-o-uso-de-ia-na-disciplina",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Sobre o uso de IA na disciplina",
+    "text": "Sobre o uso de IA na disciplina\nConcretament, nessa disciplina o uso de IA é proibido (a não ser que explicitamente dito o contrário por mim em momentos específicos)\nUso de IA comprovado em laboratórios e EPs será considerado plágio.\n\n\nEvite usar modelos de IA para tirar suas dúvidas de forma imediata\n\nFácil criar o vício de depender da IA ao invés de entender o que está acontecendo\n\n\n\nProvas serão fortemente baseadas em exercícios de laboratório e EPs. Então fazer esses exercícios sem IA já lhe prepara para a prova automaticamente."
+  },
+  {
+    "objectID": "slides/pe01_intro.html#o-que-é-linux",
+    "href": "slides/pe01_intro.html#o-que-é-linux",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "O que é Linux?",
+    "text": "O que é Linux?\nLinux é uma família de sistemas operacionais de código aberto\n Construídos em torno do Kernel Linux, criado por Linus Torvalds em 1991\n Unix-like: segue a organização e as principais convenções dos sistemas Unix (arquivos hierárquico, permissões, shells, etc.)\n\n\nUma distribuição Linux é um sistema operacional completo\n Inclui kernel, utilitários, bibliotecas e aplicativos\n Exemplos: Ubuntu, Fedora, Debian, Arch Linux, etc.\n\n\nAulas e laboratórios serão realizados em ambiente Linux. Detalhes para outros sistemas operacionais não devem ser difíceis de encontrar."
+  },
+  {
+    "objectID": "slides/pe01_intro.html#hierarquia-do-sistema-de-arquivos",
+    "href": "slides/pe01_intro.html#hierarquia-do-sistema-de-arquivos",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Hierarquia do sistema de arquivos",
+    "text": "Hierarquia do sistema de arquivos\n/\n├─ bin      # programas essenciais do sistema\n├─ boot     # arquivos do boot loader\n├─ dev      # dispositivos do sistema\n├─ etc      # arquivos de configuração do sistema\n├─ home     # pastas dos usuários\n│  ├─ user1\n│  └─ user2\n├─ usr      # utilidades dos usuários\n│  ├─ bin   # programas do usuário\n│  │  ├─ gcc\n│  │  └─ firefox\n│  ├─ share # arquivos compartilhados\n│  │  ├─ doc\n│  │  ├─ fonts\n│  │  ├─ themes\n│  │  └─ vim\n│  └─ local\n│     ├─ bin\n│     └─ share\n└─ ..."
+  },
+  {
+    "objectID": "slides/pe01_intro.html#diretórios-e-arquivos",
+    "href": "slides/pe01_intro.html#diretórios-e-arquivos",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Diretórios e arquivos",
+    "text": "Diretórios e arquivos\nO sistema de arquivos Linux é organizado em diretórios e arquivos\n\nCada diretório pode conter arquivos e outros diretórios (subdiretórios)\nTodos os arquivos e diretórios estão contidos no diretório raiz / (root)\nA sequência de diretórios até arquivo é chamada de caminho (path)\n\n\n\n\n/\n├─ home   \n│  └─ user1\n      └─ prog_estruturada\n         └─ slides.pdf\n\n\nCaminho: /home/user1/prog_estruturada/slides.pdf"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#endereçamento-relativo",
+    "href": "slides/pe01_intro.html#endereçamento-relativo",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Endereçamento relativo",
+    "text": "Endereçamento relativo\nCada diretório (e arquivo) pode ser endereçado listando o caminho de diretórios relativo a pasta atual\n\nDiretório atual: . (ponto)\nDiretório superior: .. (dois pontos)\nDiretório home do usuário: ~ (til)\n\n\nExemplo se o diretório atual é /home/user1:\n\nprog_estruturada/slides.pdf é o caminho relativo\n../user2/arquivo.txt é o caminho relativo para um arquivo em outro diretório"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#interface-de-linha-de-comando-e-terminal",
+    "href": "slides/pe01_intro.html#interface-de-linha-de-comando-e-terminal",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Interface de linha de comando e terminal",
+    "text": "Interface de linha de comando e terminal\nEm sistemas Unix-like, é muito comum interagir com o sistema por meio de uma interface de linha de comando (command-line interface ou CLI).\n\nO terminal é o ambiente no qual digitamos comandos e vemos sua saída.\nO programa que interpreta esses comandos é chamado de shell.\nNo Linux, um dos shells mais comuns é o Bash\n\nOs comandos são iguais ou muito semelhantes na maioria dos shells.\n\nA linha de comando é especialmente conveniente para programadores e administradores de sistemas (e agentes de IA)."
+  },
+  {
+    "objectID": "slides/pe01_intro.html#alguns-comandos-básicos",
+    "href": "slides/pe01_intro.html#alguns-comandos-básicos",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Alguns comandos básicos",
+    "text": "Alguns comandos básicos\nA sintaxe da linha de commando frequentemente é\nnome_do_comando [opções] [argumentos]\nAlguns comandos básicos:\n\ncd [bla]: muda o diretório atual para aquele em bla\npwd: exibe o caminho do diretório atual\nls [FLAGS] [bla]: lista os arquivos em bla (diretório atual se vazio)\n\nFlag -l exibe detalhes sobre os arquivos\nFlag -a exibe mesmo arquivos ocultos (aqueles com nome começando com .. Exemplo: .segredos.txt)"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#mais-comandos-básicos",
+    "href": "slides/pe01_intro.html#mais-comandos-básicos",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Mais comandos básicos",
+    "text": "Mais comandos básicos\n\ncat [bla]: Imprime o conteúdo do arquivo em path\nmkdir [nome]: cria um novo diretório com o nome especificado\nrm [FLAGS] [bla]: remove bla\n\nFlag -r remove diretórios e seus sub-arquvios/diretórios recursivamente\nFlag -f ignora arquivos não existentes e perguntas de permissão\n\ncp [FLAGS] [origem] [destino]: copia um arquivo de uma localização para outra\n\nFlag -r copia diretórios e sub-arquivos recursivamente\n\nmv [origem] [destino]: move ou renomeia um arquivo/diretório"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#caracteres-coringa",
+    "href": "slides/pe01_intro.html#caracteres-coringa",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Caracteres coringa",
+    "text": "Caracteres coringa\nO shell permite usar caracteres coringa (wildcards) para representar vários nomes de arquivos.\nO mais comum é *, que representa uma sequência qualquer de caracteres.\n\nExemplo de como listar todos os arquivos .c no diretório atual\nls *.c"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#redirecionamento-de-saída",
+    "href": "slides/pe01_intro.html#redirecionamento-de-saída",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Redirecionamento de saída",
+    "text": "Redirecionamento de saída\nNormalmente, a saída de um programa aparece no terminal.\nCom &gt;, podemos redirecionar essa saída para um arquivo.\n\nPara executar ls e redirecionar o resultado no arquivo saida.txt:\nls &gt; saida.txt\n\nCaso queira adicionar o resultado ao final de saida.txt, use:\nls &gt;&gt; saida.txt"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#dicas-sobre-o-terminal",
+    "href": "slides/pe01_intro.html#dicas-sobre-o-terminal",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Dicas sobre o terminal",
+    "text": "Dicas sobre o terminal\nAlgumas dicas do terminal\n\nUse Ctrl+C para interromper um comando em execução\nUse man &lt;comando&gt; para ver o manual do comando. Exemplo: man ls\nMuitos comandos aceitam --help para exibir ajuda rápida\nUse a tecla Tab para completar nomes de arquivos e diretórios\nUse as setas para cima/baixo para navegar pelo histórico de comandos\nUse Ctrl+R para buscar comandos anteriores no histórico"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#algoritmos",
+    "href": "slides/pe01_intro.html#algoritmos",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Algoritmos",
+    "text": "Algoritmos\nUm algoritmo é uma sequência de etapas bem definidas para realizar uma tarefa.\n\nExemplos:\n\nVerificar se um número é primo;\nOrdenar uma lista de números;\nEncontrar uma palavra em um arquivo de texto."
+  },
+  {
+    "objectID": "slides/pe01_intro.html#computador-e-instruções",
+    "href": "slides/pe01_intro.html#computador-e-instruções",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Computador e instruções",
+    "text": "Computador e instruções\nA CPU (Central Processing Unit) executa sequências de instruções.\n\n\nCada CPU possui um conjunto finito de instruções que varia com a arquitetura (x86, ARM, etc.)\n Conhecido como linguagem de máquina\n\n\n\nPodemos descrever algoritmos em linguagm de máquina, gerando um programa."
+  },
+  {
+    "objectID": "slides/pe01_intro.html#linguagens-de-programação",
+    "href": "slides/pe01_intro.html#linguagens-de-programação",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Linguagens de programação",
+    "text": "Linguagens de programação\nUma linguagem de programação é uma linguagem com regras precisas usada para descrever operações que um computador pode exercutar.\n\n\nInicialmente, existia somente as intruções da CPU\n Programas simples já são complexos de se descrever com tais intruções.\n\n\n\nLinguagens de alto nível: Linguagens mais expressivas, com maiores abstrações servindo como intermediárias entre o programador e a linguagem de máquina."
+  },
+  {
+    "objectID": "slides/pe01_intro.html#linguagens-compiladas-e-interpretadas",
+    "href": "slides/pe01_intro.html#linguagens-compiladas-e-interpretadas",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Linguagens compiladas e interpretadas",
+    "text": "Linguagens compiladas e interpretadas\nModos como as linguagens de programação são executadas:\n\nCompiladas: um compilador traduz o código-fonte para código de máquina (executável).\nInterpretadas: Um outro programa (interpretador) executa o código-fonte diretamente.\n\n\nEssa distinção pode ser mais sutil por uso de máquinas virtuais e compilação just-in-time, por exemplo. C é um exemplo clássico de linguagem normalmente compilada para código nativo."
+  },
+  {
+    "objectID": "slides/pe01_intro.html#paradigmas-de-programação",
+    "href": "slides/pe01_intro.html#paradigmas-de-programação",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Paradigmas de programação",
+    "text": "Paradigmas de programação\nLinguagens também podem ser classificadas por paradigma.\n\nEstruturado: C\nOrientado a objetos: Java, C++, Python\nFuncional: Haskell, OCaml, partes de Python/JavaScript\nLógico: Prolog"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#o-que-é-compilação",
+    "href": "slides/pe01_intro.html#o-que-é-compilação",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "O que é compilação?",
+    "text": "O que é compilação?\nCompilar é traduzir um programa de uma linguagem para outra.\n\n\n\n\n\nExiste diversos compiladores de C: gcc, clang, etc.\n\nProgramas executáveis são específicos da plataforma (sistema operacional, arquitetura, etc.)"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#compilação-de-múltiplos-arquivos",
+    "href": "slides/pe01_intro.html#compilação-de-múltiplos-arquivos",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Compilação de múltiplos arquivos",
+    "text": "Compilação de múltiplos arquivos\nÉ possível compilar um programa a partir de diversos arquivos-fonte\n Cada arquivo fonte gera um arquivos-objeto (executáveis com partes faltando)\n Arquivos-objeto são ligados (linked) gerando o executável final."
+  },
+  {
+    "objectID": "slides/pe01_intro.html#código-fonte-e-executável",
+    "href": "slides/pe01_intro.html#código-fonte-e-executável",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Código-fonte e executável",
+    "text": "Código-fonte e executável\n#include &lt;stdio.h&gt;\n\nint main() {\n    printf(\"Hello World!\\n\");\n    return 0;\n}"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#flags-úteis-eou-recomendadas-do-gcc",
+    "href": "slides/pe01_intro.html#flags-úteis-eou-recomendadas-do-gcc",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Flags úteis e/ou recomendadas do gcc",
+    "text": "Flags úteis e/ou recomendadas do gcc\nFlags recomendadas:\n\n-Wall: dá mais warnings de compilação (muito recomendado)\n-Wextra: dá warnings adicionais de compilação\n-Wpedantic: avisa sobre construções fora do padrão ISO C escolhido\n\n\nFlags adicionais úteis:\n\n-Werror: warnings viram erros de compilação\n-g: permite usar gdb e valgrind (mas deixa programa mais pesado)\n-lm: permite usar funções matemáticas\n\n\n\nExemplo de compilação recomendada:\ngcc -Wall -Wextra -Wpedantic programa.c -o programa"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#editores-e-ides",
+    "href": "slides/pe01_intro.html#editores-e-ides",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Editores e IDEs",
+    "text": "Editores e IDEs\n\n\n\n\n\n\n\nFerramenta\nPara que serve\n\n\n\n\nEditor de texto\nFerramente para escrever e editar arquivos, incluindo código.\n\n\nCompilador\nTraduz o código C para um programa executável\n\n\nIDE (Integrated Development Environment)\nAmbiente com editor, pode chamar compilador, depurador, auto-complete, etc.\n\n\n\nExemplos de editores: Gedit, vim, Emacs.\nExemplos de IDEs: VSCode, Code::Blocks, PyCharm.\n\nEvitem uso de auto-completes avançados, principalmente no começo."
+  },
+  {
+    "objectID": "slides/pe01_intro.html#linguagem-c-1",
+    "href": "slides/pe01_intro.html#linguagem-c-1",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Linguagem C",
+    "text": "Linguagem C\nA linguagem C foi criada por Dennis Ritchie no início dos anos 1970.\nAlguns marcos/padrões importantes:\n\nK&R C, associado ao livro de Kernighan e Ritchie;\nC89/C90;\nC99;\nC11;\nC17/C18;\nC23."
+  },
+  {
+    "objectID": "slides/pe01_intro.html#por-que-estudar-c",
+    "href": "slides/pe01_intro.html#por-que-estudar-c",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Por que estudar C?",
+    "text": "Por que estudar C?\nC continua importante porque aparece em contextos como, sistemas operacionais, compiladores, sistemas embarcado, etc.\n\nAlém disso, C nos força a entender conceitos que outras linguagens escondem parcialmente, como:\n\nendereços de memória;\nalocação dinâmica;\nrepresentação dos dados."
+  },
+  {
+    "objectID": "slides/pe01_intro.html#popularidade-de-linguagens",
+    "href": "slides/pe01_intro.html#popularidade-de-linguagens",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Popularidade de linguagens",
+    "text": "Popularidade de linguagens"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#programa-mínimo-em-c",
+    "href": "slides/pe01_intro.html#programa-mínimo-em-c",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Programa mínimo em C",
+    "text": "Programa mínimo em C\n#include &lt;stdio.h&gt;\n\nint main() {\n    printf(\"Hello World!\\n\");\n    return 0;\n}\n\nPara compilar (sem flags):\ngcc teste.c -o teste\n\n\nPara executar:\n./teste"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#programa-mínimo-em-c-1",
+    "href": "slides/pe01_intro.html#programa-mínimo-em-c-1",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Programa mínimo em C",
+    "text": "Programa mínimo em C\n#include &lt;stdio.h&gt;\n\nint main() {\n    printf(\"Hello World!\\n\");\n    return 0;\n}\n\n\nEm C, um bloco é delimitado por { e }\n Blocos não precisam ser identados como em Python, mas é boa prática\n\n\nA maioria das linhas em C terminam com ; (blocos são a exceção)"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#um-programa-ainda-menor",
+    "href": "slides/pe01_intro.html#um-programa-ainda-menor",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Um programa ainda menor",
+    "text": "Um programa ainda menor\nint main() {\n    return 0;\n}\nEsse programa não imprime nada, mas é um programa C válido.\n\n\nA função main é o que vai ser executado quando o programa é iniciado.\n\n\n\nO return 0; indica, por convenção, que o programa terminou com sucesso.\n Valores diferentes indicam diferentes tipos de erro"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#tipos-de-dados",
+    "href": "slides/pe01_intro.html#tipos-de-dados",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Tipos de dados",
+    "text": "Tipos de dados\n\n\n\nTipo\nTamanho típico\nFaixa típica\n\n\n\n\nchar\n1 byte\n-128 a 127\n\n\nshort int\n2 bytes\n\\(-2^{15}\\) a \\(2^{15}-1\\)\n\n\nint\n4 bytes\n\\(-2^{31}\\) a \\(2^{31}-1\\)\n\n\nlong int\n8 bytes\n\\(-2^{63}\\) a \\(2^{63}-1\\)\n\n\nlong long int\n8 bytes\n\\(-2^{63}\\) a \\(2^{63}-1\\)\n\n\nfloat\n4 bytes\n~7 casas de precisão\n\n\ndouble\n8 bytes\n~15–16 casas precisão\n\n\n\n\nTamanhos/faixas exatapas dependem do compilador/sistema. Valores acima são típicos para gcc em sistemas Linux de 64 bits."
+  },
+  {
+    "objectID": "slides/pe01_intro.html#booleanos",
+    "href": "slides/pe01_intro.html#booleanos",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Booleanos",
+    "text": "Booleanos\nNão precisamos usar um tipo booleano no começo do curso. Em C, historicamente:\n\n0 representa falso;\nvalores diferentes de 0 representam verdadeiro.\n\n\nExiste _Bool/bool via &lt;stdbool.h&gt;, mas podemos introduzir isso apenas se for conveniente."
+  },
+  {
+    "objectID": "slides/pe01_intro.html#declaração-de-variáveis",
+    "href": "slides/pe01_intro.html#declaração-de-variáveis",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Declaração de variáveis",
+    "text": "Declaração de variáveis\nint main() {\n    int num_matricula = 1234;\n    return 0;\n}"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#c-diferencia-maiúsculas-de-minúsculas",
+    "href": "slides/pe01_intro.html#c-diferencia-maiúsculas-de-minúsculas",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "C diferencia maiúsculas de minúsculas",
+    "text": "C diferencia maiúsculas de minúsculas\nC é case-sensitive.\nint num_matricula = 1234;\nint Num_matricula = 5678;\nOs nomes num_matricula e Num_matricula são diferentes.\n\nUse nomes representativos. Evite nomes como tmp1, tmp2, aux50, exceto em situações muito locais e claras."
+  },
+  {
+    "objectID": "slides/pe01_intro.html#operações-aritméticas",
+    "href": "slides/pe01_intro.html#operações-aritméticas",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Operações aritméticas",
+    "text": "Operações aritméticas\n\n\n\nExpressão\nOperação\n\n\n\n\na + b\nsoma\n\n\na - b\nsubtração\n\n\na * b\nmultiplicação\n\n\na / b\ndivisão\n\n\na % b\nresto da divisão\n\n\n\n\nCuidado com divisão entre inteiros (discutiremos o que está acontecendo na próxima aula):\n7 / 2    // 3\n7.0 / 2  // 3.5\n7 % 2    // 1"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#biblioteca-padrão-de-entrada-e-saída",
+    "href": "slides/pe01_intro.html#biblioteca-padrão-de-entrada-e-saída",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Biblioteca padrão de entrada e saída",
+    "text": "Biblioteca padrão de entrada e saída\nEm C, usamos funções de uma biblioteca para entrada e saída.\nAs funções mais básicas ficam em stdio.h.\n#include &lt;stdio.h&gt;\nDurante o curso, praticamente todos os programas usarão essa biblioteca."
+  },
+  {
+    "objectID": "slides/pe01_intro.html#saída-com-printf",
+    "href": "slides/pe01_intro.html#saída-com-printf",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Saída com printf",
+    "text": "Saída com printf\n#include &lt;stdio.h&gt;\n\nint main() {\n    printf(\"Hello World!\\n\");\n    return 0;\n}\nA função printf imprime texto formatado.\nint printf(const char *format, ...);\nA string format descreve como imprimir os valores."
+  },
+  {
+    "objectID": "slides/pe01_intro.html#exemplos-de-printf",
+    "href": "slides/pe01_intro.html#exemplos-de-printf",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Exemplos de printf",
+    "text": "Exemplos de printf\n#include &lt;stdio.h&gt;\n\nint main() {\n    int num = 512;\n    int a = 6, b = 7;\n\n    printf(\"Hello World\");\n    printf(\"%d\", num);\n    printf(\"%d\\n\", num);\n    printf(\"A sala do professor eh a %d\\n\", num);\n    printf(\"%d * %d = %d\\n\", a, b, a * b);\n\n    return 0;\n}\n\nO printf recebe um argumento extra para cada %bla que tem na String de formatação"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#alguns-especificadores-de-formato",
+    "href": "slides/pe01_intro.html#alguns-especificadores-de-formato",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Alguns especificadores de formato",
+    "text": "Alguns especificadores de formato\n\n\n\nEspecificador\nTipo\n\n\n\n\n%d\nint\n\n\n%ld\nlong int\n\n\n%lld\nlong long int\n\n\n%f\nfloat/double em printf\n\n\n%lf\ndouble em scanf\n\n\n%c\nchar\n\n\n%s\nstring"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#exercícios",
+    "href": "slides/pe01_intro.html#exercícios",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Exercícios",
+    "text": "Exercícios\nFaça as seguintes operações:\n\nCrie um diretório lab1 em seu diretório home com subdiretório programas e backup.\nDentro de programas, crie um programa ola.c em C que escreva “Olá mundo!”. Compile esse programa com as flags -Wall -Wextra -Wpedantic usando o gcc e execute o programa.\nCrie uma copia de ola.c chamada ola_bkp.c dentro de backup\nIndependente de em qual diretório seu shell esteja, crie um arquivo minha_home.txt em lab1/ com a lista de arquvios e diretórios na sua home\nApague o diretório programas e todos os seus sub-arquivos"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#exercícios-continuação",
+    "href": "slides/pe01_intro.html#exercícios-continuação",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Exercícios (continuação)",
+    "text": "Exercícios (continuação)\nUsando os erros de compilação como guia, faça o seguinte programa compilar e funcionar como esperado:\n#include &lt;stdlib.h&gt;\n\nint main() {\n    float a = 6.0, float b = 7.0;\n\n    printf(\"Adição: %f + %f =  %f\\n\", a, b, a + b);\n    pirntf(\"Multiplicão: %f * %f =  %f\\n\", a, b, a * b);\n    printf(\"Subtração: %f - %f =  %f\\n\", a, b, a - b);\n    printf(\"Divisão: %f  / %f = %f \\n\", a, b, a / b);\n\n    return 0;\n}"
+  },
+  {
+    "objectID": "slides/pe01_intro.html#referências",
+    "href": "slides/pe01_intro.html#referências",
+    "title": "Introdução ao curso, Linux, e à Linguagem C",
+    "section": "Referências",
+    "text": "Referências\n\nPaulo Henrique Pisani. Slides de Introdução à Linguagem C, Programação Estruturada, UFABC, 2021.\nB. W. Kernighan e D. M. Ritchie. The C Programming Language. 2nd ed. Prentice Hall, 1988.\nS. J. Matthews, T. Newhall e K. C. Webb. Dive Into Systems: A Gentle Introduction to Computer Systems. No Starch Press, 2022.\nP. Feofiloff. Algoritmos em Linguagem C. Elsevier, 2009."
   },
   {
     "objectID": "index.html",
