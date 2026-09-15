@@ -11,7 +11,7 @@
 
   <meta name="author" content="Victor S. Portella">
   <meta name="dcterms.date" content="2026-09-15">
-  <title>PE 2026 - UFABC – Introdução à linguagem C</title>
+  <title>PE 2026 - UFABC – Introdução ao curso, Linux, e à Linguagem C</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -96,7 +96,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-56cc28692e50e42659d02e3c06ddf3ec.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-039a56c02f24e0c7404324cfdd69f135.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -205,7 +205,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Introdução à linguagem C</h1>
+  <h1 class="title">Introdução ao curso, Linux, e à Linguagem C</h1>
   <p class="subtitle">MCTA028-15 - PROGRAMAÇÃO ESTRUTURADA</p>
 
 <div class="quarto-title-authors">
@@ -263,8 +263,11 @@ Victor S. Portella
 </section>
 <section id="questões-logísticas" class="slide level2">
 <h2>Questões logísticas</h2>
-<p><span class="red"><strong>Site da disciplina</strong></span>:</p>
+<p><br></p>
+<p><span class="red"><strong>Site da disciplina</strong></span>: <a href="https://victorvsp.github.io/pe_26/">https://victorvsp.github.io/pe_26/</a></p>
+<p><br></p>
 <p><span class="blue"><strong>Moodle</strong></span>:</p>
+<p><code>PE-2026.3: Programação Estruturada (MCTA028-15) - Victor Sanches Portella</code></p>
 </section>
 <section id="objetivos" class="slide level2">
 <h2>Objetivos</h2>
@@ -321,6 +324,76 @@ M = 0.15 \cdot L + 0.15 \cdot  \mathrm{EP} + 0.3 \cdot \mathrm{P1} + 0.4 \cdot  
 </section>
 <section id="ia-generativa---o-elefante-na-sala" class="slide level2">
 <h2>IA Generativa - o elefante na sala</h2>
+<p>As ferramentas de <span class="red">IA Generativa</span> (em particular <em>coding models/agents</em>) está mudando a indústria (e pesquisa acadêmica) em computação de forma profunda.</p>
+<ul>
+<li class="fragment">Muitos programadores deixaram de escrever código “manualmente”</li>
+<li class="fragment">Velocidade de produção e auditação de código super-humana</li>
+<li class="fragment">Escrever código correto está se tornando cada vez mais <span class="blue"><strong>barato</strong></span>.</li>
+</ul>
+<p><br></p>
+<div class="fragment">
+<p>Assim, surge a pergunta:</p>
+<div class="h-center red large">
+<p><strong>Ainda vale a pena aprender a programar?</strong></p>
+</div>
+</div>
+</section>
+<section id="ia-generativa---o-elefante-na-sala-1" class="slide level2">
+<h2>IA Generativa - o elefante na sala</h2>
+<div class="h-center red large">
+<p><strong>Ainda vale a pena aprender a programar?</strong></p>
+</div>
+<p><strong>Minha resposta</strong>: Na minha opinião, <em>por enquanto</em>, <span class="green"><strong>sim</strong></span></p>
+<ul>
+<li class="fragment">Programar nos ensina a traduzir <em>ideia</em> em <em>passos concretos</em>;</li>
+<li class="fragment">Saber programar te permite se comunicar com pessoas/agentes de forma mais concreta sobre programação;</li>
+<li class="fragment">Os modelos/agentes fazem escolhas a todo momento. Como saber se a escolha, além de <strong>funcionar</strong>, é <span class="green"><strong>boa</strong></span>?</li>
+</ul>
+<div class="fragment">
+<p>Como gosto de pensar sobre como usar os modelos de IA generativos:</p>
+<div class="h-center">
+<p>É possível delegar o ato de “<span class="red"><strong>pensar</strong></span>”, mas não o de “<span class="green"><strong>entender</strong></span>”</p>
+</div>
+</div>
+</section>
+<section id="o-que-muda-com-ia" class="slide level2">
+<h2>O que muda com IA?</h2>
+<p>Se produzir código ficou mais fácil, outras habilidades se tornam <span class="red"><strong>mais importantes</strong></span>:</p>
+<ul>
+<li class="fragment"><p>especificar precisamente <strong>o que queremos</strong>;</p></li>
+<li class="fragment"><p>ler, compreender, e depurar código;</p></li>
+<li class="fragment"><p>testar e encontrar casos em que ele falha;</p></li>
+<li class="fragment"><p>avaliar escolhas de algoritmos, estrutura de dados, e arquitetura;</p></li>
+<li class="fragment"><p>modificar código sem introduzir novos erros.</p></li>
+</ul>
+</section>
+<section id="uma-ressalva-importante" class="slide level2">
+<h2>Uma ressalva importante</h2>
+<p><span class="red"><strong>Não sabemos</strong></span> como programação será ensinada daqui alguns anos.</p>
+<p>Existem propostas recentes bastante radicais:</p>
+<ul>
+<li>ensinar primeiro especificação, testes e avaliação;</li>
+<li>usar agentes para gerar grande parte do código;</li>
+<li>introduzir escrita manual de código mais tarde.</li>
+</ul>
+<div class="fragment">
+<p>Ainda não sabemos se isso funciona bem para formar cientistas da computação e como a área vai evoluir no futuro.</p>
+</div>
+</section>
+<section id="sobre-o-uso-de-ia-na-disciplina" class="slide level2">
+<h2>Sobre o uso de IA na disciplina</h2>
+<p>Concretament, nessa disciplina o uso de IA é <span class="red"><strong>proibido</strong></span> (a não ser que explicitamente dito o contrário por mim em momentos específicos)</p>
+<p>Uso de IA comprovado em laboratórios e EPs será considerado <span class="red"><strong>plágio</strong></span>.</p>
+<p><br></p>
+<div class="fragment">
+<p>Evite usar modelos de IA para tirar suas dúvidas de forma imediata</p>
+<ul>
+<li>Fácil criar o vício de depender da IA ao invés de entender o que está acontecendo</li>
+</ul>
+</div>
+<div class="fragment">
+<p>Provas serão <span class="blue"><strong>fortemente</strong></span> baseadas em exercícios de laboratório e EPs. Então fazer esses exercícios sem IA <span class="green">já lhe prepara para a prova automaticamente</span>.</p>
+</div>
 </section></section>
 <section>
 <section id="breve-introdução-ao-linux-e-ao-terminal" class="title-slide slide level1 center">
@@ -333,10 +406,12 @@ M = 0.15 \cdot L + 0.15 \cdot  \mathrm{EP} + 0.3 \cdot \mathrm{P1} + 0.4 \cdot  
 <p><span class="tab"></span> Construídos em torno do <span class="red"><em>Kernel Linux</em></span>, criado por Linus Torvalds em 1991</p>
 <p><span class="tab"></span> <span class="blue"><em>Unix-like</em></span>: segue a organização e as principais convenções dos sistemas <em>Unix</em> (arquivos hierárquico, permissões, shells, etc.)</p>
 <p><br></p>
+<div class="fragment">
 <p>Uma <span class="red"><strong>distribuição</strong></span> Linux é um sistema operacional completo</p>
 <p><span class="tab"></span> Inclui kernel, utilitários, bibliotecas e aplicativos</p>
 <p><span class="tab"></span> <strong>Exemplos</strong>: Ubuntu, Fedora, Debian, Arch Linux, etc.</p>
-<div class="note">
+</div>
+<div class="note fragment">
 <p>Aulas e laboratórios serão realizados em ambiente Linux. Detalhes para outros sistemas operacionais não devem ser difíceis de encontrar.</p>
 </div>
 </section>
@@ -419,29 +494,64 @@ M = 0.15 \cdot L + 0.15 \cdot  \mathrm{EP} + 0.3 \cdot \mathrm{P1} + 0.4 \cdot  
 <h2>Alguns comandos básicos</h2>
 <p>A sintaxe da linha de commando frequentemente é</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="ex">nome_do_comando</span> <span class="pp">[</span><span class="ss">opções</span><span class="pp">]</span> <span class="pp">[</span><span class="ss">argumentos</span><span class="pp">]</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>O comando pode ser algum comando do shell ou um programa externo. Alguns comandos básicos:</p>
-<div class="fragment">
+<p>Alguns comandos básicos:</p>
 <ul>
-<li><code>cd [bla]</code>: muda o diretório atual para aquele em <code>bla</code></li>
-<li><code>ls</code>: lista os arquivos e diretórios no diretório atual</li>
-<li><code>pwd</code>: exibe o caminho do diretório atual</li>
-<li><code>mkdir [nome]</code>: cria um novo diretório com o nome especificado</li>
-<li><code>rm [arquivo]</code>: remove um arquivo</li>
-<li><code>cp [origem] [destino]</code>: copia um arquivo de uma localização para outra</li>
-<li><code>mv [origem] [destino]</code>: move ou renomeia um arquivo</li>
+<li class="fragment"><code>cd [bla]</code>: muda o diretório atual para aquele em <code>bla</code></li>
+<li class="fragment"><code>pwd</code>: exibe o caminho do diretório atual</li>
+<li class="fragment"><code>ls [FLAGS] [bla]</code>: lista os arquivos em <code>bla</code> (diretório atual se vazio)
+<ul>
+<li class="fragment">Flag <code>-l</code> exibe detalhes sobre os arquivos</li>
+<li class="fragment">Flag <code>-a</code> exibe mesmo arquivos ocultos (aqueles com nome começando com <code>.</code>. Exemplo: <code>.segredos.txt</code>)</li>
+</ul></li>
 </ul>
+</section>
+<section id="mais-comandos-básicos" class="slide level2">
+<h2>Mais comandos básicos</h2>
+<ul>
+<li class="fragment"><code>cat [bla]</code>: Imprime o conteúdo do arquivo em <code>path</code></li>
+<li class="fragment"><code>mkdir [nome]</code>: cria um novo diretório com o nome especificado</li>
+<li class="fragment"><code>rm [FLAGS] [bla]</code>: remove <code>bla</code>
+<ul>
+<li class="fragment">Flag <code>-r</code> remove diretórios e seus sub-arquvios/diretórios recursivamente</li>
+<li class="fragment">Flag <code>-f</code> ignora arquivos não existentes e perguntas de permissão</li>
+</ul></li>
+<li class="fragment"><code>cp [FLAGS] [origem] [destino]</code>: copia um arquivo de uma localização para outra
+<ul>
+<li class="fragment">Flag <code>-r</code> copia diretórios e sub-arquivos recursivamente</li>
+</ul></li>
+<li class="fragment"><code>mv [origem] [destino]</code>: move ou renomeia um arquivo/diretório</li>
+</ul>
+</section>
+<section id="caracteres-coringa" class="slide level2">
+<h2>Caracteres coringa</h2>
+<p>O <em>shell</em> permite usar <span class="red"><strong>caracteres coringa</strong></span> (<em>wildcards</em>) para representar vários nomes de arquivos.</p>
+<p>O mais comum é <code>*</code>, que representa uma sequência qualquer de caracteres.</p>
+<div class="fragment">
+<p>Exemplo de como listar todos os arquivos <code>.c</code> no diretório atual</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a></a><span class="fu">ls</span> <span class="pp">*</span>.c</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="redirecionamento-de-saída" class="slide level2">
+<h2>Redirecionamento de saída</h2>
+<p>Normalmente, a saída de um programa aparece no terminal.</p>
+<p>Com <code>&gt;</code>, podemos redirecionar essa saída para um arquivo.</p>
+<p><br></p>
+<p>Para executar <code>ls</code> e redirecionar o resultado no arquivo <code>saida.txt</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a></a><span class="fu">ls</span> <span class="op">&gt;</span> saida.txt</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<p>Caso queira adicionar o resultado ao final de <code>saida.txt</code>, use:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a></a><span class="fu">ls</span> <span class="op">&gt;&gt;</span> saida.txt</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="dicas-sobre-o-terminal" class="slide level2">
 <h2>Dicas sobre o terminal</h2>
 <p>Algumas dicas do terminal</p>
 <ul>
-<li>Use <code>Ctrl+C</code> para interromper um comando em execução</li>
-<li>Use <code>man &lt;comando&gt;</code> para ver o manual do comando. Exemplo: <code>man ls</code></li>
-<li>Mutios comandos aceitam <code>--help</code> para exibir ajuda rápida</li>
-<li>Use a tecla <code>Tab</code> para completar nomes de arquivos e diretórios</li>
-<li>Use as setas para cima/baixo para navegar pelo histórico de comandos</li>
-<li>Use <code>Ctrl+R</code> para buscar comandos anteriores no histórico</li>
+<li class="fragment">Use <code>Ctrl+C</code> para interromper um comando em execução</li>
+<li class="fragment">Use <code>man &lt;comando&gt;</code> para ver o manual do comando. Exemplo: <code>man ls</code></li>
+<li class="fragment">Muitos comandos aceitam <code>--help</code> para exibir ajuda rápida</li>
+<li class="fragment">Use a tecla <code>Tab</code> para completar nomes de arquivos e diretórios</li>
+<li class="fragment">Use as setas para cima/baixo para navegar pelo histórico de comandos</li>
+<li class="fragment">Use <code>Ctrl+R</code> para buscar comandos anteriores no histórico</li>
 </ul>
 </section></section>
 <section>
@@ -540,12 +650,12 @@ M = 0.15 \cdot L + 0.15 \cdot  \mathrm{EP} + 0.3 \cdot \mathrm{P1} + 0.4 \cdot  
 </section>
 <section id="código-fonte-e-executável" class="slide level2">
 <h2>Código-fonte e executável</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb2-2"><a></a></span>
-<span id="cb2-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb2-4"><a></a>    printf<span class="op">(</span><span class="st">"Hello World!</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
-<span id="cb2-5"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb2-6"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb5-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb5-2"><a></a></span>
+<span id="cb5-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb5-4"><a></a>    printf<span class="op">(</span><span class="st">"Hello World!</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
+<span id="cb5-5"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-6"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br></p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -561,14 +671,52 @@ M = 0.15 \cdot L + 0.15 \cdot  \mathrm{EP} + 0.3 \cdot \mathrm{P1} + 0.4 \cdot  
 <li><code>-Wextra</code>: dá warnings adicionais de compilação</li>
 <li><code>-Wpedantic</code>: avisa sobre construções fora do padrão ISO C escolhido</li>
 </ul>
+<div class="fragment">
 <p>Flags adicionais úteis:</p>
 <ul>
 <li><code>-Werror</code>: warnings viram erros de compilação</li>
 <li><code>-g</code>: permite usar <code>gdb</code> e <code>valgrind</code> (mas deixa programa mais pesado)</li>
 <li><code>-lm</code>: permite usar funções matemáticas</li>
 </ul>
+</div>
+<div class="fragment">
 <p>Exemplo de compilação recomendada:</p>
 <pre><code>gcc -Wall -Wextra -Wpedantic programa.c -o programa</code></pre>
+</div>
+</section>
+<section id="editores-e-ides" class="slide level2">
+<h2>Editores e IDEs</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Ferramenta</th>
+<th>Para que serve</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="red"><strong>Editor de texto</strong></span></td>
+<td>Ferramente para escrever e editar arquivos, incluindo código.</td>
+</tr>
+<tr class="even">
+<td><span class="green"><strong>Compilador</strong></span></td>
+<td>Traduz o código C para um programa executável</td>
+</tr>
+<tr class="odd">
+<td><span class="blue"><strong>IDE</strong> (Integrated Development Environment)</span></td>
+<td>Ambiente com editor, pode chamar compilador, depurador, auto-complete, etc.</td>
+</tr>
+</tbody>
+</table>
+<p><span class="fragment"><strong>Exemplos de editores</strong>: Gedit, vim, Emacs.</span></p>
+<p><span class="fragment"><strong>Exemplos de IDEs</strong>: VSCode, Code::Blocks, PyCharm.</span></p>
+<div class="note fragment">
+<p>Evitem uso de auto-completes avançados, principalmente no começo.</p>
+</div>
 </section></section>
 <section>
 <section id="linguagem-c" class="title-slide slide level1 center">
@@ -614,26 +762,42 @@ M = 0.15 \cdot L + 0.15 \cdot  \mathrm{EP} + 0.3 \cdot \mathrm{P1} + 0.4 \cdot  
 </section>
 <section id="programa-mínimo-em-c" class="slide level2">
 <h2>Programa mínimo em C</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb4-2"><a></a></span>
-<span id="cb4-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb4-4"><a></a>    printf<span class="op">(</span><span class="st">"Hello World!</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
-<span id="cb4-5"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb4-6"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb7-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb7-2"><a></a></span>
+<span id="cb7-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb7-4"><a></a>    printf<span class="op">(</span><span class="st">"Hello World!</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
+<span id="cb7-5"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-6"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
-<p>Para compilar:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a></a><span class="fu">gcc</span> teste.c <span class="at">-o</span> teste</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Para compilar (sem flags):</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a></a><span class="fu">gcc</span> teste.c <span class="at">-o</span> teste</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p>Para executar:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a></a><span class="ex">./teste</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a></a><span class="ex">./teste</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="programa-mínimo-em-c-1" class="slide level2">
+<h2>Programa mínimo em C</h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb10-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb10-2"><a></a></span>
+<span id="cb10-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb10-4"><a></a>    printf<span class="op">(</span><span class="st">"Hello World!</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
+<span id="cb10-5"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb10-6"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<div class="fragment">
+<p>Em C, um <em>bloco</em> é delimitado por <code>{</code> e <code>}</code></p>
+<p><span class="tab"></span> Blocos não precisam ser identados como em Python, mas é boa prática</p>
+</div>
+<p><br></p>
+<p><span class="fragment">A maioria das linhas em <code>C</code> terminam com <code>;</code> (blocos são a exceção)</span></p>
 </section>
 <section id="um-programa-ainda-menor" class="slide level2">
 <h2>Um programa ainda menor</h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb7-1"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb7-2"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb7-3"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb11-1"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb11-2"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb11-3"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Esse programa não imprime nada, mas é um programa C válido.</p>
 <p><br></p>
 <div class="fragment">
@@ -696,42 +860,36 @@ M = 0.15 \cdot L + 0.15 \cdot  \mathrm{EP} + 0.3 \cdot \mathrm{P1} + 0.4 \cdot  
 <div class="note">
 <p>Tamanhos/faixas exatapas dependem do compilador/sistema. Valores acima são típicos para <code>gcc</code> em sistemas Linux de 64 bits.</p>
 </div>
-</section>
-<section id="atenção-aos-limites" class="slide level2">
-<h2>Atenção aos limites</h2>
-<p>Tipos numéricos têm limites.</p>
-<ul>
-<li>Um <code>int</code> não representa todos os inteiros matemáticos.</li>
-<li>Um <code>float</code>/<code>double</code> não representa todos os números reais.</li>
-<li>Operações podem sofrer overflow, perda de precisão ou truncamento.</li>
-</ul>
-<p>Vamos usar o computador não apenas como uma calculadora, mas como uma máquina com representações finitas.</p>
 <!-- 
 ## Strings e booleanos
 
 Em C, não há um tipo `string` primitivo como em Python ou Java.
 
-Strings são representadas por vetores de `char` terminados pelo caractere nulo `\0`.
+:::{.fragment}
+Strings são representadas por vetores de `char` terminados pelo caractere nulo `\0`. ([mais detalhes no futuro...]{.red})
 
 ```c
 char nome[] = "Victor";
 ```
-
-Também não precisamos usar um tipo booleano no começo do curso. Em C, historicamente:
-
-- `0` representa falso;
-- valores diferentes de `0` representam verdadeiro.
-
-::: {.note}
-Existe `_Bool`/`bool` via `<stdbool.h>`, mas podemos introduzir isso apenas se for conveniente.
 ::: -->
+</section>
+<section id="booleanos" class="slide level2">
+<h2>Booleanos</h2>
+<p>Não precisamos usar um tipo booleano no começo do curso. Em C, historicamente:</p>
+<ul>
+<li><code>0</code> representa falso;</li>
+<li>valores diferentes de <code>0</code> representam verdadeiro.</li>
+</ul>
+<div class="note fragment">
+<p>Existe <code>_Bool</code>/<code>bool</code> via <code>&lt;stdbool.h&gt;</code>, mas podemos introduzir isso apenas se for conveniente.</p>
+</div>
 </section>
 <section id="declaração-de-variáveis" class="slide level2">
 <h2>Declaração de variáveis</h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb8-1"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb8-2"><a></a>    <span class="dt">int</span> num_matricula <span class="op">=</span> <span class="dv">1234</span><span class="op">;</span></span>
-<span id="cb8-3"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb8-4"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb12-1"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb12-2"><a></a>    <span class="dt">int</span> num_matricula <span class="op">=</span> <span class="dv">1234</span><span class="op">;</span></span>
+<span id="cb12-3"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb12-4"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="aula1_imgs/var_decl.png" class="quarto-figure quarto-figure-center" style="width:90.0%"></p>
@@ -741,11 +899,50 @@ Existe `_Bool`/`bool` via `<stdbool.h>`, mas podemos introduzir isso apenas se f
 <section id="c-diferencia-maiúsculas-de-minúsculas" class="slide level2">
 <h2>C diferencia maiúsculas de minúsculas</h2>
 <p>C é <em>case-sensitive</em>.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb9-1"><a></a><span class="dt">int</span> num_matricula <span class="op">=</span> <span class="dv">1234</span><span class="op">;</span></span>
-<span id="cb9-2"><a></a><span class="dt">int</span> Num_matricula <span class="op">=</span> <span class="dv">5678</span><span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb13-1"><a></a><span class="dt">int</span> num_matricula <span class="op">=</span> <span class="dv">1234</span><span class="op">;</span></span>
+<span id="cb13-2"><a></a><span class="dt">int</span> Num_matricula <span class="op">=</span> <span class="dv">5678</span><span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Os nomes <code>num_matricula</code> e <code>Num_matricula</code> são diferentes.</p>
 <div class="note">
 <p>Use nomes representativos. Evite nomes como <code>tmp1</code>, <code>tmp2</code>, <code>aux50</code>, exceto em situações muito locais e claras.</p>
+</div>
+</section>
+<section id="operações-aritméticas" class="slide level2">
+<h2>Operações aritméticas</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Expressão</th>
+<th>Operação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>a + b</code></td>
+<td>soma</td>
+</tr>
+<tr class="even">
+<td><code>a - b</code></td>
+<td>subtração</td>
+</tr>
+<tr class="odd">
+<td><code>a * b</code></td>
+<td>multiplicação</td>
+</tr>
+<tr class="even">
+<td><code>a / b</code></td>
+<td>divisão</td>
+</tr>
+<tr class="odd">
+<td><code>a % b</code></td>
+<td>resto da divisão</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>Cuidado com divisão entre inteiros (discutiremos o que está acontecendo na próxima aula):</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb14-1"><a></a><span class="dv">7</span> <span class="op">/</span> <span class="dv">2</span>    <span class="co">// 3</span></span>
+<span id="cb14-2"><a></a><span class="fl">7.0</span> <span class="op">/</span> <span class="dv">2</span>  <span class="co">// 3.5</span></span>
+<span id="cb14-3"><a></a><span class="dv">7</span> <span class="op">%</span> <span class="dv">2</span>    <span class="co">// 1</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section>
 <section>
@@ -755,38 +952,42 @@ Existe `_Bool`/`bool` via `<stdbool.h>`, mas podemos introduzir isso apenas se f
 </section>
 <section id="biblioteca-padrão-de-entrada-e-saída" class="slide level2">
 <h2>Biblioteca padrão de entrada e saída</h2>
-<p>Em C, usamos funções para entrada e saída.</p>
+<p>Em C, usamos funções de uma <em>biblioteca</em> para entrada e saída.</p>
 <p>As funções mais básicas ficam em <code>stdio.h</code>.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb10-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb15-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Durante o curso, praticamente todos os programas usarão essa biblioteca.</p>
 </section>
 <section id="saída-com-printf" class="slide level2">
 <h2>Saída com <code>printf</code></h2>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb11-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb11-2"><a></a></span>
-<span id="cb11-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb11-4"><a></a>    printf<span class="op">(</span><span class="st">"ABC</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
-<span id="cb11-5"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb11-6"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb16-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb16-2"><a></a></span>
+<span id="cb16-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb16-4"><a></a>    printf<span class="op">(</span><span class="st">"Hello World!</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
+<span id="cb16-5"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb16-6"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>A função <code>printf</code> imprime texto formatado.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb12-1"><a></a><span class="dt">int</span> printf<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> <span class="op">*</span>format<span class="op">,</span> <span class="op">...);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb17-1"><a></a><span class="dt">int</span> printf<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> <span class="op">*</span>format<span class="op">,</span> <span class="op">...);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>A string <code>format</code> descreve como imprimir os valores.</p>
 </section>
 <section id="exemplos-de-printf" class="slide level2">
 <h2>Exemplos de <code>printf</code></h2>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb13-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb13-2"><a></a></span>
-<span id="cb13-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb13-4"><a></a>    <span class="dt">int</span> num <span class="op">=</span> <span class="dv">507</span><span class="op">;</span></span>
-<span id="cb13-5"><a></a></span>
-<span id="cb13-6"><a></a>    printf<span class="op">(</span><span class="st">"ABC"</span><span class="op">);</span></span>
-<span id="cb13-7"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st">"</span><span class="op">,</span> num<span class="op">);</span></span>
-<span id="cb13-8"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> num<span class="op">);</span></span>
-<span id="cb13-9"><a></a>    printf<span class="op">(</span><span class="st">"A sala do professor eh a </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> num<span class="op">);</span></span>
-<span id="cb13-10"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%c</span><span class="st"> + </span><span class="sc">%c</span><span class="st"> = </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> <span class="ch">'A'</span><span class="op">,</span> <span class="ch">'B'</span><span class="op">,</span> num<span class="op">);</span></span>
-<span id="cb13-11"><a></a></span>
-<span id="cb13-12"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb13-13"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb18-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb18-2"><a></a></span>
+<span id="cb18-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb18-4"><a></a>    <span class="dt">int</span> num <span class="op">=</span> <span class="dv">512</span><span class="op">;</span></span>
+<span id="cb18-5"><a></a>    <span class="dt">int</span> a <span class="op">=</span> <span class="dv">6</span><span class="op">,</span> b <span class="op">=</span> <span class="dv">7</span><span class="op">;</span></span>
+<span id="cb18-6"><a></a></span>
+<span id="cb18-7"><a></a>    printf<span class="op">(</span><span class="st">"Hello World"</span><span class="op">);</span></span>
+<span id="cb18-8"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st">"</span><span class="op">,</span> num<span class="op">);</span></span>
+<span id="cb18-9"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> num<span class="op">);</span></span>
+<span id="cb18-10"><a></a>    printf<span class="op">(</span><span class="st">"A sala do professor eh a </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> num<span class="op">);</span></span>
+<span id="cb18-11"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st"> * </span><span class="sc">%d</span><span class="st"> = </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> a<span class="op">,</span> b<span class="op">,</span> a <span class="op">*</span> b<span class="op">);</span></span>
+<span id="cb18-12"><a></a></span>
+<span id="cb18-13"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb18-14"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="note fragment">
+<p>O <code>printf</code> recebe um argumento extra para cada <code>%bla</code> que tem na String de formatação</p>
+</div>
 </section>
 <section id="alguns-especificadores-de-formato" class="slide level2">
 <h2>Alguns especificadores de formato</h2>
@@ -826,673 +1027,36 @@ Existe `_Bool`/`bool` via `<stdbool.h>`, mas podemos introduzir isso apenas se f
 <td><code>%s</code></td>
 <td>string</td>
 </tr>
-<tr class="even">
-<td><code>%p</code></td>
-<td>ponteiro/endereço</td>
-</tr>
 </tbody>
 </table>
-<div class="note">
-<p>Alguns detalhes de formatação serão refinados ao longo do curso. Por enquanto, o essencial é saber imprimir inteiros, reais, caracteres e strings simples.</p>
-</div>
+<!-- | `%p` | ponteiro/endereço | -->
 </section>
-<section id="entrada-com-scanf" class="slide level2">
-<h2>Entrada com <code>scanf</code></h2>
-<p>Para ler valores, usamos <code>scanf</code>.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb14-1"><a></a><span class="dt">int</span> scanf<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> <span class="op">*</span>format<span class="op">,</span> <span class="op">...);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>A diferença crucial:</p>
-<ul>
-<li><code>printf</code> recebe os <strong>valores</strong> a imprimir;</li>
-<li><code>scanf</code> recebe os <strong>endereços</strong> das variáveis onde deve escrever.</li>
-</ul>
+<section id="exercícios" class="slide level2">
+<h2>Exercícios</h2>
+<p>Faça as seguintes operações:</p>
+<ol type="1">
+<li>Crie um diretório <code>lab1</code> em seu diretório <code>home</code> com subdiretório <code>programas</code> e <code>backup</code>.</li>
+<li>Dentro de <code>programas</code>, crie um programa <code>ola.c</code> em <code>C</code> que escreva “Olá mundo!”. Compile esse programa com as flags <code>-Wall -Wextra -Wpedantic</code> usando o <code>gcc</code> e execute o programa.</li>
+<li>Crie uma copia de <code>ola.c</code> chamada <code>ola_bkp.c</code> dentro de <code>backup</code></li>
+<li>Independente de em qual diretório seu shell esteja, crie um arquivo <code>minha_home.txt</code> em <code>lab1/</code> com a lista de arquvios e diretórios na sua <code>home</code></li>
+<li>Apague o diretório <code>programas</code> e todos os seus sub-arquivos</li>
+</ol>
 </section>
-<section id="exemplo-de-scanf" class="slide level2">
-<h2>Exemplo de <code>scanf</code></h2>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb15-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb15-2"><a></a></span>
-<span id="cb15-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb15-4"><a></a>    <span class="dt">int</span> num_int<span class="op">;</span></span>
-<span id="cb15-5"><a></a></span>
-<span id="cb15-6"><a></a>    printf<span class="op">(</span><span class="st">"Digite um numero inteiro:</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
-<span id="cb15-7"><a></a>    scanf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>num_int<span class="op">);</span></span>
-<span id="cb15-8"><a></a></span>
-<span id="cb15-9"><a></a>    printf<span class="op">(</span><span class="st">"O numero eh </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> num_int<span class="op">);</span></span>
-<span id="cb15-10"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb15-11"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>O operador <code>&amp;</code> obtém o endereço da variável.</p>
-<div class="fragment">
-<p>Quando estudarmos ponteiros, isso ficará muito mais claro.</p>
-</div>
-</section>
-<section id="mais-exemplos-de-leitura" class="slide level2">
-<h2>Mais exemplos de leitura</h2>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb16-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb16-2"><a></a></span>
-<span id="cb16-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb16-4"><a></a>    <span class="dt">int</span> num_int<span class="op">;</span></span>
-<span id="cb16-5"><a></a>    <span class="dt">double</span> num_frac<span class="op">;</span></span>
-<span id="cb16-6"><a></a>    <span class="dt">int</span> a<span class="op">,</span> b<span class="op">;</span></span>
-<span id="cb16-7"><a></a></span>
-<span id="cb16-8"><a></a>    printf<span class="op">(</span><span class="st">"Digite um numero inteiro:</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
-<span id="cb16-9"><a></a>    scanf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>num_int<span class="op">);</span></span>
-<span id="cb16-10"><a></a></span>
-<span id="cb16-11"><a></a>    printf<span class="op">(</span><span class="st">"Digite um numero fracionario:</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
-<span id="cb16-12"><a></a>    scanf<span class="op">(</span><span class="st">"</span><span class="sc">%lf</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>num_frac<span class="op">);</span></span>
-<span id="cb16-13"><a></a></span>
-<span id="cb16-14"><a></a>    printf<span class="op">(</span><span class="st">"INT=</span><span class="sc">%d</span><span class="st"> DOUBLE=</span><span class="sc">%lf\n</span><span class="st">"</span><span class="op">,</span> num_int<span class="op">,</span> num_frac<span class="op">);</span></span>
-<span id="cb16-15"><a></a></span>
-<span id="cb16-16"><a></a>    printf<span class="op">(</span><span class="st">"Digite dois numeros:</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
-<span id="cb16-17"><a></a>    scanf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st"> </span><span class="sc">%d</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>a<span class="op">,</span> <span class="op">&amp;</span>b<span class="op">);</span></span>
-<span id="cb16-18"><a></a>    printf<span class="op">(</span><span class="st">"A=</span><span class="sc">%d</span><span class="st"> B=</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> a<span class="op">,</span> b<span class="op">);</span></span>
-<span id="cb16-19"><a></a></span>
-<span id="cb16-20"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb16-21"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="sizeof" class="slide level2">
-<h2><code>sizeof</code></h2>
-<p>Para verificar quantos bytes uma variável ou tipo ocupa, usamos <code>sizeof</code>.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb17-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb17-2"><a></a></span>
-<span id="cb17-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb17-4"><a></a>    <span class="dt">int</span> a<span class="op">;</span></span>
-<span id="cb17-5"><a></a>    <span class="dt">long</span> <span class="dt">int</span> b<span class="op">;</span></span>
-<span id="cb17-6"><a></a>    <span class="dt">long</span> <span class="dt">long</span> <span class="dt">int</span> c<span class="op">;</span></span>
-<span id="cb17-7"><a></a>    <span class="dt">float</span> d<span class="op">;</span></span>
-<span id="cb17-8"><a></a>    <span class="dt">double</span> e<span class="op">;</span></span>
-<span id="cb17-9"><a></a>    <span class="dt">char</span> f<span class="op">;</span></span>
-<span id="cb17-10"><a></a></span>
-<span id="cb17-11"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%zu</span><span class="st"> </span><span class="sc">%zu</span><span class="st"> </span><span class="sc">%zu</span><span class="st"> </span><span class="sc">%zu</span><span class="st"> </span><span class="sc">%zu</span><span class="st"> </span><span class="sc">%zu\n</span><span class="st">"</span><span class="op">,</span></span>
-<span id="cb17-12"><a></a>           <span class="kw">sizeof</span> a<span class="op">,</span></span>
-<span id="cb17-13"><a></a>           <span class="kw">sizeof</span> b<span class="op">,</span></span>
-<span id="cb17-14"><a></a>           <span class="kw">sizeof</span> c<span class="op">,</span></span>
-<span id="cb17-15"><a></a>           <span class="kw">sizeof</span> d<span class="op">,</span></span>
-<span id="cb17-16"><a></a>           <span class="kw">sizeof</span> e<span class="op">,</span></span>
-<span id="cb17-17"><a></a>           <span class="kw">sizeof</span> f<span class="op">);</span></span>
-<span id="cb17-18"><a></a></span>
-<span id="cb17-19"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb17-20"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="note">
-<p>O tipo do resultado de <code>sizeof</code> é <code>size_t</code>. Por isso, usamos <code>%zu</code> em <code>printf</code>.</p>
-</div>
-</section></section>
-<section>
-<section id="conversões-e-expressões" class="title-slide slide level1 center">
-<h1>Conversões e expressões</h1>
-
-</section>
-<section id="conversão-de-tipo-primeiro-exemplo" class="slide level2">
-<h2>Conversão de tipo: primeiro exemplo</h2>
-<p>Qual é a saída?</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb18-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb18-2"><a></a></span>
-<span id="cb18-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb18-4"><a></a>    <span class="dt">float</span> num<span class="op">;</span></span>
-<span id="cb18-5"><a></a></span>
-<span id="cb18-6"><a></a>    num <span class="op">=</span> <span class="dv">4</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb18-7"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%.2f\n</span><span class="st">"</span><span class="op">,</span> num<span class="op">);</span></span>
-<span id="cb18-8"><a></a></span>
-<span id="cb18-9"><a></a>    num <span class="op">=</span> <span class="dv">10</span> <span class="op">/</span> <span class="fl">2.5</span><span class="op">;</span></span>
-<span id="cb18-10"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%.2f\n</span><span class="st">"</span><span class="op">,</span> num<span class="op">);</span></span>
-<span id="cb18-11"><a></a></span>
-<span id="cb18-12"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb18-13"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="fragment">
-<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb19-1"><a></a>2.00</span>
-<span id="cb19-2"><a></a>4.00</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="inteiros-versus-ponto-flutuante" class="slide level2">
-<h2>Inteiros versus ponto flutuante</h2>
-<p>Qual é a saída?</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb20-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb20-2"><a></a></span>
-<span id="cb20-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb20-4"><a></a>    <span class="dt">float</span> num<span class="op">;</span></span>
-<span id="cb20-5"><a></a></span>
-<span id="cb20-6"><a></a>    num <span class="op">=</span> <span class="dv">4</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb20-7"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%.2f\n</span><span class="st">"</span><span class="op">,</span> num<span class="op">);</span></span>
-<span id="cb20-8"><a></a></span>
-<span id="cb20-9"><a></a>    num <span class="op">=</span> <span class="dv">5</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb20-10"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%.2f\n</span><span class="st">"</span><span class="op">,</span> num<span class="op">);</span></span>
-<span id="cb20-11"><a></a></span>
-<span id="cb20-12"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb20-13"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="fragment">
-<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb21-1"><a></a>2.00</span>
-<span id="cb21-2"><a></a>2.00</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="divisão-inteira" class="slide level2">
-<h2>Divisão inteira</h2>
-<p>Em C:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb22-1"><a></a><span class="dv">5</span> <span class="op">/</span> <span class="dv">2</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>é uma divisão entre inteiros, cujo resultado inteiro é <code>2</code>.</p>
-<p>Para obter um resultado fracionário:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb23-1"><a></a><span class="dv">5</span> <span class="op">/</span> <span class="fl">2.0</span></span>
-<span id="cb23-2"><a></a><span class="dv">5</span> <span class="op">/</span> <span class="op">((</span><span class="dt">float</span><span class="op">)</span> <span class="dv">2</span><span class="op">)</span></span>
-<span id="cb23-3"><a></a><span class="op">((</span><span class="dt">float</span><span class="op">)</span> <span class="dv">5</span><span class="op">)</span> <span class="op">/</span> <span class="dv">2</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="conversões-perigosas" class="slide level2">
-<h2>Conversões perigosas</h2>
-<p>Conversões de um tipo com maior faixa/precisão para um tipo com menor faixa/precisão podem perder informação.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb24-1"><a></a><span class="dt">int</span> n1 <span class="op">=</span> <span class="dv">50000</span><span class="op">;</span></span>
-<span id="cb24-2"><a></a><span class="dt">short</span> <span class="dt">int</span> n2 <span class="op">=</span> n1<span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>O resultado depende dos limites do tipo <code>short int</code> na implementação.</p>
-<div class="note">
-<p>A mensagem importante para os alunos: conversões não são apenas uma formalidade sintática; elas podem mudar o valor armazenado.</p>
-</div>
-</section>
-<section id="conversão-de-reais-para-inteiros" class="slide level2">
-<h2>Conversão de reais para inteiros</h2>
-<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb25-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb25-2"><a></a></span>
-<span id="cb25-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb25-4"><a></a>    <span class="dt">float</span> f1 <span class="op">=</span> <span class="fl">2.782</span><span class="op">;</span></span>
-<span id="cb25-5"><a></a>    <span class="dt">int</span> n2 <span class="op">=</span> f1<span class="op">;</span></span>
-<span id="cb25-6"><a></a></span>
-<span id="cb25-7"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> n2<span class="op">);</span></span>
-<span id="cb25-8"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb25-9"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="fragment">
-<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb26-1"><a></a>2</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>A parte fracionária é descartada.</p>
-</div>
-</section>
-<section id="cast-explícito" class="slide level2">
-<h2>Cast explícito</h2>
-<p>Podemos forçar algumas conversões com <em>cast</em>.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb27-1"><a></a><span class="dt">float</span> n <span class="op">=</span> <span class="op">(</span><span class="dt">float</span><span class="op">)</span> <span class="dv">507</span><span class="op">;</span></span>
-<span id="cb27-2"><a></a><span class="dt">int</span> t <span class="op">=</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span> n<span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Mas usar cast não torna uma conversão necessariamente segura.</p>
-</section>
-<section id="precedência-do-cast" class="slide level2">
-<h2>Precedência do cast</h2>
-<p>Qual é a saída?</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb28-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb28-2"><a></a></span>
-<span id="cb28-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb28-4"><a></a>    <span class="dt">float</span> r1 <span class="op">=</span> <span class="dv">7</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb28-5"><a></a>    <span class="dt">float</span> r2 <span class="op">=</span> <span class="op">((</span><span class="dt">float</span><span class="op">)</span> <span class="dv">7</span><span class="op">)</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb28-6"><a></a>    <span class="dt">float</span> r3 <span class="op">=</span> <span class="dv">7</span> <span class="op">/</span> <span class="op">((</span><span class="dt">float</span><span class="op">)</span> <span class="dv">2</span><span class="op">);</span></span>
-<span id="cb28-7"><a></a>    <span class="dt">float</span> r4 <span class="op">=</span> <span class="op">((</span><span class="dt">float</span><span class="op">)</span> <span class="dv">7</span><span class="op">)</span> <span class="op">/</span> <span class="op">((</span><span class="dt">float</span><span class="op">)</span> <span class="dv">2</span><span class="op">);</span></span>
-<span id="cb28-8"><a></a>    <span class="dt">float</span> r5 <span class="op">=</span> <span class="op">(</span><span class="dt">float</span><span class="op">)</span> <span class="dv">7</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb28-9"><a></a>    <span class="dt">float</span> r6 <span class="op">=</span> <span class="op">(</span><span class="dt">float</span><span class="op">)</span> <span class="op">(</span><span class="dv">7</span> <span class="op">/</span> <span class="dv">2</span><span class="op">);</span></span>
-<span id="cb28-10"><a></a></span>
-<span id="cb28-11"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%.1f</span><span class="st"> </span><span class="sc">%.1f</span><span class="st"> </span><span class="sc">%.1f\n</span><span class="st">"</span><span class="op">,</span> r1<span class="op">,</span> r2<span class="op">,</span> r3<span class="op">);</span></span>
-<span id="cb28-12"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%.1f</span><span class="st"> </span><span class="sc">%.1f</span><span class="st"> </span><span class="sc">%.1f\n</span><span class="st">"</span><span class="op">,</span> r4<span class="op">,</span> r5<span class="op">,</span> r6<span class="op">);</span></span>
-<span id="cb28-13"><a></a></span>
-<span id="cb28-14"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb28-15"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="precedência-do-cast-resposta" class="slide level2">
-<h2>Precedência do cast: resposta</h2>
-<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb29-1"><a></a>3.0 3.5 3.5</span>
-<span id="cb29-2"><a></a>3.5 3.5 3.0</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>O cast tem precedência alta.</p>
-<p>A expressão</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb30-1"><a></a><span class="op">(</span><span class="dt">float</span><span class="op">)</span> <span class="op">(</span><span class="dv">7</span> <span class="op">/</span> <span class="dv">2</span><span class="op">)</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>primeiro calcula <code>7 / 2</code> como divisão inteira e só depois converte o resultado para <code>float</code>.</p>
-</section></section>
-<section>
-<section id="inicialização-e-erros-comuns" class="title-slide slide level1 center">
-<h1>Inicialização e erros comuns</h1>
-
-</section>
-<section id="sempre-inicialize-variáveis" class="slide level2">
-<h2>Sempre inicialize variáveis</h2>
-<p>Quando uma variável local é declarada, o programa reserva espaço de memória para ela.</p>
-<p>Esse espaço <strong>não é necessariamente inicializado</strong>.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb31-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb31-2"><a></a></span>
-<span id="cb31-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb31-4"><a></a>    <span class="dt">int</span> num<span class="op">;</span></span>
-<span id="cb31-5"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> num<span class="op">);</span></span>
-<span id="cb31-6"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb31-7"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>O programa pode imprimir um valor arbitrário.</p>
-</section>
-<section id="compilador-como-aliado" class="slide level2">
-<h2>Compilador como aliado</h2>
-<p>Compilando com warnings:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a></a><span class="fu">gcc</span> <span class="at">-Wall</span> <span class="at">-Wextra</span> teste.c <span class="at">-o</span> teste</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>O compilador pode avisar sobre problemas como uso de variável não inicializada.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb33-1"><a></a>teste.c: In function 'main':</span>
-<span id="cb33-2"><a></a>teste.c: warning: 'num' is used uninitialized</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="info-box">
-<p>Durante o curso, tratem warnings como sinais importantes. Código que compila com warnings pode estar errado.</p>
-</div>
-</section></section>
-<section>
-<section id="operadores" class="title-slide slide level1 center">
-<h1>Operadores</h1>
-
-</section>
-<section id="operadores-aritméticos" class="slide level2">
-<h2>Operadores aritméticos</h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Operador</th>
-<th>Operação</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>+</code></td>
-<td>soma</td>
-</tr>
-<tr class="even">
-<td><code>-</code></td>
-<td>subtração</td>
-</tr>
-<tr class="odd">
-<td><code>*</code></td>
-<td>multiplicação</td>
-</tr>
-<tr class="even">
-<td><code>/</code></td>
-<td>divisão</td>
-</tr>
-<tr class="odd">
-<td><code>%</code></td>
-<td>resto da divisão</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="operadores-relacionais" class="slide level2">
-<h2>Operadores relacionais</h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Operador</th>
-<th>Significado</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>&lt;</code></td>
-<td>menor que</td>
-</tr>
-<tr class="even">
-<td><code>&gt;</code></td>
-<td>maior que</td>
-</tr>
-<tr class="odd">
-<td><code>&lt;=</code></td>
-<td>menor ou igual a</td>
-</tr>
-<tr class="even">
-<td><code>&gt;=</code></td>
-<td>maior ou igual a</td>
-</tr>
-<tr class="odd">
-<td><code>==</code></td>
-<td>igual a</td>
-</tr>
-<tr class="even">
-<td><code>!=</code></td>
-<td>diferente de</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="operadores-lógicos" class="slide level2">
-<h2>Operadores lógicos</h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Operador</th>
-<th>Significado</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>&amp;&amp;</code></td>
-<td>e</td>
-</tr>
-<tr class="even">
-<td><code>||</code></td>
-<td>ou</td>
-</tr>
-<tr class="odd">
-<td><code>!</code></td>
-<td>negação</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="operadores-de-atribuição" class="slide level2">
-<h2>Operadores de atribuição</h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Operador</th>
-<th>Significado</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>++</code></td>
-<td>incremento unitário</td>
-</tr>
-<tr class="even">
-<td><code>--</code></td>
-<td>decremento unitário</td>
-</tr>
-<tr class="odd">
-<td><code>+=</code></td>
-<td>atribuição por soma</td>
-</tr>
-<tr class="even">
-<td><code>-=</code></td>
-<td>atribuição por subtração</td>
-</tr>
-<tr class="odd">
-<td><code>*=</code></td>
-<td>atribuição por multiplicação</td>
-</tr>
-<tr class="even">
-<td><code>/=</code></td>
-<td>atribuição por divisão</td>
-</tr>
-<tr class="odd">
-<td><code>%=</code></td>
-<td>atribuição por resto</td>
-</tr>
-</tbody>
-</table>
-<div class="note">
-<p>Evite usar operadores como <code>++</code> e <code>--</code> mais de uma vez na mesma linha. Escreva código claro antes de escrever código compacto.</p>
-</div>
-</section></section>
-<section>
-<section id="condicionais" class="title-slide slide level1 center">
-<h1>Condicionais</h1>
-
-</section>
-<section id="if-e-else" class="slide level2">
-<h2><code>if</code> e <code>else</code></h2>
-<div class="sourceCode" id="cb34"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb34-1"><a></a><span class="cf">if</span> <span class="op">(</span>condicao<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb34-2"><a></a>    <span class="co">// bloco executado se condicao for verdadeira</span></span>
-<span id="cb34-3"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb35"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb35-1"><a></a><span class="cf">if</span> <span class="op">(</span>condicao<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb35-2"><a></a>    <span class="co">// caso verdadeiro</span></span>
-<span id="cb35-3"><a></a><span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
-<span id="cb35-4"><a></a>    <span class="co">// caso falso</span></span>
-<span id="cb35-5"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Também existe o operador ternário:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb36-1"><a></a>condicao <span class="op">?</span> valor_se_verdadeiro <span class="op">:</span> valor_se_falso</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="atenção-versus" class="slide level2">
-<h2>Atenção: <code>=</code> versus <code>==</code></h2>
-<p>Qual é a saída?</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb37-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb37-2"><a></a></span>
-<span id="cb37-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb37-4"><a></a>    <span class="dt">int</span> n <span class="op">=</span> <span class="dv">507</span><span class="op">;</span></span>
-<span id="cb37-5"><a></a></span>
-<span id="cb37-6"><a></a>    <span class="cf">if</span> <span class="op">(</span>n <span class="op">=</span> <span class="dv">5</span><span class="op">)</span></span>
-<span id="cb37-7"><a></a>        printf<span class="op">(</span><span class="st">"n eh 5.</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
-<span id="cb37-8"><a></a>    <span class="cf">else</span></span>
-<span id="cb37-9"><a></a>        printf<span class="op">(</span><span class="st">"n nao eh 5.</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
-<span id="cb37-10"><a></a></span>
-<span id="cb37-11"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb37-12"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="versus-resposta" class="slide level2">
-<h2><code>=</code> versus <code>==</code>: resposta</h2>
-<p>O código compila, mas está errado.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb38-1"><a></a><span class="cf">if</span> <span class="op">(</span>n <span class="op">=</span> <span class="dv">5</span><span class="op">)</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>faz uma atribuição.</p>
-<p>O teste de igualdade seria:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb39-1"><a></a><span class="cf">if</span> <span class="op">(</span>n <span class="op">==</span> <span class="dv">5</span><span class="op">)</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="note">
-<p>Com warnings ativados, o compilador pode ajudar a detectar esse tipo de erro.</p>
-</div>
-</section></section>
-<section>
-<section id="laços" class="title-slide slide level1 center">
-<h1>Laços</h1>
-
-</section>
-<section id="while" class="slide level2">
-<h2><code>while</code></h2>
-<div class="sourceCode" id="cb40"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb40-1"><a></a><span class="cf">while</span> <span class="op">(</span>condicao<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb40-2"><a></a>    <span class="co">// repete enquanto condicao for verdadeira</span></span>
-<span id="cb40-3"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Exemplo:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb41-1"><a></a><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb41-2"><a></a><span class="cf">while</span> <span class="op">(</span>i <span class="op">&lt;</span> <span class="dv">3</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb41-3"><a></a>    i<span class="op">++;</span></span>
-<span id="cb41-4"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> i<span class="op">);</span></span>
-<span id="cb41-5"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="fragment">
-<div class="sourceCode" id="cb42"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb42-1"><a></a>1</span>
-<span id="cb42-2"><a></a>2</span>
-<span id="cb42-3"><a></a>3</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="pós-incremento" class="slide level2">
-<h2>Pós-incremento</h2>
-<p>Qual é a saída?</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb43-1"><a></a><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb43-2"><a></a><span class="cf">while</span> <span class="op">(</span>i <span class="op">&lt;</span> <span class="dv">3</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb43-3"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> i<span class="op">++);</span></span>
-<span id="cb43-4"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="fragment">
-<div class="sourceCode" id="cb44"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb44-1"><a></a>0</span>
-<span id="cb44-2"><a></a>1</span>
-<span id="cb44-3"><a></a>2</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="pré-incremento" class="slide level2">
-<h2>Pré-incremento</h2>
-<p>Qual é a saída?</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb45-1"><a></a><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb45-2"><a></a><span class="cf">while</span> <span class="op">(</span>i <span class="op">&lt;</span> <span class="dv">3</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb45-3"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> <span class="op">++</span>i<span class="op">);</span></span>
-<span id="cb45-4"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="fragment">
-<div class="sourceCode" id="cb46"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb46-1"><a></a>1</span>
-<span id="cb46-2"><a></a>2</span>
-<span id="cb46-3"><a></a>3</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="do-while" class="slide level2">
-<h2><code>do while</code></h2>
-<div class="sourceCode" id="cb47"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb47-1"><a></a><span class="cf">do</span> <span class="op">{</span></span>
-<span id="cb47-2"><a></a>    <span class="co">// executa pelo menos uma vez</span></span>
-<span id="cb47-3"><a></a><span class="op">}</span> <span class="cf">while</span> <span class="op">(</span>condicao<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Exemplo:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb48-1"><a></a><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb48-2"><a></a><span class="cf">do</span> <span class="op">{</span></span>
-<span id="cb48-3"><a></a>    printf<span class="op">(</span><span class="st">"1</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
-<span id="cb48-4"><a></a>    i<span class="op">++;</span></span>
-<span id="cb48-5"><a></a><span class="op">}</span> <span class="cf">while</span> <span class="op">(</span>i <span class="op">&lt;</span> <span class="dv">3</span><span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="fragment">
-<div class="sourceCode" id="cb49"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb49-1"><a></a>1</span>
-<span id="cb49-2"><a></a>1</span>
-<span id="cb49-3"><a></a>1</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="for" class="slide level2">
-<h2><code>for</code></h2>
-<div class="sourceCode" id="cb50"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb50-1"><a></a><span class="cf">for</span> <span class="op">(</span>inicializacao<span class="op">;</span> condicao<span class="op">;</span> passo<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb50-2"><a></a>    <span class="co">// corpo do laço</span></span>
-<span id="cb50-3"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Exemplo:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb51-1"><a></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">3</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb51-2"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> i<span class="op">);</span></span>
-<span id="cb51-3"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="fragment">
-<div class="sourceCode" id="cb52"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb52-1"><a></a>0</span>
-<span id="cb52-2"><a></a>1</span>
-<span id="cb52-3"><a></a>2</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="um-erro-comum-com-for" class="slide level2">
-<h2>Um erro comum com <code>for</code></h2>
-<p>Qual é o problema?</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb53-1"><a></a><span class="dt">int</span> i<span class="op">;</span></span>
-<span id="cb53-2"><a></a><span class="cf">for</span> <span class="op">(</span>I <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> I <span class="op">&lt;</span> <span class="dv">3</span><span class="op">;</span> I<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb53-3"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> i<span class="op">);</span></span>
-<span id="cb53-4"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="fragment">
-<p><code>I</code> e <code>i</code> são identificadores diferentes. O código não compila.</p>
-</div>
-</section></section>
-<section>
-<section id="estilo-e-padrões" class="title-slide slide level1 center">
-<h1>Estilo e padrões</h1>
-
-</section>
-<section id="estilo-de-codificação" class="slide level2">
-<h2>Estilo de codificação</h2>
-<p>Observe o estilo adotado nos exemplos.</p>
-<ul>
-<li>indentação consistente;</li>
-<li>nomes de variáveis representativos;</li>
-<li>posição das chaves consistente;</li>
-<li>uma ideia por bloco de código;</li>
-<li>clareza acima de compactação.</li>
-</ul>
-<div class="info-box">
-<p>Código é escrito para duas audiências: o computador e as pessoas que precisam ler, corrigir ou modificar esse código — incluindo você no futuro.</p>
-</div>
-</section>
-<section id="padrões-recorrentes" class="slide level2">
-<h2>Padrões recorrentes</h2>
-<p>Ao programar, veremos muitos padrões repetidos.</p>
-<ul>
-<li>programa mínimo;</li>
-<li>leitura de uma quantidade conhecida de valores;</li>
-<li>leitura até sentinela/fim de entrada;</li>
-<li>acumuladores;</li>
-<li>manter maior/menor valor visto até agora;</li>
-<li>contadores;</li>
-<li>menus simples.</li>
-</ul>
-</section></section>
-<section>
-<section id="exemplos-finais" class="title-slide slide level1 center">
-<h1>Exemplos finais</h1>
-
-</section>
-<section id="leitura-de-n-elementos" class="slide level2">
-<h2>Leitura de <code>n</code> elementos</h2>
-<div class="sourceCode" id="cb54"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb54-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb54-2"><a></a></span>
-<span id="cb54-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb54-4"><a></a>    <span class="dt">int</span> qtd<span class="op">;</span></span>
-<span id="cb54-5"><a></a>    scanf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>qtd<span class="op">);</span></span>
-<span id="cb54-6"><a></a></span>
-<span id="cb54-7"><a></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> qtd<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb54-8"><a></a>        <span class="dt">int</span> numero<span class="op">;</span></span>
-<span id="cb54-9"><a></a>        scanf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>numero<span class="op">);</span></span>
-<span id="cb54-10"><a></a></span>
-<span id="cb54-11"><a></a>        <span class="co">// Faz alguma coisa com numero</span></span>
-<span id="cb54-12"><a></a>        printf<span class="op">(</span><span class="st">"Leu numero!</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
-<span id="cb54-13"><a></a>    <span class="op">}</span></span>
-<span id="cb54-14"><a></a></span>
-<span id="cb54-15"><a></a>    printf<span class="op">(</span><span class="st">"Saiu!</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
-<span id="cb54-16"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb54-17"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="leitura-até-sentinela" class="slide level2">
-<h2>Leitura até sentinela</h2>
-<div class="sourceCode" id="cb55"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb55-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb55-2"><a></a></span>
-<span id="cb55-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb55-4"><a></a>    <span class="dt">int</span> numero<span class="op">;</span></span>
-<span id="cb55-5"><a></a>    scanf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>numero<span class="op">);</span></span>
-<span id="cb55-6"><a></a></span>
-<span id="cb55-7"><a></a>    <span class="cf">while</span> <span class="op">(</span>numero <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb55-8"><a></a>        <span class="co">// Faz alguma coisa com numero</span></span>
-<span id="cb55-9"><a></a>        printf<span class="op">(</span><span class="st">"Leu numero!</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
-<span id="cb55-10"><a></a>        scanf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>numero<span class="op">);</span></span>
-<span id="cb55-11"><a></a>    <span class="op">}</span></span>
-<span id="cb55-12"><a></a></span>
-<span id="cb55-13"><a></a>    printf<span class="op">(</span><span class="st">"Saiu!</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
-<span id="cb55-14"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb55-15"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Aqui, um número negativo encerra a leitura.</p>
-</section>
-<section id="exercício-1" class="slide level2">
-<h2>Exercício 1</h2>
-<p>Faça um programa que leia um inteiro e imprima todos os divisores desse número.</p>
-<div class="note">
-<p>Neste exercício, um divisor é um número que divide o outro com resto zero.</p>
-</div>
-</section>
-<section id="exercício-2-lista-de-números-1" class="slide level2">
-<h2>Exercício 2 — Lista de números 1</h2>
-<p>Faça um programa que leia um número <code>n</code>.</p>
-<p>Depois, o programa deve ler <code>n</code> números.</p>
-<p>Ao final, considerando os <code>n</code> números, o programa deve imprimir:</p>
-<ul>
-<li>maior número;</li>
-<li>menor número;</li>
-<li>soma de todos os números.</li>
-</ul>
-<div class="note">
-<p>Não use vetor/array neste exercício.</p>
-</div>
-</section>
-<section id="exercício-3-lista-de-números-2" class="slide level2">
-<h2>Exercício 3 — Lista de números 2</h2>
-<p>Modifique o programa anterior para não solicitar a quantidade <code>n</code> no início.</p>
-<p>Agora, o programa deve ler números até que o usuário digite um número negativo.</p>
-<p>Ao final, imprima:</p>
-<ul>
-<li>maior número;</li>
-<li>menor número;</li>
-<li>soma de todos os números.</li>
-</ul>
-</section>
-<section id="exercício-4" class="slide level2">
-<h2>Exercício 4</h2>
-<p>Faça um programa que leia um número <code>n</code>.</p>
-<p>Depois, o programa deve ler <code>n</code> números.</p>
-<p>Ao final, considerando esses números, imprima:</p>
-<ul>
-<li>quantos são pares;</li>
-<li>quantos são ímpares.</li>
-</ul>
-</section>
-<section id="exercício-5-menu-de-operações" class="slide level2">
-<h2>Exercício 5 — Menu de operações</h2>
-<p>Faça um programa com um menu de operações.</p>
-<p>O programa deve ler um código:</p>
-<ul>
-<li><code>1</code>: soma dois números;</li>
-<li><code>2</code>: soma três números;</li>
-<li><code>3</code>: multiplica dois números;</li>
-<li><code>0</code>: sair.</li>
-</ul>
-<p>Se o usuário escolher sair, o programa imprime o menor resultado obtido e encerra.</p>
-<p>Caso contrário, lê os números necessários, imprime o resultado da operação e volta ao menu.</p>
-</section>
-<section id="exemplo-de-interação" class="slide level2">
-<h2>Exemplo de interação</h2>
-<div class="sourceCode" id="cb56"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb56-1"><a></a>Operacao? 1</span>
-<span id="cb56-2"><a></a>-2</span>
-<span id="cb56-3"><a></a>1</span>
-<span id="cb56-4"><a></a>-1</span>
-<span id="cb56-5"><a></a>Operacao? 3</span>
-<span id="cb56-6"><a></a>2</span>
-<span id="cb56-7"><a></a>90</span>
-<span id="cb56-8"><a></a>180</span>
-<span id="cb56-9"><a></a>Operacao? 2</span>
-<span id="cb56-10"><a></a>80</span>
-<span id="cb56-11"><a></a>2</span>
-<span id="cb56-12"><a></a>5</span>
-<span id="cb56-13"><a></a>87</span>
-<span id="cb56-14"><a></a>Operacao? 0</span>
-<span id="cb56-15"><a></a>-1</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="note">
-<p>TODO: revisar se estes exercícios ficarão nos slides ou serão movidos para o Lab 1/VPL.</p>
-</div>
+<section id="exercícios-continuação" class="slide level2">
+<h2>Exercícios (continuação)</h2>
+<p>Usando os erros de compilação como guia, faça o seguinte programa compilar e funcionar como esperado:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb19-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdlib.h&gt;</span></span>
+<span id="cb19-2"><a></a></span>
+<span id="cb19-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb19-4"><a></a>    <span class="dt">float</span> a <span class="op">=</span> <span class="fl">6.0</span><span class="op">,</span> <span class="dt">float</span> b <span class="op">=</span> <span class="fl">7.0</span><span class="op">;</span></span>
+<span id="cb19-5"><a></a></span>
+<span id="cb19-6"><a></a>    printf<span class="op">(</span><span class="st">"Adição: </span><span class="sc">%f</span><span class="st"> + </span><span class="sc">%f</span><span class="st"> =  </span><span class="sc">%f\n</span><span class="st">"</span><span class="op">,</span> a<span class="op">,</span> b<span class="op">,</span> a <span class="op">+</span> b<span class="op">);</span></span>
+<span id="cb19-7"><a></a>    pirntf<span class="op">(</span><span class="st">"Multiplicão: </span><span class="sc">%f</span><span class="st"> * </span><span class="sc">%f</span><span class="st"> =  </span><span class="sc">%f\n</span><span class="st">"</span><span class="op">,</span> a<span class="op">,</span> b<span class="op">,</span> a <span class="op">*</span> b<span class="op">);</span></span>
+<span id="cb19-8"><a></a>    printf<span class="op">(</span><span class="st">"Subtração: </span><span class="sc">%f</span><span class="st"> - </span><span class="sc">%f</span><span class="st"> =  </span><span class="sc">%f\n</span><span class="st">"</span><span class="op">,</span> a<span class="op">,</span> b<span class="op">,</span> a <span class="op">-</span> b<span class="op">);</span></span>
+<span id="cb19-9"><a></a>    printf<span class="op">(</span><span class="st">"Divisão: </span><span class="sc">%f</span><span class="st">  / </span><span class="sc">%f</span><span class="st"> = </span><span class="sc">%f</span><span class="st"> </span><span class="sc">\n</span><span class="st">"</span><span class="op">,</span> a<span class="op">,</span> b<span class="op">,</span> a <span class="op">/</span> b<span class="op">);</span></span>
+<span id="cb19-10"><a></a></span>
+<span id="cb19-11"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb19-12"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="referências" class="slide level2">
 <h2>Referências</h2>
