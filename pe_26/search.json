@@ -7,270 +7,347 @@
     "text": "About this site"
   },
   {
+    "objectID": "slides/pe02.html#agenda-de-aulas-e-provas",
+    "href": "slides/pe02.html#agenda-de-aulas-e-provas",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Agenda de aulas e provas",
+    "text": "Agenda de aulas e provas\nAgenda prevista de aulas está no site. Datas das provas:\n\nP1: 27 de outubro (Laboratório)\nP2: 4 de dezembro (Teoria)\n\nObjeções?"
+  },
+  {
+    "objectID": "slides/pe02.html#usando-linux-nos-laboratórios",
+    "href": "slides/pe02.html#usando-linux-nos-laboratórios",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Usando Linux nos Laboratórios",
+    "text": "Usando Linux nos Laboratórios\nNos laboratórios, a partição Linux tem um único usuário…\n\nCOM MEMÓRIA PERSISTENTE\n\n\n\n\nUse navegadores em abas anônimas\nTente fazer todo seu trabalho em uma pasta e apagar essa pasta depois de terminar o laboratório"
+  },
+  {
+    "objectID": "slides/pe02.html#ufabc-para-todos-e-coda",
+    "href": "slides/pe02.html#ufabc-para-todos-e-coda",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "UFABC para Todos e CO’DA",
+    "text": "UFABC para Todos e CO’DA\nPróxima terça-feira não haverá aula. Venha participar do UFABC para todos e do CO’DA\n \nSexta-feira é aula normal!!"
+  },
+  {
+    "objectID": "slides/pe02.html#minha-palestra-no-coda",
+    "href": "slides/pe02.html#minha-palestra-no-coda",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Minha palestra no CO’DA",
+    "text": "Minha palestra no CO’DA\nHorário: Terça-feira – 13hs"
+  },
+  {
+    "objectID": "slides/pe02.html#competição-de-programação",
+    "href": "slides/pe02.html#competição-de-programação",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Competição de programação",
+    "text": "Competição de programação"
+  },
+  {
+    "objectID": "slides/pe02.html#um-programa-de-exemplo-máximo-de-dois-números",
+    "href": "slides/pe02.html#um-programa-de-exemplo-máximo-de-dois-números",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Um programa de exemplo: máximo de dois números",
+    "text": "Um programa de exemplo: máximo de dois números\nQueremos implementar o seguinte programa:\n\nO programa le dois números e imprime o maio deles.\n\n\nSolução em Python (sem usar a função max)\n```python\nPrint(\"Digite dois números (1 por linha):\")\na = int(input())\nb = int(input())\nif a &gt; b:\n    print(\"Maior:\", a)\nelse:\n    print(\"Maior:\", b)\n```"
+  },
+  {
     "objectID": "slides/pe02.html#entrada-com-scanf",
     "href": "slides/pe02.html#entrada-com-scanf",
-    "title": "Introdução à linguagem C",
+    "title": "Introdução à linguagem C (cont.)",
     "section": "Entrada com scanf",
-    "text": "Entrada com scanf\nPara ler valores, usamos scanf.\nint scanf(const char *format, ...);\nA diferença crucial:\n\nprintf recebe os valores a imprimir;\nscanf recebe os endereços das variáveis onde deve escrever."
+    "text": "Entrada com scanf\nPara ler valores, usamos a função scanf.\nint scanf(const char *format, ...);\nDiferença importante entre scanf() e printf()\n\nprintf recebe os valores a imprimir;\nscanf recebe os endereços das variáveis onde deve escrever."
   },
   {
     "objectID": "slides/pe02.html#exemplo-de-scanf",
     "href": "slides/pe02.html#exemplo-de-scanf",
-    "title": "Introdução à linguagem C",
+    "title": "Introdução à linguagem C (cont.)",
     "section": "Exemplo de scanf",
-    "text": "Exemplo de scanf\n#include &lt;stdio.h&gt;\n\nint main() {\n    int num_int;\n\n    printf(\"Digite um numero inteiro:\\n\");\n    scanf(\"%d\", &num_int);\n\n    printf(\"O numero eh %d\\n\", num_int);\n    return 0;\n}\nO operador & obtém o endereço da variável.\n\nQuando estudarmos ponteiros, isso ficará muito mais claro."
+    "text": "Exemplo de scanf\nContinuando o nosso exemplo do máximo de dois números:\n#include &lt;stdio.h&gt;\nint main() {\n    int a,b;\n\n    printf(\"Digite um numero inteiro (1 por linha):\\n\");\n    scanf(\"%d\", &a);\n    scanf(\"%d\", &b);\n    // (Continua em breve...)\nO operador & obtém o endereço da variável.\n\nQuando estudarmos ponteiros, isso ficará muito mais claro\nPor enquanto, não esquecer de usar & no scanf"
   },
   {
-    "objectID": "slides/pe02.html#mais-exemplos-de-leitura",
-    "href": "slides/pe02.html#mais-exemplos-de-leitura",
-    "title": "Introdução à linguagem C",
-    "section": "Mais exemplos de leitura",
-    "text": "Mais exemplos de leitura\n#include &lt;stdio.h&gt;\n\nint main() {\n    int num_int;\n    double num_frac;\n    int a, b;\n\n    printf(\"Digite um numero inteiro:\\n\");\n    scanf(\"%d\", &num_int);\n\n    printf(\"Digite um numero fracionario:\\n\");\n    scanf(\"%lf\", &num_frac);\n\n    printf(\"INT=%d DOUBLE=%lf\\n\", num_int, num_frac);\n\n    printf(\"Digite dois numeros:\\n\");\n    scanf(\"%d %d\", &a, &b);\n    printf(\"A=%d B=%d\\n\", a, b);\n\n    return 0;\n}"
+    "objectID": "slides/pe02.html#imprimindo-o-endereço-de-uma-variável",
+    "href": "slides/pe02.html#imprimindo-o-endereço-de-uma-variável",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Imprimindo o endereço de uma variável",
+    "text": "Imprimindo o endereço de uma variável\n#include &lt;stdio.h&gt;\n\nint main() {\n    int a = 1;\n    printf(\"%d\\n\", a);  // 1\n    printf(\"%p\\n\", &a); // 0x7fff6d661ad4\n    return 0;\n}\n\n&a é o endereço na memória onde o valor de a está armazenado\nO valor de &a é diferente em diferentes execuções"
   },
   {
-    "objectID": "slides/pe02.html#sizeof",
-    "href": "slides/pe02.html#sizeof",
-    "title": "Introdução à linguagem C",
-    "section": "sizeof",
-    "text": "sizeof\nPara verificar quantos bytes uma variável ou tipo ocupa, usamos sizeof.\n#include &lt;stdio.h&gt;\n\nint main() {\n    int a;\n    long int b;\n    long long int c;\n    float d;\n    double e;\n    char f;\n\n    printf(\"%zu %zu %zu %zu %zu %zu\\n\",\n           sizeof a,\n           sizeof b,\n           sizeof c,\n           sizeof d,\n           sizeof e,\n           sizeof f);\n\n    return 0;\n}\n\nO tipo do resultado de sizeof é size_t. Por isso, usamos %zu em printf."
-  },
-  {
-    "objectID": "slides/pe02.html#conversão-de-tipo-primeiro-exemplo",
-    "href": "slides/pe02.html#conversão-de-tipo-primeiro-exemplo",
-    "title": "Introdução à linguagem C",
-    "section": "Conversão de tipo: primeiro exemplo",
-    "text": "Conversão de tipo: primeiro exemplo\nQual é a saída?\n#include &lt;stdio.h&gt;\n\nint main() {\n    float num;\n\n    num = 4 / 2;\n    printf(\"%.2f\\n\", num);\n\n    num = 10 / 2.5;\n    printf(\"%.2f\\n\", num);\n\n    return 0;\n}\n\n2.00\n4.00"
-  },
-  {
-    "objectID": "slides/pe02.html#inteiros-versus-ponto-flutuante",
-    "href": "slides/pe02.html#inteiros-versus-ponto-flutuante",
-    "title": "Introdução à linguagem C",
-    "section": "Inteiros versus ponto flutuante",
-    "text": "Inteiros versus ponto flutuante\nQual é a saída?\n#include &lt;stdio.h&gt;\n\nint main() {\n    float num;\n\n    num = 4 / 2;\n    printf(\"%.2f\\n\", num);\n\n    num = 5 / 2;\n    printf(\"%.2f\\n\", num);\n\n    return 0;\n}\n\n2.00\n2.00"
-  },
-  {
-    "objectID": "slides/pe02.html#divisão-inteira",
-    "href": "slides/pe02.html#divisão-inteira",
-    "title": "Introdução à linguagem C",
-    "section": "Divisão inteira",
-    "text": "Divisão inteira\nEm C:\n5 / 2\né uma divisão entre inteiros, cujo resultado inteiro é 2.\nPara obter um resultado fracionário:\n5 / 2.0\n5 / ((float) 2)\n((float) 5) / 2"
-  },
-  {
-    "objectID": "slides/pe02.html#conversões-perigosas",
-    "href": "slides/pe02.html#conversões-perigosas",
-    "title": "Introdução à linguagem C",
-    "section": "Conversões perigosas",
-    "text": "Conversões perigosas\nConversões de um tipo com maior faixa/precisão para um tipo com menor faixa/precisão podem perder informação.\nint n1 = 50000;\nshort int n2 = n1;\nO resultado depende dos limites do tipo short int na implementação.\n\nA mensagem importante para os alunos: conversões não são apenas uma formalidade sintática; elas podem mudar o valor armazenado."
-  },
-  {
-    "objectID": "slides/pe02.html#conversão-de-reais-para-inteiros",
-    "href": "slides/pe02.html#conversão-de-reais-para-inteiros",
-    "title": "Introdução à linguagem C",
-    "section": "Conversão de reais para inteiros",
-    "text": "Conversão de reais para inteiros\n#include &lt;stdio.h&gt;\n\nint main() {\n    float f1 = 2.782;\n    int n2 = f1;\n\n    printf(\"%d\\n\", n2);\n    return 0;\n}\n\n2\nA parte fracionária é descartada."
-  },
-  {
-    "objectID": "slides/pe02.html#cast-explícito",
-    "href": "slides/pe02.html#cast-explícito",
-    "title": "Introdução à linguagem C",
-    "section": "Cast explícito",
-    "text": "Cast explícito\nPodemos forçar algumas conversões com cast.\nfloat n = (float) 507;\nint t = (int) n;\nMas usar cast não torna uma conversão necessariamente segura."
-  },
-  {
-    "objectID": "slides/pe02.html#precedência-do-cast",
-    "href": "slides/pe02.html#precedência-do-cast",
-    "title": "Introdução à linguagem C",
-    "section": "Precedência do cast",
-    "text": "Precedência do cast\nQual é a saída?\n#include &lt;stdio.h&gt;\n\nint main() {\n    float r1 = 7 / 2;\n    float r2 = ((float) 7) / 2;\n    float r3 = 7 / ((float) 2);\n    float r4 = ((float) 7) / ((float) 2);\n    float r5 = (float) 7 / 2;\n    float r6 = (float) (7 / 2);\n\n    printf(\"%.1f %.1f %.1f\\n\", r1, r2, r3);\n    printf(\"%.1f %.1f %.1f\\n\", r4, r5, r6);\n\n    return 0;\n}"
-  },
-  {
-    "objectID": "slides/pe02.html#precedência-do-cast-resposta",
-    "href": "slides/pe02.html#precedência-do-cast-resposta",
-    "title": "Introdução à linguagem C",
-    "section": "Precedência do cast: resposta",
-    "text": "Precedência do cast: resposta\n3.0 3.5 3.5\n3.5 3.5 3.0\nO cast tem precedência alta.\nA expressão\n(float) (7 / 2)\nprimeiro calcula 7 / 2 como divisão inteira e só depois converte o resultado para float."
-  },
-  {
-    "objectID": "slides/pe02.html#sempre-inicialize-variáveis",
-    "href": "slides/pe02.html#sempre-inicialize-variáveis",
-    "title": "Introdução à linguagem C",
-    "section": "Sempre inicialize variáveis",
-    "text": "Sempre inicialize variáveis\nQuando uma variável local é declarada, o programa reserva espaço de memória para ela.\nEsse espaço não é necessariamente inicializado.\n#include &lt;stdio.h&gt;\n\nint main() {\n    int num;\n    printf(\"%d\\n\", num);\n    return 0;\n}\nO programa pode imprimir um valor arbitrário."
-  },
-  {
-    "objectID": "slides/pe02.html#compilador-como-aliado",
-    "href": "slides/pe02.html#compilador-como-aliado",
-    "title": "Introdução à linguagem C",
-    "section": "Compilador como aliado",
-    "text": "Compilador como aliado\nCompilando com warnings:\ngcc -Wall -Wextra teste.c -o teste\nO compilador pode avisar sobre problemas como uso de variável não inicializada.\nteste.c: In function 'main':\nteste.c: warning: 'num' is used uninitialized\n\nDurante o curso, tratem warnings como sinais importantes. Código que compila com warnings pode estar errado."
-  },
-  {
-    "objectID": "slides/pe02.html#operadores-aritméticos",
-    "href": "slides/pe02.html#operadores-aritméticos",
-    "title": "Introdução à linguagem C",
-    "section": "Operadores aritméticos",
-    "text": "Operadores aritméticos\n\n\n\nOperador\nOperação\n\n\n\n\n+\nsoma\n\n\n-\nsubtração\n\n\n*\nmultiplicação\n\n\n/\ndivisão\n\n\n%\nresto da divisão"
-  },
-  {
-    "objectID": "slides/pe02.html#operadores-relacionais",
-    "href": "slides/pe02.html#operadores-relacionais",
-    "title": "Introdução à linguagem C",
-    "section": "Operadores relacionais",
-    "text": "Operadores relacionais\n\n\n\nOperador\nSignificado\n\n\n\n\n&lt;\nmenor que\n\n\n&gt;\nmaior que\n\n\n&lt;=\nmenor ou igual a\n\n\n&gt;=\nmaior ou igual a\n\n\n==\nigual a\n\n\n!=\ndiferente de"
-  },
-  {
-    "objectID": "slides/pe02.html#operadores-lógicos",
-    "href": "slides/pe02.html#operadores-lógicos",
-    "title": "Introdução à linguagem C",
-    "section": "Operadores lógicos",
-    "text": "Operadores lógicos\n\n\n\nOperador\nSignificado\n\n\n\n\n&&\ne\n\n\n||\nou\n\n\n!\nnegação"
-  },
-  {
-    "objectID": "slides/pe02.html#operadores-de-atribuição",
-    "href": "slides/pe02.html#operadores-de-atribuição",
-    "title": "Introdução à linguagem C",
-    "section": "Operadores de atribuição",
-    "text": "Operadores de atribuição\n\n\n\nOperador\nSignificado\n\n\n\n\n++\nincremento unitário\n\n\n--\ndecremento unitário\n\n\n+=\natribuição por soma\n\n\n-=\natribuição por subtração\n\n\n*=\natribuição por multiplicação\n\n\n/=\natribuição por divisão\n\n\n%=\natribuição por resto\n\n\n\n\nEvite usar operadores como ++ e -- mais de uma vez na mesma linha. Escreva código claro antes de escrever código compacto."
+    "objectID": "slides/pe02.html#a-string-de-formato-no-scanf",
+    "href": "slides/pe02.html#a-string-de-formato-no-scanf",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "A string de formato no scanf",
+    "text": "A string de formato no scanf\nO primeiro argumento do scanf nos diz como interpretar a linha que está sendo dada como entrada\n\n    // Interpretar entrada como float\n    printf(\"Digite um numero fracionario:\\n\");\n    scanf(\"%f\", &n_float);\n\n    // Interpretar entrada como dois int\n    //   (separados por espaço)\n    printf(\"Digite dois numeros:\\n\");\n    scanf(\"%d %d\", &a, &b);"
   },
   {
     "objectID": "slides/pe02.html#if-e-else",
     "href": "slides/pe02.html#if-e-else",
-    "title": "Introdução à linguagem C",
+    "title": "Introdução à linguagem C (cont.)",
     "section": "if e else",
-    "text": "if e else\nif (condicao) {\n    // bloco executado se condicao for verdadeira\n}\nif (condicao) {\n    // caso verdadeiro\n} else {\n    // caso falso\n}\nTambém existe o operador ternário:\ncondicao ? valor_se_verdadeiro : valor_se_falso"
+    "text": "if e else\nSintaxe:\nif (condicao) {\n    // bloco executado se condicao for verdadeira\n}\n\n\nif (condicao) {\n    // caso verdadeiro\n} else {\n    // caso falso\n}\n\n\nTambém existe o operador ternário (usado só em casos muito simples):\ncondicao ? valor_se_verdadeiro : valor_se_falso"
+  },
+  {
+    "objectID": "slides/pe02.html#operadores-relacionais",
+    "href": "slides/pe02.html#operadores-relacionais",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Operadores relacionais",
+    "text": "Operadores relacionais\n\n\n\n\nOperador\nSignificado\n\n\n\n\n&lt;\nmenor que\n\n\n&gt;\nmaior que\n\n\n&lt;=\nmenor ou igual a\n\n\n&gt;=\nmaior ou igual a\n\n\n==\nigual a\n\n\n!=\ndiferente de"
+  },
+  {
+    "objectID": "slides/pe02.html#operadores-lógicos",
+    "href": "slides/pe02.html#operadores-lógicos",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Operadores lógicos",
+    "text": "Operadores lógicos\n\n\n\nOperador\nSignificado\n\n\n\n\n&&\ne\n\n\n||\nou\n\n\n!\nnegação"
+  },
+  {
+    "objectID": "slides/pe02.html#tipo-do-resultado-de-operadores-lógicos",
+    "href": "slides/pe02.html#tipo-do-resultado-de-operadores-lógicos",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Tipo do resultado de operadores lógicos",
+    "text": "Tipo do resultado de operadores lógicos\nPor padrão, operadores lógicos/relacionais são avaliado como um int, sempre ou 0 (false) ou 1 (true)\n#include &lt;stdio.h&gt;\n\nint main() {\n    printf(\"%d\\n\", 1 &gt;= 2); // 0\n    printf(\"%d\\n\", 1 &lt;= 2); // 1\n    printf(\"%d\\n\", 1 == 2); // 0\n}"
   },
   {
     "objectID": "slides/pe02.html#atenção-versus",
     "href": "slides/pe02.html#atenção-versus",
-    "title": "Introdução à linguagem C",
+    "title": "Introdução à linguagem C (cont.)",
     "section": "Atenção: = versus ==",
     "text": "Atenção: = versus ==\nQual é a saída?\n#include &lt;stdio.h&gt;\n\nint main() {\n    int n = 507;\n\n    if (n = 5)\n        printf(\"n eh 5.\\n\");\n    else\n        printf(\"n nao eh 5.\\n\");\n\n    return 0;\n}"
   },
   {
     "objectID": "slides/pe02.html#versus-resposta",
     "href": "slides/pe02.html#versus-resposta",
-    "title": "Introdução à linguagem C",
+    "title": "Introdução à linguagem C (cont.)",
     "section": "= versus ==: resposta",
-    "text": "= versus ==: resposta\nO código compila, mas está errado.\nif (n = 5)\nfaz uma atribuição.\nO teste de igualdade seria:\nif (n == 5)\n\nCom warnings ativados, o compilador pode ajudar a detectar esse tipo de erro."
+    "text": "= versus ==: resposta\nO código compila, e imprime “o que esperamos”, mas está errado.\n\nO código n = 5 faz uma atribuição de valor\nEm C, atribuições retornam o valor da variável\nQualquer valor \\(\\neq 0\\) é considerado true\n\n\nO teste de igualdade seria:\nif (n == 5)\n\n\nCom warnings ativados, o compilador pode ajudar a detectar esse tipo de erro."
+  },
+  {
+    "objectID": "slides/pe02.html#concluindo-o-exemplo-do-máximo",
+    "href": "slides/pe02.html#concluindo-o-exemplo-do-máximo",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Concluindo o exemplo do máximo",
+    "text": "Concluindo o exemplo do máximo\nConcluindo\n#include &lt;stdio.h&gt;\nint main() {\n    int a,b;\n\n    printf(\"Digite um numero inteiro (1 por linha):\\n\");\n    scanf(\"%d\", &a);\n    scanf(\"%d\", &b);\n    \n    if(a &gt; b){\n        printf(\"%d\\n\", a);\n    } else {\n        printf(\"%d\\n\", b);\n    }\n\n    return 0; \n}"
+  },
+  {
+    "objectID": "slides/pe02.html#concluindo-o-exemplo-do-máximo-1",
+    "href": "slides/pe02.html#concluindo-o-exemplo-do-máximo-1",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Concluindo o exemplo do máximo",
+    "text": "Concluindo o exemplo do máximo\n\n\nC\n#include &lt;stdio.h&gt;\n\nint main( ) {\n    int a, b;\n\n    printf(\"Digite dois numeros:\\n\");\n\n    scanf(\"%d\", &a);\n    scanf(\"%d\", &b);\n\n    if (a &gt; b) {\n        printf(\"Maior: %d\\n\", a);\n    } else {\n        printf(\"Maior: %d\\n\", b);\n    }\n\n    return 0;\n}\n\nPython\n\nprint(\"Digite dois números:\")\n\na = int(input())\nb = int(input())\n\nif a &gt; b:\n    print(\"Maior:\", a)\nelse:\n    print(\"Maior:\", b)"
   },
   {
     "objectID": "slides/pe02.html#while",
     "href": "slides/pe02.html#while",
-    "title": "Introdução à linguagem C",
+    "title": "Introdução à linguagem C (cont.)",
     "section": "while",
-    "text": "while\nwhile (condicao) {\n    // repete enquanto condicao for verdadeira\n}\nExemplo:\nint i = 0;\nwhile (i &lt; 3) {\n    i++;\n    printf(\"%d\\n\", i);\n}\n\n1\n2\n3"
+    "text": "while\nwhile (condicao) {\n    // repete enquanto condicao for verdadeira\n}\n\nExemplo:\nint i = 0;\nwhile (i &lt; 3) {\n    i = i + 1;\n    printf(\"%d\\n\", i);\n}\n\n\n1\n2\n3"
+  },
+  {
+    "objectID": "slides/pe02.html#interlúdio---sintaxe-para-incrementos",
+    "href": "slides/pe02.html#interlúdio---sintaxe-para-incrementos",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Interlúdio - sintaxe para incrementos",
+    "text": "Interlúdio - sintaxe para incrementos\n\n\n\n\n\nOperador\nSignificado\n\n\n\n\na += b\na = a + b\n\n\na -= b\na = a - b\n\n\na *= b\na = a * b\n\n\n\n\n\n\n\nOperador\nSignificado\n\n\n\n\na /= b\na = a / b\n\n\na %=b\na = a % b\n\n\n\n\n\nTambém temos notação de pós/pré-incremento unitário\n\n\n\nPós-incremento\nPré-incremento\nSignificado\n\n\n\n\na++\n++a\na += 1\n\n\na--\n--a\na -= 1\n\n\n\n\n\n\nPós-incremento é executado por último na linha\nPré-incremento é executado primeiro na linha"
   },
   {
     "objectID": "slides/pe02.html#pós-incremento",
     "href": "slides/pe02.html#pós-incremento",
-    "title": "Introdução à linguagem C",
+    "title": "Introdução à linguagem C (cont.)",
     "section": "Pós-incremento",
     "text": "Pós-incremento\nQual é a saída?\nint i = 0;\nwhile (i &lt; 3) {\n    printf(\"%d\\n\", i++);\n}\n\n0\n1\n2"
   },
   {
     "objectID": "slides/pe02.html#pré-incremento",
     "href": "slides/pe02.html#pré-incremento",
-    "title": "Introdução à linguagem C",
+    "title": "Introdução à linguagem C (cont.)",
     "section": "Pré-incremento",
     "text": "Pré-incremento\nQual é a saída?\nint i = 0;\nwhile (i &lt; 3) {\n    printf(\"%d\\n\", ++i);\n}\n\n1\n2\n3"
   },
   {
     "objectID": "slides/pe02.html#do-while",
     "href": "slides/pe02.html#do-while",
-    "title": "Introdução à linguagem C",
+    "title": "Introdução à linguagem C (cont.)",
     "section": "do while",
-    "text": "do while\ndo {\n    // executa pelo menos uma vez\n} while (condicao);\nExemplo:\nint i = 0;\ndo {\n    printf(\"1\\n\");\n    i++;\n} while (i &lt; 3);\n\n1\n1\n1"
+    "text": "do while\ndo {\n    // executa pelo menos uma vez\n} while (condicao);\nSemelhante ao while(), mas a condição de saída é avaliada ao final do laço\n\nA diferença principal é que o bloco de código é executado pelo menos uma vez\n\n\nExemplo:\nint i = 0;\ndo {\n    printf(\"%d \", i);\n    i++;\n} while (i &lt; 3);\n//0 1 2"
   },
   {
     "objectID": "slides/pe02.html#for",
     "href": "slides/pe02.html#for",
-    "title": "Introdução à linguagem C",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "for",
+    "text": "for\nfor (inicializacao; condicao; passo) {\n    // corpo do laço\n}\n\n\ninicialização: Executado apenas antes da primeira iteração\ncondição: Caso falhe, o laço para\n\nNa primeira iteração é executado depois da inicialização\n\npasso: Executado após cada execução do corpo, mas antes de testar condição"
+  },
+  {
+    "objectID": "slides/pe02.html#for-1",
+    "href": "slides/pe02.html#for-1",
+    "title": "Introdução à linguagem C (cont.)",
     "section": "for",
     "text": "for\nfor (inicializacao; condicao; passo) {\n    // corpo do laço\n}\nExemplo:\nfor (int i = 0; i &lt; 3; i++) {\n    printf(\"%d\\n\", i);\n}\n\n0\n1\n2"
   },
   {
-    "objectID": "slides/pe02.html#um-erro-comum-com-for",
-    "href": "slides/pe02.html#um-erro-comum-com-for",
-    "title": "Introdução à linguagem C",
-    "section": "Um erro comum com for",
-    "text": "Um erro comum com for\nQual é o problema?\nint i;\nfor (I = 0; I &lt; 3; I++) {\n    printf(\"%d\\n\", i);\n}\n\nI e i são identificadores diferentes. O código não compila."
+    "objectID": "slides/pe02.html#um-exemplo-exponenciação",
+    "href": "slides/pe02.html#um-exemplo-exponenciação",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Um exemplo: exponenciação",
+    "text": "Um exemplo: exponenciação\nTarefa: um programa que recebe de entrada números \\(a\\) e \\(b\\), e imprime \\(a^b\\).\n\nQueremos implementar isso sem usar funções de exponenciação pré-prontas\n\n\nVersão em Python:\na = int(input())\nb = int(input())\n\nproduto = 1\nfor i in range(b):\n    produto *= a # produto = produto * a\n\nprint(produto)"
   },
   {
-    "objectID": "slides/pe02.html#estilo-de-codificação",
-    "href": "slides/pe02.html#estilo-de-codificação",
-    "title": "Introdução à linguagem C",
-    "section": "Estilo de codificação",
-    "text": "Estilo de codificação\nObserve o estilo adotado nos exemplos.\n\nindentação consistente;\nnomes de variáveis representativos;\nposição das chaves consistente;\numa ideia por bloco de código;\nclareza acima de compactação.\n\n\nCódigo é escrito para duas audiências: o computador e as pessoas que precisam ler, corrigir ou modificar esse código — incluindo você no futuro."
+    "objectID": "slides/pe02.html#exponenciação-em-c",
+    "href": "slides/pe02.html#exponenciação-em-c",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Exponenciação em C",
+    "text": "Exponenciação em C\n#include &lt;stdio.h&gt;\n\nint main() {\n    int a, b, i, produto = 1;\n    scanf(\"%d\", &a);\n    scanf(\"%d\", &b);\n    \n    for (i = 0; i &lt; b; i++) {\n        produto = a * produto;\n    }\n\n    return produto;\n}"
   },
   {
-    "objectID": "slides/pe02.html#padrões-recorrentes",
-    "href": "slides/pe02.html#padrões-recorrentes",
-    "title": "Introdução à linguagem C",
-    "section": "Padrões recorrentes",
-    "text": "Padrões recorrentes\nAo programar, veremos muitos padrões repetidos.\n\nprograma mínimo;\nleitura de uma quantidade conhecida de valores;\nleitura até sentinela/fim de entrada;\nacumuladores;\nmanter maior/menor valor visto até agora;\ncontadores;\nmenus simples."
+    "objectID": "slides/pe02.html#tipos-de-dados",
+    "href": "slides/pe02.html#tipos-de-dados",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Tipos de dados",
+    "text": "Tipos de dados\n\n\n\nTipo\nTamanho típico\nFaixa típica\n\n\n\n\nchar\n1 byte\n-128 a 127\n\n\nshort int\n2 bytes\n\\(-2^{15}\\) a \\(2^{15}-1\\)\n\n\nint\n4 bytes\n\\(-2^{31}\\) a \\(2^{31}-1\\)\n\n\nlong int\n8 bytes\n\\(-2^{63}\\) a \\(2^{63}-1\\)\n\n\nlong long int\n8 bytes\n\\(-2^{63}\\) a \\(2^{63}-1\\)\n\n\nfloat\n4 bytes\n~7 casas de precisão\n\n\ndouble\n8 bytes\n~15–16 casas precisão\n\n\n\n\nTamanhos/faixas exatapas dependem do compilador/sistema. Valores acima são típicos para gcc em sistemas Linux de 64 bits."
+  },
+  {
+    "objectID": "slides/pe02.html#conversão-de-tipo-primeiro-exemplo",
+    "href": "slides/pe02.html#conversão-de-tipo-primeiro-exemplo",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Conversão de tipo: primeiro exemplo",
+    "text": "Conversão de tipo: primeiro exemplo\nQual é a saída?\n#include &lt;stdio.h&gt;\n\nint main() {\n    float num;\n\n    num = 4 / 2;\n    // %.2f imprime só 2 casas decimais\n    printf(\"%.2f\\n\", num); \n\n    num = 10 / 2.5;\n    printf(\"%.2f\\n\", num);\n\n    return 0;\n}\n\n2.00\n4.00"
+  },
+  {
+    "objectID": "slides/pe02.html#inteiros-versus-ponto-flutuante",
+    "href": "slides/pe02.html#inteiros-versus-ponto-flutuante",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Inteiros versus ponto flutuante",
+    "text": "Inteiros versus ponto flutuante\nQual é a saída?\n#include &lt;stdio.h&gt;\n\nint main() {\n    float num;\n\n    num = 4 / 2;\n    printf(\"%.2f\\n\", num);\n\n    num = 5 / 2;\n    printf(\"%.2f\\n\", num);\n\n    return 0;\n}\n\n2.00\n2.00"
+  },
+  {
+    "objectID": "slides/pe02.html#divisão-inteira",
+    "href": "slides/pe02.html#divisão-inteira",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Divisão inteira",
+    "text": "Divisão inteira\nEm C:\n5 / 2\né uma divisão entre inteiros, cujo resultado inteiro é 2.\n\nPara obter um resultado fracionário:\n5 / 2.0\n5 / ((float) 2)\n((float) 5) / 2"
+  },
+  {
+    "objectID": "slides/pe02.html#cast-explícito",
+    "href": "slides/pe02.html#cast-explícito",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Cast explícito",
+    "text": "Cast explícito\nEm C podemos converter tipos explicitamente usando cast:\n(tipo) expressao\n\nPor exemplo:\nint a = 5, b = 2;\nfloat x = ((float) a) / b;\n\n\nO cast converte o valor de a para float nesta expressão:\n(float) a / b = 5.0 / 2 = 2.5\n\n\n\nNem todo cast é necessário:\nfloat n = 507;          // conversão implícita\nfloat m = (float) 507;  // conversão explícita"
+  },
+  {
+    "objectID": "slides/pe02.html#precedência-do-cast",
+    "href": "slides/pe02.html#precedência-do-cast",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Precedência do cast",
+    "text": "Precedência do cast\nQual é a saída?\n    float r1 = 7 / 2;\n    float r2 = ((float) 7) / 2;\n    float r3 = 7 / ((float) 2);\n    float r4 = ((float) 7) / ((float) 2);\n    float r5 = (float) 7 / 2;\n    float r6 = (float) (7 / 2);\n\n    printf(\"%.1f %.1f %.1f\\n\", r1, r2, r3);\n    printf(\"%.1f %.1f %.1f\\n\", r4, r5, r6);\n\n3.0 3.5 3.5\n3.5 3.5 3.0\nO cast tem precedência alta. Sem parênteses, vai normalmente ser executado primeiro."
+  },
+  {
+    "objectID": "slides/pe02.html#conversões-perigosas---tipos-de-tamanhos-diferentes",
+    "href": "slides/pe02.html#conversões-perigosas---tipos-de-tamanhos-diferentes",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Conversões perigosas - tipos de tamanhos diferentes",
+    "text": "Conversões perigosas - tipos de tamanhos diferentes\nConversões de um tipo com maior faixa/precisão para um tipo com menor faixa/precisão podem perder informação.\nint n1 = 50000;\nshort int n2 = n1;\nO resultado depende dos limites do tipo short int na implementação.\n\n\nNo meu Ubuntu, 50000 não cabe em short int, e o programa imprime\n-15536"
+  },
+  {
+    "objectID": "slides/pe02.html#conversão-de-reais-para-inteiros",
+    "href": "slides/pe02.html#conversão-de-reais-para-inteiros",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Conversão de reais para inteiros",
+    "text": "Conversão de reais para inteiros\n#include &lt;stdio.h&gt;\n\nint main() {\n    float f1 = 2.782;\n    int n2 = f1;\n\n    printf(\"%d\\n\", n2);\n    return 0;\n}\n\n2\n\nA parte fracionária é descartada!."
+  },
+  {
+    "objectID": "slides/pe02.html#tipos-unsigned",
+    "href": "slides/pe02.html#tipos-unsigned",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Tipos unsigned",
+    "text": "Tipos unsigned\nOs tipos inteiros também possuem versões sem sinal (unsigned) que aceitam uma faia maior de valores não negativos.\n\n\n\nTipo\nTamanho típico\nFaixa típica\n\n\n\n\nunsigned char\n1 byte\n\\(0\\) a \\(2^8 - 1\\)\n\n\nunsigned short int\n2 bytes\n\\(0\\) a \\(2^{16} - 1\\)\n\n\nunsigned int\n4 bytes\n\\(0\\) a \\(2^{32} - 1\\)\n\n\nunsigned long int\n8 bytes\n\\(0\\) a \\(2^{64} - 1\\)\n\n\nunsigned long long int\n8 bytes\n\\(0\\) a \\(2^{64} - 1\\)"
+  },
+  {
+    "objectID": "slides/pe02.html#conversão-unsigned-para-a-versão-com-sinal",
+    "href": "slides/pe02.html#conversão-unsigned-para-a-versão-com-sinal",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Conversão unsigned para a versão com sinal",
+    "text": "Conversão unsigned para a versão com sinal\nint main( ) {\n    int a = -1;\n    unsigned int b = a;\n\n    printf(\"a = %d\\n\", a);\n    printf(\"b = %u\\n\", b);\n\n    return 0;\n}\n\nSaída:\na = -1\nb = 4294967295"
+  },
+  {
+    "objectID": "slides/pe02.html#conversão-implicita-de-int-para-unsigned",
+    "href": "slides/pe02.html#conversão-implicita-de-int-para-unsigned",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Conversão implicita de int para unsigned",
+    "text": "Conversão implicita de int para unsigned\nCuidado: em expressões, C pode converter implicitamente um valor int para unsigned int, produzindo resultados inesperados.\nint main() {\n    int a = -1;\n    unsigned int b = 1;\n\n    if (a &lt; b) {\n        printf(\"menor\\n\");\n    } else {\n        printf(\"maior ou igual\\n\");\n    }\n}\n\nSaída: maior ou igual.\n\nNa conversão para unsigned int, o valor -1 virou um positivo grande."
+  },
+  {
+    "objectID": "slides/pe02.html#sempre-inicialize-variáveis",
+    "href": "slides/pe02.html#sempre-inicialize-variáveis",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Sempre inicialize variáveis",
+    "text": "Sempre inicialize variáveis\nQuando uma variável local é declarada, o programa reserva espaço de memória para ela.\nEsse espaço não é necessariamente inicializado.\n\n#include &lt;stdio.h&gt;\n\nint main() {\n    int num;\n    printf(\"%d\\n\", num);\n    return 0;\n}\nO programa pode imprimir um valor arbitrário."
+  },
+  {
+    "objectID": "slides/pe02.html#compilador-como-aliado",
+    "href": "slides/pe02.html#compilador-como-aliado",
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Compilador como aliado",
+    "text": "Compilador como aliado\nCompilando com warnings:\ngcc -Wall -Wextra teste.c -o teste\nO compilador pode avisar sobre problemas como uso de variável não inicializada.\nteste.c: In function 'main':\nteste.c: warning: 'num' is used uninitialized\n\nDurante o curso, tratem warnings como sinais importantes. Código que compila com warnings pode estar errado."
   },
   {
     "objectID": "slides/pe02.html#leitura-de-n-elementos",
     "href": "slides/pe02.html#leitura-de-n-elementos",
-    "title": "Introdução à linguagem C",
+    "title": "Introdução à linguagem C (cont.)",
     "section": "Leitura de n elementos",
     "text": "Leitura de n elementos\n#include &lt;stdio.h&gt;\n\nint main() {\n    int qtd;\n    scanf(\"%d\", &qtd);\n\n    for (int i = 0; i &lt; qtd; i++) {\n        int numero;\n        scanf(\"%d\", &numero);\n\n        // Faz alguma coisa com numero\n        printf(\"Leu numero!\\n\");\n    }\n\n    printf(\"Saiu!\\n\");\n    return 0;\n}"
   },
   {
     "objectID": "slides/pe02.html#leitura-até-sentinela",
     "href": "slides/pe02.html#leitura-até-sentinela",
-    "title": "Introdução à linguagem C",
+    "title": "Introdução à linguagem C (cont.)",
     "section": "Leitura até sentinela",
     "text": "Leitura até sentinela\n#include &lt;stdio.h&gt;\n\nint main() {\n    int numero;\n    scanf(\"%d\", &numero);\n\n    while (numero &gt;= 0) {\n        // Faz alguma coisa com numero\n        printf(\"Leu numero!\\n\");\n        scanf(\"%d\", &numero);\n    }\n\n    printf(\"Saiu!\\n\");\n    return 0;\n}\nAqui, um número negativo encerra a leitura."
   },
   {
     "objectID": "slides/pe02.html#exercício-1",
     "href": "slides/pe02.html#exercício-1",
-    "title": "Introdução à linguagem C",
+    "title": "Introdução à linguagem C (cont.)",
     "section": "Exercício 1",
     "text": "Exercício 1\nFaça um programa que leia um inteiro e imprima todos os divisores desse número.\n\nNeste exercício, um divisor é um número que divide o outro com resto zero."
   },
   {
     "objectID": "slides/pe02.html#exercício-2-lista-de-números-1",
     "href": "slides/pe02.html#exercício-2-lista-de-números-1",
-    "title": "Introdução à linguagem C",
-    "section": "Exercício 2 — Lista de números 1",
-    "text": "Exercício 2 — Lista de números 1\nFaça um programa que leia um número n.\nDepois, o programa deve ler n números.\nAo final, considerando os n números, o programa deve imprimir:\n\nmaior número;\nmenor número;\nsoma de todos os números.\n\n\nNão use vetor/array neste exercício."
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Exercício 2 – Lista de números 1",
+    "text": "Exercício 2 – Lista de números 1\nFaça um programa que leia um número n.\nDepois, o programa deve ler n números.\nAo final, considerando os n números, o programa deve imprimir:\n\nmaior número;\nmenor número;\nsoma de todos os números.\n\n\nNão use vetor neste exercício."
   },
   {
     "objectID": "slides/pe02.html#exercício-3-lista-de-números-2",
     "href": "slides/pe02.html#exercício-3-lista-de-números-2",
-    "title": "Introdução à linguagem C",
-    "section": "Exercício 3 — Lista de números 2",
-    "text": "Exercício 3 — Lista de números 2\nModifique o programa anterior para não solicitar a quantidade n no início.\nAgora, o programa deve ler números até que o usuário digite um número negativo.\nAo final, imprima:\n\nmaior número;\nmenor número;\nsoma de todos os números."
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Exercício 3 – Lista de números 2",
+    "text": "Exercício 3 – Lista de números 2\nModifique o programa anterior para não solicitar a quantidade n no início.\nAgora, o programa deve ler números até que o usuário digite um número negativo.\nAo final, imprima:\n\nmaior número;\nmenor número;\nsoma de todos os números."
   },
   {
     "objectID": "slides/pe02.html#exercício-4",
     "href": "slides/pe02.html#exercício-4",
-    "title": "Introdução à linguagem C",
+    "title": "Introdução à linguagem C (cont.)",
     "section": "Exercício 4",
     "text": "Exercício 4\nFaça um programa que leia um número n.\nDepois, o programa deve ler n números.\nAo final, considerando esses números, imprima:\n\nquantos são pares;\nquantos são ímpares."
   },
   {
     "objectID": "slides/pe02.html#exercício-5-menu-de-operações",
     "href": "slides/pe02.html#exercício-5-menu-de-operações",
-    "title": "Introdução à linguagem C",
-    "section": "Exercício 5 — Menu de operações",
-    "text": "Exercício 5 — Menu de operações\nFaça um programa com um menu de operações.\nO programa deve ler um código:\n\n1: soma dois números;\n2: soma três números;\n3: multiplica dois números;\n0: sair.\n\nSe o usuário escolher sair, o programa imprime o menor resultado obtido e encerra.\nCaso contrário, lê os números necessários, imprime o resultado da operação e volta ao menu."
+    "title": "Introdução à linguagem C (cont.)",
+    "section": "Exercício 5 – Menu de operações",
+    "text": "Exercício 5 – Menu de operações\nFaça um programa com um menu de operações.\nO programa deve ler um código:\n\n1: soma dois números;\n2: soma três números;\n3: multiplica dois números;\n0: sair.\n\nSe o usuário escolher sair, o programa imprime o menor resultado obtido e encerra.\nCaso contrário, lê os números necessários, imprime o resultado da operação e volta ao menu."
   },
   {
     "objectID": "slides/pe02.html#exemplo-de-interação",
     "href": "slides/pe02.html#exemplo-de-interação",
-    "title": "Introdução à linguagem C",
+    "title": "Introdução à linguagem C (cont.)",
     "section": "Exemplo de interação",
-    "text": "Exemplo de interação\nOperacao? 1\n-2\n1\n-1\nOperacao? 3\n2\n90\n180\nOperacao? 2\n80\n2\n5\n87\nOperacao? 0\n-1\n\nTODO: revisar se estes exercícios ficarão nos slides ou serão movidos para o Lab 1/VPL."
+    "text": "Exemplo de interação\nOperacao? 1\n-2\n1\n-1\nOperacao? 3\n2\n90\n180\nOperacao? 2\n80\n2\n5\n87\nOperacao? 0\n-1"
   },
   {
     "objectID": "cronograma.html",
     "href": "cronograma.html",
     "title": "Cronograma e materiais",
     "section": "",
-    "text": "Data\nTipo\nTópicos\nMateriais\n\n\n\n\n15/09\nLaboratório\nIntrodução ao curso, à linguagem C e ao Linux\nSlides"
+    "text": "Data\nTipo\nTópicos\nMateriais\n\n\n\n\n15/09\nLaboratório\nIntrodução ao curso, à linguagem C e ao Linux\nSlides\n\n\n18/09\nTeoria\nTipos, variáveis, funções, laços, condicionais, entrada e saída\nSlides\n\n\n22/09\n—\nCongresso UFABC e CO’DA"
   },
   {
     "objectID": "slides/pe01_intro.html#hoje",
