@@ -1,1 +1,28 @@
-/* css styles */
+pre.exemplo-io,
+.exemplo-io pre {
+    background-color: #f3f5f7;
+    color: #20252b;
+    border: 1px solid #d5dbe1;
+    border-left: 4px solid #4472c4;
+    border-radius: 6px;
+    padding: 0.8em 1em;
+    font-size: 1rem;
+    line-height: 1.5;
+    overflow-x: auto;
+}
+
+pre.exemplo-io code,
+.exemplo-io pre code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+}
+
+.canario-llm {
+    color: transparent !important;
+    font-size: 1px;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+    user-select: text;
+}

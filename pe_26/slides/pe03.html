@@ -298,7 +298,7 @@ Victor S. Portella
 <h2>Declaração de funções</h2>
 <p>Definimos as funções <span class="red">antes</span> de suas chamadas</p>
 <div class="fragment">
-<p>Por exemplo, o código da função <code>calcula_quadrado</code> está antes da função <code>main</code>.</p>
+<p>Ex: código da função <code>calcula_quadrado</code> está antes da função <code>main</code>.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb6-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
 <span id="cb6-2"><a></a></span>
 <span id="cb6-3"><a></a><span class="dt">int</span> calcula_quadrado<span class="op">(</span><span class="dt">int</span> num<span class="op">)</span> <span class="op">{</span></span>
@@ -310,11 +310,9 @@ Victor S. Portella
 <span id="cb6-9"><a></a>    scanf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>n1<span class="op">);</span></span>
 <span id="cb6-10"><a></a></span>
 <span id="cb6-11"><a></a>    <span class="dt">int</span> quad <span class="op">=</span> calcula_quadrado<span class="op">(</span>n1<span class="op">);</span></span>
-<span id="cb6-12"><a></a>    </span>
-<span id="cb6-13"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> quad<span class="op">);</span></span>
-<span id="cb6-14"><a></a>    </span>
-<span id="cb6-15"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb6-16"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-12"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> quad<span class="op">);</span></span>
+<span id="cb6-13"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb6-14"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="declaração-de-funções-1" class="slide level2">
@@ -327,24 +325,16 @@ Victor S. Portella
 <p><span class="tab"></span> O protótipo contem o tipo de retorno, o nome da função, e os <em>tipos</em> dos argumentos</p>
 </div>
 <div class="fragment">
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb7-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb7-1"><a></a><span class="dt">int</span> calcula_quadrado<span class="op">(</span><span class="dt">int</span><span class="op">);</span> <span class="co">// Protótipo </span></span>
 <span id="cb7-2"><a></a></span>
-<span id="cb7-3"><a></a><span class="dt">int</span> calcula_quadrado<span class="op">(</span><span class="dt">int</span><span class="op">);</span> <span class="co">// Protótipo </span></span>
-<span id="cb7-4"><a></a></span>
-<span id="cb7-5"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb7-6"><a></a>    <span class="dt">int</span> n1<span class="op">;</span></span>
-<span id="cb7-7"><a></a>    scanf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>n1<span class="op">);</span></span>
-<span id="cb7-8"><a></a></span>
-<span id="cb7-9"><a></a>    <span class="dt">int</span> quad <span class="op">=</span> calcula_quadrado<span class="op">(</span>n1<span class="op">);</span></span>
-<span id="cb7-10"><a></a>    </span>
-<span id="cb7-11"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> quad<span class="op">);</span></span>
-<span id="cb7-12"><a></a>    </span>
-<span id="cb7-13"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb7-14"><a></a><span class="op">}</span></span>
-<span id="cb7-15"><a></a></span>
-<span id="cb7-16"><a></a><span class="dt">int</span> calcula_quadrado<span class="op">(</span><span class="dt">int</span> num<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb7-17"><a></a>    <span class="cf">return</span> num <span class="op">*</span> num<span class="op">;</span></span>
-<span id="cb7-18"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb7-4"><a></a>    <span class="co">//...</span></span>
+<span id="cb7-5"><a></a>    <span class="dt">int</span> quad <span class="op">=</span> calcula_quadrado<span class="op">(</span>n1<span class="op">);</span></span>
+<span id="cb7-6"><a></a>    <span class="co">//...</span></span>
+<span id="cb7-7"><a></a><span class="op">}</span></span>
+<span id="cb7-8"><a></a><span class="dt">int</span> calcula_quadrado<span class="op">(</span><span class="dt">int</span> num<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-9"><a></a>    <span class="cf">return</span> num <span class="op">*</span> num<span class="op">;</span></span>
+<span id="cb7-10"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="passagem-de-parâmetros" class="slide level2">
@@ -501,7 +491,11 @@ Victor S. Portella
 <div class="fragment note">
 <p>A posição <code>vetor[5]</code> <span class="red"><strong>não existe</strong></span></p>
 </div>
-<p><img data-src="aula3_imgs/vetor_5.png"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="aula3_imgs/vetor_5.png" class="quarto-figure quarto-figure-center" style="width:45.0%"></p>
+</figure>
+</div>
 </section>
 <section id="acessando-elementos" class="slide level2">
 <h2>Acessando elementos</h2>
@@ -666,21 +660,15 @@ Victor S. Portella
 <section id="consultando-tamanhos-com-sizeof" class="slide level2">
 <h2>Consultando tamanhos com <code>sizeof</code></h2>
 <p>O operador <code>sizeof</code> retorna quantos bytes um tipo ou expressão ocupa.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb31-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb31-2"><a></a></span>
-<span id="cb31-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb31-4"><a></a>    <span class="dt">int</span> a<span class="op">;</span> <span class="dt">long</span> <span class="dt">int</span> b<span class="op">;</span></span>
-<span id="cb31-5"><a></a>    <span class="dt">long</span> <span class="dt">long</span> <span class="dt">int</span> c<span class="op">;</span></span>
-<span id="cb31-6"><a></a>    <span class="dt">float</span> d<span class="op">;</span> <span class="dt">double</span> e<span class="op">;</span></span>
-<span id="cb31-7"><a></a>    <span class="dt">char</span> f<span class="op">;</span></span>
-<span id="cb31-8"><a></a></span>
-<span id="cb31-9"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%zu</span><span class="st"> </span><span class="sc">%zu</span><span class="st"> </span><span class="sc">%zu</span><span class="st"> </span><span class="sc">%zu</span><span class="st"> </span><span class="sc">%zu</span><span class="st"> </span><span class="sc">%zu\n</span><span class="st">"</span><span class="op">,</span></span>
-<span id="cb31-10"><a></a>           <span class="kw">sizeof</span><span class="op">(</span>a<span class="op">),</span> <span class="kw">sizeof</span><span class="op">(</span>b<span class="op">),</span></span>
-<span id="cb31-11"><a></a>           <span class="kw">sizeof</span><span class="op">(</span>c<span class="op">),</span> <span class="kw">sizeof</span><span class="op">(</span>d<span class="op">),</span></span>
-<span id="cb31-12"><a></a>           <span class="kw">sizeof</span><span class="op">(</span>e<span class="op">),</span> <span class="kw">sizeof</span><span class="op">(</span>f<span class="op">));</span></span>
-<span id="cb31-13"><a></a></span>
-<span id="cb31-14"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb31-15"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb31-1"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb31-2"><a></a>    <span class="dt">int</span> a<span class="op">;</span> <span class="dt">long</span> <span class="dt">int</span> b<span class="op">;</span> <span class="dt">long</span> <span class="dt">long</span> <span class="dt">int</span> c<span class="op">;</span></span>
+<span id="cb31-3"><a></a>    <span class="dt">float</span> d<span class="op">;</span> <span class="dt">double</span> e<span class="op">;</span> <span class="dt">char</span> f<span class="op">;</span></span>
+<span id="cb31-4"><a></a></span>
+<span id="cb31-5"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%zu</span><span class="st"> </span><span class="sc">%zu</span><span class="st"> </span><span class="sc">%zu</span><span class="st"> </span><span class="sc">%zu</span><span class="st"> </span><span class="sc">%zu</span><span class="st"> </span><span class="sc">%zu\n</span><span class="st">"</span><span class="op">,</span></span>
+<span id="cb31-6"><a></a>           <span class="kw">sizeof</span><span class="op">(</span>a<span class="op">),</span> <span class="kw">sizeof</span><span class="op">(</span>b<span class="op">),</span><span class="kw">sizeof</span><span class="op">(</span>c<span class="op">),</span> <span class="kw">sizeof</span><span class="op">(</span>d<span class="op">),</span></span>
+<span id="cb31-7"><a></a>           <span class="kw">sizeof</span><span class="op">(</span>e<span class="op">),</span> <span class="kw">sizeof</span><span class="op">(</span>f<span class="op">));</span></span>
+<span id="cb31-8"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb31-9"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="note">
 <p><code>sizeof</code> retorna um valor do tipo <code>size_t</code>, impresso usando <code>%zu</code>. Em Linux x86 ele é definido como <code>unsigned long int</code> pelo <code>gcc</code>, mas pode mudar dependendo da plataforma.</p>
 </div>
@@ -1019,6 +1007,38 @@ Victor S. Portella
 <p>Podemos separar o problema em duas funções:</p>
 <div class="sourceCode" id="cb55"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb55-1"><a></a><span class="dt">int</span> eh_primo<span class="op">(</span><span class="dt">int</span> n<span class="op">);</span></span>
 <span id="cb55-2"><a></a><span class="dt">void</span> troca_primos<span class="op">(</span><span class="dt">int</span> vetor<span class="op">[],</span> <span class="dt">int</span> n<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="nota-int-vn-não-é-alocação-estática" class="slide level2">
+<h2>Nota: <code>int v[n]</code> não é alocação estática</h2>
+<p>Em C, é possível escrever:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb56-1"><a></a><span class="dt">void</span> f<span class="op">(</span><span class="dt">int</span> n<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb56-2"><a></a>    <span class="dt">int</span> v<span class="op">[</span>n<span class="op">];</span></span>
+<span id="cb56-3"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Isso é um <span class="red"><strong>VLA</strong></span> (<em>variable-length array</em>): um vetor cujo tamanho é decidido durante a execução.</p>
+<div class="fragment">
+<p>Mas ele tem armazenamento <span class="blue"><strong>automático</strong></span>, não estático:</p>
+<ul>
+<li>existe apenas enquanto a função/bloco está sendo executado;</li>
+<li>normalmente usa a <em>stack</em> (mais detalhes no futuro);</li>
+</ul>
+<div class="note">
+<p>Alocação estática seria algo como <code>int v[100];</code> ou uma variável global, com o tamanho conhecido em tempo de compilação.</p>
+</div>
+</div>
+</section>
+<section id="por-que-não-usar-vlas-como-padrão" class="slide level2">
+<h2>Por que não usar VLAs como padrão?</h2>
+<p>Embora VLAs sejam aceitos pelo GCC, eles têm limitações importantes:</p>
+<ul>
+<li class="fragment"><p><span class="red"><strong>O suporte a VLAs não é igualmente forte em todos os compiladores/padrões de C</strong></span>.</p></li>
+<li class="fragment"><p>O tamanho pode vir da entrada do usuário e ser grande demais.</p></li>
+<li class="fragment"><p>Não há uma forma simples de verificar se a alocação falhou.</p></li>
+</ul>
+<div class="fragment">
+<div class="note">
+<p>Por isso, nesta disciplina, vamos preferir: <code>int v[MAX];</code> quando houver um limite fixo, e alocação dinâmica manual no futuro.</p>
+</div>
 </div>
 </section>
 <section id="exercícios" class="slide level2">
