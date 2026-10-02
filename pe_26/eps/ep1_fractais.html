@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.29">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>EP1 — Fractais – PE 2026 - UFABC</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9724cf4b05150a4d2634f8236da9eae7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">PE 2026 - UFABC</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Início</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../cronograma.html"> 
+<span class="menu-text">Cronograma e materiais</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-laboratórios" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Laboratórios</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-laboratórios">    
+        <li>
+    <a class="dropdown-item" href="../labs/lab1.html">
+ <span class="dropdown-text">Lab 1</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#objetivo" id="toc-objetivo" class="nav-link active" data-scroll-target="#objetivo"><span class="header-section-number">1</span> Objetivo</a></li>
+  <li><a href="#arquivos-fornecidos" id="toc-arquivos-fornecidos" class="nav-link" data-scroll-target="#arquivos-fornecidos"><span class="header-section-number">2</span> Arquivos fornecidos</a></li>
+  <li><a href="#representação-da-imagem" id="toc-representação-da-imagem" class="nav-link" data-scroll-target="#representação-da-imagem"><span class="header-section-number">3</span> Representação da imagem</a></li>
+  <li><a href="#funções-básicas-de-desenho" id="toc-funções-básicas-de-desenho" class="nav-link" data-scroll-target="#funções-básicas-de-desenho"><span class="header-section-number">4</span> Funções básicas de desenho</a>
+  <ul class="collapse">
+  <li><a href="#linha-horizontal" id="toc-linha-horizontal" class="nav-link" data-scroll-target="#linha-horizontal"><span class="header-section-number">4.1</span> Linha horizontal</a></li>
+  <li><a href="#linha-vertical" id="toc-linha-vertical" class="nav-link" data-scroll-target="#linha-vertical"><span class="header-section-number">4.2</span> Linha vertical</a></li>
+  <li><a href="#retângulo-preenchido" id="toc-retângulo-preenchido" class="nav-link" data-scroll-target="#retângulo-preenchido"><span class="header-section-number">4.3</span> Retângulo preenchido</a></li>
+  <li><a href="#limites-da-matriz" id="toc-limites-da-matriz" class="nav-link" data-scroll-target="#limites-da-matriz"><span class="header-section-number">4.4</span> Limites da matriz</a></li>
+  </ul></li>
+  <li><a href="#conjunto-de-cantor" id="toc-conjunto-de-cantor" class="nav-link" data-scroll-target="#conjunto-de-cantor"><span class="header-section-number">5</span> Conjunto de Cantor</a>
+  <ul class="collapse">
+  <li><a href="#função-recursiva" id="toc-função-recursiva" class="nav-link" data-scroll-target="#função-recursiva"><span class="header-section-number">5.1</span> Função recursiva</a>
+  <ul class="collapse">
+  <li><a href="#exemplos-pequenos" id="toc-exemplos-pequenos" class="nav-link" data-scroll-target="#exemplos-pequenos"><span class="header-section-number">5.1.1</span> Exemplos pequenos</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#árvore-h" id="toc-árvore-h" class="nav-link" data-scroll-target="#árvore-h"><span class="header-section-number">6</span> Árvore H</a>
+  <ul class="collapse">
+  <li><a href="#construção-recursiva" id="toc-construção-recursiva" class="nav-link" data-scroll-target="#construção-recursiva"><span class="header-section-number">6.1</span> Construção recursiva</a></li>
+  <li><a href="#função-recursiva-1" id="toc-função-recursiva-1" class="nav-link" data-scroll-target="#função-recursiva-1"><span class="header-section-number">6.2</span> Função recursiva</a></li>
+  </ul></li>
+  <li><a href="#tapete-de-sierpinski" id="toc-tapete-de-sierpinski" class="nav-link" data-scroll-target="#tapete-de-sierpinski"><span class="header-section-number">7</span> Tapete de Sierpinski</a>
+  <ul class="collapse">
+  <li><a href="#função-recursiva-2" id="toc-função-recursiva-2" class="nav-link" data-scroll-target="#função-recursiva-2"><span class="header-section-number">7.1</span> Função recursiva</a>
+  <ul class="collapse">
+  <li><a href="#exemplos" id="toc-exemplos" class="nav-link" data-scroll-target="#exemplos"><span class="header-section-number">7.1.1</span> Exemplos</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#programa-principal" id="toc-programa-principal" class="nav-link" data-scroll-target="#programa-principal"><span class="header-section-number">8</span> Programa principal</a></li>
+  <li><a href="#arquivos-pbm" id="toc-arquivos-pbm" class="nav-link" data-scroll-target="#arquivos-pbm"><span class="header-section-number">9</span> Arquivos PBM</a></li>
+  <li><a href="#compilação" id="toc-compilação" class="nav-link" data-scroll-target="#compilação"><span class="header-section-number">10</span> Compilação</a></li>
+  <li><a href="#requisitos" id="toc-requisitos" class="nav-link" data-scroll-target="#requisitos"><span class="header-section-number">11</span> Requisitos</a></li>
+  <li><a href="#testes" id="toc-testes" class="nav-link" data-scroll-target="#testes"><span class="header-section-number">12</span> Testes</a></li>
+  <li><a href="#sugestão-de-desenvolvimento" id="toc-sugestão-de-desenvolvimento" class="nav-link" data-scroll-target="#sugestão-de-desenvolvimento"><span class="header-section-number">13</span> Sugestão de desenvolvimento</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">EP1 — Fractais</h1>
+<p class="subtitle lead">Programação Estruturada</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="objetivo" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Objetivo</h1>
+<p>Neste exercício-programa, você implementará funções para desenhar três padrões recursivos em uma imagem em preto e branco:</p>
+<ul>
+<li>conjunto de Cantor;</li>
+<li>árvore H;</li>
+<li>tapete de Sierpinski.</li>
+</ul>
+<p>A imagem será representada por uma matriz bidimensional. As funções de desenho deverão modificar essa matriz, e funções já fornecidas cuidarão da geração dos arquivos de imagem no formato PBM.</p>
+<p>O EP trabalha principalmente com matrizes, funções, laços e recursão.</p>
+</section>
+<section id="arquivos-fornecidos" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Arquivos fornecidos</h1>
+<p>O código do EP está dividido nos seguintes arquivos:</p>
+<pre class="text"><code>desenho.h
+desenho.c
+fractal.h
+fractal.c
+main.c</code></pre>
+<p>Os arquivos <code>.h</code> contêm constantes e declarações de funções. Algumas funções dos arquivos <code>.c</code> já estão implementadas.</p>
+<p>Você deverá implementar apenas as seguintes funções:</p>
+<p>Em <code>desenho.c</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> linha_horizontal<span class="op">(</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">unsigned</span> <span class="dt">char</span> img<span class="op">[][</span>MAX_DIM<span class="op">],</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> <span class="dt">int</span> comprimento<span class="op">,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">unsigned</span> <span class="dt">char</span> cor<span class="op">);</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> linha_vertical<span class="op">(</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">unsigned</span> <span class="dt">char</span> img<span class="op">[][</span>MAX_DIM<span class="op">],</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> <span class="dt">int</span> comprimento<span class="op">,</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">unsigned</span> <span class="dt">char</span> cor<span class="op">);</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> pinta_retangulo<span class="op">(</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">unsigned</span> <span class="dt">char</span> img<span class="op">[][</span>MAX_DIM<span class="op">],</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> largura<span class="op">,</span> <span class="dt">int</span> altura<span class="op">,</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">unsigned</span> <span class="dt">char</span> cor<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Em <code>fractal.c</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> cantor_rec<span class="op">(</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">unsigned</span> <span class="dt">char</span> img<span class="op">[][</span>MAX_DIM<span class="op">],</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> comprimento<span class="op">,</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> profundidade<span class="op">);</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> arvore_h_rec<span class="op">(</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">unsigned</span> <span class="dt">char</span> img<span class="op">[][</span>MAX_DIM<span class="op">],</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> tamanho<span class="op">,</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> profundidade<span class="op">);</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> tapete_rec<span class="op">(</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">unsigned</span> <span class="dt">char</span> img<span class="op">[][</span>MAX_DIM<span class="op">],</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> lado<span class="op">,</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> profundidade<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>As funções <code>salva_pbm</code>, <code>cantor</code>, <code>arvore_h</code>, <code>tapete</code> e <code>main</code> serão fornecidas prontas e <strong>não devem ser modificadas</strong>.</p>
+<p>Você pode criar funções auxiliares e acrescentar novas declarações aos arquivos <code>.h</code>, desde que não remova nem modifique as declarações e constantes já fornecidas. Não utilize novas variáveis globais.</p>
+</section>
+<section id="representação-da-imagem" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Representação da imagem</h1>
+<p>A constante</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#define MAX_DIM </span><span class="dv">1024</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>define o número máximo de linhas e colunas da matriz usada para armazenar a imagem.</p>
+<p>Cada pixel é representado por um valor do tipo <code>unsigned char</code>:</p>
+<ul>
+<li><code>0</code>: branco;</li>
+<li><code>1</code>: preto.</li>
+</ul>
+<p>A matriz usa a convenção</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>img<span class="op">[</span>y<span class="op">][</span>x<span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>isto é, o primeiro índice representa a linha e o segundo representa a coluna.</p>
+<p>A coordenada <code>(0, 0)</code> corresponde ao canto superior esquerdo da imagem. O eixo <code>x</code> cresce para a direita e o eixo <code>y</code> cresce para baixo.</p>
+<pre class="text"><code>(0,0) ----------&gt; x
+  |
+  |
+  |
+  v
+  y</code></pre>
+<p>As funções recursivas devem modificar apenas os pixels necessários para produzir o desenho solicitado. Elas não devem limpar ou reinicializar a matriz.</p>
+</section>
+<section id="funções-básicas-de-desenho" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Funções básicas de desenho</h1>
+<section id="linha-horizontal" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="linha-horizontal"><span class="header-section-number">4.1</span> Linha horizontal</h2>
+<p>A função</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> linha_horizontal<span class="op">(</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">unsigned</span> <span class="dt">char</span> img<span class="op">[][</span>MAX_DIM<span class="op">],</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> comprimento<span class="op">,</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">unsigned</span> <span class="dt">char</span> cor<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>deve pintar <code>comprimento</code> pixels consecutivos na linha <code>y</code>, começando na coluna <code>x</code>.</p>
+<p>Em particular, a chamada</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>linha_horizontal<span class="op">(</span>img<span class="op">,</span> x<span class="op">,</span> y<span class="op">,</span> comprimento<span class="op">,</span> cor<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>deve alterar exatamente os pixels</p>
+<p><span class="math display">\[
+\texttt{img[y][x]},\,
+\texttt{img[y][x+1]},\,
+\ldots,\,
+\texttt{img[y][x+comprimento-1]}.
+\]</span></p>
+<p>Nenhum outro pixel deve ser modificado.</p>
+<p>Por exemplo,</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>linha_horizontal<span class="op">(</span>img<span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">1</span><span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>pinta de preto os pixels de <code>(2,3)</code> até <code>(6,3)</code>.</p>
+</section>
+<section id="linha-vertical" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="linha-vertical"><span class="header-section-number">4.2</span> Linha vertical</h2>
+<p>A função</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> linha_vertical<span class="op">(</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">unsigned</span> <span class="dt">char</span> img<span class="op">[][</span>MAX_DIM<span class="op">],</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> comprimento<span class="op">,</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">unsigned</span> <span class="dt">char</span> cor<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>deve pintar <code>comprimento</code> pixels consecutivos na coluna <code>x</code>, começando na linha <code>y</code>.</p>
+<p>Assim,</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>linha_vertical<span class="op">(</span>img<span class="op">,</span> x<span class="op">,</span> y<span class="op">,</span> comprimento<span class="op">,</span> cor<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>deve alterar exatamente os pixels</p>
+<p><span class="math display">\[
+\texttt{img[y][x]},\,
+\texttt{img[y+1][x]},\,
+\ldots,\,
+\texttt{img[y+comprimento-1][x]}.
+\]</span></p>
+<p>Nenhum outro pixel deve ser modificado.</p>
+</section>
+<section id="retângulo-preenchido" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="retângulo-preenchido"><span class="header-section-number">4.3</span> Retângulo preenchido</h2>
+<p>A função</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> pinta_retangulo<span class="op">(</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">unsigned</span> <span class="dt">char</span> img<span class="op">[][</span>MAX_DIM<span class="op">],</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> largura<span class="op">,</span> <span class="dt">int</span> altura<span class="op">,</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">unsigned</span> <span class="dt">char</span> cor<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>deve preencher um retângulo cujo canto superior esquerdo é <code>(x,y)</code>, com <code>largura</code> colunas e <code>altura</code> linhas.</p>
+<p>Devem ser modificados exatamente os pixels <code>img[i][j]</code> que satisfazem</p>
+<p><span class="math display">\[
+x \leq j &lt; x + \texttt{largura}
+\]</span></p>
+<p>e</p>
+<p><span class="math display">\[
+y \leq i &lt; y + \texttt{altura}.
+\]</span></p>
+<p>Você pode implementar essa função diretamente ou reutilizar <code>linha_horizontal</code> ou <code>linha_vertical</code>.</p>
+</section>
+<section id="limites-da-matriz" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="limites-da-matriz"><span class="header-section-number">4.4</span> Limites da matriz</h2>
+<p>Nos testes oficiais, as funções serão chamadas apenas com desenhos inteiramente contidos na matriz.</p>
+<p>Portanto, <strong>não é obrigatório</strong> verificar se cada coordenada está entre <code>0</code> e <code>MAX_DIM - 1</code>.</p>
+<p>Durante o desenvolvimento, no entanto, pode ser útil fazer essa verificação. Um erro no cálculo de coordenadas de uma função recursiva pode levar a um acesso fora dos limites da matriz, cujo comportamento em C é indefinido e pode causar, por exemplo, um erro de segmentação.</p>
+<p>Uma função auxiliar que teste se uma coordenada pertence à matriz pode tornar a depuração mais simples. Essa verificação é opcional e não será exigida nos testes.</p>
+</section>
+</section>
+<section id="conjunto-de-cantor" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Conjunto de Cantor</h1>
+<p>O conjunto de Cantor será representado por uma sequência de segmentos horizontais.</p>
+<p>Em cada nível da construção, cada segmento gera dois segmentos no nível seguinte:</p>
+<ul>
+<li>um no terço esquerdo;</li>
+<li>um no terço direito.</li>
+</ul>
+<p>Cada novo segmento possui um terço do comprimento do segmento anterior.</p>
+<p>Os níveis são separados verticalmente pela constante <code>DIST_Y_CANTOR</code>. No código fornecido,</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#define DIST_Y_CANTOR </span><span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>de modo que, se um nível é desenhado na linha <code>y</code>, o próximo é desenhado na linha <code>y + 4</code>. Há, portanto, três linhas inteiramente em branco entre dois níveis consecutivos.</p>
+<section id="função-recursiva" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="função-recursiva"><span class="header-section-number">5.1</span> Função recursiva</h2>
+<p>Implemente:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> cantor_rec<span class="op">(</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">unsigned</span> <span class="dt">char</span> img<span class="op">[][</span>MAX_DIM<span class="op">],</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> comprimento<span class="op">,</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> profundidade<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>O ponto <code>(x,y)</code> é o primeiro pixel do segmento do nível atual.</p>
+<p>Se <code>profundidade &lt;= 0</code>, a função não deve modificar a matriz.</p>
+<p>Caso contrário:</p>
+<ol type="1">
+<li>desenhe o segmento horizontal correspondente ao nível atual;</li>
+<li>se ainda houver níveis a construir, continue recursivamente nos terços esquerdo e direito, usando segmentos com um terço do comprimento atual.</li>
+</ol>
+<p>A função deve funcionar para valores de <code>x</code> e <code>y</code> diferentes daqueles usados na imagem final.</p>
+<p>A função não recursiva <code>cantor</code>, já fornecida, escolhe o comprimento inicial, a posição do primeiro segmento, as dimensões da imagem e chama <code>salva_pbm</code>.</p>
+<p>A imagem final possui uma linha em branco acima do primeiro segmento.</p>
+<section id="exemplos-pequenos" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="exemplos-pequenos"><span class="header-section-number">5.1.1</span> Exemplos pequenos</h3>
+<p>Para uma construção com dois níveis e comprimento inicial 3, ignorando a linha em branco acrescentada pela função <code>cantor</code>, a parte desenhada é:</p>
+<pre class="text"><code>111
+000
+000
+000
+101</code></pre>
+<p>Para profundidade <code>0</code>, <code>cantor_rec</code> não desenha nenhum pixel.</p>
+</section>
+</section>
+</section>
+<section id="árvore-h" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Árvore H</h1>
+<p>A árvore H é construída recursivamente a partir de desenhos em formato da letra H.</p>
+<p>Cada H é determinado por:</p>
+<ul>
+<li>um centro <code>(x,y)</code>;</li>
+<li>um parâmetro <code>tamanho</code>.</li>
+</ul>
+<p>O parâmetro <code>tamanho</code> representa a distância entre o centro do H e cada uma de suas quatro extremidades. Cada um dos três traços do H possui, portanto,</p>
+<p>[ 2+1 ]</p>
+<p>pixels.</p>
+<p>O traço horizontal passa pelo centro <code>(x,y)</code>. Os dois traços verticais são paralelos, têm seus pontos médios alinhados com o centro e são ligados pelo traço horizontal.</p>
+<p>Por exemplo, um H com <code>tamanho = 2</code> ocupa uma região de <code>5 x 5</code> pixels:</p>
+<pre class="text"><code>1...1
+1...1
+11111
+1...1
+1...1</code></pre>
+<p>Os pontos marcados com <code>.</code> permanecem brancos.</p>
+<section id="construção-recursiva" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="construção-recursiva"><span class="header-section-number">6.1</span> Construção recursiva</h2>
+<p>Uma árvore H de profundidade <code>1</code> é formada apenas pelo H inicial.</p>
+<p>Para profundidades maiores, cada uma das quatro extremidades do H atual torna-se o centro de uma nova árvore H:</p>
+<ul>
+<li>com metade do tamanho;</li>
+<li>com profundidade uma unidade menor.</li>
+</ul>
+<p>Não há espaço adicional entre um H e seus descendentes: o centro de cada H menor coincide com uma das extremidades do H que o originou.</p>
+</section>
+<section id="função-recursiva-1" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="função-recursiva-1"><span class="header-section-number">6.2</span> Função recursiva</h2>
+<p>Implemente:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> arvore_h_rec<span class="op">(</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">unsigned</span> <span class="dt">char</span> img<span class="op">[][</span>MAX_DIM<span class="op">],</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> tamanho<span class="op">,</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> profundidade<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Os parâmetros <code>x</code> e <code>y</code> representam o centro do H do nível atual.</p>
+<p>Se <code>profundidade == 0</code>, a função não deve modificar a matriz.</p>
+<p>Caso contrário, ela deve desenhar o H correspondente ao nível atual e, quando necessário, continuar a construção recursivamente a partir de suas quatro extremidades.</p>
+<p>Os valores de <code>tamanho</code> usados pelo programa serão escolhidos de forma que todas as divisões por <code>2</code> necessárias sejam exatas.</p>
+<p>A função não recursiva <code>arvore_h</code>, já fornecida, escolhe o tamanho do primeiro H, posiciona a construção no centro da imagem e chama <code>salva_pbm</code>.</p>
+<p>A constante</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#define HTREE_MIN_DIST </span><span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>determina o tamanho dos menores Hs desenhados.</p>
+<p>Para profundidade <code>0</code>, <code>arvore_h_rec</code> não desenha nenhum pixel.</p>
+</section>
+</section>
+<section id="tapete-de-sierpinski" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Tapete de Sierpinski</h1>
+<p>O tapete de Sierpinski é construído recursivamente a partir de uma região quadrada.</p>
+<p>Em cada etapa, o quadrado atual é dividido em uma grade <code>3 x 3</code>, formando nove quadrados menores de mesmo tamanho. O quadrado central permanece branco, e o mesmo procedimento é aplicado aos outros oito quadrados.</p>
+<p>A matriz está inicialmente branca.</p>
+<pre class="text"><code>XXX
+X.X
+XXX</code></pre>
+<p>Cada <code>X</code> representa uma região na qual a construção continua recursivamente. A região central, indicada por <code>.</code>, permanece branca.</p>
+<section id="função-recursiva-2" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="função-recursiva-2"><span class="header-section-number">7.1</span> Função recursiva</h2>
+<p>Implemente:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> tapete_rec<span class="op">(</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">unsigned</span> <span class="dt">char</span> img<span class="op">[][</span>MAX_DIM<span class="op">],</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> x<span class="op">,</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> y<span class="op">,</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> lado<span class="op">,</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> profundidade<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Os parâmetros <code>x</code> e <code>y</code> representam o canto superior esquerdo da região atual.</p>
+<p>O parâmetro <code>lado</code> representa sua largura e sua altura.</p>
+<p>Se <code>profundidade == 0</code>, toda a região atual deve ser pintada de preto.</p>
+<p>Caso contrário, divida a região em nove quadrados de lado</p>
+<p>[ , ]</p>
+<p>e continue a construção recursivamente nos oito quadrados que não correspondem ao centro.</p>
+<p>É permitido usar laços para percorrer a grade <code>3 x 3</code>.</p>
+<p>Os valores de <code>lado</code> usados pelo programa serão potências de <code>3</code>, de forma que todas as divisões necessárias sejam exatas.</p>
+<p>A função não recursiva <code>tapete</code>, já fornecida, utiliza uma imagem quadrada de lado</p>
+<p>[ 3^{} ]</p>
+<p>e chama <code>salva_pbm</code>.</p>
+<section id="exemplos" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="exemplos"><span class="header-section-number">7.1.1</span> Exemplos</h3>
+<p>Para profundidade <code>0</code>:</p>
+<pre class="text"><code>1</code></pre>
+<p>Para profundidade <code>1</code>:</p>
+<pre class="text"><code>111
+101
+111</code></pre>
+<p>Para profundidade <code>2</code>:</p>
+<pre class="text"><code>111111111
+101101101
+111111111
+111000111
+101000101
+111000111
+111111111
+101101101
+111111111</code></pre>
+</section>
+</section>
+</section>
+<section id="programa-principal" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Programa principal</h1>
+<p>O arquivo <code>main.c</code> será fornecido pronto.</p>
+<p>O programa solicita dois valores usando <code>scanf</code>:</p>
+<ol type="1">
+<li>o fractal que deve ser gerado;</li>
+<li>a profundidade desejada.</li>
+</ol>
+<p>A seleção dos fractais é:</p>
+<pre class="text"><code>1 - Conjunto de Cantor
+2 - Arvore H
+3 - Tapete de Sierpinski</code></pre>
+<p>Cada fractal é salvo em um arquivo PBM com nome definido pelo programa.</p>
+<p>A profundidade <code>0</code> é permitida. O comportamento das funções recursivas nesse caso é:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Função</th>
+<th>Profundidade 0</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>cantor_rec</code></td>
+<td>não desenha</td>
+</tr>
+<tr class="even">
+<td><code>arvore_h_rec</code></td>
+<td>não desenha</td>
+</tr>
+<tr class="odd">
+<td><code>tapete_rec</code></td>
+<td>pinta a região atual de preto</td>
+</tr>
+</tbody>
+</table>
+<p>Os limites máximos de profundidade usados pelo programa garantem que a imagem caiba na matriz <code>MAX_DIM x MAX_DIM</code>.</p>
+</section>
+<section id="arquivos-pbm" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Arquivos PBM</h1>
+<p>A função <code>salva_pbm</code>, já implementada em <code>desenho.c</code>, grava parte da matriz em um arquivo no formato PBM textual.</p>
+<p>Você não precisa conhecer os detalhes de manipulação de arquivos em C para fazer o EP.</p>
+<p>Um arquivo PBM simples pode ter a forma:</p>
+<pre class="text"><code>P1
+5 5
+0 0 1 0 0
+0 0 1 0 0
+1 1 1 1 1
+0 0 1 0 0
+0 0 1 0 0</code></pre>
+<p>Esse arquivo representa uma imagem em preto e branco de <code>5 x 5</code> pixels.</p>
+</section>
+<section id="compilação" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Compilação</h1>
+<p>O programa pode ser compilado com:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gcc</span> <span class="at">-Wall</span> <span class="at">-Wextra</span> <span class="at">-std</span><span class="op">=</span>c11 main.c desenho.c fractal.c <span class="at">-o</span> fractais</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Seu código deve compilar com esse comando.</p>
+<p>Um <code>Makefile</code> também poderá ser fornecido, mas não é necessário usá-lo.</p>
+</section>
+<section id="requisitos" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Requisitos</h1>
+<ul>
+<li>Não modifique as funções já implementadas.</li>
+<li>Não remova nem altere as assinaturas e constantes fornecidas nos arquivos <code>.h</code>.</li>
+<li>Você pode criar funções auxiliares.</li>
+<li>Você pode acrescentar novas declarações aos arquivos <code>.h</code>.</li>
+<li>Não utilize novas variáveis globais.</li>
+<li>Não utilize VLAs nem alocação dinâmica de memória.</li>
+<li><code>cantor_rec</code>, <code>arvore_h_rec</code> e <code>tapete_rec</code> devem ser implementadas recursivamente.</li>
+<li>As funções de desenho devem modificar apenas os pixels pertencentes às figuras que receberam como argumento.</li>
+</ul>
+</section>
+<section id="testes" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Testes</h1>
+<p>As funções serão testadas separadamente.</p>
+<p>Os testes das funções de desenho poderão começar com matrizes contendo valores diferentes de zero. Por isso, uma função não deve alterar pixels que estejam fora da linha ou do retângulo solicitado.</p>
+<p>As funções recursivas também poderão ser chamadas com posições e tamanhos diferentes dos usados pelas funções <code>cantor</code>, <code>arvore_h</code> e <code>tapete</code>.</p>
+<p>Por exemplo, os testes poderão construir:</p>
+<ul>
+<li>um conjunto de Cantor começando em uma posição diferente;</li>
+<li>uma árvore H cujo centro não coincide com o centro da imagem final;</li>
+<li>um tapete em uma sub-região da matriz.</li>
+</ul>
+<p>Não escreva uma solução que dependa das posições específicas usadas pelo <code>main</code>.</p>
+</section>
+<section id="sugestão-de-desenvolvimento" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> Sugestão de desenvolvimento</h1>
+<p>Uma ordem possível é:</p>
+<ol type="1">
+<li>implemente e teste <code>linha_horizontal</code>;</li>
+<li>implemente e teste <code>linha_vertical</code>;</li>
+<li>implemente e teste <code>pinta_retangulo</code>;</li>
+<li>implemente <code>cantor_rec</code>;</li>
+<li>implemente <code>arvore_h_rec</code>;</li>
+<li>implemente <code>tapete_rec</code>.</li>
+</ol>
+<p>Durante a depuração, use profundidades pequenas e examine os arquivos PBM gerados antes de testar construções maiores.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
