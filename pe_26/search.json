@@ -7,6 +7,13 @@
     "text": "About this site"
   },
   {
+    "objectID": "slides/recursao.html#recebendo-warning-de-variáveis-não-inicializadas",
+    "href": "slides/recursao.html#recebendo-warning-de-variáveis-não-inicializadas",
+    "title": "Recursão",
+    "section": "Recebendo warning de variáveis não inicializadas",
+    "text": "Recebendo warning de variáveis não inicializadas\nDurante o laboratório 1, um colega teve problemas com a correção do CodeRunners\n\n Depois de muito tempo, descobrimos que o problema eram variáveis não inicializadas\n\n\n Mas, mesmo com as flags -Wall -Wextra não teve warning de variáveis não inicializadas???\n\n\nSolução: Usar flag de otmização (-O1, por exemplo). Alguns warnings sobre variáveis não inicializadas dependem das análises feitas durante a otimização."
+  },
+  {
     "objectID": "slides/recursao.html#torres-de-hanoi",
     "href": "slides/recursao.html#torres-de-hanoi",
     "title": "Recursão",

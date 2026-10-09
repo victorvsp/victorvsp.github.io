@@ -222,6 +222,24 @@ Victor S. Portella
   <p class="date">2026-10-09</p>
 </section>
 <section>
+<section id="aviso-rápido-sobre-flags-de-compilação" class="title-slide slide level1 center">
+<h1>Aviso rápido sobre flags de compilação</h1>
+
+</section>
+<section id="recebendo-warning-de-variáveis-não-inicializadas" class="slide level2">
+<h2>Recebendo warning de variáveis não inicializadas</h2>
+<p>Durante o laboratório 1, um colega teve problemas com a correção do CodeRunners</p>
+<div class="fragment">
+<p><span class="tab"></span> Depois de muito tempo, descobrimos que o problema eram <span class="red"><strong>variáveis não inicializadas</strong></span></p>
+</div>
+<div class="fragment">
+<p><span class="tab"></span> Mas, mesmo com as flags <code>-Wall -Wextra</code> <span class="red"><strong>não teve warning de variáveis não inicializadas???</strong></span></p>
+</div>
+<div class="fragment">
+<p><span class="blue"><strong>Solução:</strong></span> Usar flag de otmização (<code>-O1</code>, por exemplo). Alguns warnings sobre variáveis não inicializadas dependem das análises feitas durante a otimização.</p>
+</div>
+</section></section>
+<section>
 <section id="recursão" class="title-slide slide level1 center">
 <h1>Recursão</h1>
 
