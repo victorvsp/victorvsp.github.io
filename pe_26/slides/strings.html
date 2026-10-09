@@ -300,7 +300,7 @@ Victor S. Portella
 <div class="sourceCode" id="cb3"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a></a><span class="pp">#include</span><span class="im">&lt;stdio.h&gt;</span></span>
 <span id="cb3-2"><a></a></span>
 <span id="cb3-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb3-4"><a></a>    <span class="dt">char</span> universidade<span class="op">[</span><span class="dv">50</span><span class="op">];</span></span>
+<span id="cb3-4"><a></a>    <span class="dt">char</span> universidade<span class="op">[</span><span class="dv">5</span><span class="op">];</span></span>
 <span id="cb3-5"><a></a>    universidade<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">=</span> <span class="ch">'U'</span><span class="op">;</span></span>
 <span id="cb3-6"><a></a>    universidade<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> <span class="ch">'F'</span><span class="op">;</span></span>
 <span id="cb3-7"><a></a>    universidade<span class="op">[</span><span class="dv">2</span><span class="op">]</span> <span class="op">=</span> <span class="ch">'A'</span><span class="op">;</span></span>
@@ -316,11 +316,14 @@ Victor S. Portella
 </section>
 <section id="vamos-criar-uma-string-caractere-a-caractere" class="slide level2">
 <h2>Vamos criar uma string caractere a caractere</h2>
-<p><span class="red"><strong>Resultado</strong></span></p>
+<p><span class="red"><strong>Resultado</strong></span> (em alguns compiladores)</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a></a>UFABCw▌\▒a■   ║k1w¡l1w└@</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
 <p><br></p>
 <p>Faltou colocarmos o caractere <code>\0</code> indicando o <strong>final da String</strong>!</p>
+<div class="note">
+<p>Usar a flag <code>-fsanitize=address</code> vai apontar acesso em local inválido da memória.</p>
+</div>
 </div>
 </section>
 <section id="lendo-strings" class="slide level2">
@@ -470,29 +473,120 @@ Victor S. Portella
 <p>Não confunda com a biblioteca <code>strings.h</code></p>
 </div>
 </section>
+<section id="cifra-de-césar" class="slide level2">
+<h2>Cifra de César</h2>
+<p>Na <strong>cifra de César</strong>, cada letra é substituída pela letra que está <code>n</code> posições à frente no alfabeto.</p>
+<div class="fragment">
+<p>Para <code>n = 2</code>:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb14-1"><a></a>A → C    B → D    ...    X → Z    Y → A    Z → B</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p>Assim, a mensagem</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb15-1"><a></a>O vento hoje estava muito forte</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>torna-se:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb16-1"><a></a>Q xgpvq jqlg guvcxc owkvq hqtvg</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Espaços e outros caracteres que não são letras permanecem inalterados.</p>
+</div>
+</section>
+<section id="tabela-ascii" class="slide level2">
+<h2>Tabela ASCII</h2>
+<p>Em C, um <code>char</code> armazena um pequeno valor inteiro. A tabela <strong>ASCII</strong> (<em>American Standard Code for Information Interchange</em>) associa um número a cada caractere.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Caractere</th>
+<th style="text-align: center;">ASCII</th>
+<th style="text-align: center;">Caractere</th>
+<th style="text-align: center;">ASCII</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>'A'</code></td>
+<td style="text-align: center;">65</td>
+<td style="text-align: center;"><code>'a'</code></td>
+<td style="text-align: center;">97</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>'B'</code></td>
+<td style="text-align: center;">66</td>
+<td style="text-align: center;"><code>'b'</code></td>
+<td style="text-align: center;">98</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>...</code></td>
+<td style="text-align: center;"><code>...</code></td>
+<td style="text-align: center;"><code>...</code></td>
+<td style="text-align: center;"><code>...</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>'Z'</code></td>
+<td style="text-align: center;">90</td>
+<td style="text-align: center;"><code>'z'</code></td>
+<td style="text-align: center;">122</td>
+</tr>
+</tbody>
+</table>
+<div class="note">
+<p>ASCII possui 128 códigos, de 0 a 127. Letras acentuadas, como <code>á</code> e <code>ç</code>, não fazem parte da tabela ASCII original.</p>
+</div>
+</section>
+<section id="aritmética-com-caracteres" class="slide level2">
+<h2>Aritmética com caracteres</h2>
+<p>O mesmo valor pode ser interpretado como um caractere ou como um número:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb17-1"><a></a><span class="dt">char</span> letra <span class="op">=</span> <span class="ch">'O'</span><span class="op">;</span></span>
+<span id="cb17-2"><a></a></span>
+<span id="cb17-3"><a></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%c\n</span><span class="st">"</span><span class="op">,</span> letra<span class="op">);</span>  <span class="co">// O</span></span>
+<span id="cb17-4"><a></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> letra<span class="op">);</span>  <span class="co">// 79</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>No ASCII, as letras maiúsculas e minúsculas formam duas sequências. Assim, podemos fazer operações aritméticas com elas:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb18-1"><a></a><span class="dt">char</span> cifrada <span class="op">=</span> letra <span class="op">+</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb18-2"><a></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%c\n</span><span class="st">"</span><span class="op">,</span> cifrada<span class="op">);</span>  <span class="co">// Q</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Isso funciona para <code>'O'</code>, mas o que deveria acontecer com <code>'Y' + 2</code>?</p>
+</section>
+<section id="da-letra-para-uma-posição" class="slide level2">
+<h2>Da letra para uma posição</h2>
+<p>Subtrair <code>'a'</code> transforma uma letra minúscula em uma posição entre 0 e 25:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb19-1"><a></a>'a' - 'a' = 0</span>
+<span id="cb19-2"><a></a>'b' - 'a' = 1</span>
+<span id="cb19-3"><a></a>       ...</span>
+<span id="cb19-4"><a></a>'z' - 'a' = 25</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Depois, deslocamos essa posição e voltamos a somar <code>'a'</code>:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb20-1"><a></a><span class="dt">int</span> posicao <span class="op">=</span> letra <span class="op">-</span> <span class="ch">'a'</span><span class="op">;</span></span>
+<span id="cb20-2"><a></a><span class="dt">int</span> nova_posicao <span class="op">=</span> <span class="op">(</span>posicao <span class="op">+</span> n<span class="op">)</span> <span class="op">%</span> <span class="dv">26</span><span class="op">;</span></span>
+<span id="cb20-3"><a></a><span class="dt">char</span> cifrada <span class="op">=</span> <span class="ch">'a'</span> <span class="op">+</span> nova_posicao<span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>O operador <code>% 26</code> faz a contagem voltar ao começo do alfabeto:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb21-1"><a></a>'y' → 24 → (24 + 2) % 26 = 0 → 'a'</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="cifrando-e-decifrando" class="slide level2">
+<h2>Cifrando e decifrando</h2>
+<p>Para cada caractere da string:</p>
+<ol type="1">
+<li>se estiver entre <code>'a'</code> e <code>'z'</code>, use <code>'a'</code> como base;</li>
+<li>se estiver entre <code>'A'</code> e <code>'Z'</code>, use <code>'A'</code> como base;</li>
+<li>caso contrário, mantenha o caractere como está.</li>
+</ol>
+<p>Para <strong>cifrar</strong>, avançamos <code>n</code> posições:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb22-1"><a></a>nova_posicao <span class="op">=</span> <span class="op">(</span>posicao <span class="op">+</span> n<span class="op">)</span> <span class="op">%</span> <span class="dv">26</span><span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Para <strong>decifrar</strong>, fazemos o caminho inverso:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb23-1"><a></a>nova_posicao <span class="op">=</span> <span class="op">(</span>posicao <span class="op">-</span> n <span class="op">+</span> <span class="dv">26</span><span class="op">)</span> <span class="op">%</span> <span class="dv">26</span><span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="note">
+<p>Essas expressões consideram <code>n</code> entre 0 e 25. Um deslocamento maior pode ser reduzido com <code>n = n % 26</code>.</p>
+</div>
+</section>
 <section id="exercício-1-cifra-de-césar" class="slide level2">
 <h2>Exercício 1 – Cifra de César</h2>
 <ul>
-<li>Faça uma função para criptografar uma frase com a cifra de César sobre uma string;</li>
+<li>Faça uma função para criptografar uma frase com a cifra de César sobre uma string somente com letras minusculas entre <code>a</code> e <code>z</code>;</li>
 <li>Faça também uma função para reverter o processo.</li>
 </ul>
-</section>
-<section id="cifra-de-césar" class="slide level2">
-<h2>Cifra de César</h2>
-<p>Método muito simples para criptografar uma mensagem consiste em substituir cada letra pela que está <code>n</code> posições na frente.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb14-1"><a></a>Q xgpvq jqlg guvcxc owkvq hqtvg</span>
-<span id="cb14-2"><a></a>O vento hoje estava muito forte</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb15-1"><a></a>n = 2</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="exercício-1-cifra-de-césar-1" class="slide level2">
 <h2>Exercício 1 – Cifra de César</h2>
 <p>Como seria o protótipo dessas funções?</p>
-</section>
-<section id="exercício-1-cifra-de-césar-2" class="slide level2">
-<h2>Exercício 1 – Cifra de César</h2>
-<p>Como seria o protótipo dessas funções?</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb16-1"><a></a><span class="dt">void</span> encrypt<span class="op">(</span><span class="dt">char</span> texto_secreto<span class="op">[],</span> <span class="dt">int</span> n<span class="op">);</span></span>
-<span id="cb16-2"><a></a><span class="dt">void</span> decrypt<span class="op">(</span><span class="dt">char</span> texto_protegido<span class="op">[],</span> <span class="dt">int</span> n<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb24-1"><a></a><span class="dt">void</span> encrypt<span class="op">(</span><span class="dt">char</span> texto_secreto<span class="op">[],</span> <span class="dt">int</span> n<span class="op">);</span></span>
+<span id="cb24-2"><a></a><span class="dt">void</span> decrypt<span class="op">(</span><span class="dt">char</span> texto_protegido<span class="op">[],</span> <span class="dt">int</span> n<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="exercício-2-remover-a-segunda-palavra-de-uma-frase" class="slide level2">
 <h2>Exercício 2 – remover a segunda palavra de uma frase</h2>
@@ -500,7 +594,7 @@ Victor S. Portella
 </section>
 <section id="exercício-2-remover-a-segunda-palavra-de-uma-frase-1" class="slide level2">
 <h2>Exercício 2 – remover a segunda palavra de uma frase</h2>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb17-1"><a></a><span class="dt">void</span> remove_segunda_palavra<span class="op">(</span><span class="dt">char</span> frase<span class="op">[],</span> <span class="dt">int</span> comp<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb25-1"><a></a><span class="dt">void</span> remove_segunda_palavra<span class="op">(</span><span class="dt">char</span> frase<span class="op">[],</span> <span class="dt">int</span> comp<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><span class="blue"><strong>Comprimento da frase</strong></span></p>
 </section>
 <section id="exercício-2-remover-a-segunda-palavra-de-uma-frase-2" class="slide level2">
@@ -512,13 +606,13 @@ Victor S. Portella
 </section>
 <section id="exercício-2-remover-a-segunda-palavra-de-uma-frase-3" class="slide level2">
 <h2>Exercício 2 – remover a segunda palavra de uma frase</h2>
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb18-1"><a></a><span class="dt">void</span> remove_segunda_palavra<span class="op">(</span><span class="dt">char</span> frase<span class="op">[],</span> <span class="dt">int</span> comp<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb26-1"><a></a><span class="dt">void</span> remove_segunda_palavra<span class="op">(</span><span class="dt">char</span> frase<span class="op">[],</span> <span class="dt">int</span> comp<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><span class="blue"><strong>Comprimento da frase</strong></span></p>
 <p>Podemos fazer esta função sem o parâmetro de comprimento?</p>
 </section>
 <section id="exercício-2-remover-a-segunda-palavra-de-uma-frase-4" class="slide level2">
 <h2>Exercício 2 – remover a segunda palavra de uma frase</h2>
-<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb19-1"><a></a><span class="dt">void</span> remove_segunda_palavra<span class="op">(</span><span class="dt">char</span> frase<span class="op">[],</span> <span class="dt">int</span> comp<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb27-1"><a></a><span class="dt">void</span> remove_segunda_palavra<span class="op">(</span><span class="dt">char</span> frase<span class="op">[],</span> <span class="dt">int</span> comp<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><span class="blue"><strong>Comprimento da frase</strong></span></p>
 <p>Podemos fazer esta função sem o parâmetro de comprimento?</p>
 <p><span class="green"><strong>Sim</strong></span>, nesse caso, teríamos que encontrar o caractere <code>'\0'</code> primeiro (ele indica o fim da string).</p>
@@ -526,7 +620,7 @@ Victor S. Portella
 <section id="exercício-3-remover-a-palavra-de-índice-i-de-uma-frase" class="slide level2">
 <h2>Exercício 3 – remover a palavra de índice <code>i</code> de uma frase</h2>
 <p>Faça uma função que receba uma frase e remova a palavra de índice <code>i</code> de uma frase (considere que a primeira palavra tem índice 1).</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb20-1"><a></a><span class="dt">void</span> remove_palavra<span class="op">(</span><span class="dt">char</span> frase<span class="op">[],</span> <span class="dt">int</span> i<span class="op">,</span> <span class="dt">int</span> comp<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb28-1"><a></a><span class="dt">void</span> remove_palavra<span class="op">(</span><span class="dt">char</span> frase<span class="op">[],</span> <span class="dt">int</span> i<span class="op">,</span> <span class="dt">int</span> comp<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="referência" class="slide level2">
 <h2>Referência</h2>

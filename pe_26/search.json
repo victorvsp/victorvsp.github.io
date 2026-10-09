@@ -1418,14 +1418,14 @@
     "href": "slides/strings.html#criando-uma-string-caractere-a-caractere",
     "title": "Strings",
     "section": "Criando uma string caractere a caractere",
-    "text": "Criando uma string caractere a caractere\n#include&lt;stdio.h&gt;\n\nint main() {\n    char universidade[50];\n    universidade[0] = 'U';\n    universidade[1] = 'F';\n    universidade[2] = 'A';\n    universidade[3] = 'B';\n    universidade[4] = 'C';\n\n    printf(\"%s\\n\", universidade);\n\n    return 0;\n}\nVeja que usamos aspa simples para representar caracteres!\nO que será impresso?"
+    "text": "Criando uma string caractere a caractere\n#include&lt;stdio.h&gt;\n\nint main() {\n    char universidade[5];\n    universidade[0] = 'U';\n    universidade[1] = 'F';\n    universidade[2] = 'A';\n    universidade[3] = 'B';\n    universidade[4] = 'C';\n\n    printf(\"%s\\n\", universidade);\n\n    return 0;\n}\nVeja que usamos aspa simples para representar caracteres!\nO que será impresso?"
   },
   {
     "objectID": "slides/strings.html#vamos-criar-uma-string-caractere-a-caractere",
     "href": "slides/strings.html#vamos-criar-uma-string-caractere-a-caractere",
     "title": "Strings",
     "section": "Vamos criar uma string caractere a caractere",
-    "text": "Vamos criar uma string caractere a caractere\nResultado\nUFABCw▌\\▒a■   ║k1w¡l1w└@\n\n\nFaltou colocarmos o caractere \\0 indicando o final da String!"
+    "text": "Vamos criar uma string caractere a caractere\nResultado (em alguns compiladores)\nUFABCw▌\\▒a■   ║k1w¡l1w└@\n\n\nFaltou colocarmos o caractere \\0 indicando o final da String!\n\nUsar a flag -fsanitize=address vai apontar acesso em local inválido da memória."
   },
   {
     "objectID": "slides/strings.html#lendo-strings",
@@ -1484,32 +1484,53 @@
     "text": "Biblioteca string.h\nA biblioteca string.h tem várias funções úteis:\n\nstrlen devolve o tamanho da string\nstrcmp compara duas strings já que não podemos usar &lt;, &lt;=, &gt;, &gt;=, == e !=\nstrcpy copia uma string\nstrcat concatena duas strings\n\n… e várias outras. Veja o manual para a documentação (ex: man strlen)\n\nNão confunda com a biblioteca strings.h"
   },
   {
-    "objectID": "slides/strings.html#exercício-1-cifra-de-césar",
-    "href": "slides/strings.html#exercício-1-cifra-de-césar",
-    "title": "Strings",
-    "section": "Exercício 1 – Cifra de César",
-    "text": "Exercício 1 – Cifra de César\n\nFaça uma função para criptografar uma frase com a cifra de César sobre uma string;\nFaça também uma função para reverter o processo."
-  },
-  {
     "objectID": "slides/strings.html#cifra-de-césar",
     "href": "slides/strings.html#cifra-de-césar",
     "title": "Strings",
     "section": "Cifra de César",
-    "text": "Cifra de César\nMétodo muito simples para criptografar uma mensagem consiste em substituir cada letra pela que está n posições na frente.\nQ xgpvq jqlg guvcxc owkvq hqtvg\nO vento hoje estava muito forte\nn = 2"
+    "text": "Cifra de César\nNa cifra de César, cada letra é substituída pela letra que está n posições à frente no alfabeto.\n\nPara n = 2:\nA → C    B → D    ...    X → Z    Y → A    Z → B\n\n\nAssim, a mensagem\nO vento hoje estava muito forte\ntorna-se:\nQ xgpvq jqlg guvcxc owkvq hqtvg\nEspaços e outros caracteres que não são letras permanecem inalterados."
+  },
+  {
+    "objectID": "slides/strings.html#tabela-ascii",
+    "href": "slides/strings.html#tabela-ascii",
+    "title": "Strings",
+    "section": "Tabela ASCII",
+    "text": "Tabela ASCII\nEm C, um char armazena um pequeno valor inteiro. A tabela ASCII (American Standard Code for Information Interchange) associa um número a cada caractere.\n\n\n\nCaractere\nASCII\nCaractere\nASCII\n\n\n\n\n'A'\n65\n'a'\n97\n\n\n'B'\n66\n'b'\n98\n\n\n...\n...\n...\n...\n\n\n'Z'\n90\n'z'\n122\n\n\n\n\nASCII possui 128 códigos, de 0 a 127. Letras acentuadas, como á e ç, não fazem parte da tabela ASCII original."
+  },
+  {
+    "objectID": "slides/strings.html#aritmética-com-caracteres",
+    "href": "slides/strings.html#aritmética-com-caracteres",
+    "title": "Strings",
+    "section": "Aritmética com caracteres",
+    "text": "Aritmética com caracteres\nO mesmo valor pode ser interpretado como um caractere ou como um número:\nchar letra = 'O';\n\nprintf(\"%c\\n\", letra);  // O\nprintf(\"%d\\n\", letra);  // 79\nNo ASCII, as letras maiúsculas e minúsculas formam duas sequências. Assim, podemos fazer operações aritméticas com elas:\nchar cifrada = letra + 2;\nprintf(\"%c\\n\", cifrada);  // Q\nIsso funciona para 'O', mas o que deveria acontecer com 'Y' + 2?"
+  },
+  {
+    "objectID": "slides/strings.html#da-letra-para-uma-posição",
+    "href": "slides/strings.html#da-letra-para-uma-posição",
+    "title": "Strings",
+    "section": "Da letra para uma posição",
+    "text": "Da letra para uma posição\nSubtrair 'a' transforma uma letra minúscula em uma posição entre 0 e 25:\n'a' - 'a' = 0\n'b' - 'a' = 1\n       ...\n'z' - 'a' = 25\nDepois, deslocamos essa posição e voltamos a somar 'a':\nint posicao = letra - 'a';\nint nova_posicao = (posicao + n) % 26;\nchar cifrada = 'a' + nova_posicao;\nO operador % 26 faz a contagem voltar ao começo do alfabeto:\n'y' → 24 → (24 + 2) % 26 = 0 → 'a'"
+  },
+  {
+    "objectID": "slides/strings.html#cifrando-e-decifrando",
+    "href": "slides/strings.html#cifrando-e-decifrando",
+    "title": "Strings",
+    "section": "Cifrando e decifrando",
+    "text": "Cifrando e decifrando\nPara cada caractere da string:\n\nse estiver entre 'a' e 'z', use 'a' como base;\nse estiver entre 'A' e 'Z', use 'A' como base;\ncaso contrário, mantenha o caractere como está.\n\nPara cifrar, avançamos n posições:\nnova_posicao = (posicao + n) % 26;\nPara decifrar, fazemos o caminho inverso:\nnova_posicao = (posicao - n + 26) % 26;\n\nEssas expressões consideram n entre 0 e 25. Um deslocamento maior pode ser reduzido com n = n % 26."
+  },
+  {
+    "objectID": "slides/strings.html#exercício-1-cifra-de-césar",
+    "href": "slides/strings.html#exercício-1-cifra-de-césar",
+    "title": "Strings",
+    "section": "Exercício 1 – Cifra de César",
+    "text": "Exercício 1 – Cifra de César\n\nFaça uma função para criptografar uma frase com a cifra de César sobre uma string somente com letras minusculas entre a e z;\nFaça também uma função para reverter o processo."
   },
   {
     "objectID": "slides/strings.html#exercício-1-cifra-de-césar-1",
     "href": "slides/strings.html#exercício-1-cifra-de-césar-1",
     "title": "Strings",
     "section": "Exercício 1 – Cifra de César",
-    "text": "Exercício 1 – Cifra de César\nComo seria o protótipo dessas funções?"
-  },
-  {
-    "objectID": "slides/strings.html#exercício-1-cifra-de-césar-2",
-    "href": "slides/strings.html#exercício-1-cifra-de-césar-2",
-    "title": "Strings",
-    "section": "Exercício 1 – Cifra de César",
-    "text": "Exercício 1 – Cifra de César\nComo seria o protótipo dessas funções?\nvoid encrypt(char texto_secreto[], int n);\nvoid decrypt(char texto_protegido[], int n);"
+    "text": "Exercício 1 – Cifra de César\nComo seria o protótipo dessas funções?\n\nvoid encrypt(char texto_secreto[], int n);\nvoid decrypt(char texto_protegido[], int n);"
   },
   {
     "objectID": "slides/strings.html#exercício-2-remover-a-segunda-palavra-de-uma-frase",
