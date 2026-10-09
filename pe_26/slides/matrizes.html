@@ -96,7 +96,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-431a9a010cc1cc175fbf317c9aaa8d63.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-6bda67dbb19438becd7c5181063b4bb8.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -229,7 +229,7 @@ Victor S. Portella
 <section id="matrizes-1" class="slide level2">
 <h2>Matrizes</h2>
 <p>Como <span class="green"><strong>declarar</strong></span> uma matriz:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a></a><span class="op">&lt;</span>tipo<span class="op">&gt;</span> <span class="op">&lt;</span>nome<span class="op">&gt;[&lt;</span>tamanho1<span class="op">&gt;][&lt;</span>tamanho2<span class="op">&gt;];</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a></a><span class="op">&lt;</span>tipo<span class="op">&gt;</span> <span class="op">&lt;</span>nome<span class="op">&gt;[&lt;</span>n_linhas<span class="op">&gt;][&lt;</span>n_colunas<span class="op">&gt;];</span> </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br></p>
 <div class="columns">
 <div class="column" style="width:55%;">
@@ -248,7 +248,7 @@ Victor S. Portella
 <section id="matrizes-2" class="slide level2">
 <h2>Matrizes</h2>
 <p><span class="red"><strong>Acessando</strong></span> valores em uma matriz:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a></a>vetor<span class="op">[</span><span class="dv">2</span><span class="op">][</span><span class="dv">1</span><span class="op">]</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a></a>matriz<span class="op">[</span><span class="dv">2</span><span class="op">][</span><span class="dv">1</span><span class="op">]</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br></p>
 <div class="fragment">
 <p><span class="blue"><strong>Lendo/imprimindo</strong></span> um elemento da matriz:</p>
@@ -293,10 +293,10 @@ Victor S. Portella
 <span id="cb6-6"><a></a>    <span class="cf">for</span> <span class="op">(</span>j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> <span class="dv">3</span><span class="op">;</span> j<span class="op">++)</span></span>
 <span id="cb6-7"><a></a>        matriz<span class="op">[</span>i<span class="op">][</span>j<span class="op">]</span> <span class="op">=</span> c<span class="op">++;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a></a>1   2   3</span>
-<span id="cb7-2"><a></a>4   5   6</span>
-<span id="cb7-3"><a></a>7   8   9</span>
-<span id="cb7-4"><a></a>10  11  12</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a></a>0   1   2</span>
+<span id="cb7-2"><a></a>3   4   5</span>
+<span id="cb7-3"><a></a>6   7   8</span>
+<span id="cb7-4"><a></a>9   10  11</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="um-pouco-mais-sobre-percurso-em-matrizes" class="slide level2">
@@ -308,7 +308,7 @@ Victor S. Portella
 </div><div class="column" style="width:65%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="aula_matrizes_img/percorre_inverso.png" class="quarto-figure quarto-figure-center" style="width:55.0%"></p>
+<p><img data-src="aula_matrizes_img/percorre_inverso.png" class="quarto-figure quarto-figure-center" style="width:45.0%"></p>
 </figure>
 </div>
 </div></div>

@@ -7,18 +7,249 @@
     "text": "About this site"
   },
   {
+    "objectID": "slides/recursao.html#torres-de-hanoi",
+    "href": "slides/recursao.html#torres-de-hanoi",
+    "title": "Recursão",
+    "section": "Torres de Hanoi",
+    "text": "Torres de Hanoi\nTemos três pinos e uma pilha de discos de tamanhos diferentes.\n Objetivo: Mover todos os discos do primeiro para o último pino."
+  },
+  {
+    "objectID": "slides/recursao.html#regras-de-torres-de-hanoi",
+    "href": "slides/recursao.html#regras-de-torres-de-hanoi",
+    "title": "Recursão",
+    "section": "Regras de Torres de Hanoi",
+    "text": "Regras de Torres de Hanoi\n\n\n\n\n\n\n\n\nRegras do jogo:\n\nPodemos mover um disco por vez.\nSó podemos mover o disco que está no topo de um pino.\nNunca podemos colocar um disco maior sobre um menor.\n\n\n\n\nComo mover todos os discos para o último pino?"
+  },
+  {
+    "objectID": "slides/recursao.html#aquecimento---casos-menores",
+    "href": "slides/recursao.html#aquecimento---casos-menores",
+    "title": "Recursão",
+    "section": "Aquecimento - Casos menores",
+    "text": "Aquecimento - Casos menores\n1 disco: Fácil, só mover o disco.\n\n2 discos: Guardamos primeiro o disco menor em uma torre auxiliar\n\n\n\nFonte: https://textbooks.cs.ksu.edu/cc210/images/16-recurse/6.9.tower.png\n\n\n\n\nComo resolvemos o problema para 3 discos?"
+  },
+  {
+    "objectID": "slides/recursao.html#e-para-muitos-discos",
+    "href": "slides/recursao.html#e-para-muitos-discos",
+    "title": "Recursão",
+    "section": "E para muitos discos?",
+    "text": "E para muitos discos?\n\n\n\n\n\n\n\n\n\n\n\nComo escrever um programa que produza a sequência de movimentos para qualquer número de discos?\n\n\nResolver o problema diretamente parece muito difícil\n Mas os problemas pequenos eram fáceis\n\n\n\nIdeia: Quebrar o problema grande em problemas pequenos"
+  },
+  {
+    "objectID": "slides/recursao.html#movendo-o-maior-disco",
+    "href": "slides/recursao.html#movendo-o-maior-disco",
+    "title": "Recursão",
+    "section": "Movendo o maior disco",
+    "text": "Movendo o maior disco\nPara mover \\(n\\) discos de A para C, em algum momento precisamos mover o maior disco até C.\n\n Antes disso, precisamos tirar os outros \\(n-1\\) discos de cima dele.\n\n\n\n\nFonte: Slides do prof. Renzo"
+  },
+  {
+    "objectID": "slides/recursao.html#e-se-já-soubéssemos-mover-n-1-discos",
+    "href": "slides/recursao.html#e-se-já-soubéssemos-mover-n-1-discos",
+    "title": "Recursão",
+    "section": "E se já soubéssemos mover \\(n-1\\) discos?",
+    "text": "E se já soubéssemos mover \\(n-1\\) discos?\nQueremos mover \\(n\\) discos de A para C, usando B como auxiliar.\n\n\nMover os \\(n-1\\) discos menores de A para B.\n\n\n\n\nMover o maior disco de A para C.\n\n\n\n\nMover os \\(n-1\\) discos menores de B para C.\n\n\n\n\n\nMas como movemos os \\(n-1\\) discos?\n\n\n\n\nDo mesmo jeito."
+  },
+  {
+    "objectID": "slides/recursao.html#recursão-1",
+    "href": "slides/recursao.html#recursão-1",
+    "title": "Recursão",
+    "section": "Recursão",
+    "text": "Recursão\nUma solução recursiva resolve um problema usando soluções de instâncias menores do mesmo problema.\n\n\nEm programação, isso normalmente aparece como uma função que chama a si mesma."
+  },
+  {
+    "objectID": "slides/recursao.html#fatorial",
+    "href": "slides/recursao.html#fatorial",
+    "title": "Recursão",
+    "section": "Fatorial",
+    "text": "Fatorial\nFatorial de um inteiro não-negativo \\(n\\):\n\\[\nn! = n \\cdot (n-1) \\cdot (n-2) \\cdots 2 \\cdot 1.\n\\]\n\nPor exemplo:\n\\[\n5! = 5\\cdot4\\cdot3\\cdot2\\cdot1 = 120.\n\\]\n\nPodemos escrever essa definição usando uma instância menor de fatorial?"
+  },
+  {
+    "objectID": "slides/recursao.html#fatorial-definição-recursiva",
+    "href": "slides/recursao.html#fatorial-definição-recursiva",
+    "title": "Recursão",
+    "section": "Fatorial – definição recursiva",
+    "text": "Fatorial – definição recursiva\n\n\\(0! = 1\\)\n\n\n\\(n!\\) \\(= n\\,\\cdot\\) \\((n-1)!\\) , para \\(n&gt;0\\).\n\n\n\n\n\\(0! = 1\\): sabemos responder diretamente;\n\\((n-1)!\\): é uma instância menor do mesmo problema."
+  },
+  {
+    "objectID": "slides/recursao.html#pensando-como-uma-função",
+    "href": "slides/recursao.html#pensando-como-uma-função",
+    "title": "Recursão",
+    "section": "Pensando como uma função",
+    "text": "Pensando como uma função\nSuponha que a função fatorial(n - 1) já funciona corretamente.\n\nComo podemos obter fatorial(n)?\n\nreturn n * fatorial(n - 1);\n\n\n\nAo escrever a função, podemos confiar no resultado da chamada recursiva.\n\n\n\n\n\n\n“Para fazer um procedimento recursivo é preciso ter fé.” – prof. Siang Wun Song"
+  },
+  {
+    "objectID": "slides/recursao.html#mas-precisamos-parar",
+    "href": "slides/recursao.html#mas-precisamos-parar",
+    "title": "Recursão",
+    "section": "Mas precisamos parar!",
+    "text": "Mas precisamos parar!\nO que acontece com esta função?\nint fatorial(int n) {\n    return n * fatorial(n - 1);\n}\n\nfatorial(3)\nfatorial(2)\nfatorial(1)\nfatorial(0)\nfatorial(-1)\nfatorial(-2)\n...\n\n\nEventualmente falta espaço na pilha de chamadas (stack overflow).\n\n\nPrecisamos de um caso base!"
+  },
+  {
+    "objectID": "slides/recursao.html#fatorial-recursivo",
+    "href": "slides/recursao.html#fatorial-recursivo",
+    "title": "Recursão",
+    "section": "Fatorial recursivo",
+    "text": "Fatorial recursivo\nint fatorial(int n) {\n    if (n == 0)\n        return 1;\n\n    return n * fatorial(n - 1);\n}\n\n\nn == 0: caso base;\nfatorial(n - 1): problema menor.\n\n\nEstamos supondo que a função será chamada com \\(n \\geq 0\\)."
+  },
+  {
+    "objectID": "slides/recursao.html#três-ingredientes",
+    "href": "slides/recursao.html#três-ingredientes",
+    "title": "Recursão",
+    "section": "Três ingredientes",
+    "text": "Três ingredientes\nUma solução recursiva precisa de:\n\num caso base, que sabemos resolver diretamente;\num passo recursivo, que usa (pelo menos) uma instância menor do problema;\nprogresso: as chamadas devem se aproximar do caso base."
+  },
+  {
+    "objectID": "slides/recursao.html#o-que-acontece-na-execução",
+    "href": "slides/recursao.html#o-que-acontece-na-execução",
+    "title": "Recursão",
+    "section": "O que acontece na execução?",
+    "text": "O que acontece na execução?\nPara fatorial(4):\nfatorial(4)\n    4 * fatorial(3)\n        3 * fatorial(2)\n            2 * fatorial(1)\n                1 * fatorial(0)\n                    1\n\nfatorial(0) = 1\nfatorial(1) = 1\nfatorial(2) = 2\nfatorial(3) = 6\nfatorial(4) = 24"
+  },
+  {
+    "objectID": "slides/recursao.html#pilha-de-chamadas",
+    "href": "slides/recursao.html#pilha-de-chamadas",
+    "title": "Recursão",
+    "section": "Pilha de chamadas",
+    "text": "Pilha de chamadas\nCada chamada fica esperando a chamada seguinte terminar.\nfatorial(4)    esperando fatorial(3)\nfatorial(3)    esperando fatorial(2)\nfatorial(2)    esperando fatorial(1)\nfatorial(1)    esperando fatorial(0)\nfatorial(0)    retorna 1\n\nEssas chamadas formam uma pilha de chamadas (call stack).\n\n\nCada chamada possui seus próprios parâmetros e variáveis locais."
+  },
+  {
+    "objectID": "slides/recursao.html#voltando-para-hanoi",
+    "href": "slides/recursao.html#voltando-para-hanoi",
+    "title": "Recursão",
+    "section": "Voltando para Hanoi",
+    "text": "Voltando para Hanoi\nO que queremos que a seguinte função faça?\nvoid hanoi(int n, char origem,\n           char destino, char auxiliar);\n\n\nA chamada\nhanoi(n, 'A', 'C', 'B');\npromete:\n\nMover n discos de A para C, usando B como pino auxiliar.\n\n\n\n\nDefinir precisamente o que a função deve fazer usualmente é a maior parte do trabalho de resolver um problema usando recursão."
+  },
+  {
+    "objectID": "slides/recursao.html#qual-é-o-caso-base",
+    "href": "slides/recursao.html#qual-é-o-caso-base",
+    "title": "Recursão",
+    "section": "Qual é o caso base?",
+    "text": "Qual é o caso base?\nQual é o menor problema que podemos resolver diretamente?\n\nSe não há discos para mover, não precisamos fazer nada:\nif (n == 0)\n    return;\n\n\nCaso base: n == 0.\n\nTambém poderíamos usar n == 1 como caso base. Usar n == 0 deixa o passo recursivo mais uniforme."
+  },
+  {
+    "objectID": "slides/recursao.html#primeiro-liberar-o-maior-disco",
+    "href": "slides/recursao.html#primeiro-liberar-o-maior-disco",
+    "title": "Recursão",
+    "section": "Primeiro: liberar o maior disco",
+    "text": "Primeiro: liberar o maior disco\nPara mover \\(n\\) discos de origem para destino, primeiro precisamos mover os \\(n-1\\) menores para o pino auxiliar.\n\n\nOs \\(n-1\\) discors menores podem usar os outros dois pinos normalemnte. Logo, movê-los para auxiliar é exatamente um problema de torres de Hanoi com \\(n-1\\) discos.\n\n\n\nTendo fé que a função funciona para \\(n-1\\) discos podemos chamar:\nhanoi(n - 1, origem, auxiliar, destino);\n\n\nNote as escolhas de Origem, Destino, e Auxiliar para essa insância menor:\nOrigem \\(\\leftarrow\\) origem\nDestino \\(\\leftarrow\\) auxiliar\nAuxiliar \\(\\leftarrow\\) destino"
+  },
+  {
+    "objectID": "slides/recursao.html#depois-mover-o-maior-disco",
+    "href": "slides/recursao.html#depois-mover-o-maior-disco",
+    "title": "Recursão",
+    "section": "Depois: mover o maior disco",
+    "text": "Depois: mover o maior disco\nAgora o maior disco está livre, logo:\nprintf(\"%c -&gt; %c\\n\", origem, destino);\n\n\n\n\nFonte: slides do prof. Renzo"
+  },
+  {
+    "objectID": "slides/recursao.html#por-fim-mover-os-n-1-discos-de-volta",
+    "href": "slides/recursao.html#por-fim-mover-os-n-1-discos-de-volta",
+    "title": "Recursão",
+    "section": "Por fim: mover os \\(n-1\\) discos de volta",
+    "text": "Por fim: mover os \\(n-1\\) discos de volta\nPrecisamos mover os \\(n-1\\) discos do pino auxiliar para destino.\n\nhanoi(n - 1, auxiliar, destino, origem);\n\n\n\nNovamente, estamos confiando que a função resolve corretamente o problema menor."
+  },
+  {
+    "objectID": "slides/recursao.html#torres-de-hanoi-solução-completa",
+    "href": "slides/recursao.html#torres-de-hanoi-solução-completa",
+    "title": "Recursão",
+    "section": "Torres de Hanoi – solução completa",
+    "text": "Torres de Hanoi – solução completa\nvoid hanoi(int n, char origem,\n           char destino, char auxiliar) {\n    if (n == 0)\n        return;\n\n    hanoi(n - 1, origem, auxiliar, destino);\n\n    printf(\"%c -&gt; %c\\n\", origem, destino);\n\n    hanoi(n - 1, auxiliar, destino, origem);\n}\n\n\nO código é quase uma tradução direta da solução que descrevemos.\n\nDiferente do fatorial, cada chamada faz duas chamadas recursivas.\n\n\nA execução pode ser vista como uma árvore\n cada chamada de hanoi gera outras duas chamadas menores"
+  },
+  {
+    "objectID": "slides/recursao.html#quantos-movimentos-bônus",
+    "href": "slides/recursao.html#quantos-movimentos-bônus",
+    "title": "Recursão",
+    "section": "Quantos movimentos? (Bônus)",
+    "text": "Quantos movimentos? (Bônus)\nPara mover \\(n\\) discos:\n\nmovemos \\(n-1\\) discos;\nfazemos 1 movimento;\nmovemos \\(n-1\\) discos novamente.\n\n\nSe \\(T(n)\\) é o número de movimentos:\n\\[\nT(n) = 2T(n-1) + 1.\n\\]\n\n\nResolvendo a recursão, podemos mostrar que \\[\nT(n) = 2^n - 1.\n\\]\n\n\nO número de movimentos cresce exponencialmente."
+  },
+  {
+    "objectID": "slides/recursao.html#como-desenhar-uma-figura-dessas",
+    "href": "slides/recursao.html#como-desenhar-uma-figura-dessas",
+    "title": "Recursão",
+    "section": "Como desenhar uma figura dessas??",
+    "text": "Como desenhar uma figura dessas??"
+  },
+  {
+    "objectID": "slides/recursao.html#o-fractal-é-feito-de-fractais",
+    "href": "slides/recursao.html#o-fractal-é-feito-de-fractais",
+    "title": "Recursão",
+    "section": "O fractal é feito de fractais",
+    "text": "O fractal é feito de fractais\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCada região é uma cópia menor do mesmo problema.\n\n\nEssa é exatamente a estrutura que usamos nas Torres de Hanoi."
+  },
+  {
+    "objectID": "slides/recursao.html#pensando-recursivamente",
+    "href": "slides/recursao.html#pensando-recursivamente",
+    "title": "Recursão",
+    "section": "Pensando recursivamente",
+    "text": "Pensando recursivamente\nSuponha que já sabemos desenhar corretamente o fractal no nível nivel - 1.\n\n\nPara desenhar o nível nivel, precisamos descobrir:\n\nquantas cópias menores aparecem;\nqual o tamanho de cada cópia;\nonde cada cópia começa;\nse sua orientação muda."
+  },
+  {
+    "objectID": "slides/recursao.html#hanoi-e-fractais",
+    "href": "slides/recursao.html#hanoi-e-fractais",
+    "title": "Recursão",
+    "section": "Hanoi e fractais",
+    "text": "Hanoi e fractais\n\n\nHanoi\nresolver(n)\n├── resolver(n - 1)\n├── fazer um movimento\n└── resolver(n - 1)\n\nFractal\ndesenhar(n)\n├── desenhar(n - 1)\n├── desenhar(n - 1)\n├── desenhar(n - 1)\n└── ...\n\n\nResolver o problema é, essencialmente, identificar a estrutura recursiva do problema."
+  },
+  {
+    "objectID": "slides/recursao.html#fibonacci",
+    "href": "slides/recursao.html#fibonacci",
+    "title": "Recursão",
+    "section": "Fibonacci",
+    "text": "Fibonacci\nA sequência de Fibonacci também possui uma definição recursiva:\n\\[\nF_0 = 0, \\qquad F_1 = 1,\n\\]\n\\[\nF_n = F_{n-1} + F_{n-2}.\n\\]\n\nUma tradução quase literal para C:\nlong fib(int n) {\n    if (n &lt;= 1)\n        return n;\n\n    return fib(n - 1) + fib(n - 2);\n}\nParece uma boa solução?"
+  },
+  {
+    "objectID": "slides/recursao.html#trabalho-repetido",
+    "href": "slides/recursao.html#trabalho-repetido",
+    "title": "Recursão",
+    "section": "Trabalho repetido",
+    "text": "Trabalho repetido\n\n\n\n\n\n\nEstamos resolvendo os mesmos subproblemas várias vezes.\n\n\n\nUma solução recursiva pode estar correta e ainda ser muito ineficiente."
+  },
+  {
+    "objectID": "slides/recursao.html#recursivo-ou-iterativo",
+    "href": "slides/recursao.html#recursivo-ou-iterativo",
+    "title": "Recursão",
+    "section": "Recursivo ou iterativo?",
+    "text": "Recursivo ou iterativo?\nPor exemplo, fatorial também pode ser calculado assim:\nint fatorial(int n) {\n    int fat = 1;\n\n    for (int i = 2; i &lt;= n; i++)\n        fat *= i;\n\n    return fat;\n}\n\nPara fatorial, a solução iterativa provavelmente é mais simples."
+  },
+  {
+    "objectID": "slides/recursao.html#como-projetar-uma-função-recursiva",
+    "href": "slides/recursao.html#como-projetar-uma-função-recursiva",
+    "title": "Recursão",
+    "section": "Como projetar uma função recursiva?",
+    "text": "Como projetar uma função recursiva?\n1. Defina precisamente o que a função faz.\n O que significa f(n, ...)?\n\n2. Encontre o caso base.\n Qual instância sabemos resolver diretamente?\n\n\n3. Encontre um problema menor.\n Se f(n - 1, ...) funciona, como usamos sua resposta?\n\n\n4. Garanta progresso.\n As chamadas realmente chegam ao caso base?"
+  },
+  {
+    "objectID": "slides/recursao.html#resumão",
+    "href": "slides/recursao.html#resumão",
+    "title": "Recursão",
+    "section": "Resumão",
+    "text": "Resumão\n\nRecursão: resolver um problema usando instâncias menores do mesmo problema;\nCaso base: situação resolvida diretamente, onde a recursão termina;\nChamadas recursivas podem formar uma pilha ou uma árvore de chamadas;\nRecursão é especialmente natural em problemas auto-semelhantes;\nUma solução recursiva correta não é necessariamente eficiente."
+  },
+  {
+    "objectID": "slides/recursao.html#exercícios",
+    "href": "slides/recursao.html#exercícios",
+    "title": "Recursão",
+    "section": "Exercícios",
+    "text": "Exercícios\n\nImplemente de forma recursiva a função int max(int vec[], n) que retorna o valor máximo de um vetor de tamanho n;\nImplemente de forma recursiva a função imprime_binario(unsigned int n) que imprime em binário um número não-negativo n;"
+  },
+  {
+    "objectID": "slides/recursao.html#referências",
+    "href": "slides/recursao.html#referências",
+    "title": "Recursão",
+    "section": "Referências",
+    "text": "Referências\n\nP. Feofiloff. Algoritmos em Linguagem C – Recursão.\nhttps://www.ime.usp.br/~pf/algoritmos/aulas/recu.html\nF. Olivetti de França. Programação Estruturada – Aula 03: Recursão, UFABC.\nhttps://folivetti.github.io/courses/ProgramacaoEstruturada/PDF/Aula03-Recurs%C3%A3o.pdf\nB. W. Kernighan e D. M. Ritchie. The C Programming Language. 2nd ed."
+  },
+  {
     "objectID": "slides/matrizes.html#matrizes-1",
     "href": "slides/matrizes.html#matrizes-1",
     "title": "Matrizes",
     "section": "Matrizes",
-    "text": "Matrizes\nComo declarar uma matriz:\n&lt;tipo&gt; &lt;nome&gt;[&lt;tamanho1&gt;][&lt;tamanho2&gt;];\n\n\n\nExemplos:\nint matriz[4][3];\n\ndouble matriz2[4][3];"
+    "text": "Matrizes\nComo declarar uma matriz:\n&lt;tipo&gt; &lt;nome&gt;[&lt;n_linhas&gt;][&lt;n_colunas&gt;]; \n\n\n\nExemplos:\nint matriz[4][3];\n\ndouble matriz2[4][3];"
   },
   {
     "objectID": "slides/matrizes.html#matrizes-2",
     "href": "slides/matrizes.html#matrizes-2",
     "title": "Matrizes",
     "section": "Matrizes",
-    "text": "Matrizes\nAcessando valores em uma matriz:\nvetor[2][1]\n\n\nLendo/imprimindo um elemento da matriz:\nint matriz[4][3];\n\nscanf(\"%d\", &matriz[2][1]);\nprintf(\"%d\\n\", matriz[2][1]);\n\n\n\nAssim como em vetores, os indices das linhas e colunas da matriz começam de 0."
+    "text": "Matrizes\nAcessando valores em uma matriz:\nmatriz[2][1]\n\n\nLendo/imprimindo um elemento da matriz:\nint matriz[4][3];\n\nscanf(\"%d\", &matriz[2][1]);\nprintf(\"%d\\n\", matriz[2][1]);\n\n\n\nAssim como em vetores, os indices das linhas e colunas da matriz começam de 0."
   },
   {
     "objectID": "slides/matrizes.html#percorrendo-uma-matriz",
@@ -32,7 +263,7 @@
     "href": "slides/matrizes.html#percorrendo-uma-matriz---exemplo",
     "title": "Matrizes",
     "section": "Percorrendo uma Matriz - Exemplo",
-    "text": "Percorrendo uma Matriz - Exemplo\nQual o conteúdo da matriz após a execução do seguinte programa?\n\nint matriz[4][3];\nint i, j;\nint c = 0;\n\nfor (i = 0; i &lt; 4; i++)\n    for (j = 0; j &lt; 3; j++)\n        matriz[i][j] = c++;\n\n1   2   3\n4   5   6\n7   8   9\n10  11  12"
+    "text": "Percorrendo uma Matriz - Exemplo\nQual o conteúdo da matriz após a execução do seguinte programa?\n\nint matriz[4][3];\nint i, j;\nint c = 0;\n\nfor (i = 0; i &lt; 4; i++)\n    for (j = 0; j &lt; 3; j++)\n        matriz[i][j] = c++;\n\n0   1   2\n3   4   5\n6   7   8\n9   10  11"
   },
   {
     "objectID": "slides/matrizes.html#um-pouco-mais-sobre-percurso-em-matrizes",
@@ -487,7 +718,7 @@
     "href": "cronograma.html",
     "title": "Cronograma e materiais",
     "section": "",
-    "text": "Data\nTipo\nTópicos\nMateriais\n\n\n\n\n15/09\nLaboratório\nIntrodução ao curso, à linguagem C e ao Linux\nSlides\n\n\n18/09\nTeoria\nTipos, variáveis, funções, laços, condicionais, entrada e saída\nSlides\n\n\n22/09\n—\nCongresso UFABC e CO’DA\n\n\n\n25/09\nTeoria\nFunções e vetores\nSlides\n\n\n29/09\nLaboratório\nExercícios — Lab 1\nLaboratório 1\n\n\n02/10\n—\nSem aula — interdição do período noturno do Campus Santo André para eleições\n\n\n\n06/10\nLaboratório\nMatrizes e Lab 2A\nSlides Laboratório 2A"
+    "text": "Data\nTipo\nTópicos\nMateriais\n\n\n\n\n15/09\nLaboratório\nIntrodução ao curso, à linguagem C e ao Linux\nSlides\n\n\n18/09\nTeoria\nTipos, variáveis, funções, laços, condicionais, entrada e saída\nSlides\n\n\n22/09\n—\nCongresso UFABC e CO’DA\n\n\n\n25/09\nTeoria\nFunções e vetores\nSlides\n\n\n29/09\nLaboratório\nExercícios — Lab 1\nLaboratório 1\n\n\n02/10\n—\nSem aula — interdição do período noturno do Campus Santo André para eleições\n\n\n\n06/10\nLaboratório\nMatrizes e Lab 2A\nSlides Laboratório 2A\n\n\n09/10\nTeoria\nRecursão e (talvez) Strings\nSlides recursão Slides Strings"
   },
   {
     "objectID": "labs/lab2a.html",
@@ -1167,6 +1398,167 @@
     "title": "Introdução à linguagem C (cont.)",
     "section": "Exemplo de interação",
     "text": "Exemplo de interação\nOperacao? 1\n-2\n1\n-1\nOperacao? 3\n2\n90\n180\nOperacao? 2\n80\n2\n5\n87\nOperacao? 0\n-1"
+  },
+  {
+    "objectID": "slides/strings.html#strings-1",
+    "href": "slides/strings.html#strings-1",
+    "title": "Strings",
+    "section": "Strings",
+    "text": "Strings\n\nNão há o tipo String em C;\nPara representar uma String em C, usamos um vetor de char.\n\n#include &lt;stdio.h&gt;\n\nint main() {\n    char nome[50] = \"Hello World\";\n    printf(\"%s\\n\", nome);\n\n    return 0;\n}"
+  },
+  {
+    "objectID": "slides/strings.html#representação-de-uma-string",
+    "href": "slides/strings.html#representação-de-uma-string",
+    "title": "Strings",
+    "section": "Representação de uma String",
+    "text": "Representação de uma String\nchar texto[] = \"Hello World\";\nNa memória, string é um vetor de char:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n\n\n\n\nH\ne\nl\nl\no\n␣\nW\no\nr\nl\nd\n\\0\n\n\n\n\nToda string em C termina com o caractere nulo '\\0'."
+  },
+  {
+    "objectID": "slides/strings.html#criando-uma-string-caractere-a-caractere",
+    "href": "slides/strings.html#criando-uma-string-caractere-a-caractere",
+    "title": "Strings",
+    "section": "Criando uma string caractere a caractere",
+    "text": "Criando uma string caractere a caractere\n#include&lt;stdio.h&gt;\n\nint main() {\n    char universidade[50];\n    universidade[0] = 'U';\n    universidade[1] = 'F';\n    universidade[2] = 'A';\n    universidade[3] = 'B';\n    universidade[4] = 'C';\n\n    printf(\"%s\\n\", universidade);\n\n    return 0;\n}\nVeja que usamos aspa simples para representar caracteres!\nO que será impresso?"
+  },
+  {
+    "objectID": "slides/strings.html#vamos-criar-uma-string-caractere-a-caractere",
+    "href": "slides/strings.html#vamos-criar-uma-string-caractere-a-caractere",
+    "title": "Strings",
+    "section": "Vamos criar uma string caractere a caractere",
+    "text": "Vamos criar uma string caractere a caractere\nResultado\nUFABCw▌\\▒a■   ║k1w¡l1w└@\n\n\nFaltou colocarmos o caractere \\0 indicando o final da String!"
+  },
+  {
+    "objectID": "slides/strings.html#lendo-strings",
+    "href": "slides/strings.html#lendo-strings",
+    "title": "Strings",
+    "section": "Lendo Strings",
+    "text": "Lendo Strings\nPara ler Strings sem espaços (␣, \\t, \\n,), passamos o vetor para o scanf:\nint main() {\n    char universidade[50];\n    scanf(\"%s\", universidade);\n    printf(\"%s\\n\", universidade);\n    return 0;\n}\n\nApesar de ser o scanf, observe que aqui não usamos o “&”.\n\n\n Identificador do vetor sem os colchetes representa o endereço do primeiro elemento."
+  },
+  {
+    "objectID": "slides/strings.html#lendo-strings-1",
+    "href": "slides/strings.html#lendo-strings-1",
+    "title": "Strings",
+    "section": "Lendo Strings",
+    "text": "Lendo Strings\nComo universidade == &universidade[0], o seguinte código funciona:\n\nint main() {\n    char universidade[50];\n\n    scanf(\"%s\", &universidade[0]);\n    printf(\"%s\\n\", universidade);\n\n    return 0;\n}"
+  },
+  {
+    "objectID": "slides/strings.html#gets-e-puts",
+    "href": "slides/strings.html#gets-e-puts",
+    "title": "Strings",
+    "section": "gets e puts",
+    "text": "gets e puts\nFunções para ler e imprimir strings\n\ngets: lê uma string até \\n ou EOF (End Of File) (substituidos por \\0);\nputs: imprime uma string e quebra a linha.\n\n#include &lt;stdio.h&gt;\n\nint main() {\n    char texto[20];\n\n    gets(texto); // Le texto\n    puts(texto); // Imprime texto\n\n    return 0;\n}"
+  },
+  {
+    "objectID": "slides/strings.html#fgets",
+    "href": "slides/strings.html#fgets",
+    "title": "Strings",
+    "section": "fgets",
+    "text": "fgets\nO fgets é parecido com gets, mas limita a quantiade de caracteres lida\n#include &lt;stdio.h&gt;\n\nint main() {\n\n    printf(\"Digite uma frase: \");\n\n    char frase[6];\n    fgets(frase, 6, stdin);\n    puts(frase);\n\n    return 0;\n}\nDigite uma frase: UFABC\nUFABC"
+  },
+  {
+    "objectID": "slides/strings.html#além-do-limite-de-fgets",
+    "href": "slides/strings.html#além-do-limite-de-fgets",
+    "title": "Strings",
+    "section": "Além do limite de fgets",
+    "text": "Além do limite de fgets\nDigite uma frase: Universidade\nUnive\n\nPegou apenas os 5 primeiros caracteres!\n\n\nÉ recomendável utilizar o fgets ao invés do gets! O gets é insegura, pode sobrescrever pedaços arbitrários da memória.\n\n\n\nO fgets lê até o primeiro \\n ou EOF"
+  },
+  {
+    "objectID": "slides/strings.html#fgets-e-puts",
+    "href": "slides/strings.html#fgets-e-puts",
+    "title": "Strings",
+    "section": "fgets e puts",
+    "text": "fgets e puts\n\nfgets: lê uma string com um limite de caracteres;\nputs: imprime uma string e quebra a linha.\n\n#include &lt;stdio.h&gt;\n\nint main() {\n    char texto[20];\n\n    fgets(texto, 20, stdin);\n    puts(texto);\n\n    return 0;\n}\n\nQual a diferença para o scanf e printf?"
+  },
+  {
+    "objectID": "slides/strings.html#há-alguma-diferença-entre-esses-dois-programas",
+    "href": "slides/strings.html#há-alguma-diferença-entre-esses-dois-programas",
+    "title": "Strings",
+    "section": "Há alguma diferença entre esses dois programas?",
+    "text": "Há alguma diferença entre esses dois programas?\n\n\n#include &lt;stdio.h&gt;\n\nint main() {\n    char texto[20];\n\n    scanf(\"%s\", texto);\n    printf(\"%s\\n\", texto);\n\n    return 0;\n}\n\n#include &lt;stdio.h&gt;\n\nint main() {\n    char texto[20];\n\n    fgets(texto, 20, stdin);\n    puts(texto);\n\n    return 0;\n}\n\n\n\nscanf(\"%s\", texto) ignora espaços em branco iniciais e para de ler quando encontra o próximo espaço em branco.\nfgets(texto, n, stdin) lê no máximo n - 1 caracteres, parando antes disso se encontrar \\n ou EOF. Se encontrar \\n, ele é armazenado na string."
+  },
+  {
+    "objectID": "slides/strings.html#biblioteca-string.h",
+    "href": "slides/strings.html#biblioteca-string.h",
+    "title": "Strings",
+    "section": "Biblioteca string.h",
+    "text": "Biblioteca string.h\nA biblioteca string.h tem várias funções úteis:\n\nstrlen devolve o tamanho da string\nstrcmp compara duas strings já que não podemos usar &lt;, &lt;=, &gt;, &gt;=, == e !=\nstrcpy copia uma string\nstrcat concatena duas strings\n\n… e várias outras. Veja o manual para a documentação (ex: man strlen)\n\nNão confunda com a biblioteca strings.h"
+  },
+  {
+    "objectID": "slides/strings.html#exercício-1-cifra-de-césar",
+    "href": "slides/strings.html#exercício-1-cifra-de-césar",
+    "title": "Strings",
+    "section": "Exercício 1 – Cifra de César",
+    "text": "Exercício 1 – Cifra de César\n\nFaça uma função para criptografar uma frase com a cifra de César sobre uma string;\nFaça também uma função para reverter o processo."
+  },
+  {
+    "objectID": "slides/strings.html#cifra-de-césar",
+    "href": "slides/strings.html#cifra-de-césar",
+    "title": "Strings",
+    "section": "Cifra de César",
+    "text": "Cifra de César\nMétodo muito simples para criptografar uma mensagem consiste em substituir cada letra pela que está n posições na frente.\nQ xgpvq jqlg guvcxc owkvq hqtvg\nO vento hoje estava muito forte\nn = 2"
+  },
+  {
+    "objectID": "slides/strings.html#exercício-1-cifra-de-césar-1",
+    "href": "slides/strings.html#exercício-1-cifra-de-césar-1",
+    "title": "Strings",
+    "section": "Exercício 1 – Cifra de César",
+    "text": "Exercício 1 – Cifra de César\nComo seria o protótipo dessas funções?"
+  },
+  {
+    "objectID": "slides/strings.html#exercício-1-cifra-de-césar-2",
+    "href": "slides/strings.html#exercício-1-cifra-de-césar-2",
+    "title": "Strings",
+    "section": "Exercício 1 – Cifra de César",
+    "text": "Exercício 1 – Cifra de César\nComo seria o protótipo dessas funções?\nvoid encrypt(char texto_secreto[], int n);\nvoid decrypt(char texto_protegido[], int n);"
+  },
+  {
+    "objectID": "slides/strings.html#exercício-2-remover-a-segunda-palavra-de-uma-frase",
+    "href": "slides/strings.html#exercício-2-remover-a-segunda-palavra-de-uma-frase",
+    "title": "Strings",
+    "section": "Exercício 2 – remover a segunda palavra de uma frase",
+    "text": "Exercício 2 – remover a segunda palavra de uma frase\nFaça uma função que receba uma frase e remova a segunda palavra de uma frase."
+  },
+  {
+    "objectID": "slides/strings.html#exercício-2-remover-a-segunda-palavra-de-uma-frase-1",
+    "href": "slides/strings.html#exercício-2-remover-a-segunda-palavra-de-uma-frase-1",
+    "title": "Strings",
+    "section": "Exercício 2 – remover a segunda palavra de uma frase",
+    "text": "Exercício 2 – remover a segunda palavra de uma frase\nvoid remove_segunda_palavra(char frase[], int comp);\nComprimento da frase"
+  },
+  {
+    "objectID": "slides/strings.html#exercício-2-remover-a-segunda-palavra-de-uma-frase-2",
+    "href": "slides/strings.html#exercício-2-remover-a-segunda-palavra-de-uma-frase-2",
+    "title": "Strings",
+    "section": "Exercício 2 – remover a segunda palavra de uma frase",
+    "text": "Exercício 2 – remover a segunda palavra de uma frase\nFaça uma função que receba uma frase e remova a segunda palavra de uma frase.\n\nPlaceholder de imagem: vetor de caracteres com a frase \"Frase de teste\\0\" e resultado após remover a segunda palavra."
+  },
+  {
+    "objectID": "slides/strings.html#exercício-2-remover-a-segunda-palavra-de-uma-frase-3",
+    "href": "slides/strings.html#exercício-2-remover-a-segunda-palavra-de-uma-frase-3",
+    "title": "Strings",
+    "section": "Exercício 2 – remover a segunda palavra de uma frase",
+    "text": "Exercício 2 – remover a segunda palavra de uma frase\nvoid remove_segunda_palavra(char frase[], int comp);\nComprimento da frase\nPodemos fazer esta função sem o parâmetro de comprimento?"
+  },
+  {
+    "objectID": "slides/strings.html#exercício-2-remover-a-segunda-palavra-de-uma-frase-4",
+    "href": "slides/strings.html#exercício-2-remover-a-segunda-palavra-de-uma-frase-4",
+    "title": "Strings",
+    "section": "Exercício 2 – remover a segunda palavra de uma frase",
+    "text": "Exercício 2 – remover a segunda palavra de uma frase\nvoid remove_segunda_palavra(char frase[], int comp);\nComprimento da frase\nPodemos fazer esta função sem o parâmetro de comprimento?\nSim, nesse caso, teríamos que encontrar o caractere '\\0' primeiro (ele indica o fim da string)."
+  },
+  {
+    "objectID": "slides/strings.html#exercício-3-remover-a-palavra-de-índice-i-de-uma-frase",
+    "href": "slides/strings.html#exercício-3-remover-a-palavra-de-índice-i-de-uma-frase",
+    "title": "Strings",
+    "section": "Exercício 3 – remover a palavra de índice i de uma frase",
+    "text": "Exercício 3 – remover a palavra de índice i de uma frase\nFaça uma função que receba uma frase e remova a palavra de índice i de uma frase (considere que a primeira palavra tem índice 1).\nvoid remove_palavra(char frase[], int i, int comp);"
+  },
+  {
+    "objectID": "slides/strings.html#referência",
+    "href": "slides/strings.html#referência",
+    "title": "Strings",
+    "section": "Referência",
+    "text": "Referência\nSlides originais: Prof. Paulo Henrique Pisani, Strings e Matrizes, Programação Estruturada, UFABC, setembro/2021."
   },
   {
     "objectID": "index.html",
