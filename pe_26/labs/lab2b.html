@@ -182,12 +182,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Nesta página</h2>
    
   <ul>
-  <li><a href="#exercício-1-maiúsculas-e-minúsculas" id="toc-exercício-1-maiúsculas-e-minúsculas" class="nav-link active" data-scroll-target="#exercício-1-maiúsculas-e-minúsculas">Exercício 1 – Maiúsculas e minúsculas</a></li>
-  <li><a href="#exercício-4-anagramas" id="toc-exercício-4-anagramas" class="nav-link" data-scroll-target="#exercício-4-anagramas">Exercício 4 – Anagramas</a>
+  <li><a href="#exercício-3-anagramas" id="toc-exercício-3-anagramas" class="nav-link active" data-scroll-target="#exercício-3-anagramas">Exercício 3 – Anagramas</a>
   <ul class="collapse">
   <li><a href="#função-a-implementar" id="toc-função-a-implementar" class="nav-link" data-scroll-target="#função-a-implementar">Função a implementar</a></li>
   <li><a href="#exemplos" id="toc-exemplos" class="nav-link" data-scroll-target="#exemplos">Exemplos</a></li>
   </ul></li>
+  <li><a href="#exercício-4-maiúsculas-e-minúsculas" id="toc-exercício-4-maiúsculas-e-minúsculas" class="nav-link" data-scroll-target="#exercício-4-maiúsculas-e-minúsculas">Exercício 4 – Maiúsculas e minúsculas</a></li>
   </ul>
 </nav>
     </div>
@@ -213,8 +213,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="exercício-1-maiúsculas-e-minúsculas" class="level2">
-<h2 class="anchored" data-anchor-id="exercício-1-maiúsculas-e-minúsculas">Exercício 1 – Maiúsculas e minúsculas</h2>
+<section id="exercício-3-anagramas" class="level2">
+<h2 class="anchored" data-anchor-id="exercício-3-anagramas">Exercício 3 – Anagramas</h2>
+<p>Dadas duas strings <code>S</code> e <code>T</code>, dizemos que <code>S</code> é um <strong>anagrama</strong> de <code>T</code> se podemos obter <code>T</code> rearranjando os caracteres de <code>S</code>. Por exemplo, <code>"arco"</code> é um anagrama de <code>"caro"</code>, assim como <code>"estudo"</code> é um anagrama de <code>"duetos"</code>.</p>
+<p>Escreva uma função que determine se duas strings são anagramas.</p>
+<section id="função-a-implementar" class="level3">
+<h3 class="anchored" data-anchor-id="função-a-implementar">Função a implementar</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> anagrama<span class="op">(</span><span class="dt">char</span> S<span class="op">[],</span> <span class="dt">char</span> T<span class="op">[]);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A função deve retornar <code>1</code> se <code>S</code> e <code>T</code> forem anagramas e <code>0</code> caso contrário.</p>
+<p>Considere que <code>S</code> e <code>T</code> contêm apenas letras minúsculas do alfabeto (<code>a</code>–<code>z</code>). As strings podem ter tamanhos diferentes. Sua função não deve modificar nenhuma das duas strings.</p>
+</section>
+<section id="exemplos" class="level3">
+<h3 class="anchored" data-anchor-id="exemplos">Exemplos</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>anagrama<span class="op">(</span><span class="st">"arco"</span><span class="op">,</span> <span class="st">"caro"</span><span class="op">)</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>deve retornar:</p>
+<pre class="exemplo-io"><code>1</code></pre>
+<p>Enquanto</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>anagrama<span class="op">(</span><span class="st">"casa"</span><span class="op">,</span> <span class="st">"caso"</span><span class="op">)</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>deve retornar:</p>
+<pre class="exemplo-io"><code>0</code></pre>
+<p>Observe também que a quantidade de vezes que cada letra aparece é importante. Por exemplo:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>anagrama<span class="op">(</span><span class="st">"aaab"</span><span class="op">,</span> <span class="st">"aabb"</span><span class="op">)</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>deve retornar:</p>
+<pre class="exemplo-io"><code>0</code></pre>
+<p><strong>Dica:</strong> não é necessário gerar os possíveis rearranjos de <code>S</code>. Pense em quais informações sobre as letras das duas strings são suficientes para decidir se uma pode ser obtida rearranjando a outra.</p>
+<p>O CodeRunner será responsável por criar as strings e chamar a função. Portanto, envie apenas a implementação de <code>anagrama</code>, sem uma função <code>main</code>.</p>
+</section>
+</section>
+<section id="exercício-4-maiúsculas-e-minúsculas" class="level2">
+<h2 class="anchored" data-anchor-id="exercício-4-maiúsculas-e-minúsculas">Exercício 4 – Maiúsculas e minúsculas</h2>
 <p>Escreva um programa que leia uma linha da entrada padrão e substitua cada letra minúscula pela letra maiúscula correspondente e cada letra maiúscula pela letra minúscula correspondente. Em seguida, imprima a string resultante. A linha de entrada poderá conter espaços, algarismos e outros caracteres, mas não terá caracteres acentuados. Caracteres que não sejam letras do alfabeto (<code>a</code>–<code>z</code> ou <code>A</code>–<code>Z</code>) devem permanecer inalterados.</p>
 <p>A linha terá no máximo <strong>100 caracteres</strong>, sem contar o caractere de quebra de linha (<code>'\n'</code>) ao final da entrada.</p>
 <p>Use <code>fgets</code> para ler a linha e <code>puts</code> para imprimir o resultado.</p>
@@ -252,35 +279,8 @@ Aviso
 <p>Neste exercício, não utilize as funções da biblioteca <code>ctype.h</code>, como <code>toupper</code>, <code>tolower</code>, <code>isupper</code> ou <code>islower</code>. O objetivo é praticar comparações e aritmética com caracteres.</p>
 </div>
 </div>
-</section>
-<section id="exercício-4-anagramas" class="level2">
-<h2 class="anchored" data-anchor-id="exercício-4-anagramas">Exercício 4 – Anagramas</h2>
-<p>Dadas duas strings <code>S</code> e <code>T</code>, dizemos que <code>S</code> é um <strong>anagrama</strong> de <code>T</code> se podemos obter <code>T</code> rearranjando os caracteres de <code>S</code>. Por exemplo, <code>"arco"</code> é um anagrama de <code>"caro"</code>, assim como <code>"estudo"</code> é um anagrama de <code>"duetos"</code>.</p>
-<p>Escreva uma função que determine se duas strings são anagramas.</p>
-<section id="função-a-implementar" class="level3">
-<h3 class="anchored" data-anchor-id="função-a-implementar">Função a implementar</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> anagrama<span class="op">(</span><span class="dt">char</span> S<span class="op">[],</span> <span class="dt">char</span> T<span class="op">[]);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>A função deve retornar <code>1</code> se <code>S</code> e <code>T</code> forem anagramas e <code>0</code> caso contrário.</p>
-<p>Considere que <code>S</code> e <code>T</code> contêm apenas letras minúsculas do alfabeto (<code>a</code>–<code>z</code>). As strings podem ter tamanhos diferentes. Sua função não deve modificar nenhuma das duas strings.</p>
-</section>
-<section id="exemplos" class="level3">
-<h3 class="anchored" data-anchor-id="exemplos">Exemplos</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>anagrama<span class="op">(</span><span class="st">"arco"</span><span class="op">,</span> <span class="st">"caro"</span><span class="op">)</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>deve retornar:</p>
-<pre class="exemplo-io"><code>1</code></pre>
-<p>Enquanto</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>anagrama<span class="op">(</span><span class="st">"casa"</span><span class="op">,</span> <span class="st">"caso"</span><span class="op">)</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>deve retornar:</p>
-<pre class="exemplo-io"><code>0</code></pre>
-<p>Observe também que a quantidade de vezes que cada letra aparece é importante. Por exemplo:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>anagrama<span class="op">(</span><span class="st">"aaab"</span><span class="op">,</span> <span class="st">"aabb"</span><span class="op">)</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>deve retornar:</p>
-<pre class="exemplo-io"><code>0</code></pre>
-<p><strong>Dica:</strong> não é necessário gerar os possíveis rearranjos de <code>S</code>. Pense em quais informações sobre as letras das duas strings são suficientes para decidir se uma pode ser obtida rearranjando a outra.</p>
-<p>O CodeRunner será responsável por criar as strings e chamar a função. Portanto, envie apenas a implementação de <code>anagrama</code>, sem uma função <code>main</code>.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
