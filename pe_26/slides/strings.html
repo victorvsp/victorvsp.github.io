@@ -220,6 +220,91 @@ Victor S. Portella
 
 </section>
 <section>
+<section id="questões-logísticas" class="title-slide slide level1 center">
+<h1>Questões logísticas</h1>
+
+</section>
+<section id="primeira-prova-p1---27-de-outubro" class="slide level2">
+<h2>Primeira prova (P1) - 27 de outubro</h2>
+<ul>
+<li>A prova será feita <span class="red"><strong>no papel</strong></span>, com papel e caneta;</li>
+<li>Vou reservar uma <span class="blue"><strong>sala de aula convencional</strong></span> para a aplicação da prova;</li>
+<li>A matéria será todo o conteúdo visto <span class="green"><strong>desde o início do curso até a aula de hoje</strong></span>, incluindo:
+<ul>
+<li>matrizes;</li>
+<li>strings;</li>
+<li>recursão.</li>
+</ul></li>
+<li>Apesar de precisar escrever código, foco vai ser em compreeensão de código e de ideias fundamentais.</li>
+</ul>
+</section></section>
+<section>
+<section id="arquivos-.h-no-ep1" class="title-slide slide level1 center">
+<h1>Arquivos <code>.h</code> no EP1</h1>
+
+</section>
+<section id="como-um-arquivo-.c-conhece-outro" class="slide level2">
+<h2>Como um arquivo <code>.c</code> conhece outro?</h2>
+<p>Cada arquivo <code>.c</code> é <span class="red"><strong>compilado separadamente</strong></span>.</p>
+<div class="columns">
+<div class="column" style="width:48%;">
+<p>Em <code>desenho.c</code>, uma função é implementada:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a></a><span class="dt">void</span> linha_horizontal<span class="op">(</span></span>
+<span id="cb1-2"><a></a>    <span class="dt">unsigned</span> <span class="dt">char</span> img<span class="op">[][</span>MAX_DIM<span class="op">],</span></span>
+<span id="cb1-3"><a></a>    <span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span></span>
+<span id="cb1-4"><a></a>    <span class="dt">int</span> comprimento<span class="op">,</span></span>
+<span id="cb1-5"><a></a>    <span class="dt">unsigned</span> <span class="dt">char</span> cor<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-6"><a></a>    <span class="co">// implementação</span></span>
+<span id="cb1-7"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:52%;">
+<p>Mas <code>fractal.c</code> quer usá-la:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a></a><span class="dt">void</span> cantor<span class="op">(</span><span class="co">/* ... */</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-2"><a></a>    <span class="co">// ...</span></span>
+<span id="cb2-3"><a></a>    linha_horizontal<span class="op">(</span><span class="co">/* ... */</span><span class="op">);</span></span>
+<span id="cb2-4"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+<div class="fragment">
+<p>Como o compilador saberá que essa função existe?</p>
+</div>
+<div class="fragment">
+<p><code>desenho.h</code> <span class="blue"><strong>declara/avisa</strong></span> o que <code>desenho.c</code> oferece para os outros arquivos.</p>
+</div>
+</section>
+<section id="incluindo-esse-aviso" class="slide level2">
+<h2>Incluindo esse aviso</h2>
+<p>Os arquivos que precisam dessa informação incluem o mesmo cabeçalho:</p>
+<div class="columns">
+<div class="column" style="width:46%;">
+<p><strong><code>desenho.h</code></strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a></a><span class="dt">void</span> linha_horizontal<span class="op">(</span></span>
+<span id="cb3-2"><a></a>    <span class="dt">unsigned</span> <span class="dt">char</span> img<span class="op">[][</span>MAX_DIM<span class="op">],</span></span>
+<span id="cb3-3"><a></a>    <span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span></span>
+<span id="cb3-4"><a></a>    <span class="dt">int</span> comprimento<span class="op">,</span></span>
+<span id="cb3-5"><a></a>    <span class="dt">unsigned</span> <span class="dt">char</span> cor<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:54%;">
+<p><strong><code>desenho.c</code> e <code>fractal.c</code></strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a></a><span class="pp">#include </span><span class="im">"desenho.h"</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+<div class="fragment">
+<p><br></p>
+<p>O comando <code>#include</code> torna as declarações em <code>.h</code> disponíveis <em>antes</em> da compilação do arquivo <code>.c</code>.</p>
+</div>
+</section>
+<section id="detalhes-sobre-diretivas-de-pré-processador" class="slide level2">
+<h2>Detalhes sobre diretivas de pré-processador</h2>
+<p>Podemos pensar nas linhas que começam com <code>#</code> são <span class="red"><strong>diretivas do pré-processador</strong></span>, processadas antes da compilação propriamente dita.</p>
+<ul>
+<li><code>#include</code> inclui um cabeçalho</li>
+<li><code>#define</code> define uma constante/macro</li>
+<li><code>#ifndef</code> e <code>#endif</code> processam um trecho apenas sob determinada condição.</li>
+</ul>
+<div class="fragment">
+<p>No EP1, a combinação de <code>#ifndef</code>, <code>#define</code> e <code>#endif</code> evita que o mesmo <code>.h</code> seja incluído mais de uma vez.</p>
+<p><br></p>
+<p><span class="blue"><strong>Os arquivos <code>.h</code> não são compilados separadamente:</strong></span> compilamos os <code>.c</code> que os incluem.</p>
+</div>
+</section></section>
+<section>
 <section id="strings" class="title-slide slide level1 center">
 <h1>Strings</h1>
 
@@ -230,18 +315,18 @@ Victor S. Portella
 <li>Não há o tipo <span class="red"><strong>String</strong></span> em C;</li>
 <li>Para representar uma <span class="blue"><strong>String</strong></span> em C, usamos um vetor de <code>char</code>.</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb1-2"><a></a></span>
-<span id="cb1-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb1-4"><a></a>    <span class="dt">char</span> nome<span class="op">[</span><span class="dv">50</span><span class="op">]</span> <span class="op">=</span> <span class="st">"Hello World"</span><span class="op">;</span></span>
-<span id="cb1-5"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%s\n</span><span class="st">"</span><span class="op">,</span> nome<span class="op">);</span></span>
-<span id="cb1-6"><a></a></span>
-<span id="cb1-7"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb1-8"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb5-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb5-2"><a></a></span>
+<span id="cb5-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb5-4"><a></a>    <span class="dt">char</span> nome<span class="op">[</span><span class="dv">50</span><span class="op">]</span> <span class="op">=</span> <span class="st">"Hello World"</span><span class="op">;</span></span>
+<span id="cb5-5"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%s\n</span><span class="st">"</span><span class="op">,</span> nome<span class="op">);</span></span>
+<span id="cb5-6"><a></a></span>
+<span id="cb5-7"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-8"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="representação-de-uma-string" class="slide level2">
 <h2>Representação de uma String</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a></a><span class="dt">char</span> texto<span class="op">[]</span> <span class="op">=</span> <span class="st">"Hello World"</span><span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb6-1"><a></a><span class="dt">char</span> texto<span class="op">[]</span> <span class="op">=</span> <span class="st">"Hello World"</span><span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Na memória, <code>string</code> é um vetor de <code>char</code>:</p>
 <div class="string-array">
 <table class="caption-top">
@@ -297,44 +382,44 @@ Victor S. Portella
 </section>
 <section id="criando-uma-string-caractere-a-caractere" class="slide level2">
 <h2>Criando uma string caractere a caractere</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a></a><span class="pp">#include</span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb3-2"><a></a></span>
-<span id="cb3-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb3-4"><a></a>    <span class="dt">char</span> universidade<span class="op">[</span><span class="dv">5</span><span class="op">];</span></span>
-<span id="cb3-5"><a></a>    universidade<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">=</span> <span class="ch">'U'</span><span class="op">;</span></span>
-<span id="cb3-6"><a></a>    universidade<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> <span class="ch">'F'</span><span class="op">;</span></span>
-<span id="cb3-7"><a></a>    universidade<span class="op">[</span><span class="dv">2</span><span class="op">]</span> <span class="op">=</span> <span class="ch">'A'</span><span class="op">;</span></span>
-<span id="cb3-8"><a></a>    universidade<span class="op">[</span><span class="dv">3</span><span class="op">]</span> <span class="op">=</span> <span class="ch">'B'</span><span class="op">;</span></span>
-<span id="cb3-9"><a></a>    universidade<span class="op">[</span><span class="dv">4</span><span class="op">]</span> <span class="op">=</span> <span class="ch">'C'</span><span class="op">;</span></span>
-<span id="cb3-10"><a></a></span>
-<span id="cb3-11"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%s\n</span><span class="st">"</span><span class="op">,</span> universidade<span class="op">);</span></span>
-<span id="cb3-12"><a></a></span>
-<span id="cb3-13"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb3-14"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb7-1"><a></a><span class="pp">#include</span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb7-2"><a></a></span>
+<span id="cb7-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb7-4"><a></a>    <span class="dt">char</span> universidade<span class="op">[</span><span class="dv">5</span><span class="op">];</span></span>
+<span id="cb7-5"><a></a>    universidade<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">=</span> <span class="ch">'U'</span><span class="op">;</span></span>
+<span id="cb7-6"><a></a>    universidade<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> <span class="ch">'F'</span><span class="op">;</span></span>
+<span id="cb7-7"><a></a>    universidade<span class="op">[</span><span class="dv">2</span><span class="op">]</span> <span class="op">=</span> <span class="ch">'A'</span><span class="op">;</span></span>
+<span id="cb7-8"><a></a>    universidade<span class="op">[</span><span class="dv">3</span><span class="op">]</span> <span class="op">=</span> <span class="ch">'B'</span><span class="op">;</span></span>
+<span id="cb7-9"><a></a>    universidade<span class="op">[</span><span class="dv">4</span><span class="op">]</span> <span class="op">=</span> <span class="ch">'C'</span><span class="op">;</span></span>
+<span id="cb7-10"><a></a></span>
+<span id="cb7-11"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%s\n</span><span class="st">"</span><span class="op">,</span> universidade<span class="op">);</span></span>
+<span id="cb7-12"><a></a></span>
+<span id="cb7-13"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-14"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Veja que usamos <span class="red"><strong>aspa simples</strong></span> para representar caracteres!</p>
 <p><span class="blue"><strong>O que será impresso?</strong></span></p>
 </section>
 <section id="vamos-criar-uma-string-caractere-a-caractere" class="slide level2">
 <h2>Vamos criar uma string caractere a caractere</h2>
 <p><span class="red"><strong>Resultado</strong></span> (em alguns compiladores)</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a></a>UFABCw▌\▒a■   ║k1w¡l1w└@</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a></a>UFABCw▌\▒a■   ║k1w¡l1w└@</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
 <p><br></p>
 <p>Faltou colocarmos o caractere <code>\0</code> indicando o <strong>final da String</strong>!</p>
 <div class="note">
-<p>Usar a flag <code>-fsanitize=address</code> vai apontar acesso em local inválido da memória.</p>
+<p>Muitas vezes a impressão não vai sair quebrada como acima. Usar a flag <code>-fsanitize=address</code> vai apontar acesso em local inválido da memória.</p>
 </div>
 </div>
 </section>
 <section id="lendo-strings" class="slide level2">
 <h2>Lendo Strings</h2>
 <p>Para ler Strings <span class="red"><strong>sem espaços</strong></span> (<code>␣</code>, <code>\t</code>, <code>\n</code>,), passamos o vetor para o <code>scanf</code>:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb5-1"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb5-2"><a></a>    <span class="dt">char</span> universidade<span class="op">[</span><span class="dv">50</span><span class="op">];</span></span>
-<span id="cb5-3"><a></a>    scanf<span class="op">(</span><span class="st">"</span><span class="sc">%s</span><span class="st">"</span><span class="op">,</span> universidade<span class="op">);</span></span>
-<span id="cb5-4"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%s\n</span><span class="st">"</span><span class="op">,</span> universidade<span class="op">);</span></span>
-<span id="cb5-5"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb5-6"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb9-1"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb9-2"><a></a>    <span class="dt">char</span> universidade<span class="op">[</span><span class="dv">50</span><span class="op">];</span></span>
+<span id="cb9-3"><a></a>    scanf<span class="op">(</span><span class="st">"</span><span class="sc">%s</span><span class="st">"</span><span class="op">,</span> universidade<span class="op">);</span></span>
+<span id="cb9-4"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%s\n</span><span class="st">"</span><span class="op">,</span> universidade<span class="op">);</span></span>
+<span id="cb9-5"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb9-6"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
 <p>Apesar de ser o <code>scanf</code>, observe que aqui <span class="red"><strong>não usamos o “&amp;”</strong></span>.</p>
 </div>
@@ -345,15 +430,15 @@ Victor S. Portella
 <section id="lendo-strings-1" class="slide level2">
 <h2>Lendo Strings</h2>
 <p>Como <code>universidade == &amp;universidade[0]</code>, o seguinte código funciona:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb6-1"><a></a></span>
-<span id="cb6-2"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb6-3"><a></a>    <span class="dt">char</span> universidade<span class="op">[</span><span class="dv">50</span><span class="op">];</span></span>
-<span id="cb6-4"><a></a></span>
-<span id="cb6-5"><a></a>    scanf<span class="op">(</span><span class="st">"</span><span class="sc">%s</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>universidade<span class="op">[</span><span class="dv">0</span><span class="op">]);</span></span>
-<span id="cb6-6"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%s\n</span><span class="st">"</span><span class="op">,</span> universidade<span class="op">);</span></span>
-<span id="cb6-7"><a></a></span>
-<span id="cb6-8"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb6-9"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb10-1"><a></a></span>
+<span id="cb10-2"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb10-3"><a></a>    <span class="dt">char</span> universidade<span class="op">[</span><span class="dv">50</span><span class="op">];</span></span>
+<span id="cb10-4"><a></a></span>
+<span id="cb10-5"><a></a>    scanf<span class="op">(</span><span class="st">"</span><span class="sc">%s</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>universidade<span class="op">[</span><span class="dv">0</span><span class="op">]);</span></span>
+<span id="cb10-6"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%s\n</span><span class="st">"</span><span class="op">,</span> universidade<span class="op">);</span></span>
+<span id="cb10-7"><a></a></span>
+<span id="cb10-8"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb10-9"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="gets-e-puts" class="slide level2">
 <h2><code>gets</code> e <code>puts</code></h2>
@@ -362,39 +447,39 @@ Victor S. Portella
 <li><code>gets</code>: lê uma string até <code>\n</code> ou <code>EOF</code> (<em>End Of File</em>) (substituidos por <code>\0</code>);</li>
 <li><code>puts</code>: imprime uma string e quebra a linha.</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb7-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb7-2"><a></a></span>
-<span id="cb7-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb7-4"><a></a>    <span class="dt">char</span> texto<span class="op">[</span><span class="dv">20</span><span class="op">];</span></span>
-<span id="cb7-5"><a></a></span>
-<span id="cb7-6"><a></a>    gets<span class="op">(</span>texto<span class="op">);</span> <span class="co">// Le texto</span></span>
-<span id="cb7-7"><a></a>    puts<span class="op">(</span>texto<span class="op">);</span> <span class="co">// Imprime texto</span></span>
-<span id="cb7-8"><a></a></span>
-<span id="cb7-9"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb7-10"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb11-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb11-2"><a></a></span>
+<span id="cb11-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb11-4"><a></a>    <span class="dt">char</span> texto<span class="op">[</span><span class="dv">20</span><span class="op">];</span></span>
+<span id="cb11-5"><a></a></span>
+<span id="cb11-6"><a></a>    gets<span class="op">(</span>texto<span class="op">);</span> <span class="co">// Le texto</span></span>
+<span id="cb11-7"><a></a>    puts<span class="op">(</span>texto<span class="op">);</span> <span class="co">// Imprime texto</span></span>
+<span id="cb11-8"><a></a></span>
+<span id="cb11-9"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb11-10"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="fgets" class="slide level2">
 <h2><code>fgets</code></h2>
 <p>O <code>fgets</code> é parecido com <code>gets</code>, mas limita a quantiade de caracteres lida</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb8-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb8-2"><a></a></span>
-<span id="cb8-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb8-4"><a></a></span>
-<span id="cb8-5"><a></a>    printf<span class="op">(</span><span class="st">"Digite uma frase: "</span><span class="op">);</span></span>
-<span id="cb8-6"><a></a></span>
-<span id="cb8-7"><a></a>    <span class="dt">char</span> frase<span class="op">[</span><span class="dv">6</span><span class="op">];</span></span>
-<span id="cb8-8"><a></a>    fgets<span class="op">(</span>frase<span class="op">,</span> <span class="dv">6</span><span class="op">,</span> stdin<span class="op">);</span></span>
-<span id="cb8-9"><a></a>    puts<span class="op">(</span>frase<span class="op">);</span></span>
-<span id="cb8-10"><a></a></span>
-<span id="cb8-11"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb8-12"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a></a>Digite uma frase: UFABC</span>
-<span id="cb9-2"><a></a>UFABC</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb12-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb12-2"><a></a></span>
+<span id="cb12-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb12-4"><a></a></span>
+<span id="cb12-5"><a></a>    printf<span class="op">(</span><span class="st">"Digite uma frase: "</span><span class="op">);</span></span>
+<span id="cb12-6"><a></a></span>
+<span id="cb12-7"><a></a>    <span class="dt">char</span> frase<span class="op">[</span><span class="dv">6</span><span class="op">];</span></span>
+<span id="cb12-8"><a></a>    fgets<span class="op">(</span>frase<span class="op">,</span> <span class="dv">6</span><span class="op">,</span> stdin<span class="op">);</span></span>
+<span id="cb12-9"><a></a>    puts<span class="op">(</span>frase<span class="op">);</span></span>
+<span id="cb12-10"><a></a></span>
+<span id="cb12-11"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb12-12"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a></a>Digite uma frase: UFABC</span>
+<span id="cb13-2"><a></a>UFABC</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="além-do-limite-de-fgets" class="slide level2">
 <h2>Além do limite de <code>fgets</code></h2>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a></a>Digite uma frase: Universidade</span>
-<span id="cb10-2"><a></a>Unive</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb14-1"><a></a>Digite uma frase: Universidade</span>
+<span id="cb14-2"><a></a>Unive</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
 <p>Pegou apenas os <span class="red"><strong>5 primeiros caracteres!</strong></span></p>
 <p><br></p>
@@ -412,16 +497,16 @@ Victor S. Portella
 <li><code>fgets</code>: lê uma string com um limite de caracteres;</li>
 <li><code>puts</code>: imprime uma string e quebra a linha.</li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb11-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb11-2"><a></a></span>
-<span id="cb11-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb11-4"><a></a>    <span class="dt">char</span> texto<span class="op">[</span><span class="dv">20</span><span class="op">];</span></span>
-<span id="cb11-5"><a></a></span>
-<span id="cb11-6"><a></a>    fgets<span class="op">(</span>texto<span class="op">,</span> <span class="dv">20</span><span class="op">,</span> stdin<span class="op">);</span></span>
-<span id="cb11-7"><a></a>    puts<span class="op">(</span>texto<span class="op">);</span></span>
-<span id="cb11-8"><a></a></span>
-<span id="cb11-9"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb11-10"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb15-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb15-2"><a></a></span>
+<span id="cb15-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb15-4"><a></a>    <span class="dt">char</span> texto<span class="op">[</span><span class="dv">20</span><span class="op">];</span></span>
+<span id="cb15-5"><a></a></span>
+<span id="cb15-6"><a></a>    fgets<span class="op">(</span>texto<span class="op">,</span> <span class="dv">20</span><span class="op">,</span> stdin<span class="op">);</span></span>
+<span id="cb15-7"><a></a>    puts<span class="op">(</span>texto<span class="op">);</span></span>
+<span id="cb15-8"><a></a></span>
+<span id="cb15-9"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb15-10"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
 <p><span class="red"><strong>Qual a diferença para o scanf e printf?</strong></span></p>
 </div>
@@ -430,27 +515,27 @@ Victor S. Portella
 <h2>Há alguma diferença entre esses dois programas?</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb12-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb12-2"><a></a></span>
-<span id="cb12-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb12-4"><a></a>    <span class="dt">char</span> texto<span class="op">[</span><span class="dv">20</span><span class="op">];</span></span>
-<span id="cb12-5"><a></a></span>
-<span id="cb12-6"><a></a>    scanf<span class="op">(</span><span class="st">"</span><span class="sc">%s</span><span class="st">"</span><span class="op">,</span> texto<span class="op">);</span></span>
-<span id="cb12-7"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%s\n</span><span class="st">"</span><span class="op">,</span> texto<span class="op">);</span></span>
-<span id="cb12-8"><a></a></span>
-<span id="cb12-9"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb12-10"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb16-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb16-2"><a></a></span>
+<span id="cb16-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb16-4"><a></a>    <span class="dt">char</span> texto<span class="op">[</span><span class="dv">20</span><span class="op">];</span></span>
+<span id="cb16-5"><a></a></span>
+<span id="cb16-6"><a></a>    scanf<span class="op">(</span><span class="st">"</span><span class="sc">%s</span><span class="st">"</span><span class="op">,</span> texto<span class="op">);</span></span>
+<span id="cb16-7"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%s\n</span><span class="st">"</span><span class="op">,</span> texto<span class="op">);</span></span>
+<span id="cb16-8"><a></a></span>
+<span id="cb16-9"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb16-10"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb13-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb13-2"><a></a></span>
-<span id="cb13-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb13-4"><a></a>    <span class="dt">char</span> texto<span class="op">[</span><span class="dv">20</span><span class="op">];</span></span>
-<span id="cb13-5"><a></a></span>
-<span id="cb13-6"><a></a>    fgets<span class="op">(</span>texto<span class="op">,</span> <span class="dv">20</span><span class="op">,</span> stdin<span class="op">);</span></span>
-<span id="cb13-7"><a></a>    puts<span class="op">(</span>texto<span class="op">);</span></span>
-<span id="cb13-8"><a></a></span>
-<span id="cb13-9"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb13-10"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb17-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb17-2"><a></a></span>
+<span id="cb17-3"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb17-4"><a></a>    <span class="dt">char</span> texto<span class="op">[</span><span class="dv">20</span><span class="op">];</span></span>
+<span id="cb17-5"><a></a></span>
+<span id="cb17-6"><a></a>    fgets<span class="op">(</span>texto<span class="op">,</span> <span class="dv">20</span><span class="op">,</span> stdin<span class="op">);</span></span>
+<span id="cb17-7"><a></a>    puts<span class="op">(</span>texto<span class="op">);</span></span>
+<span id="cb17-8"><a></a></span>
+<span id="cb17-9"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb17-10"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 <div class="fragment">
 <ul>
@@ -478,18 +563,18 @@ Victor S. Portella
 <p>Na <strong>cifra de César</strong>, cada letra é substituída pela letra que está <code>n</code> posições à frente no alfabeto.</p>
 <div class="fragment">
 <p>Para <code>n = 2</code>:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb14-1"><a></a>A → C    B → D    ...    X → Z    Y → A    Z → B</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb18-1"><a></a>A → C    B → D    ...    X → Z    Y → A    Z → B</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p>Assim, a mensagem</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb15-1"><a></a>O vento hoje estava muito forte</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb19-1"><a></a>O vento hoje estava muito forte</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>torna-se:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb16-1"><a></a>Q xgpvq jqlg guvcxc owkvq hqtvg</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb20-1"><a></a>Q xgpvq jqlg guvcxc owkvq hqtvg</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Espaços e outros caracteres que não são letras permanecem inalterados.</p>
 </div>
 </section>
-<section id="tabela-ascii" class="slide level2">
-<h2>Tabela ASCII</h2>
+<section id="tabela-ascii-e-p-tipo-char" class="slide level2">
+<h2>Tabela ASCII e p tipo <code>char</code></h2>
 <p>Em C, um <code>char</code> armazena um pequeno valor inteiro. A tabela <strong>ASCII</strong> (<em>American Standard Code for Information Interchange</em>) associa um número a cada caractere.</p>
 <table class="caption-top">
 <thead>
@@ -528,37 +613,44 @@ Victor S. Portella
 </tbody>
 </table>
 <div class="note">
-<p>ASCII possui 128 códigos, de 0 a 127. Letras acentuadas, como <code>á</code> e <code>ç</code>, não fazem parte da tabela ASCII original.</p>
+<p>ASCII possui 128 códigos, de 0 a 127. Letras acentuadas, como <code>á</code> e <code>ç</code>, não fazem parte da tabela ASCII original. Número negativos em <code>char</code> são usados em outras tabelas.</p>
 </div>
 </section>
 <section id="aritmética-com-caracteres" class="slide level2">
 <h2>Aritmética com caracteres</h2>
 <p>O mesmo valor pode ser interpretado como um caractere ou como um número:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb17-1"><a></a><span class="dt">char</span> letra <span class="op">=</span> <span class="ch">'O'</span><span class="op">;</span></span>
-<span id="cb17-2"><a></a></span>
-<span id="cb17-3"><a></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%c\n</span><span class="st">"</span><span class="op">,</span> letra<span class="op">);</span>  <span class="co">// O</span></span>
-<span id="cb17-4"><a></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> letra<span class="op">);</span>  <span class="co">// 79</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb21-1"><a></a><span class="dt">char</span> letra <span class="op">=</span> <span class="ch">'O'</span><span class="op">;</span></span>
+<span id="cb21-2"><a></a></span>
+<span id="cb21-3"><a></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%c\n</span><span class="st">"</span><span class="op">,</span> letra<span class="op">);</span>  <span class="co">// O</span></span>
+<span id="cb21-4"><a></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> letra<span class="op">);</span>  <span class="co">// 79</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
 <p>No ASCII, as letras maiúsculas e minúsculas formam duas sequências. Assim, podemos fazer operações aritméticas com elas:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb18-1"><a></a><span class="dt">char</span> cifrada <span class="op">=</span> letra <span class="op">+</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb18-2"><a></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%c\n</span><span class="st">"</span><span class="op">,</span> cifrada<span class="op">);</span>  <span class="co">// Q</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Isso funciona para <code>'O'</code>, mas o que deveria acontecer com <code>'Y' + 2</code>?</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb22-1"><a></a><span class="dt">char</span> cifrada <span class="op">=</span> letra <span class="op">+</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb22-2"><a></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%c\n</span><span class="st">"</span><span class="op">,</span> cifrada<span class="op">);</span>  <span class="co">// Q</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p>E se tivéssemos <code>letra = Z</code>?</p>
+</div>
 </section>
 <section id="da-letra-para-uma-posição" class="slide level2">
 <h2>Da letra para uma posição</h2>
 <p>Subtrair <code>'a'</code> transforma uma letra minúscula em uma posição entre 0 e 25:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb19-1"><a></a>'a' - 'a' = 0</span>
-<span id="cb19-2"><a></a>'b' - 'a' = 1</span>
-<span id="cb19-3"><a></a>       ...</span>
-<span id="cb19-4"><a></a>'z' - 'a' = 25</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb23-1"><a></a>'a' - 'a' = 0</span>
+<span id="cb23-2"><a></a>'b' - 'a' = 1</span>
+<span id="cb23-3"><a></a>       ...</span>
+<span id="cb23-4"><a></a>'z' - 'a' = 25</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Depois, deslocamos essa posição e voltamos a somar <code>'a'</code>:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb20-1"><a></a><span class="dt">int</span> posicao <span class="op">=</span> letra <span class="op">-</span> <span class="ch">'a'</span><span class="op">;</span></span>
-<span id="cb20-2"><a></a><span class="dt">int</span> nova_posicao <span class="op">=</span> <span class="op">(</span>posicao <span class="op">+</span> n<span class="op">)</span> <span class="op">%</span> <span class="dv">26</span><span class="op">;</span></span>
-<span id="cb20-3"><a></a><span class="dt">char</span> cifrada <span class="op">=</span> <span class="ch">'a'</span> <span class="op">+</span> nova_posicao<span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>O operador <code>% 26</code> faz a contagem voltar ao começo do alfabeto:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb21-1"><a></a>'y' → 24 → (24 + 2) % 26 = 0 → 'a'</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb24-1"><a></a><span class="dt">int</span> posicao <span class="op">=</span> letra <span class="op">-</span> <span class="ch">'a'</span><span class="op">;</span></span>
+<span id="cb24-2"><a></a><span class="dt">int</span> nova_posicao <span class="op">=</span> <span class="op">(</span>posicao <span class="op">+</span> n<span class="op">)</span> <span class="op">%</span> <span class="dv">26</span><span class="op">;</span></span>
+<span id="cb24-3"><a></a><span class="dt">char</span> cifrada <span class="op">=</span> <span class="ch">'a'</span> <span class="op">+</span> nova_posicao<span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<div class="note">
+<p>O operador <code>% 26</code> faz a contagem voltar ao começo do alfabeto para valores <code>&gt;= 26</code>.</p>
+</div>
+</div>
 </section>
-<section id="cifrando-e-decifrando" class="slide level2">
-<h2>Cifrando e decifrando</h2>
+<section id="cifrando-e-decifrando-a-crifra-de-cesar" class="slide level2">
+<h2>Cifrando e decifrando a crifra de Cesar</h2>
 <p>Para cada caractere da string:</p>
 <ol type="1">
 <li>se estiver entre <code>'a'</code> e <code>'z'</code>, use <code>'a'</code> como base;</li>
@@ -566,11 +658,10 @@ Victor S. Portella
 <li>caso contrário, mantenha o caractere como está.</li>
 </ol>
 <p>Para <strong>cifrar</strong>, avançamos <code>n</code> posições:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb22-1"><a></a>nova_posicao <span class="op">=</span> <span class="op">(</span>posicao <span class="op">+</span> n<span class="op">)</span> <span class="op">%</span> <span class="dv">26</span><span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb25-1"><a></a>nova_posicao <span class="op">=</span> <span class="op">(</span>posicao <span class="op">+</span> n<span class="op">)</span> <span class="op">%</span> <span class="dv">26</span><span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
 <p>Para <strong>decifrar</strong>, fazemos o caminho inverso:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb23-1"><a></a>nova_posicao <span class="op">=</span> <span class="op">(</span>posicao <span class="op">-</span> n <span class="op">+</span> <span class="dv">26</span><span class="op">)</span> <span class="op">%</span> <span class="dv">26</span><span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="note">
-<p>Essas expressões consideram <code>n</code> entre 0 e 25. Um deslocamento maior pode ser reduzido com <code>n = n % 26</code>.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb26-1"><a></a>nova_posicao <span class="op">=</span> <span class="op">(</span>posicao <span class="op">-</span> n <span class="op">+</span> <span class="dv">26</span><span class="op">)</span> <span class="op">%</span> <span class="dv">26</span><span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="exercício-1-cifra-de-césar" class="slide level2">
@@ -579,48 +670,29 @@ Victor S. Portella
 <li>Faça uma função para criptografar uma frase com a cifra de César sobre uma string somente com letras minusculas entre <code>a</code> e <code>z</code>;</li>
 <li>Faça também uma função para reverter o processo.</li>
 </ul>
-</section>
-<section id="exercício-1-cifra-de-césar-1" class="slide level2">
-<h2>Exercício 1 – Cifra de César</h2>
 <p>Como seria o protótipo dessas funções?</p>
 <div class="fragment">
-<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb24-1"><a></a><span class="dt">void</span> encrypt<span class="op">(</span><span class="dt">char</span> texto_secreto<span class="op">[],</span> <span class="dt">int</span> n<span class="op">);</span></span>
-<span id="cb24-2"><a></a><span class="dt">void</span> decrypt<span class="op">(</span><span class="dt">char</span> texto_protegido<span class="op">[],</span> <span class="dt">int</span> n<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb27-1"><a></a><span class="dt">void</span> encrypt<span class="op">(</span><span class="dt">char</span> texto_secreto<span class="op">[],</span> <span class="dt">int</span> n<span class="op">);</span></span>
+<span id="cb27-2"><a></a><span class="dt">void</span> decrypt<span class="op">(</span><span class="dt">char</span> texto_protegido<span class="op">[],</span> <span class="dt">int</span> n<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="exercício-2-remover-a-segunda-palavra-de-uma-frase" class="slide level2">
 <h2>Exercício 2 – remover a segunda palavra de uma frase</h2>
 <p>Faça uma função que receba uma frase e remova a segunda palavra de uma frase.</p>
-</section>
-<section id="exercício-2-remover-a-segunda-palavra-de-uma-frase-1" class="slide level2">
-<h2>Exercício 2 – remover a segunda palavra de uma frase</h2>
-<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb25-1"><a></a><span class="dt">void</span> remove_segunda_palavra<span class="op">(</span><span class="dt">char</span> frase<span class="op">[],</span> <span class="dt">int</span> comp<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><span class="blue"><strong>Comprimento da frase</strong></span></p>
-</section>
-<section id="exercício-2-remover-a-segunda-palavra-de-uma-frase-2" class="slide level2">
-<h2>Exercício 2 – remover a segunda palavra de uma frase</h2>
-<p>Faça uma função que receba uma frase e remova a segunda palavra de uma frase.</p>
-<div class="image-placeholder">
-<p><span class="red"><strong>Placeholder de imagem</strong></span>: vetor de caracteres com a frase <code>"Frase de teste\0"</code> e resultado após remover a segunda palavra.</p>
+<pre><code>Frase legal de teste -&gt; Frase de teste</code></pre>
+<div class="fragment">
+<p>Ideia de assinatura:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb29-1"><a></a><span class="dt">void</span> remove_segunda_palavra<span class="op">(</span><span class="dt">char</span> frase<span class="op">[],</span> <span class="dt">int</span> comp<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Podemos fazer esta função sem o parâmetro de comprimento?</p>
 </div>
-</section>
-<section id="exercício-2-remover-a-segunda-palavra-de-uma-frase-3" class="slide level2">
-<h2>Exercício 2 – remover a segunda palavra de uma frase</h2>
-<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb26-1"><a></a><span class="dt">void</span> remove_segunda_palavra<span class="op">(</span><span class="dt">char</span> frase<span class="op">[],</span> <span class="dt">int</span> comp<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><span class="blue"><strong>Comprimento da frase</strong></span></p>
-<p>Podemos fazer esta função sem o parâmetro de comprimento?</p>
-</section>
-<section id="exercício-2-remover-a-segunda-palavra-de-uma-frase-4" class="slide level2">
-<h2>Exercício 2 – remover a segunda palavra de uma frase</h2>
-<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb27-1"><a></a><span class="dt">void</span> remove_segunda_palavra<span class="op">(</span><span class="dt">char</span> frase<span class="op">[],</span> <span class="dt">int</span> comp<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><span class="blue"><strong>Comprimento da frase</strong></span></p>
-<p>Podemos fazer esta função sem o parâmetro de comprimento?</p>
+<div class="fragment">
 <p><span class="green"><strong>Sim</strong></span>, nesse caso, teríamos que encontrar o caractere <code>'\0'</code> primeiro (ele indica o fim da string).</p>
+</div>
 </section>
 <section id="exercício-3-remover-a-palavra-de-índice-i-de-uma-frase" class="slide level2">
 <h2>Exercício 3 – remover a palavra de índice <code>i</code> de uma frase</h2>
-<p>Faça uma função que receba uma frase e remova a palavra de índice <code>i</code> de uma frase (considere que a primeira palavra tem índice 1).</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb28-1"><a></a><span class="dt">void</span> remove_palavra<span class="op">(</span><span class="dt">char</span> frase<span class="op">[],</span> <span class="dt">int</span> i<span class="op">,</span> <span class="dt">int</span> comp<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Faça uma função que receba uma frase e remova a palavra de índice <code>i</code> de uma frase (considere que a primeira palavra tem índice 0).</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb30-1"><a></a><span class="dt">void</span> remove_palavra<span class="op">(</span><span class="dt">char</span> frase<span class="op">[],</span> <span class="dt">int</span> i<span class="op">,</span> <span class="dt">int</span> comp<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="referência" class="slide level2">
 <h2>Referência</h2>
