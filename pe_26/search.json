@@ -245,88 +245,186 @@
     "text": "Referências\n\nP. Feofiloff. Algoritmos em Linguagem C – Recursão.\nhttps://www.ime.usp.br/~pf/algoritmos/aulas/recu.html\nF. Olivetti de França. Programação Estruturada – Aula 03: Recursão, UFABC.\nhttps://folivetti.github.io/courses/ProgramacaoEstruturada/PDF/Aula03-Recurs%C3%A3o.pdf\nB. W. Kernighan e D. M. Ritchie. The C Programming Language. 2nd ed."
   },
   {
-    "objectID": "slides/matrizes.html#matrizes-1",
-    "href": "slides/matrizes.html#matrizes-1",
-    "title": "Matrizes",
-    "section": "Matrizes",
-    "text": "Matrizes\nComo declarar uma matriz:\n&lt;tipo&gt; &lt;nome&gt;[&lt;n_linhas&gt;][&lt;n_colunas&gt;]; \n\n\n\nExemplos:\nint matriz[4][3];\n\ndouble matriz2[4][3];"
+    "objectID": "slides/strings.html#primeira-prova-p1---27-de-outubro",
+    "href": "slides/strings.html#primeira-prova-p1---27-de-outubro",
+    "title": "Strings",
+    "section": "Primeira prova (P1) - 27 de outubro",
+    "text": "Primeira prova (P1) - 27 de outubro\n\nA prova será feita no papel, com papel e caneta;\nVou reservar uma sala de aula convencional para a aplicação da prova;\nA matéria será todo o conteúdo visto desde o início do curso até a aula de hoje, incluindo:\n\nmatrizes;\nstrings;\nrecursão.\n\nApesar de precisar escrever código, foco vai ser em compreeensão de código e de ideias fundamentais."
   },
   {
-    "objectID": "slides/matrizes.html#matrizes-2",
-    "href": "slides/matrizes.html#matrizes-2",
-    "title": "Matrizes",
-    "section": "Matrizes",
-    "text": "Matrizes\nAcessando valores em uma matriz:\nmatriz[2][1]\n\n\nLendo/imprimindo um elemento da matriz:\nint matriz[4][3];\n\nscanf(\"%d\", &matriz[2][1]);\nprintf(\"%d\\n\", matriz[2][1]);\n\n\n\nAssim como em vetores, os indices das linhas e colunas da matriz começam de 0."
+    "objectID": "slides/strings.html#como-um-arquivo-.c-conhece-outro",
+    "href": "slides/strings.html#como-um-arquivo-.c-conhece-outro",
+    "title": "Strings",
+    "section": "Como um arquivo .c conhece outro?",
+    "text": "Como um arquivo .c conhece outro?\nCada arquivo .c é compilado separadamente.\n\n\nEm desenho.c, uma função é implementada:\nvoid linha_horizontal(\n    unsigned char img[][MAX_DIM],\n    int x, int y,\n    int comprimento,\n    unsigned char cor) {\n    // implementação\n}\n\nMas fractal.c quer usá-la:\nvoid cantor(/* ... */) {\n    // ...\n    linha_horizontal(/* ... */);\n}\n\n\nComo o compilador saberá que essa função existe?\n\n\ndesenho.h declara/avisa o que desenho.c oferece para os outros arquivos."
   },
   {
-    "objectID": "slides/matrizes.html#percorrendo-uma-matriz",
-    "href": "slides/matrizes.html#percorrendo-uma-matriz",
-    "title": "Matrizes",
-    "section": "Percorrendo uma Matriz",
-    "text": "Percorrendo uma Matriz\n\n\nint matriz[4][3];\nint i, j;\n\nfor (i = 0; i &lt; 4; i++)\n    for (j = 0; j &lt; 3; j++)\n        matriz[i][j];"
+    "objectID": "slides/strings.html#incluindo-esse-aviso",
+    "href": "slides/strings.html#incluindo-esse-aviso",
+    "title": "Strings",
+    "section": "Incluindo esse aviso",
+    "text": "Incluindo esse aviso\nOs arquivos que precisam dessa informação incluem o mesmo cabeçalho:\n\n\ndesenho.h\nvoid linha_horizontal(\n    unsigned char img[][MAX_DIM],\n    int x, int y,\n    int comprimento,\n    unsigned char cor);\n\ndesenho.c e fractal.c\n#include \"desenho.h\"\n\n\n\nO comando #include torna as declarações em .h disponíveis antes da compilação do arquivo .c."
   },
   {
-    "objectID": "slides/matrizes.html#percorrendo-uma-matriz---exemplo",
-    "href": "slides/matrizes.html#percorrendo-uma-matriz---exemplo",
-    "title": "Matrizes",
-    "section": "Percorrendo uma Matriz - Exemplo",
-    "text": "Percorrendo uma Matriz - Exemplo\nQual o conteúdo da matriz após a execução do seguinte programa?\n\nint matriz[4][3];\nint i, j;\nint c = 0;\n\nfor (i = 0; i &lt; 4; i++)\n    for (j = 0; j &lt; 3; j++)\n        matriz[i][j] = c++;\n\n0   1   2\n3   4   5\n6   7   8\n9   10  11"
+    "objectID": "slides/strings.html#detalhes-sobre-diretivas-de-pré-processador",
+    "href": "slides/strings.html#detalhes-sobre-diretivas-de-pré-processador",
+    "title": "Strings",
+    "section": "Detalhes sobre diretivas de pré-processador",
+    "text": "Detalhes sobre diretivas de pré-processador\nPodemos pensar nas linhas que começam com # são diretivas do pré-processador, processadas antes da compilação propriamente dita.\n\n#include inclui um cabeçalho\n#define define uma constante/macro\n#ifndef e #endif processam um trecho apenas sob determinada condição.\n\n\nNo EP1, a combinação de #ifndef, #define e #endif evita que o mesmo .h seja incluído mais de uma vez.\n\nOs arquivos .h não são compilados separadamente: compilamos os .c que os incluem."
   },
   {
-    "objectID": "slides/matrizes.html#um-pouco-mais-sobre-percurso-em-matrizes",
-    "href": "slides/matrizes.html#um-pouco-mais-sobre-percurso-em-matrizes",
-    "title": "Matrizes",
-    "section": "Um pouco mais sobre percurso em matrizes",
-    "text": "Um pouco mais sobre percurso em matrizes\n\n\n\nComo fazemos o código para percorrer uma matriz uma coluna por vez?\n\n\n\n\n\n\n\n\nBasta inverter a ordem dos laços for\nint matriz[4][3];\nint i, j;\nint c = 0;\n\nfor (j = 0; j &lt; 3; j++)\n    for (i = 0; i &lt; 4; i++)\n        matriz[i][j] = c++;"
+    "objectID": "slides/strings.html#strings-1",
+    "href": "slides/strings.html#strings-1",
+    "title": "Strings",
+    "section": "Strings",
+    "text": "Strings\n\nNão há o tipo String em C;\nPara representar uma String em C, usamos um vetor de char.\n\n#include &lt;stdio.h&gt;\n\nint main() {\n    char nome[50] = \"Hello World\";\n    printf(\"%s\\n\", nome);\n\n    return 0;\n}"
   },
   {
-    "objectID": "slides/matrizes.html#matriz-é-um-vetor-de-vetores",
-    "href": "slides/matrizes.html#matriz-é-um-vetor-de-vetores",
-    "title": "Matrizes",
-    "section": "Matriz é um vetor de vetores",
-    "text": "Matriz é um vetor de vetores\nInternamente, a matriz é um vetor (unidimensional)\n Cada elemento é outro vetor (unidimensional)."
+    "objectID": "slides/strings.html#representação-de-uma-string",
+    "href": "slides/strings.html#representação-de-uma-string",
+    "title": "Strings",
+    "section": "Representação de uma String",
+    "text": "Representação de uma String\nchar texto[] = \"Hello World\";\nNa memória, string é um vetor de char:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n\n\n\n\nH\ne\nl\nl\no\n␣\nW\no\nr\nl\nd\n\\0\n\n\n\n\nToda string em C termina com o caractere nulo '\\0'."
   },
   {
-    "objectID": "slides/matrizes.html#como-mij-é-armazenado",
-    "href": "slides/matrizes.html#como-mij-é-armazenado",
-    "title": "Matrizes",
-    "section": "Como m[i][j] é armazenado?",
-    "text": "Como m[i][j] é armazenado?\nEm C, uma matriz é armazenada linha por linha na memória de forma contígua.\nA matriz int m[3][4] 3 linhas e 4 colunas.\n\nPara acessar m[i][j], C precisa calcular a posição no “vetorzão”:\nposição = i * número_de_colunas + j\n\n\nNo exemplo int m[3][4]:\nm[2][1]  -&gt;  posição = 2 * 4 + 1 = 9"
+    "objectID": "slides/strings.html#criando-uma-string-caractere-a-caractere",
+    "href": "slides/strings.html#criando-uma-string-caractere-a-caractere",
+    "title": "Strings",
+    "section": "Criando uma string caractere a caractere",
+    "text": "Criando uma string caractere a caractere\n#include&lt;stdio.h&gt;\n\nint main() {\n    char universidade[5];\n    universidade[0] = 'U';\n    universidade[1] = 'F';\n    universidade[2] = 'A';\n    universidade[3] = 'B';\n    universidade[4] = 'C';\n\n    printf(\"%s\\n\", universidade);\n\n    return 0;\n}\nVeja que usamos aspa simples para representar caracteres!\nO que será impresso?"
   },
   {
-    "objectID": "slides/matrizes.html#exemplo",
-    "href": "slides/matrizes.html#exemplo",
-    "title": "Matrizes",
-    "section": "Exemplo",
-    "text": "Exemplo\nAplicar função que retorna soma dos valores de um vetor linha a linha de uma matriz.\nint soma_vetor(int vetor[], int comp) {\n    int soma = 0;\n    int i;\n\n    for (i = 0; i &lt; comp; i++)\n        soma += vetor[i];\n\n    return soma;\n}"
+    "objectID": "slides/strings.html#vamos-criar-uma-string-caractere-a-caractere",
+    "href": "slides/strings.html#vamos-criar-uma-string-caractere-a-caractere",
+    "title": "Strings",
+    "section": "Vamos criar uma string caractere a caractere",
+    "text": "Vamos criar uma string caractere a caractere\nResultado (em alguns compiladores)\nUFABCw▌\\▒a■   ║k1w¡l1w└@\n\n\nFaltou colocarmos o caractere \\0 indicando o final da String!\n\nMuitas vezes a impressão não vai sair quebrada como acima. Usar a flag -fsanitize=address vai apontar acesso em local inválido da memória."
   },
   {
-    "objectID": "slides/matrizes.html#exemplo-1",
-    "href": "slides/matrizes.html#exemplo-1",
-    "title": "Matrizes",
-    "section": "Exemplo",
-    "text": "Exemplo\n#include &lt;stdio.h&gt;\n\nint main() {\n    int m[3][4] = { {3,4,5,5}, {1,3,6,5}, {8,1,2,5} };\n\n    int i;\n    for (i = 0; i &lt; 3; i++)\n        printf(\"%d\\n\", soma_vetor(m[i], 4));\n\n    return 0;\n}\nCada uma das linhas da matriz é um vetor!"
+    "objectID": "slides/strings.html#lendo-strings",
+    "href": "slides/strings.html#lendo-strings",
+    "title": "Strings",
+    "section": "Lendo Strings",
+    "text": "Lendo Strings\nPara ler Strings sem espaços (␣, \\t, \\n,), passamos o vetor para o scanf:\nint main() {\n    char universidade[50];\n    scanf(\"%s\", universidade);\n    printf(\"%s\\n\", universidade);\n    return 0;\n}\n\nApesar de ser o scanf, observe que aqui não usamos o “&”.\n\n\n Identificador do vetor sem os colchetes representa o endereço do primeiro elemento."
   },
   {
-    "objectID": "slides/matrizes.html#passagem-de-matriz-como-parâmetro",
-    "href": "slides/matrizes.html#passagem-de-matriz-como-parâmetro",
-    "title": "Matrizes",
-    "section": "Passagem de matriz como parâmetro",
-    "text": "Passagem de matriz como parâmetro\nPara passar uma matriz como parâmetro, é necessário especificar ao menos a segunda dimensão.\n Impossível calcular posição no “vetorzão” caso contrário!\n É possível especificar as duas dimensões também.\n\nvoid funcao(int n_linhas, int n_colunas,\n            double m[n_linhas][n_colunas]);\n\nvoid funcao(int n_colunas,\n            double m[][n_colunas]);"
+    "objectID": "slides/strings.html#lendo-strings-1",
+    "href": "slides/strings.html#lendo-strings-1",
+    "title": "Strings",
+    "section": "Lendo Strings",
+    "text": "Lendo Strings\nComo universidade == &universidade[0], o seguinte código funciona:\n\nint main() {\n    char universidade[50];\n\n    scanf(\"%s\", &universidade[0]);\n    printf(\"%s\\n\", universidade);\n\n    return 0;\n}"
   },
   {
-    "objectID": "slides/matrizes.html#exercício",
-    "href": "slides/matrizes.html#exercício",
-    "title": "Matrizes",
-    "section": "Exercício",
-    "text": "Exercício\nCriar uma função que recebe uma matriz e aplica a função de soma de valores de linha que acabamos de implementar.\nA função retornará a soma de todos os elementos."
+    "objectID": "slides/strings.html#gets-e-puts",
+    "href": "slides/strings.html#gets-e-puts",
+    "title": "Strings",
+    "section": "gets e puts",
+    "text": "gets e puts\nFunções para ler e imprimir strings\n\ngets: lê uma string até \\n ou EOF (End Of File) (substituidos por \\0);\nputs: imprime uma string e quebra a linha.\n\n#include &lt;stdio.h&gt;\n\nint main() {\n    char texto[20];\n\n    gets(texto); // Le texto\n    puts(texto); // Imprime texto\n\n    return 0;\n}"
   },
   {
-    "objectID": "slides/matrizes.html#referência",
-    "href": "slides/matrizes.html#referência",
-    "title": "Matrizes",
+    "objectID": "slides/strings.html#fgets",
+    "href": "slides/strings.html#fgets",
+    "title": "Strings",
+    "section": "fgets",
+    "text": "fgets\nO fgets é parecido com gets, mas limita a quantiade de caracteres lida\n#include &lt;stdio.h&gt;\n\nint main() {\n\n    printf(\"Digite uma frase: \");\n\n    char frase[6];\n    fgets(frase, 6, stdin);\n    puts(frase);\n\n    return 0;\n}\nDigite uma frase: UFABC\nUFABC"
+  },
+  {
+    "objectID": "slides/strings.html#além-do-limite-de-fgets",
+    "href": "slides/strings.html#além-do-limite-de-fgets",
+    "title": "Strings",
+    "section": "Além do limite de fgets",
+    "text": "Além do limite de fgets\nDigite uma frase: Universidade\nUnive\n\nPegou apenas os 5 primeiros caracteres!\n\n\nÉ recomendável utilizar o fgets ao invés do gets! O gets é insegura, pode sobrescrever pedaços arbitrários da memória.\n\n\n\nO fgets lê até o primeiro \\n ou EOF"
+  },
+  {
+    "objectID": "slides/strings.html#fgets-e-puts",
+    "href": "slides/strings.html#fgets-e-puts",
+    "title": "Strings",
+    "section": "fgets e puts",
+    "text": "fgets e puts\n\nfgets: lê uma string com um limite de caracteres;\nputs: imprime uma string e quebra a linha.\n\n#include &lt;stdio.h&gt;\n\nint main() {\n    char texto[20];\n\n    fgets(texto, 20, stdin);\n    puts(texto);\n\n    return 0;\n}\n\nQual a diferença para o scanf e printf?"
+  },
+  {
+    "objectID": "slides/strings.html#há-alguma-diferença-entre-esses-dois-programas",
+    "href": "slides/strings.html#há-alguma-diferença-entre-esses-dois-programas",
+    "title": "Strings",
+    "section": "Há alguma diferença entre esses dois programas?",
+    "text": "Há alguma diferença entre esses dois programas?\n\n\n#include &lt;stdio.h&gt;\n\nint main() {\n    char texto[20];\n\n    scanf(\"%s\", texto);\n    printf(\"%s\\n\", texto);\n\n    return 0;\n}\n\n#include &lt;stdio.h&gt;\n\nint main() {\n    char texto[20];\n\n    fgets(texto, 20, stdin);\n    puts(texto);\n\n    return 0;\n}\n\n\n\nscanf(\"%s\", texto) ignora espaços em branco iniciais e para de ler quando encontra o próximo espaço em branco.\nfgets(texto, n, stdin) lê no máximo n - 1 caracteres, parando antes disso se encontrar \\n ou EOF. Se encontrar \\n, ele é armazenado na string."
+  },
+  {
+    "objectID": "slides/strings.html#biblioteca-string.h",
+    "href": "slides/strings.html#biblioteca-string.h",
+    "title": "Strings",
+    "section": "Biblioteca string.h",
+    "text": "Biblioteca string.h\nA biblioteca string.h tem várias funções úteis:\n\nstrlen devolve o tamanho da string\nstrcmp compara duas strings já que não podemos usar &lt;, &lt;=, &gt;, &gt;=, == e !=\nstrcpy copia uma string\nstrcat concatena duas strings\n\n… e várias outras. Veja o manual para a documentação (ex: man strlen)\n\nNão confunda com a biblioteca strings.h"
+  },
+  {
+    "objectID": "slides/strings.html#cifra-de-césar",
+    "href": "slides/strings.html#cifra-de-césar",
+    "title": "Strings",
+    "section": "Cifra de César",
+    "text": "Cifra de César\nNa cifra de César, cada letra é substituída pela letra que está n posições à frente no alfabeto.\n\nPara n = 2:\nA → C    B → D    ...    X → Z    Y → A    Z → B\n\n\nAssim, a mensagem\nO vento hoje estava muito forte\ntorna-se:\nQ xgpvq jqlg guvcxc owkvq hqtvg\nEspaços e outros caracteres que não são letras permanecem inalterados."
+  },
+  {
+    "objectID": "slides/strings.html#tabela-ascii-e-p-tipo-char",
+    "href": "slides/strings.html#tabela-ascii-e-p-tipo-char",
+    "title": "Strings",
+    "section": "Tabela ASCII e p tipo char",
+    "text": "Tabela ASCII e p tipo char\nEm C, um char armazena um pequeno valor inteiro. A tabela ASCII (American Standard Code for Information Interchange) associa um número a cada caractere.\n\n\n\nCaractere\nASCII\nCaractere\nASCII\n\n\n\n\n'A'\n65\n'a'\n97\n\n\n'B'\n66\n'b'\n98\n\n\n...\n...\n...\n...\n\n\n'Z'\n90\n'z'\n122\n\n\n\n\nASCII possui 128 códigos, de 0 a 127. Letras acentuadas, como á e ç, não fazem parte da tabela ASCII original. Número negativos em char são usados em outras tabelas."
+  },
+  {
+    "objectID": "slides/strings.html#aritmética-com-caracteres",
+    "href": "slides/strings.html#aritmética-com-caracteres",
+    "title": "Strings",
+    "section": "Aritmética com caracteres",
+    "text": "Aritmética com caracteres\nO mesmo valor pode ser interpretado como um caractere ou como um número:\nchar letra = 'O';\n\nprintf(\"%c\\n\", letra);  // O\nprintf(\"%d\\n\", letra);  // 79\n\nNo ASCII, as letras maiúsculas e minúsculas formam duas sequências. Assim, podemos fazer operações aritméticas com elas:\nchar cifrada = letra + 2;\nprintf(\"%c\\n\", cifrada);  // Q\n\n\nE se tivéssemos letra = Z?"
+  },
+  {
+    "objectID": "slides/strings.html#da-letra-para-uma-posição",
+    "href": "slides/strings.html#da-letra-para-uma-posição",
+    "title": "Strings",
+    "section": "Da letra para uma posição",
+    "text": "Da letra para uma posição\nSubtrair 'a' transforma uma letra minúscula em uma posição entre 0 e 25:\n'a' - 'a' = 0\n'b' - 'a' = 1\n       ...\n'z' - 'a' = 25\nDepois, deslocamos essa posição e voltamos a somar 'a':\nint posicao = letra - 'a';\nint nova_posicao = (posicao + n) % 26;\nchar cifrada = 'a' + nova_posicao;\n\n\nO operador % 26 faz a contagem voltar ao começo do alfabeto para valores &gt;= 26."
+  },
+  {
+    "objectID": "slides/strings.html#cifrando-e-decifrando-a-crifra-de-cesar",
+    "href": "slides/strings.html#cifrando-e-decifrando-a-crifra-de-cesar",
+    "title": "Strings",
+    "section": "Cifrando e decifrando a crifra de Cesar",
+    "text": "Cifrando e decifrando a crifra de Cesar\nPara cada caractere da string:\n\nse estiver entre 'a' e 'z', use 'a' como base;\nse estiver entre 'A' e 'Z', use 'A' como base;\ncaso contrário, mantenha o caractere como está.\n\nPara cifrar, avançamos n posições:\nnova_posicao = (posicao + n) % 26;\n\nPara decifrar, fazemos o caminho inverso:\nnova_posicao = (posicao - n + 26) % 26;"
+  },
+  {
+    "objectID": "slides/strings.html#exercício-1-cifra-de-césar",
+    "href": "slides/strings.html#exercício-1-cifra-de-césar",
+    "title": "Strings",
+    "section": "Exercício 1 – Cifra de César",
+    "text": "Exercício 1 – Cifra de César\n\nFaça uma função para criptografar uma frase com a cifra de César sobre uma string somente com letras minusculas entre a e z;\nFaça também uma função para reverter o processo.\n\nComo seria o protótipo dessas funções?\n\nvoid encrypt(char texto_secreto[], int n);\nvoid decrypt(char texto_protegido[], int n);"
+  },
+  {
+    "objectID": "slides/strings.html#exercício-2-remover-a-segunda-palavra-de-uma-frase",
+    "href": "slides/strings.html#exercício-2-remover-a-segunda-palavra-de-uma-frase",
+    "title": "Strings",
+    "section": "Exercício 2 – remover a segunda palavra de uma frase",
+    "text": "Exercício 2 – remover a segunda palavra de uma frase\nFaça uma função que receba uma frase e remova a segunda palavra de uma frase.\nFrase legal de teste -&gt; Frase de teste\n\nIdeia de assinatura:\nvoid remove_segunda_palavra(char frase[], int comp);\nPodemos fazer esta função sem o parâmetro de comprimento?\n\n\nSim, nesse caso, teríamos que encontrar o caractere '\\0' primeiro (ele indica o fim da string)."
+  },
+  {
+    "objectID": "slides/strings.html#exercício-3-remover-a-palavra-de-índice-i-de-uma-frase",
+    "href": "slides/strings.html#exercício-3-remover-a-palavra-de-índice-i-de-uma-frase",
+    "title": "Strings",
+    "section": "Exercício 3 – remover a palavra de índice i de uma frase",
+    "text": "Exercício 3 – remover a palavra de índice i de uma frase\nFaça uma função que receba uma frase e remova a palavra de índice i de uma frase (considere que a primeira palavra tem índice 0).\nvoid remove_palavra(char frase[], int i, int comp);"
+  },
+  {
+    "objectID": "slides/strings.html#referência",
+    "href": "slides/strings.html#referência",
+    "title": "Strings",
     "section": "Referência",
     "text": "Referência\nSlides originais: Prof. Paulo Henrique Pisani, Strings e Matrizes, Programação Estruturada, UFABC, setembro/2021."
+  },
+  {
+    "objectID": "slides/ponteiros_1_bkp.html#variáveis-possuem-um-tempo-de-vida",
+    "href": "slides/ponteiros_1_bkp.html#variáveis-possuem-um-tempo-de-vida",
+    "title": "PE 2026 - UFABC",
+    "section": "Variáveis possuem um tempo de vida",
+    "text": "Variáveis possuem um tempo de vida\nTempo de vida: período durante o qual uma região de memória pertence a uma variável.\n\nExemplo:\nint calcula() {\n    int x = 10;\n    return x * x;\n}\n\nx é criada quando a função é executada;\nx deixa de existir quando a função termina."
   },
   {
     "objectID": "slides/pe01_intro.html#hoje",
@@ -1449,179 +1547,326 @@
     "text": "Exemplo de interação\nOperacao? 1\n-2\n1\n-1\nOperacao? 3\n2\n90\n180\nOperacao? 2\n80\n2\n5\n87\nOperacao? 0\n-1"
   },
   {
-    "objectID": "slides/strings.html#primeira-prova-p1---27-de-outubro",
-    "href": "slides/strings.html#primeira-prova-p1---27-de-outubro",
-    "title": "Strings",
-    "section": "Primeira prova (P1) - 27 de outubro",
-    "text": "Primeira prova (P1) - 27 de outubro\n\nA prova será feita no papel, com papel e caneta;\nVou reservar uma sala de aula convencional para a aplicação da prova;\nA matéria será todo o conteúdo visto desde o início do curso até a aula de hoje, incluindo:\n\nmatrizes;\nstrings;\nrecursão.\n\nApesar de precisar escrever código, foco vai ser em compreeensão de código e de ideias fundamentais."
+    "objectID": "slides/matrizes.html#matrizes-1",
+    "href": "slides/matrizes.html#matrizes-1",
+    "title": "Matrizes",
+    "section": "Matrizes",
+    "text": "Matrizes\nComo declarar uma matriz:\n&lt;tipo&gt; &lt;nome&gt;[&lt;n_linhas&gt;][&lt;n_colunas&gt;]; \n\n\n\nExemplos:\nint matriz[4][3];\n\ndouble matriz2[4][3];"
   },
   {
-    "objectID": "slides/strings.html#como-um-arquivo-.c-conhece-outro",
-    "href": "slides/strings.html#como-um-arquivo-.c-conhece-outro",
-    "title": "Strings",
-    "section": "Como um arquivo .c conhece outro?",
-    "text": "Como um arquivo .c conhece outro?\nCada arquivo .c é compilado separadamente.\n\n\nEm desenho.c, uma função é implementada:\nvoid linha_horizontal(\n    unsigned char img[][MAX_DIM],\n    int x, int y,\n    int comprimento,\n    unsigned char cor) {\n    // implementação\n}\n\nMas fractal.c quer usá-la:\nvoid cantor(/* ... */) {\n    // ...\n    linha_horizontal(/* ... */);\n}\n\n\nComo o compilador saberá que essa função existe?\n\n\ndesenho.h declara/avisa o que desenho.c oferece para os outros arquivos."
+    "objectID": "slides/matrizes.html#matrizes-2",
+    "href": "slides/matrizes.html#matrizes-2",
+    "title": "Matrizes",
+    "section": "Matrizes",
+    "text": "Matrizes\nAcessando valores em uma matriz:\nmatriz[2][1]\n\n\nLendo/imprimindo um elemento da matriz:\nint matriz[4][3];\n\nscanf(\"%d\", &matriz[2][1]);\nprintf(\"%d\\n\", matriz[2][1]);\n\n\n\nAssim como em vetores, os indices das linhas e colunas da matriz começam de 0."
   },
   {
-    "objectID": "slides/strings.html#incluindo-esse-aviso",
-    "href": "slides/strings.html#incluindo-esse-aviso",
-    "title": "Strings",
-    "section": "Incluindo esse aviso",
-    "text": "Incluindo esse aviso\nOs arquivos que precisam dessa informação incluem o mesmo cabeçalho:\n\n\ndesenho.h\nvoid linha_horizontal(\n    unsigned char img[][MAX_DIM],\n    int x, int y,\n    int comprimento,\n    unsigned char cor);\n\ndesenho.c e fractal.c\n#include \"desenho.h\"\n\n\n\nO comando #include torna as declarações em .h disponíveis antes da compilação do arquivo .c."
+    "objectID": "slides/matrizes.html#percorrendo-uma-matriz",
+    "href": "slides/matrizes.html#percorrendo-uma-matriz",
+    "title": "Matrizes",
+    "section": "Percorrendo uma Matriz",
+    "text": "Percorrendo uma Matriz\n\n\nint matriz[4][3];\nint i, j;\n\nfor (i = 0; i &lt; 4; i++)\n    for (j = 0; j &lt; 3; j++)\n        matriz[i][j];"
   },
   {
-    "objectID": "slides/strings.html#detalhes-sobre-diretivas-de-pré-processador",
-    "href": "slides/strings.html#detalhes-sobre-diretivas-de-pré-processador",
-    "title": "Strings",
-    "section": "Detalhes sobre diretivas de pré-processador",
-    "text": "Detalhes sobre diretivas de pré-processador\nPodemos pensar nas linhas que começam com # são diretivas do pré-processador, processadas antes da compilação propriamente dita.\n\n#include inclui um cabeçalho\n#define define uma constante/macro\n#ifndef e #endif processam um trecho apenas sob determinada condição.\n\n\nNo EP1, a combinação de #ifndef, #define e #endif evita que o mesmo .h seja incluído mais de uma vez.\n\nOs arquivos .h não são compilados separadamente: compilamos os .c que os incluem."
+    "objectID": "slides/matrizes.html#percorrendo-uma-matriz---exemplo",
+    "href": "slides/matrizes.html#percorrendo-uma-matriz---exemplo",
+    "title": "Matrizes",
+    "section": "Percorrendo uma Matriz - Exemplo",
+    "text": "Percorrendo uma Matriz - Exemplo\nQual o conteúdo da matriz após a execução do seguinte programa?\n\nint matriz[4][3];\nint i, j;\nint c = 0;\n\nfor (i = 0; i &lt; 4; i++)\n    for (j = 0; j &lt; 3; j++)\n        matriz[i][j] = c++;\n\n0   1   2\n3   4   5\n6   7   8\n9   10  11"
   },
   {
-    "objectID": "slides/strings.html#strings-1",
-    "href": "slides/strings.html#strings-1",
-    "title": "Strings",
-    "section": "Strings",
-    "text": "Strings\n\nNão há o tipo String em C;\nPara representar uma String em C, usamos um vetor de char.\n\n#include &lt;stdio.h&gt;\n\nint main() {\n    char nome[50] = \"Hello World\";\n    printf(\"%s\\n\", nome);\n\n    return 0;\n}"
+    "objectID": "slides/matrizes.html#um-pouco-mais-sobre-percurso-em-matrizes",
+    "href": "slides/matrizes.html#um-pouco-mais-sobre-percurso-em-matrizes",
+    "title": "Matrizes",
+    "section": "Um pouco mais sobre percurso em matrizes",
+    "text": "Um pouco mais sobre percurso em matrizes\n\n\n\nComo fazemos o código para percorrer uma matriz uma coluna por vez?\n\n\n\n\n\n\n\n\nBasta inverter a ordem dos laços for\nint matriz[4][3];\nint i, j;\nint c = 0;\n\nfor (j = 0; j &lt; 3; j++)\n    for (i = 0; i &lt; 4; i++)\n        matriz[i][j] = c++;"
   },
   {
-    "objectID": "slides/strings.html#representação-de-uma-string",
-    "href": "slides/strings.html#representação-de-uma-string",
-    "title": "Strings",
-    "section": "Representação de uma String",
-    "text": "Representação de uma String\nchar texto[] = \"Hello World\";\nNa memória, string é um vetor de char:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n\n\n\n\nH\ne\nl\nl\no\n␣\nW\no\nr\nl\nd\n\\0\n\n\n\n\nToda string em C termina com o caractere nulo '\\0'."
+    "objectID": "slides/matrizes.html#matriz-é-um-vetor-de-vetores",
+    "href": "slides/matrizes.html#matriz-é-um-vetor-de-vetores",
+    "title": "Matrizes",
+    "section": "Matriz é um vetor de vetores",
+    "text": "Matriz é um vetor de vetores\nInternamente, a matriz é um vetor (unidimensional)\n Cada elemento é outro vetor (unidimensional)."
   },
   {
-    "objectID": "slides/strings.html#criando-uma-string-caractere-a-caractere",
-    "href": "slides/strings.html#criando-uma-string-caractere-a-caractere",
-    "title": "Strings",
-    "section": "Criando uma string caractere a caractere",
-    "text": "Criando uma string caractere a caractere\n#include&lt;stdio.h&gt;\n\nint main() {\n    char universidade[5];\n    universidade[0] = 'U';\n    universidade[1] = 'F';\n    universidade[2] = 'A';\n    universidade[3] = 'B';\n    universidade[4] = 'C';\n\n    printf(\"%s\\n\", universidade);\n\n    return 0;\n}\nVeja que usamos aspa simples para representar caracteres!\nO que será impresso?"
+    "objectID": "slides/matrizes.html#como-mij-é-armazenado",
+    "href": "slides/matrizes.html#como-mij-é-armazenado",
+    "title": "Matrizes",
+    "section": "Como m[i][j] é armazenado?",
+    "text": "Como m[i][j] é armazenado?\nEm C, uma matriz é armazenada linha por linha na memória de forma contígua.\nA matriz int m[3][4] 3 linhas e 4 colunas.\n\nPara acessar m[i][j], C precisa calcular a posição no “vetorzão”:\nposição = i * número_de_colunas + j\n\n\nNo exemplo int m[3][4]:\nm[2][1]  -&gt;  posição = 2 * 4 + 1 = 9"
   },
   {
-    "objectID": "slides/strings.html#vamos-criar-uma-string-caractere-a-caractere",
-    "href": "slides/strings.html#vamos-criar-uma-string-caractere-a-caractere",
-    "title": "Strings",
-    "section": "Vamos criar uma string caractere a caractere",
-    "text": "Vamos criar uma string caractere a caractere\nResultado (em alguns compiladores)\nUFABCw▌\\▒a■   ║k1w¡l1w└@\n\n\nFaltou colocarmos o caractere \\0 indicando o final da String!\n\nMuitas vezes a impressão não vai sair quebrada como acima. Usar a flag -fsanitize=address vai apontar acesso em local inválido da memória."
+    "objectID": "slides/matrizes.html#exemplo",
+    "href": "slides/matrizes.html#exemplo",
+    "title": "Matrizes",
+    "section": "Exemplo",
+    "text": "Exemplo\nAplicar função que retorna soma dos valores de um vetor linha a linha de uma matriz.\nint soma_vetor(int vetor[], int comp) {\n    int soma = 0;\n    int i;\n\n    for (i = 0; i &lt; comp; i++)\n        soma += vetor[i];\n\n    return soma;\n}"
   },
   {
-    "objectID": "slides/strings.html#lendo-strings",
-    "href": "slides/strings.html#lendo-strings",
-    "title": "Strings",
-    "section": "Lendo Strings",
-    "text": "Lendo Strings\nPara ler Strings sem espaços (␣, \\t, \\n,), passamos o vetor para o scanf:\nint main() {\n    char universidade[50];\n    scanf(\"%s\", universidade);\n    printf(\"%s\\n\", universidade);\n    return 0;\n}\n\nApesar de ser o scanf, observe que aqui não usamos o “&”.\n\n\n Identificador do vetor sem os colchetes representa o endereço do primeiro elemento."
+    "objectID": "slides/matrizes.html#exemplo-1",
+    "href": "slides/matrizes.html#exemplo-1",
+    "title": "Matrizes",
+    "section": "Exemplo",
+    "text": "Exemplo\n#include &lt;stdio.h&gt;\n\nint main() {\n    int m[3][4] = { {3,4,5,5}, {1,3,6,5}, {8,1,2,5} };\n\n    int i;\n    for (i = 0; i &lt; 3; i++)\n        printf(\"%d\\n\", soma_vetor(m[i], 4));\n\n    return 0;\n}\nCada uma das linhas da matriz é um vetor!"
   },
   {
-    "objectID": "slides/strings.html#lendo-strings-1",
-    "href": "slides/strings.html#lendo-strings-1",
-    "title": "Strings",
-    "section": "Lendo Strings",
-    "text": "Lendo Strings\nComo universidade == &universidade[0], o seguinte código funciona:\n\nint main() {\n    char universidade[50];\n\n    scanf(\"%s\", &universidade[0]);\n    printf(\"%s\\n\", universidade);\n\n    return 0;\n}"
+    "objectID": "slides/matrizes.html#passagem-de-matriz-como-parâmetro",
+    "href": "slides/matrizes.html#passagem-de-matriz-como-parâmetro",
+    "title": "Matrizes",
+    "section": "Passagem de matriz como parâmetro",
+    "text": "Passagem de matriz como parâmetro\nPara passar uma matriz como parâmetro, é necessário especificar ao menos a segunda dimensão.\n Impossível calcular posição no “vetorzão” caso contrário!\n É possível especificar as duas dimensões também.\n\nvoid funcao(int n_linhas, int n_colunas,\n            double m[n_linhas][n_colunas]);\n\nvoid funcao(int n_colunas,\n            double m[][n_colunas]);"
   },
   {
-    "objectID": "slides/strings.html#gets-e-puts",
-    "href": "slides/strings.html#gets-e-puts",
-    "title": "Strings",
-    "section": "gets e puts",
-    "text": "gets e puts\nFunções para ler e imprimir strings\n\ngets: lê uma string até \\n ou EOF (End Of File) (substituidos por \\0);\nputs: imprime uma string e quebra a linha.\n\n#include &lt;stdio.h&gt;\n\nint main() {\n    char texto[20];\n\n    gets(texto); // Le texto\n    puts(texto); // Imprime texto\n\n    return 0;\n}"
+    "objectID": "slides/matrizes.html#exercício",
+    "href": "slides/matrizes.html#exercício",
+    "title": "Matrizes",
+    "section": "Exercício",
+    "text": "Exercício\nCriar uma função que recebe uma matriz e aplica a função de soma de valores de linha que acabamos de implementar.\nA função retornará a soma de todos os elementos."
   },
   {
-    "objectID": "slides/strings.html#fgets",
-    "href": "slides/strings.html#fgets",
-    "title": "Strings",
-    "section": "fgets",
-    "text": "fgets\nO fgets é parecido com gets, mas limita a quantiade de caracteres lida\n#include &lt;stdio.h&gt;\n\nint main() {\n\n    printf(\"Digite uma frase: \");\n\n    char frase[6];\n    fgets(frase, 6, stdin);\n    puts(frase);\n\n    return 0;\n}\nDigite uma frase: UFABC\nUFABC"
-  },
-  {
-    "objectID": "slides/strings.html#além-do-limite-de-fgets",
-    "href": "slides/strings.html#além-do-limite-de-fgets",
-    "title": "Strings",
-    "section": "Além do limite de fgets",
-    "text": "Além do limite de fgets\nDigite uma frase: Universidade\nUnive\n\nPegou apenas os 5 primeiros caracteres!\n\n\nÉ recomendável utilizar o fgets ao invés do gets! O gets é insegura, pode sobrescrever pedaços arbitrários da memória.\n\n\n\nO fgets lê até o primeiro \\n ou EOF"
-  },
-  {
-    "objectID": "slides/strings.html#fgets-e-puts",
-    "href": "slides/strings.html#fgets-e-puts",
-    "title": "Strings",
-    "section": "fgets e puts",
-    "text": "fgets e puts\n\nfgets: lê uma string com um limite de caracteres;\nputs: imprime uma string e quebra a linha.\n\n#include &lt;stdio.h&gt;\n\nint main() {\n    char texto[20];\n\n    fgets(texto, 20, stdin);\n    puts(texto);\n\n    return 0;\n}\n\nQual a diferença para o scanf e printf?"
-  },
-  {
-    "objectID": "slides/strings.html#há-alguma-diferença-entre-esses-dois-programas",
-    "href": "slides/strings.html#há-alguma-diferença-entre-esses-dois-programas",
-    "title": "Strings",
-    "section": "Há alguma diferença entre esses dois programas?",
-    "text": "Há alguma diferença entre esses dois programas?\n\n\n#include &lt;stdio.h&gt;\n\nint main() {\n    char texto[20];\n\n    scanf(\"%s\", texto);\n    printf(\"%s\\n\", texto);\n\n    return 0;\n}\n\n#include &lt;stdio.h&gt;\n\nint main() {\n    char texto[20];\n\n    fgets(texto, 20, stdin);\n    puts(texto);\n\n    return 0;\n}\n\n\n\nscanf(\"%s\", texto) ignora espaços em branco iniciais e para de ler quando encontra o próximo espaço em branco.\nfgets(texto, n, stdin) lê no máximo n - 1 caracteres, parando antes disso se encontrar \\n ou EOF. Se encontrar \\n, ele é armazenado na string."
-  },
-  {
-    "objectID": "slides/strings.html#biblioteca-string.h",
-    "href": "slides/strings.html#biblioteca-string.h",
-    "title": "Strings",
-    "section": "Biblioteca string.h",
-    "text": "Biblioteca string.h\nA biblioteca string.h tem várias funções úteis:\n\nstrlen devolve o tamanho da string\nstrcmp compara duas strings já que não podemos usar &lt;, &lt;=, &gt;, &gt;=, == e !=\nstrcpy copia uma string\nstrcat concatena duas strings\n\n… e várias outras. Veja o manual para a documentação (ex: man strlen)\n\nNão confunda com a biblioteca strings.h"
-  },
-  {
-    "objectID": "slides/strings.html#cifra-de-césar",
-    "href": "slides/strings.html#cifra-de-césar",
-    "title": "Strings",
-    "section": "Cifra de César",
-    "text": "Cifra de César\nNa cifra de César, cada letra é substituída pela letra que está n posições à frente no alfabeto.\n\nPara n = 2:\nA → C    B → D    ...    X → Z    Y → A    Z → B\n\n\nAssim, a mensagem\nO vento hoje estava muito forte\ntorna-se:\nQ xgpvq jqlg guvcxc owkvq hqtvg\nEspaços e outros caracteres que não são letras permanecem inalterados."
-  },
-  {
-    "objectID": "slides/strings.html#tabela-ascii-e-p-tipo-char",
-    "href": "slides/strings.html#tabela-ascii-e-p-tipo-char",
-    "title": "Strings",
-    "section": "Tabela ASCII e p tipo char",
-    "text": "Tabela ASCII e p tipo char\nEm C, um char armazena um pequeno valor inteiro. A tabela ASCII (American Standard Code for Information Interchange) associa um número a cada caractere.\n\n\n\nCaractere\nASCII\nCaractere\nASCII\n\n\n\n\n'A'\n65\n'a'\n97\n\n\n'B'\n66\n'b'\n98\n\n\n...\n...\n...\n...\n\n\n'Z'\n90\n'z'\n122\n\n\n\n\nASCII possui 128 códigos, de 0 a 127. Letras acentuadas, como á e ç, não fazem parte da tabela ASCII original. Número negativos em char são usados em outras tabelas."
-  },
-  {
-    "objectID": "slides/strings.html#aritmética-com-caracteres",
-    "href": "slides/strings.html#aritmética-com-caracteres",
-    "title": "Strings",
-    "section": "Aritmética com caracteres",
-    "text": "Aritmética com caracteres\nO mesmo valor pode ser interpretado como um caractere ou como um número:\nchar letra = 'O';\n\nprintf(\"%c\\n\", letra);  // O\nprintf(\"%d\\n\", letra);  // 79\n\nNo ASCII, as letras maiúsculas e minúsculas formam duas sequências. Assim, podemos fazer operações aritméticas com elas:\nchar cifrada = letra + 2;\nprintf(\"%c\\n\", cifrada);  // Q\n\n\nE se tivéssemos letra = Z?"
-  },
-  {
-    "objectID": "slides/strings.html#da-letra-para-uma-posição",
-    "href": "slides/strings.html#da-letra-para-uma-posição",
-    "title": "Strings",
-    "section": "Da letra para uma posição",
-    "text": "Da letra para uma posição\nSubtrair 'a' transforma uma letra minúscula em uma posição entre 0 e 25:\n'a' - 'a' = 0\n'b' - 'a' = 1\n       ...\n'z' - 'a' = 25\nDepois, deslocamos essa posição e voltamos a somar 'a':\nint posicao = letra - 'a';\nint nova_posicao = (posicao + n) % 26;\nchar cifrada = 'a' + nova_posicao;\n\n\nO operador % 26 faz a contagem voltar ao começo do alfabeto para valores &gt;= 26."
-  },
-  {
-    "objectID": "slides/strings.html#cifrando-e-decifrando-a-crifra-de-cesar",
-    "href": "slides/strings.html#cifrando-e-decifrando-a-crifra-de-cesar",
-    "title": "Strings",
-    "section": "Cifrando e decifrando a crifra de Cesar",
-    "text": "Cifrando e decifrando a crifra de Cesar\nPara cada caractere da string:\n\nse estiver entre 'a' e 'z', use 'a' como base;\nse estiver entre 'A' e 'Z', use 'A' como base;\ncaso contrário, mantenha o caractere como está.\n\nPara cifrar, avançamos n posições:\nnova_posicao = (posicao + n) % 26;\n\nPara decifrar, fazemos o caminho inverso:\nnova_posicao = (posicao - n + 26) % 26;"
-  },
-  {
-    "objectID": "slides/strings.html#exercício-1-cifra-de-césar",
-    "href": "slides/strings.html#exercício-1-cifra-de-césar",
-    "title": "Strings",
-    "section": "Exercício 1 – Cifra de César",
-    "text": "Exercício 1 – Cifra de César\n\nFaça uma função para criptografar uma frase com a cifra de César sobre uma string somente com letras minusculas entre a e z;\nFaça também uma função para reverter o processo.\n\nComo seria o protótipo dessas funções?\n\nvoid encrypt(char texto_secreto[], int n);\nvoid decrypt(char texto_protegido[], int n);"
-  },
-  {
-    "objectID": "slides/strings.html#exercício-2-remover-a-segunda-palavra-de-uma-frase",
-    "href": "slides/strings.html#exercício-2-remover-a-segunda-palavra-de-uma-frase",
-    "title": "Strings",
-    "section": "Exercício 2 – remover a segunda palavra de uma frase",
-    "text": "Exercício 2 – remover a segunda palavra de uma frase\nFaça uma função que receba uma frase e remova a segunda palavra de uma frase.\nFrase legal de teste -&gt; Frase de teste\n\nIdeia de assinatura:\nvoid remove_segunda_palavra(char frase[], int comp);\nPodemos fazer esta função sem o parâmetro de comprimento?\n\n\nSim, nesse caso, teríamos que encontrar o caractere '\\0' primeiro (ele indica o fim da string)."
-  },
-  {
-    "objectID": "slides/strings.html#exercício-3-remover-a-palavra-de-índice-i-de-uma-frase",
-    "href": "slides/strings.html#exercício-3-remover-a-palavra-de-índice-i-de-uma-frase",
-    "title": "Strings",
-    "section": "Exercício 3 – remover a palavra de índice i de uma frase",
-    "text": "Exercício 3 – remover a palavra de índice i de uma frase\nFaça uma função que receba uma frase e remova a palavra de índice i de uma frase (considere que a primeira palavra tem índice 0).\nvoid remove_palavra(char frase[], int i, int comp);"
-  },
-  {
-    "objectID": "slides/strings.html#referência",
-    "href": "slides/strings.html#referência",
-    "title": "Strings",
+    "objectID": "slides/matrizes.html#referência",
+    "href": "slides/matrizes.html#referência",
+    "title": "Matrizes",
     "section": "Referência",
     "text": "Referência\nSlides originais: Prof. Paulo Henrique Pisani, Strings e Matrizes, Programação Estruturada, UFABC, setembro/2021."
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#o-que-veremos-hoje",
+    "href": "slides/ponteiros_1.html#o-que-veremos-hoje",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "O que veremos hoje",
+    "text": "O que veremos hoje\nNesta aula vamos conectar três ideias:\n\nendereços de memória;\nponteiros;\nalocação dinâmica."
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#memória-como-uma-sequência-de-bytes",
+    "href": "slides/ponteiros_1.html#memória-como-uma-sequência-de-bytes",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "Memória como uma sequência de bytes",
+    "text": "Memória como uma sequência de bytes\nPodemos imaginar a memória como um grande vetor de bytes.\nCada byte possui um endereço.\nEndereço      Conteúdo\n0x1000        ...\n0x1001        ...\n0x1002        ...\n0x1003        ...\n...\n\nUma variável ocupa um ou mais bytes consecutivos."
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#o-endereço-de-uma-variável",
+    "href": "slides/ponteiros_1.html#o-endereço-de-uma-variável",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "O endereço de uma variável",
+    "text": "O endereço de uma variável\nO operador & retorna o endereço de uma variável.\n#include &lt;stdio.h&gt;\n\nint main() {\n    int n = 507;\n\n    printf(\"n = %d\\n\", n);\n    printf(\"endereco = %p\\n\", &n);\n\n    return 0;\n}\n\nO endereço não é endereço físico da memória RAM, mas um endereço dentro do espaço de memória do processo.\nMedidas de segurança fazem com que endereços mudem entre diferentes execuções."
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#o-que-é-um-ponteiro",
+    "href": "slides/ponteiros_1.html#o-que-é-um-ponteiro",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "O que é um ponteiro?",
+    "text": "O que é um ponteiro?\nUm ponteiro é uma variável cujo valor é um endereço de memória.\n\n\nint x = 507;\nint *ptr = &n;\n\nchar ch = 'a';\nint *cptr = &ch;\n\n\n\nptr é um ponteiro para uma variável do tipo int\ncptr é um ponteiro para uma variável do tipo char\n\nO tipo de ptr é int * e o de cptr é char *\n\nO valor de ptr é o endereço de x\nO valor de cptr é o endereço de ch"
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#um-ponteiro-também-é-uma-variável",
+    "href": "slides/ponteiros_1.html#um-ponteiro-também-é-uma-variável",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "Um ponteiro também é uma variável",
+    "text": "Um ponteiro também é uma variável\nint n = 12;\nint *ptr = &n;\n\nTemos duas variáveis:\n\nn, cujo valor é 12;\nptr, cujo valor é o endereço de n.\n\n\nO ponteiro também tem um endereço próprio: &ptr."
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#acessando-o-valor-apontado",
+    "href": "slides/ponteiros_1.html#acessando-o-valor-apontado",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "Acessando o valor apontado",
+    "text": "Acessando o valor apontado\nO operador * também é usado para desreferenciar um ponteiro.\nint n = 12;\nint *ptr = &n;\n\nprintf(\"%d\\n\", *ptr);\n\nSintaxe: *ptr significa:\n acesse o valor armazenado no endereço contido em ptr.\n\nSaída:\n12"
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#modificando-uma-variável-através-do-ponteiro",
+    "href": "slides/ponteiros_1.html#modificando-uma-variável-através-do-ponteiro",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "Modificando uma variável através do ponteiro",
+    "text": "Modificando uma variável através do ponteiro\nptr e n permitem acessar a mesma região de memória.\nint n = 12;\nint *ptr = &n;\n\n*ptr = 25;\n\nprintf(\"%d\\n\", n);\n\n25"
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#dois-caminhos-para-o-mesmo-valor",
+    "href": "slides/ponteiros_1.html#dois-caminhos-para-o-mesmo-valor",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "Dois caminhos para o mesmo valor",
+    "text": "Dois caminhos para o mesmo valor\nint n = 10;\nint *ptr = &n;\n\nn = n + 1;\n*ptr = *ptr + 1;\nQual o valor final de n?\n\n12"
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#ponteiro-não-inicializado",
+    "href": "slides/ponteiros_1.html#ponteiro-não-inicializado",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "Ponteiro não inicializado",
+    "text": "Ponteiro não inicializado\nEste código está errado:\nint *ptr;\n*ptr = 10;\n\nptr ainda não contém um endereço válido.\n\nDesreferenciar um ponteiro inválido causa comportamento indefinido."
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#o-ponteiro-nulo",
+    "href": "slides/ponteiros_1.html#o-ponteiro-nulo",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "O ponteiro nulo",
+    "text": "O ponteiro nulo\nQuando um ponteiro não aponta para um objeto válido, podemos usar NULL.\nint *ptr = NULL;\nchar *cptr = NULL;\n\n\n\n\n\n\nMas ainda não podemos fazer:\n*ptr = 10; // ERRADO\n\n\nPara desreferenciar, precisamos ter uma região válida de memória."
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#relembrando-parâmetros-são-passados-por-valor",
+    "href": "slides/ponteiros_1.html#relembrando-parâmetros-são-passados-por-valor",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "Relembrando: parâmetros são passados por valor",
+    "text": "Relembrando: parâmetros são passados por valor\nvoid muda_valor(int x) {\n    x = 10;\n}\n\nint main() {\n    int n = 5;\n    muda_valor(n);\n    printf(\"%d\\n\", n);\n    return 0;\n}\n\n5\n\n\nA função recebe uma cópia do valor de n."
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#passando-um-endereço-para-a-função",
+    "href": "slides/ponteiros_1.html#passando-um-endereço-para-a-função",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "Passando um endereço para a função",
+    "text": "Passando um endereço para a função\nTambém podemos passar um endereço por valor.\nvoid muda_valor(int *ptr) {\n    *ptr = 10;\n}\n\nint main() {\n    int n = 5;\n    muda_valor(&n);\n    printf(\"%d\\n\", n);\n    return 0;\n}\n\n10"
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#o-que-aconteceu-na-chamada",
+    "href": "slides/ponteiros_1.html#o-que-aconteceu-na-chamada",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "O que aconteceu na chamada?",
+    "text": "O que aconteceu na chamada?\nmuda_valor(&n);\nA função recebe uma cópia do endereço de n.\n\nvoid muda_valor(int *ptr) {\n    *ptr = 10;\n}\n*ptr acessa a variável original.\n\n\n\nEm C, continuamos passando tudo por valor."
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#exemplo-clássico-trocando-dois-valores",
+    "href": "slides/ponteiros_1.html#exemplo-clássico-trocando-dois-valores",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "Exemplo clássico: trocando dois valores",
+    "text": "Exemplo clássico: trocando dois valores\nvoid troca(int *a, int *b) {\n    int temp = *a;\n    *a = *b;\n    *b = temp;\n}\nChamada:\nint x = 10, y = 20;\ntroca(&x, &y);\n\nDepois da função: x == 20 e y == 10."
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#revisitando-scanf",
+    "href": "slides/ponteiros_1.html#revisitando-scanf",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "Revisitando scanf",
+    "text": "Revisitando scanf\nPara escrever em uma variável, o scanf precisa receber seu endereço.\nint n;\nscanf(\"%d\", &n);\n\nSe já temos um ponteiro válido:\nint n;\nint *ptr = &n;\nscanf(\"%d\", ptr);\nNão precisamos de &! Aqui, ptr já é um endereço."
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#funções-podem-produzir-vários-resultados",
+    "href": "slides/ponteiros_1.html#funções-podem-produzir-vários-resultados",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "Funções podem produzir vários resultados",
+    "text": "Funções podem produzir vários resultados\nUm return devolve apenas um valor.\n\nPonteiros permitem modificar várias variáveis do chamador:\nvoid divisao(int a, int b, int *q, int *r) {\n    *q = a / b;\n    *r = a % b;\n}\nint quociente, resto;\ndivisao(17, 5, &quociente, &resto);"
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#por-que-alocar-memória-dinamicamente",
+    "href": "slides/ponteiros_1.html#por-que-alocar-memória-dinamicamente",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "Por que alocar memória dinamicamente?",
+    "text": "Por que alocar memória dinamicamente?\nÀs vezes o tamanho necessário só é conhecido durante a execução.\nint n;\nscanf(\"%d\", &n);\n\nQueremos reservar espaço para n inteiros.\n\n\nComo já discutido, vamos evitar o uso de vetores locais de tamanho variável (VLAs).\n Comportamento estranho dependendo do compilador, e técnica não muito geral.\nPara criar um vetor com tamanho escolhido em execução, usaremos alocação dinâmica."
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#pergunta-podemos-retornar-um-endereço",
+    "href": "slides/ponteiros_1.html#pergunta-podemos-retornar-um-endereço",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "Pergunta: podemos retornar um endereço?",
+    "text": "Pergunta: podemos retornar um endereço?\nint *cria_numero() {\n    int n = 507;\n    return &n;\n}\n\nint main() {\n    int *ptr = cria_numero();\n\n    printf(\"%d\\n\", *ptr);\n\n    return 0;\n}\nQual a saída?\n\n[1]    59710 segmentation fault (core dumped)  ./exemplo"
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#o-problema-n-deixa-de-existir",
+    "href": "slides/ponteiros_1.html#o-problema-n-deixa-de-existir",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "O problema: n deixa de existir",
+    "text": "O problema: n deixa de existir\nint *cria_numero() {\n    int n = 507;   // n é uma variável local\n    return &n;\n}                  // n deixa de existir aqui\n\n\nn é uma variável local;\nseu tempo de vida termina quando a função retorna;\n\nTempo de vida: período durante o qual um objeto existe e pode ser acessado validamente\n\no endereço retornado não aponta mais para um objeto válido."
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#então-como-retornar-algo-criado-pela-função",
+    "href": "slides/ponteiros_1.html#então-como-retornar-algo-criado-pela-função",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "Então como retornar algo criado pela função?",
+    "text": "Então como retornar algo criado pela função?\nQueremos uma região de memória que:\n\nseja criada durante cria_numero;\ncontinue válida depois que a função terminar;\npossa ser liberada quando não for mais necessária.\n\n\nPara isso usamos alocação dinâmica."
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#malloc-reservando-memória-dinâmicamente",
+    "href": "slides/ponteiros_1.html#malloc-reservando-memória-dinâmicamente",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "malloc: reservando memória dinâmicamente",
+    "text": "malloc: reservando memória dinâmicamente\nint *cria_numero() {\n    int *ptr = malloc(sizeof(int));\n\n    if (ptr != NULL)\n        *p = 507;\n\n    return p;\n}\n\nmalloc reserva (se possível) um bloco de memória no heap e retorna o endereço do início do bloco.\n\n\nSe não tiver memória disponível, malloc retorna NULL"
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#memória-do-programa-stack-e-heap",
+    "href": "slides/ponteiros_1.html#memória-do-programa-stack-e-heap",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "Memória do programa: Stack e heap",
+    "text": "Memória do programa: Stack e heap\n\n\nStack (pilha)\n\nvariáveis locais;\nparâmetros de funções;\ngerenciamento automático.\n\n\nHeap\n\nmemória solicitada durante a execução;\ntamanho decidido em tempo de execução;\nprecisamos liberar essa memória."
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#stack-e-heap-na-memória",
+    "href": "slides/ponteiros_1.html#stack-e-heap-na-memória",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "Stack e heap na memória",
+    "text": "Stack e heap na memória"
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#stack-e-heap-trabalhando-juntos",
+    "href": "slides/ponteiros_1.html#stack-e-heap-trabalhando-juntos",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "Stack e heap trabalhando juntos",
+    "text": "Stack e heap trabalhando juntos\nint *ptr = malloc(sizeof(int));\n\nif (ptr != NULL)\n    *ptr = 6;"
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#free-liberando-a-memória",
+    "href": "slides/ponteiros_1.html#free-liberando-a-memória",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "free: liberando a memória",
+    "text": "free: liberando a memória\nMemória alocada com malloc permanece reservada até ser liberada.\nint *ptr = malloc(sizeof(int));\n\nif (ptr != NULL) {\n    *ptr = 6;\n    printf(\"%d\\n\", *ptr);\n    free(ptr);\n}\n\nfree(ptr) devolve o bloco ao sistema de gerenciamento de memória."
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#depois-de-free-o-bloco-não-é-mais-nosso",
+    "href": "slides/ponteiros_1.html#depois-de-free-o-bloco-não-é-mais-nosso",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "Depois de free, o bloco não é mais nosso",
+    "text": "Depois de free, o bloco não é mais nosso\nint *ptr = malloc(sizeof(int));\n*ptr = 10;\n\nfree(ptr);\nDepois disso:\nprintf(\"%d\\n\", *ptr); // ERRADO\n\nO ponteiro ainda contém um endereço, mas aquela memória não pertence mais ao programa."
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#erros-comuns-com-memória-dinâmica",
+    "href": "slides/ponteiros_1.html#erros-comuns-com-memória-dinâmica",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "Erros comuns com memória dinâmica",
+    "text": "Erros comuns com memória dinâmica\n\nmemory leak: esquecer de chamar free;\nuse-after-free: usar a memória depois de free;\ndouble free: liberar duas vezes o mesmo bloco;\ndesreferenciar um ponteiro não inicializado ou NULL.\n\n\n\nEsses erros podem compilar normalmente e falhar apenas durante a execução."
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#quem-é-responsável-por-chamar-free",
+    "href": "slides/ponteiros_1.html#quem-é-responsável-por-chamar-free",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "Quem é responsável por chamar free?",
+    "text": "Quem é responsável por chamar free?\nUma regra útil:\n\nToda alocação precisa ter um free correspondente.\n\n\nPrecisamos saber quem é responsável pelo bloco alocado.\n\n\nEssa responsabilidade fica especialmente importante quando começarmos a retornar memória de funções."
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#alocando-um-vetor-dinamicamente",
+    "href": "slides/ponteiros_1.html#alocando-um-vetor-dinamicamente",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "Alocando um vetor dinamicamente",
+    "text": "Alocando um vetor dinamicamente\nint n;\nscanf(\"%d\", &n);\n\nint *vetor = malloc(n * sizeof(int));\n\nSe a alocação funcionar, temos espaço para n inteiros consecutivos.\nif (vetor == NULL) {\n    return 1;\n}"
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#usando-o-vetor-alocado",
+    "href": "slides/ponteiros_1.html#usando-o-vetor-alocado",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "Usando o vetor alocado",
+    "text": "Usando o vetor alocado\nDepois de alocar, podemos usar a notação usual de vetores:\nint *vetor = malloc(n * sizeof(int));\n\nif (vetor == NULL)\n    return 1;\n\nfor (int i = 0; i &lt; n; i++)\n    vetor[i] = i * i;\n\nfree(vetor);\n\nOs colchetes continuam funcionando!"
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#vetor-local-e-vetor-dinâmico",
+    "href": "slides/ponteiros_1.html#vetor-local-e-vetor-dinâmico",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "Vetor local e vetor dinâmico",
+    "text": "Vetor local e vetor dinâmico\n\n\nVetor local\nint v[100];\n\ntamanho fixado aqui;\nvida ligada ao bloco/função;\ngerenciamento automático.\n\n\nVetor dinâmico\nint *v = malloc(n * sizeof(int));\n\ntamanho decidido em execução;\nvive até free;\ngerenciamento manual."
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#ferramentas-ajudam-a-encontrar-erros",
+    "href": "slides/ponteiros_1.html#ferramentas-ajudam-a-encontrar-erros",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "Ferramentas ajudam a encontrar erros",
+    "text": "Ferramentas ajudam a encontrar erros\nErros de memória podem ser difíceis de enxergar no código.\nAlgumas ferramentas úteis:\n\nAddressSanitizer: detecta vários acessos inválidos em execução;\nValgrind: ajuda a detectar acessos inválidos e vazamentos.\n\n\nExemplo com gcc:\ngcc -Wall -Wextra -fsanitize=address -g programa.c"
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#o-modelo-mental-que-queremos-levar",
+    "href": "slides/ponteiros_1.html#o-modelo-mental-que-queremos-levar",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "O modelo mental que queremos levar",
+    "text": "O modelo mental que queremos levar\n\numa variável ocupa uma região da memória;\num ponteiro armazena um endereço;\n&x obtém o endereço de x;\n*ptr acessa o objeto apontado por ptr;\nponteiros permitem alterar dados do chamador;\nmalloc cria objetos no heap;\nfree encerra nosso uso daquele bloco."
+  },
+  {
+    "objectID": "slides/ponteiros_1.html#exercícios-rápidos",
+    "href": "slides/ponteiros_1.html#exercícios-rápidos",
+    "title": "Ponteiros e Memória Dinâmica",
+    "section": "Exercícios rápidos",
+    "text": "Exercícios rápidos\n\nO que será impresso?\n\nint x = 4;\nint *ptr = &x;\n*ptr = *ptr + 3;\nprintf(\"%d\\n\", x);\n\nPor que este código está errado?\n\nint *ptr;\nscanf(\"%d\", ptr);\n\nEscreva uma função zera que receba o endereço de um int e altere seu valor para zero."
   },
   {
     "objectID": "index.html",
