@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 340" role="img" aria-labelledby="title desc">
+  <title id="title">Matriz como vetor de ponteiros</title>
+  <desc id="desc">matriz aponta para um vetor de três ponteiros. Cada ponteiro aponta para uma linha independente com quatro inteiros contíguos. As linhas estão separadas na memória.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#27638c"/>
+    </marker>
+    <g id="row">
+      <rect width="280" height="52" rx="3" fill="#eaf3fb" stroke="#27638c" stroke-width="2"/>
+      <path d="M70 0v52 M140 0v52 M210 0v52" stroke="#27638c" stroke-width="2"/>
+      <g fill="#163c56" font-family="monospace" font-size="18" text-anchor="middle">
+        <text x="35" y="33">[0]</text><text x="105" y="33">[1]</text>
+        <text x="175" y="33">[2]</text><text x="245" y="33">[3]</text>
+      </g>
+    </g>
+  </defs>
+  <g font-family="sans-serif" font-size="22" fill="#163c56">
+    <text x="18" y="142" font-family="monospace">matriz</text>
+    <text x="18" y="171" font-family="monospace" font-size="18">int **</text>
+    <text x="165" y="45">Vetor de ponteiros</text>
+    <text x="575" y="28">Blocos independentes (4 inteiros cada)</text>
+    <text x="480" y="57" font-family="monospace" font-size="18">linha 0</text>
+    <text x="685" y="156" font-family="monospace" font-size="18">linha 1</text>
+    <text x="520" y="255" font-family="monospace" font-size="18">linha 2</text>
+  </g>
+  <rect x="220" y="80" width="80" height="180" rx="3" fill="#e6f4ea" stroke="#287347" stroke-width="2"/>
+  <path d="M220 140h80 M220 200h80" stroke="#287347" stroke-width="2"/>
+  <g font-family="monospace" font-size="18" fill="#163c56" text-anchor="end">
+    <text x="208" y="116">[0]</text><text x="208" y="176">[1]</text><text x="208" y="236">[2]</text>
+  </g>
+  <g fill="#27638c">
+    <circle cx="260" cy="110" r="5"/><circle cx="260" cy="170" r="5"/><circle cx="260" cy="230" r="5"/>
+  </g>
+  <g fill="none" stroke="#27638c" stroke-width="3" marker-end="url(#arrow)">
+    <path d="M110 135H150V92H217"/>
+    <path d="M260 110H385V90H475"/>
+    <path d="M260 170H425V189H680"/>
+    <path d="M260 230H380V288H515"/>
+  </g>
+  <use href="#row" x="480" y="64"/>
+  <use href="#row" x="685" y="163"/>
+  <use href="#row" x="520" y="262"/>
+</svg>
