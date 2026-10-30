@@ -413,6 +413,34 @@
     "text": "Podemos ter vetores de estruturas\nAluno turma[30];\nCada posição contém um Aluno completo.\nturma[0].ra = 123;\nturma[0].nota = 8.5;\n\nfor (int i = 0; i &lt; 30; i++)\n    printf(\"%d %.1f\\n\", turma[i].ra, turma[i].nota);"
   },
   {
+    "objectID": "slides/structs_arquivos.html#atribuição-entre-structs",
+    "href": "slides/structs_arquivos.html#atribuição-entre-structs",
+    "title": "Ponteiros, Estruturas e Arquivos",
+    "section": "Atribuição entre structs",
+    "text": "Atribuição entre structs\nAtribuição de structs copia todo o conteúdo da struct.\nExemplo:\ntypedef struct {\n    double x, y;\n} Ponto;\n\nint main(){\nPonto p = {3, 4};\nPonto p2 = p;\np2.x = 0;\n// ...\n}\n\np.x == 3, p.y == 4\np2.x == 0, p2.y == 4"
+  },
+  {
+    "objectID": "slides/structs_arquivos.html#mais-um-exemplo",
+    "href": "slides/structs_arquivos.html#mais-um-exemplo",
+    "title": "Ponteiros, Estruturas e Arquivos",
+    "section": "Mais um exemplo",
+    "text": "Mais um exemplo\nExemplo com o tipo Aluno quem contém um array de caracteres:\ntypedef struct {\n    int ra; char nome[100]; int nota;\n} Aluno;\n\nint main(){\n    Aluno a1 = {123, \"Lola da Silva\", 9.0};\n    Aluno a2 = a1;\n    a2.nome[0] = 'B';\n    puts(a1.nome);\n    puts(a2.nome);\n    return 0;\n}\n\nLola da Silva\nBola da Silva\nAo copiar a struct, os 100 caracteres de nome também são copiados."
+  },
+  {
+    "objectID": "slides/structs_arquivos.html#exemplo-com-ponteiros",
+    "href": "slides/structs_arquivos.html#exemplo-com-ponteiros",
+    "title": "Ponteiros, Estruturas e Arquivos",
+    "section": "Exemplo com ponteiros",
+    "text": "Exemplo com ponteiros\nO comportamento muda se nome for um ponteiro:\ntypedef struct {\n    int ra; char *nome; int nota;\n} Aluno;\n\nint main() {\n    char nome[] = \"Lola da Silva\";\n    Aluno a1 = {123, nome, 9};\n    Aluno a2 = a1;\n    a2.nome[0] = 'B';\n    puts(a1.nome); puts(a2.nome);\n}\n\nBola da Silva\nBola da Silva\nAgora só o valor do ponteiro é copiado."
+  },
+  {
+    "objectID": "slides/structs_arquivos.html#bônus-arrays-vs-ponteiros",
+    "href": "slides/structs_arquivos.html#bônus-arrays-vs-ponteiros",
+    "title": "Ponteiros, Estruturas e Arquivos",
+    "section": "Bônus: arrays vs ponteiros",
+    "text": "Bônus: arrays vs ponteiros\nA explicação desse comportamento depende de uma simplificação que fiz.\n\nchar nome[100];\nchar *p = nome;\nsizeof(nome)   // 100\nsizeof(p)      // Tipicamente 8 \n\n\nnome é um array de 100 caracteres, não uma variável ponteiro.\n\n\nEm muitas expressões, porém, o identificador do array é convertido automaticamente para um ponteiro para seu primeiro elemento.\n\nEsta distinção é um detalhe da linguagem C que estou mostrando para esclarecer detalhes sobre uma simplificação que fiz. Não vou cobrar isso em provas ou exercícios."
+  },
+  {
     "objectID": "slides/structs_arquivos.html#passando-estruturas-para-funções",
     "href": "slides/structs_arquivos.html#passando-estruturas-para-funções",
     "title": "Ponteiros, Estruturas e Arquivos",
@@ -424,14 +452,14 @@
     "href": "slides/structs_arquivos.html#outro-exemplo",
     "title": "Ponteiros, Estruturas e Arquivos",
     "section": "Outro exemplo",
-    "text": "Outro exemplo\ntypedef struct {\n    int ra; char nome[100]; int nota;\n} Aluno;\n\nvoid muda_nome(Aluno a1){\n    a1.nome = \"Nala Santos\"; \n}\n\nint main(){\n    Aluno a1 = {123, \"Lola da Silva\", 9.0};\n    muda_nome(a1);\n    puts(a1.nome);\n    return 0;\n}\n\nNala Santos"
+    "text": "Outro exemplo\ntypedef struct {\n    int ra; char nome[100]; int nota;\n} Aluno;\n\nvoid muda_nome(Aluno a1){\n    strcpy(a1.nome, \"Nala Santos\"); \n}\n\nint main(){\n    Aluno a1 = {123, \"Lola da Silva\", 9.0};\n    muda_nome(a1);\n    puts(a1.nome);\n    return 0;\n}\n\nLola da Silva"
   },
   {
     "objectID": "slides/structs_arquivos.html#a-função-recebe-uma-cópia-da-estrutura",
     "href": "slides/structs_arquivos.html#a-função-recebe-uma-cópia-da-estrutura",
     "title": "Ponteiros, Estruturas e Arquivos",
     "section": "A função recebe uma cópia da estrutura",
-    "text": "A função recebe uma cópia da estrutura\nAssim como no caso de tipos primitivos como int, a função recebe uma cópia.\n Para modificar a variável original, passamops seu endereço.\n\nvoid zera(Ponto *p) {\n    (*p).x = 0;\n    (*p).y = 0;\n}\nChamada:\nPonto ponto = {3, 4};\nzera(&ponto);"
+    "text": "A função recebe uma cópia da estrutura\nAssim como no caso de tipos primitivos como int, a função recebe uma cópia.\n Para modificar a variável original, passamos seu endereço.\n\nvoid zera(Ponto *p) {\n    (*p).x = 0;\n    (*p).y = 0;\n}\nChamada:\nPonto ponto = {3, 4};\nzera(&ponto);"
   },
   {
     "objectID": "slides/structs_arquivos.html#o-operador---simplifica-o-acesso",
@@ -453,6 +481,13 @@
     "title": "Ponteiros, Estruturas e Arquivos",
     "section": "Estruturas também podem ser alocadas dinamicamente",
     "text": "Estruturas também podem ser alocadas dinamicamente\nAluno *a = malloc(sizeof(Aluno));\nSe a não for NULL, podemos fazer\na-&gt;ra = 123;\na-&gt;nota = 8.5;\n\nAo terminar, precisamos liberar a memória:\nfree(a);"
+  },
+  {
+    "objectID": "slides/structs_arquivos.html#outro-exemplo-1",
+    "href": "slides/structs_arquivos.html#outro-exemplo-1",
+    "title": "Ponteiros, Estruturas e Arquivos",
+    "section": "Outro exemplo",
+    "text": "Outro exemplo\ntypedef struct {\n    int ra; char nome[100]; int nota;\n} Aluno;\n\nvoid muda_nome(Aluno* a1){\n    strcpy(a1-&gt;nome, \"Nala Santos\"); \n}\n\nint main(){\n    Aluno a1 = {123, \"Lola da Silva\", 9.0};\n    muda_nome(&a1);\n    puts(a1.nome);\n    return 0;\n}\n\nNala Santos"
   },
   {
     "objectID": "slides/structs_arquivos.html#uma-struct-pode-guardar-ponteiro-e-tamanho",

@@ -564,64 +564,143 @@ Victor S. Portella
 <span id="cb34-2"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st"> </span><span class="sc">%.1f\n</span><span class="st">"</span><span class="op">,</span> turma<span class="op">[</span>i<span class="op">].</span>ra<span class="op">,</span> turma<span class="op">[</span>i<span class="op">].</span>nota<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="passando-estruturas-para-funções" class="slide level2">
-<h2>Passando estruturas para funções</h2>
+<section id="atribuição-entre-structs" class="slide level2">
+<h2>Atribuição entre structs</h2>
+<p>Atribuição de structs copia <span class="red"><strong>todo o conteúdo da struct</strong></span>.</p>
+<p>Exemplo:</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb35-1"><a></a><span class="kw">typedef</span> <span class="kw">struct</span> <span class="op">{</span></span>
 <span id="cb35-2"><a></a>    <span class="dt">double</span> x<span class="op">,</span> y<span class="op">;</span></span>
 <span id="cb35-3"><a></a><span class="op">}</span> Ponto<span class="op">;</span></span>
 <span id="cb35-4"><a></a></span>
-<span id="cb35-5"><a></a><span class="dt">void</span> zera<span class="op">(</span>Ponto p<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb35-6"><a></a>    p<span class="op">.</span>x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb35-7"><a></a>    p<span class="op">.</span>y <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb35-8"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb35-5"><a></a><span class="dt">int</span> main<span class="op">(){</span></span>
+<span id="cb35-6"><a></a>Ponto p <span class="op">=</span> <span class="op">{</span><span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">};</span></span>
+<span id="cb35-7"><a></a>Ponto p2 <span class="op">=</span> p<span class="op">;</span></span>
+<span id="cb35-8"><a></a>p2<span class="op">.</span>x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb35-9"><a></a><span class="co">// ...</span></span>
+<span id="cb35-10"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<pre><code>p.x == 3, p.y == 4
+p2.x == 0, p2.y == 4</code></pre>
+</div>
+</section>
+<section id="mais-um-exemplo" class="slide level2">
+<h2>Mais um exemplo</h2>
+<p>Exemplo com o tipo <code>Aluno</code> quem contém um <span class="blue"><strong>array de caracteres</strong></span>:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb37-1"><a></a><span class="kw">typedef</span> <span class="kw">struct</span> <span class="op">{</span></span>
+<span id="cb37-2"><a></a>    <span class="dt">int</span> ra<span class="op">;</span> <span class="dt">char</span> nome<span class="op">[</span><span class="dv">100</span><span class="op">];</span> <span class="dt">int</span> nota<span class="op">;</span></span>
+<span id="cb37-3"><a></a><span class="op">}</span> Aluno<span class="op">;</span></span>
+<span id="cb37-4"><a></a></span>
+<span id="cb37-5"><a></a><span class="dt">int</span> main<span class="op">(){</span></span>
+<span id="cb37-6"><a></a>    Aluno a1 <span class="op">=</span> <span class="op">{</span><span class="dv">123</span><span class="op">,</span> <span class="st">"Lola da Silva"</span><span class="op">,</span> <span class="fl">9.0</span><span class="op">};</span></span>
+<span id="cb37-7"><a></a>    Aluno a2 <span class="op">=</span> a1<span class="op">;</span></span>
+<span id="cb37-8"><a></a>    a2<span class="op">.</span>nome<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">=</span> <span class="ch">'B'</span><span class="op">;</span></span>
+<span id="cb37-9"><a></a>    puts<span class="op">(</span>a1<span class="op">.</span>nome<span class="op">);</span></span>
+<span id="cb37-10"><a></a>    puts<span class="op">(</span>a2<span class="op">.</span>nome<span class="op">);</span></span>
+<span id="cb37-11"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb37-12"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<pre><code>Lola da Silva
+Bola da Silva</code></pre>
+<p>Ao copiar a struct, os <span class="blue">100 caracteres</span> de nome também são copiados.</p>
+</div>
+</section>
+<section id="exemplo-com-ponteiros" class="slide level2">
+<h2>Exemplo com ponteiros</h2>
+<p>O comportamento muda se <code>nome</code> for um <span class="red"><strong>ponteiro</strong></span>:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb39-1"><a></a><span class="kw">typedef</span> <span class="kw">struct</span> <span class="op">{</span></span>
+<span id="cb39-2"><a></a>    <span class="dt">int</span> ra<span class="op">;</span> <span class="dt">char</span> <span class="op">*</span>nome<span class="op">;</span> <span class="dt">int</span> nota<span class="op">;</span></span>
+<span id="cb39-3"><a></a><span class="op">}</span> Aluno<span class="op">;</span></span>
+<span id="cb39-4"><a></a></span>
+<span id="cb39-5"><a></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb39-6"><a></a>    <span class="dt">char</span> nome<span class="op">[]</span> <span class="op">=</span> <span class="st">"Lola da Silva"</span><span class="op">;</span></span>
+<span id="cb39-7"><a></a>    Aluno a1 <span class="op">=</span> <span class="op">{</span><span class="dv">123</span><span class="op">,</span> nome<span class="op">,</span> <span class="dv">9</span><span class="op">};</span></span>
+<span id="cb39-8"><a></a>    Aluno a2 <span class="op">=</span> a1<span class="op">;</span></span>
+<span id="cb39-9"><a></a>    a2<span class="op">.</span>nome<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">=</span> <span class="ch">'B'</span><span class="op">;</span></span>
+<span id="cb39-10"><a></a>    puts<span class="op">(</span>a1<span class="op">.</span>nome<span class="op">);</span> puts<span class="op">(</span>a2<span class="op">.</span>nome<span class="op">);</span></span>
+<span id="cb39-11"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<pre><code>Bola da Silva
+Bola da Silva</code></pre>
+<p>Agora só o <span class="red"><strong>valor</strong></span> do ponteiro é copiado.</p>
+</div>
+</section>
+<section id="bônus-arrays-vs-ponteiros" class="slide level2">
+<h2>Bônus: arrays vs ponteiros</h2>
+<p>A explicação desse comportamento depende de uma simplificação que fiz.</p>
+<div class="fragment">
+<div class="sourceCode" id="cb41"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb41-1"><a></a><span class="dt">char</span> nome<span class="op">[</span><span class="dv">100</span><span class="op">];</span></span>
+<span id="cb41-2"><a></a><span class="dt">char</span> <span class="op">*</span>p <span class="op">=</span> nome<span class="op">;</span></span>
+<span id="cb41-3"><a></a><span class="kw">sizeof</span><span class="op">(</span>nome<span class="op">)</span>   <span class="co">// 100</span></span>
+<span id="cb41-4"><a></a><span class="kw">sizeof</span><span class="op">(</span>p<span class="op">)</span>      <span class="co">// Tipicamente 8 </span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p><code>nome</code> é um <span class="blue">array de 100 caracteres</span>, não uma variável ponteiro.</p>
+</div>
+<div class="fragment">
+<p>Em muitas expressões, porém, o identificador do array é convertido automaticamente para um <span class="red">ponteiro para seu primeiro elemento</span>.</p>
+<div class="note">
+<p>Esta distinção é um detalhe da linguagem C que estou mostrando para esclarecer detalhes sobre uma simplificação que fiz. <strong>Não vou cobrar isso em provas ou exercícios.</strong></p>
+</div>
+</div>
+</section>
+<section id="passando-estruturas-para-funções" class="slide level2">
+<h2>Passando estruturas para funções</h2>
+<div class="sourceCode" id="cb42"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb42-1"><a></a><span class="kw">typedef</span> <span class="kw">struct</span> <span class="op">{</span></span>
+<span id="cb42-2"><a></a>    <span class="dt">double</span> x<span class="op">,</span> y<span class="op">;</span></span>
+<span id="cb42-3"><a></a><span class="op">}</span> Ponto<span class="op">;</span></span>
+<span id="cb42-4"><a></a></span>
+<span id="cb42-5"><a></a><span class="dt">void</span> zera<span class="op">(</span>Ponto p<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb42-6"><a></a>    p<span class="op">.</span>x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb42-7"><a></a>    p<span class="op">.</span>y <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb42-8"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Qual a saída do seguinte trecho de código?</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb36-1"><a></a>Ponto p <span class="op">=</span> <span class="op">{</span><span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">};</span></span>
-<span id="cb36-2"><a></a>zera<span class="op">(</span>p<span class="op">);</span></span>
-<span id="cb36-3"><a></a>printf<span class="op">(</span><span class="st">"p.x = </span><span class="sc">%d</span><span class="st">, p.y = </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> p<span class="op">.</span>x<span class="op">,</span> p<span class="op">.</span>y<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb43-1"><a></a>Ponto p <span class="op">=</span> <span class="op">{</span><span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">};</span></span>
+<span id="cb43-2"><a></a>zera<span class="op">(</span>p<span class="op">);</span></span>
+<span id="cb43-3"><a></a>printf<span class="op">(</span><span class="st">"p.x = </span><span class="sc">%d</span><span class="st">, p.y = </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> p<span class="op">.</span>x<span class="op">,</span> p<span class="op">.</span>y<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
 <pre><code>p.x = 3, p.y = 4</code></pre>
 </div>
 </section>
 <section id="outro-exemplo" class="slide level2">
 <h2>Outro exemplo</h2>
-<div class="sourceCode" id="cb38"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb38-1"><a></a><span class="kw">typedef</span> <span class="kw">struct</span> <span class="op">{</span></span>
-<span id="cb38-2"><a></a>    <span class="dt">int</span> ra<span class="op">;</span> <span class="dt">char</span> nome<span class="op">[</span><span class="dv">100</span><span class="op">];</span> <span class="dt">int</span> nota<span class="op">;</span></span>
-<span id="cb38-3"><a></a><span class="op">}</span> Aluno<span class="op">;</span></span>
-<span id="cb38-4"><a></a></span>
-<span id="cb38-5"><a></a><span class="dt">void</span> muda_nome<span class="op">(</span>Aluno a1<span class="op">){</span></span>
-<span id="cb38-6"><a></a>    a1<span class="op">.</span>nome <span class="op">=</span> <span class="st">"Nala Santos"</span><span class="op">;</span> </span>
-<span id="cb38-7"><a></a><span class="op">}</span></span>
-<span id="cb38-8"><a></a></span>
-<span id="cb38-9"><a></a><span class="dt">int</span> main<span class="op">(){</span></span>
-<span id="cb38-10"><a></a>    Aluno a1 <span class="op">=</span> <span class="op">{</span><span class="dv">123</span><span class="op">,</span> <span class="st">"Lola da Silva"</span><span class="op">,</span> <span class="fl">9.0</span><span class="op">};</span></span>
-<span id="cb38-11"><a></a>    muda_nome<span class="op">(</span>a1<span class="op">);</span></span>
-<span id="cb38-12"><a></a>    puts<span class="op">(</span>a1<span class="op">.</span>nome<span class="op">);</span></span>
-<span id="cb38-13"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb38-14"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb45-1"><a></a><span class="kw">typedef</span> <span class="kw">struct</span> <span class="op">{</span></span>
+<span id="cb45-2"><a></a>    <span class="dt">int</span> ra<span class="op">;</span> <span class="dt">char</span> nome<span class="op">[</span><span class="dv">100</span><span class="op">];</span> <span class="dt">int</span> nota<span class="op">;</span></span>
+<span id="cb45-3"><a></a><span class="op">}</span> Aluno<span class="op">;</span></span>
+<span id="cb45-4"><a></a></span>
+<span id="cb45-5"><a></a><span class="dt">void</span> muda_nome<span class="op">(</span>Aluno a1<span class="op">){</span></span>
+<span id="cb45-6"><a></a>    strcpy<span class="op">(</span>a1<span class="op">.</span>nome<span class="op">,</span> <span class="st">"Nala Santos"</span><span class="op">);</span> </span>
+<span id="cb45-7"><a></a><span class="op">}</span></span>
+<span id="cb45-8"><a></a></span>
+<span id="cb45-9"><a></a><span class="dt">int</span> main<span class="op">(){</span></span>
+<span id="cb45-10"><a></a>    Aluno a1 <span class="op">=</span> <span class="op">{</span><span class="dv">123</span><span class="op">,</span> <span class="st">"Lola da Silva"</span><span class="op">,</span> <span class="fl">9.0</span><span class="op">};</span></span>
+<span id="cb45-11"><a></a>    muda_nome<span class="op">(</span>a1<span class="op">);</span></span>
+<span id="cb45-12"><a></a>    puts<span class="op">(</span>a1<span class="op">.</span>nome<span class="op">);</span></span>
+<span id="cb45-13"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb45-14"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
-<pre><code>Nala Santos</code></pre>
+<pre><code>Lola da Silva</code></pre>
 </div>
 </section>
 <section id="a-função-recebe-uma-cópia-da-estrutura" class="slide level2">
 <h2>A função recebe uma cópia da estrutura</h2>
 <p>Assim como no caso de tipos primitivos como <code>int</code>, a função recebe uma <span class="blue"><strong>cópia</strong></span>.</p>
-<p><span class="tab"></span> Para modificar a variável original, passamops seu <span class="red"><strong>endereço</strong></span>.</p>
+<p><span class="tab"></span> Para modificar a variável original, passamos seu <span class="red"><strong>endereço</strong></span>.</p>
 <div class="fragment">
-<div class="sourceCode" id="cb40"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb40-1"><a></a><span class="dt">void</span> zera<span class="op">(</span>Ponto <span class="op">*</span>p<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb40-2"><a></a>    <span class="op">(*</span>p<span class="op">).</span>x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb40-3"><a></a>    <span class="op">(*</span>p<span class="op">).</span>y <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb40-4"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb47-1"><a></a><span class="dt">void</span> zera<span class="op">(</span>Ponto <span class="op">*</span>p<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb47-2"><a></a>    <span class="op">(*</span>p<span class="op">).</span>x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb47-3"><a></a>    <span class="op">(*</span>p<span class="op">).</span>y <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb47-4"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Chamada:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb41-1"><a></a>Ponto ponto <span class="op">=</span> <span class="op">{</span><span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">};</span></span>
-<span id="cb41-2"><a></a>zera<span class="op">(&amp;</span>ponto<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb48-1"><a></a>Ponto ponto <span class="op">=</span> <span class="op">{</span><span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">};</span></span>
+<span id="cb48-2"><a></a>zera<span class="op">(&amp;</span>ponto<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="o-operador---simplifica-o-acesso" class="slide level2">
 <h2>O operador <code>-&gt;</code> simplifica o acesso</h2>
 <p>Em caso de <span class="red"><strong>ponteiros para uma struct</strong></span>, podemos substituir</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb42-1"><a></a><span class="op">(*</span>p<span class="op">).</span>x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> <span class="co">// Deferenciar + uso do ponto</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb49-1"><a></a><span class="op">(*</span>p<span class="op">).</span>x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> <span class="co">// Deferenciar + uso do ponto</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Para</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb43-1"><a></a>p<span class="op">-&gt;</span>x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> <span class="co">// Uso da seta </span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb50-1"><a></a>p<span class="op">-&gt;</span>x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> <span class="co">// Uso da seta </span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
 <p><br></p>
 <p><span class="green"><strong>Em outras palavras</strong></span>: <code>-&gt;</code> acessa um campo através de um <span class="blue"><strong>ponteiro para <code>struct</code></strong></span>.</p>
@@ -629,36 +708,56 @@ Victor S. Portella
 </section>
 <section id="exemplo-função-que-altera-a-nota" class="slide level2">
 <h2>Exemplo: função que altera a nota</h2>
-<div class="sourceCode" id="cb44"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb44-1"><a></a><span class="dt">void</span> muda_nota<span class="op">(</span>Aluno <span class="op">*</span>a<span class="op">,</span> <span class="dt">double</span> nova_nota<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb44-2"><a></a>    a<span class="op">-&gt;</span>nota <span class="op">=</span> nova_nota<span class="op">;</span></span>
-<span id="cb44-3"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb51-1"><a></a><span class="dt">void</span> muda_nota<span class="op">(</span>Aluno <span class="op">*</span>a<span class="op">,</span> <span class="dt">double</span> nova_nota<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb51-2"><a></a>    a<span class="op">-&gt;</span>nota <span class="op">=</span> nova_nota<span class="op">;</span></span>
+<span id="cb51-3"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Uso:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb45-1"><a></a>Aluno a <span class="op">=</span> <span class="op">{</span><span class="dv">123</span><span class="op">,</span> <span class="st">"Maria"</span><span class="op">,</span> <span class="fl">7.0</span><span class="op">};</span></span>
-<span id="cb45-2"><a></a></span>
-<span id="cb45-3"><a></a>muda_nota<span class="op">(&amp;</span>a<span class="op">,</span> <span class="fl">9.0</span><span class="op">);</span></span>
-<span id="cb45-4"><a></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%.1f\n</span><span class="st">"</span><span class="op">,</span> a<span class="op">.</span>nota<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb52-1"><a></a>Aluno a <span class="op">=</span> <span class="op">{</span><span class="dv">123</span><span class="op">,</span> <span class="st">"Maria"</span><span class="op">,</span> <span class="fl">7.0</span><span class="op">};</span></span>
+<span id="cb52-2"><a></a></span>
+<span id="cb52-3"><a></a>muda_nota<span class="op">(&amp;</span>a<span class="op">,</span> <span class="fl">9.0</span><span class="op">);</span></span>
+<span id="cb52-4"><a></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%.1f\n</span><span class="st">"</span><span class="op">,</span> a<span class="op">.</span>nota<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
-<div class="sourceCode" id="cb46"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb46-1"><a></a>9.0</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb53-1"><a></a>9.0</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="estruturas-também-podem-ser-alocadas-dinamicamente" class="slide level2">
 <h2>Estruturas também podem ser alocadas dinamicamente</h2>
-<div class="sourceCode" id="cb47"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb47-1"><a></a>Aluno <span class="op">*</span>a <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span>Aluno<span class="op">));</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb54-1"><a></a>Aluno <span class="op">*</span>a <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span>Aluno<span class="op">));</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Se <code>a</code> não for <code>NULL</code>, podemos fazer</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb48-1"><a></a>a<span class="op">-&gt;</span>ra <span class="op">=</span> <span class="dv">123</span><span class="op">;</span></span>
-<span id="cb48-2"><a></a>a<span class="op">-&gt;</span>nota <span class="op">=</span> <span class="fl">8.5</span><span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb55-1"><a></a>a<span class="op">-&gt;</span>ra <span class="op">=</span> <span class="dv">123</span><span class="op">;</span></span>
+<span id="cb55-2"><a></a>a<span class="op">-&gt;</span>nota <span class="op">=</span> <span class="fl">8.5</span><span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
 <p>Ao terminar, precisamos liberar a memória:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb49-1"><a></a>free<span class="op">(</span>a<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb56-1"><a></a>free<span class="op">(</span>a<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="outro-exemplo-1" class="slide level2">
+<h2>Outro exemplo</h2>
+<div class="sourceCode" id="cb57"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb57-1"><a></a><span class="kw">typedef</span> <span class="kw">struct</span> <span class="op">{</span></span>
+<span id="cb57-2"><a></a>    <span class="dt">int</span> ra<span class="op">;</span> <span class="dt">char</span> nome<span class="op">[</span><span class="dv">100</span><span class="op">];</span> <span class="dt">int</span> nota<span class="op">;</span></span>
+<span id="cb57-3"><a></a><span class="op">}</span> Aluno<span class="op">;</span></span>
+<span id="cb57-4"><a></a></span>
+<span id="cb57-5"><a></a><span class="dt">void</span> muda_nome<span class="op">(</span>Aluno<span class="op">*</span> a1<span class="op">){</span></span>
+<span id="cb57-6"><a></a>    strcpy<span class="op">(</span>a1<span class="op">-&gt;</span>nome<span class="op">,</span> <span class="st">"Nala Santos"</span><span class="op">);</span> </span>
+<span id="cb57-7"><a></a><span class="op">}</span></span>
+<span id="cb57-8"><a></a></span>
+<span id="cb57-9"><a></a><span class="dt">int</span> main<span class="op">(){</span></span>
+<span id="cb57-10"><a></a>    Aluno a1 <span class="op">=</span> <span class="op">{</span><span class="dv">123</span><span class="op">,</span> <span class="st">"Lola da Silva"</span><span class="op">,</span> <span class="fl">9.0</span><span class="op">};</span></span>
+<span id="cb57-11"><a></a>    muda_nome<span class="op">(&amp;</span>a1<span class="op">);</span></span>
+<span id="cb57-12"><a></a>    puts<span class="op">(</span>a1<span class="op">.</span>nome<span class="op">);</span></span>
+<span id="cb57-13"><a></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb57-14"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<pre><code>Nala Santos</code></pre>
 </div>
 </section>
 <section id="uma-struct-pode-guardar-ponteiro-e-tamanho" class="slide level2">
 <h2>Uma <code>struct</code> pode guardar ponteiro e tamanho</h2>
 <p>Voltando à matriz com linhas de tamanhos diferentes:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb50-1"><a></a><span class="kw">typedef</span> <span class="kw">struct</span> <span class="op">{</span></span>
-<span id="cb50-2"><a></a>    <span class="dt">int</span> <span class="op">*</span>dados<span class="op">;</span></span>
-<span id="cb50-3"><a></a>    <span class="dt">int</span> tamanho<span class="op">;</span></span>
-<span id="cb50-4"><a></a><span class="op">}</span> Linha<span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb59-1"><a></a><span class="kw">typedef</span> <span class="kw">struct</span> <span class="op">{</span></span>
+<span id="cb59-2"><a></a>    <span class="dt">int</span> <span class="op">*</span>dados<span class="op">;</span></span>
+<span id="cb59-3"><a></a>    <span class="dt">int</span> tamanho<span class="op">;</span></span>
+<span id="cb59-4"><a></a><span class="op">}</span> Linha<span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Agora cada <code>Linha</code> guarda:</p>
 <ul>
 <li><span class="blue"><strong>onde</strong></span> estão seus elementos;</li>
@@ -668,47 +767,47 @@ Victor S. Portella
 <section id="um-vetor-de-linha-representa-uma-matriz-irregular" class="slide level2">
 <h2>Um vetor de <code>Linha</code> representa uma matriz irregular</h2>
 <p>Agora podemos declarar</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb51-1"><a></a>Linha matriz<span class="op">[</span><span class="dv">3</span><span class="op">];</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb60-1"><a></a>Linha matriz<span class="op">[</span><span class="dv">3</span><span class="op">];</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Cada variável do tipo <code>Linha</code> descreve <span class="green"><strong>uma linha inteira</strong></span>.</p>
 <p>Podemos escolher um tamanho diferente para cada posição:</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb52-1"><a></a>matriz<span class="op">[</span><span class="dv">0</span><span class="op">].</span>tamanho <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb52-2"><a></a>matriz<span class="op">[</span><span class="dv">1</span><span class="op">].</span>tamanho <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
-<span id="cb52-3"><a></a>matriz<span class="op">[</span><span class="dv">2</span><span class="op">].</span>tamanho <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb61-1"><a></a>matriz<span class="op">[</span><span class="dv">0</span><span class="op">].</span>tamanho <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb61-2"><a></a>matriz<span class="op">[</span><span class="dv">1</span><span class="op">].</span>tamanho <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb61-3"><a></a>matriz<span class="op">[</span><span class="dv">2</span><span class="op">].</span>tamanho <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="alocando-os-vetores-de-cada-linha" class="slide level2">
 <h2>Alocando os vetores de cada linha</h2>
 <p>O campo <code>matriz[i].dados</code> não vem alocado. Alocando manualmente:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb53-1"><a></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">3</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb53-2"><a></a>    matriz<span class="op">[</span>i<span class="op">].</span>dados <span class="op">=</span></span>
-<span id="cb53-3"><a></a>        malloc<span class="op">(</span>matriz<span class="op">[</span>i<span class="op">].</span>tamanho <span class="op">*</span> <span class="kw">sizeof</span><span class="op">(</span><span class="dt">int</span><span class="op">));</span></span>
-<span id="cb53-4"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb62-1"><a></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">3</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb62-2"><a></a>    matriz<span class="op">[</span>i<span class="op">].</span>dados <span class="op">=</span></span>
+<span id="cb62-3"><a></a>        malloc<span class="op">(</span>matriz<span class="op">[</span>i<span class="op">].</span>tamanho <span class="op">*</span> <span class="kw">sizeof</span><span class="op">(</span><span class="dt">int</span><span class="op">));</span></span>
+<span id="cb62-4"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
 <p><br></p>
 <p>Agora, se <code>j &lt; matriz[i].tamanho</code>, podemos acessar:</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb54-1"><a></a>matriz<span class="op">[</span>i<span class="op">].</span>dados<span class="op">[</span>j<span class="op">]</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb63-1"><a></a>matriz<span class="op">[</span>i<span class="op">].</span>dados<span class="op">[</span>j<span class="op">]</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="o-tamanho-viaja-junto-com-os-dados" class="slide level2">
 <h2>O tamanho viaja junto com os dados</h2>
 <p>Como imprimir toda as entradas de <code>matriz</code>?</p>
 <div class="fragment">
-<div class="sourceCode" id="cb55"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb55-1"><a></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">3</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb55-2"><a></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> matriz<span class="op">[</span>i<span class="op">].</span>tamanho<span class="op">;</span> j<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb55-3"><a></a>        printf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st"> "</span><span class="op">,</span> matriz<span class="op">[</span>i<span class="op">].</span>dados<span class="op">[</span>j<span class="op">]);</span></span>
-<span id="cb55-4"><a></a>    <span class="op">}</span></span>
-<span id="cb55-5"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
-<span id="cb55-6"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb64-1"><a></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">3</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb64-2"><a></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> matriz<span class="op">[</span>i<span class="op">].</span>tamanho<span class="op">;</span> j<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb64-3"><a></a>        printf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st"> "</span><span class="op">,</span> matriz<span class="op">[</span>i<span class="op">].</span>dados<span class="op">[</span>j<span class="op">]);</span></span>
+<span id="cb64-4"><a></a>    <span class="op">}</span></span>
+<span id="cb64-5"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
+<span id="cb64-6"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="liberando-a-matriz-irregular" class="slide level2">
 <h2>Liberando a matriz irregular</h2>
 <p>Cada campo <code>dados</code> aponta para um bloco diferente que precisa ser liberado</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb56-1"><a></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">3</span><span class="op">;</span> i<span class="op">++)</span></span>
-<span id="cb56-2"><a></a>    free<span class="op">(</span>matriz<span class="op">[</span>i<span class="op">].</span>dados<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb65-1"><a></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">3</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb65-2"><a></a>    free<span class="op">(</span>matriz<span class="op">[</span>i<span class="op">].</span>dados<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
 <p><br></p>
 <p>Neste exemplo, declaramos <code>matriz</code> é um vetor local:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb57-1"><a></a>Linha matriz<span class="op">[</span><span class="dv">3</span><span class="op">];</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb66-1"><a></a>Linha matriz<span class="op">[</span><span class="dv">3</span><span class="op">];</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><span class="tab"></span> Portanto, não precisamos chamar <code>free(matriz)</code>.</p>
 </div>
 </section>
@@ -716,19 +815,19 @@ Victor S. Portella
 <h2>Alocando matriz irregular dinamicamente</h2>
 <p>Primeiro, alocamos um vetor de variáveis do tipo <code>Linha</code></p>
 <div class="fragment">
-<div class="sourceCode" id="cb58"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb58-1"><a></a>Linha <span class="op">*</span>matriz <span class="op">=</span> malloc<span class="op">(</span>n_linhas <span class="op">*</span> <span class="kw">sizeof</span><span class="op">(</span>Linha<span class="op">));</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb67-1"><a></a>Linha <span class="op">*</span>matriz <span class="op">=</span> malloc<span class="op">(</span>n_linhas <span class="op">*</span> <span class="kw">sizeof</span><span class="op">(</span>Linha<span class="op">));</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p>Depois alocamos o vetor de dados cada linha:</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb59-1"><a></a>matriz<span class="op">[</span>i<span class="op">].</span>dados <span class="op">=</span></span>
-<span id="cb59-2"><a></a>    malloc<span class="op">(</span>matriz<span class="op">[</span>i<span class="op">].</span>tamanho <span class="op">*</span> <span class="kw">sizeof</span><span class="op">(</span><span class="dt">int</span><span class="op">));</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb68-1"><a></a>matriz<span class="op">[</span>i<span class="op">].</span>dados <span class="op">=</span></span>
+<span id="cb68-2"><a></a>    malloc<span class="op">(</span>matriz<span class="op">[</span>i<span class="op">].</span>tamanho <span class="op">*</span> <span class="kw">sizeof</span><span class="op">(</span><span class="dt">int</span><span class="op">));</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p>Para liberar a memória</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb60-1"><a></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n_linhas<span class="op">;</span> i<span class="op">++)</span></span>
-<span id="cb60-2"><a></a>    free<span class="op">(</span>matriz<span class="op">[</span>i<span class="op">].</span>dados<span class="op">);</span></span>
-<span id="cb60-3"><a></a></span>
-<span id="cb60-4"><a></a>free<span class="op">(</span>matriz<span class="op">);</span> <span class="co">// Precisa liberar dessa vez</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb69-1"><a></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n_linhas<span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb69-2"><a></a>    free<span class="op">(</span>matriz<span class="op">[</span>i<span class="op">].</span>dados<span class="op">);</span></span>
+<span id="cb69-3"><a></a></span>
+<span id="cb69-4"><a></a>free<span class="op">(</span>matriz<span class="op">);</span> <span class="co">// Precisa liberar dessa vez</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!-- ## Uma estrutura pode apontar para outra do mesmo tipo
 
 ```c
@@ -796,18 +895,18 @@ Essa é a ideia básica usada para construir listas ligadas, árvores e outras e
 </section>
 <section id="abrir-verificar-e-fechar" class="slide level2">
 <h2>Abrir, verificar e fechar</h2>
-<div class="sourceCode" id="cb61"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb61-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb61-2"><a></a></span>
-<span id="cb61-3"><a></a><span class="dt">FILE</span> <span class="op">*</span>arquivo <span class="op">=</span> fopen<span class="op">(</span><span class="st">"dados.txt"</span><span class="op">,</span> <span class="st">"r"</span><span class="op">);</span></span>
-<span id="cb61-4"><a></a></span>
-<span id="cb61-5"><a></a><span class="cf">if</span> <span class="op">(</span>arquivo <span class="op">==</span> NULL<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb61-6"><a></a>    printf<span class="op">(</span><span class="st">"Erro ao abrir arquivo.</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
-<span id="cb61-7"><a></a>    <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb61-8"><a></a><span class="op">}</span></span>
-<span id="cb61-9"><a></a></span>
-<span id="cb61-10"><a></a><span class="co">/* usa o arquivo */</span></span>
-<span id="cb61-11"><a></a></span>
-<span id="cb61-12"><a></a>fclose<span class="op">(</span>arquivo<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb70-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb70-2"><a></a></span>
+<span id="cb70-3"><a></a><span class="dt">FILE</span> <span class="op">*</span>arquivo <span class="op">=</span> fopen<span class="op">(</span><span class="st">"dados.txt"</span><span class="op">,</span> <span class="st">"r"</span><span class="op">);</span></span>
+<span id="cb70-4"><a></a></span>
+<span id="cb70-5"><a></a><span class="cf">if</span> <span class="op">(</span>arquivo <span class="op">==</span> NULL<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb70-6"><a></a>    printf<span class="op">(</span><span class="st">"Erro ao abrir arquivo.</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
+<span id="cb70-7"><a></a>    <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb70-8"><a></a><span class="op">}</span></span>
+<span id="cb70-9"><a></a></span>
+<span id="cb70-10"><a></a><span class="co">/* usa o arquivo */</span></span>
+<span id="cb70-11"><a></a></span>
+<span id="cb70-12"><a></a>fclose<span class="op">(</span>arquivo<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="três-modos-básicos-são-suficientes-por-enquanto" class="slide level2">
 <h2>Três modos básicos são suficientes por enquanto</h2>
@@ -842,33 +941,33 @@ Essa é a ideia básica usada para construir listas ligadas, árvores e outras e
 <section id="fprintf-escreve-como-printf" class="slide level2">
 <h2><code>fprintf</code> escreve como <code>printf</code></h2>
 <p>Podemos salvar os campos de um <code>Aluno</code>:</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb62-1"><a></a>Aluno a <span class="op">=</span> <span class="op">{</span><span class="dv">123</span><span class="op">,</span> <span class="st">"Maria"</span><span class="op">,</span> <span class="fl">8.5</span><span class="op">};</span></span>
-<span id="cb62-2"><a></a></span>
-<span id="cb62-3"><a></a><span class="dt">FILE</span> <span class="op">*</span>arquivo <span class="op">=</span> fopen<span class="op">(</span><span class="st">"aluno.txt"</span><span class="op">,</span> <span class="st">"w"</span><span class="op">);</span></span>
-<span id="cb62-4"><a></a></span>
-<span id="cb62-5"><a></a><span class="cf">if</span> <span class="op">(</span>arquivo <span class="op">==</span> NULL<span class="op">)</span></span>
-<span id="cb62-6"><a></a>    <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb62-7"><a></a></span>
-<span id="cb62-8"><a></a>fprintf<span class="op">(</span>arquivo<span class="op">,</span> <span class="st">"</span><span class="sc">%d</span><span class="st"> </span><span class="sc">%s</span><span class="st"> </span><span class="sc">%.1f\n</span><span class="st">"</span><span class="op">,</span></span>
-<span id="cb62-9"><a></a>        a<span class="op">.</span>ra<span class="op">,</span> a<span class="op">.</span>nome<span class="op">,</span> a<span class="op">.</span>nota<span class="op">);</span></span>
-<span id="cb62-10"><a></a></span>
-<span id="cb62-11"><a></a>fclose<span class="op">(</span>arquivo<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb71-1"><a></a>Aluno a <span class="op">=</span> <span class="op">{</span><span class="dv">123</span><span class="op">,</span> <span class="st">"Maria"</span><span class="op">,</span> <span class="fl">8.5</span><span class="op">};</span></span>
+<span id="cb71-2"><a></a></span>
+<span id="cb71-3"><a></a><span class="dt">FILE</span> <span class="op">*</span>arquivo <span class="op">=</span> fopen<span class="op">(</span><span class="st">"aluno.txt"</span><span class="op">,</span> <span class="st">"w"</span><span class="op">);</span></span>
+<span id="cb71-4"><a></a></span>
+<span id="cb71-5"><a></a><span class="cf">if</span> <span class="op">(</span>arquivo <span class="op">==</span> NULL<span class="op">)</span></span>
+<span id="cb71-6"><a></a>    <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb71-7"><a></a></span>
+<span id="cb71-8"><a></a>fprintf<span class="op">(</span>arquivo<span class="op">,</span> <span class="st">"</span><span class="sc">%d</span><span class="st"> </span><span class="sc">%s</span><span class="st"> </span><span class="sc">%.1f\n</span><span class="st">"</span><span class="op">,</span></span>
+<span id="cb71-9"><a></a>        a<span class="op">.</span>ra<span class="op">,</span> a<span class="op">.</span>nome<span class="op">,</span> a<span class="op">.</span>nota<span class="op">);</span></span>
+<span id="cb71-10"><a></a></span>
+<span id="cb71-11"><a></a>fclose<span class="op">(</span>arquivo<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="fscanf-lê-como-scanf" class="slide level2">
 <h2><code>fscanf</code> lê como <code>scanf</code></h2>
 <p>Se o arquivo <code>aluno.txt</code> contém:</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb63-1"><a></a>123 Maria 8.5</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb72-1"><a></a>123 Maria 8.5</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>podemos ler diretamente para uma <code>struct</code>:</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb64-1"><a></a>Aluno a<span class="op">;</span></span>
-<span id="cb64-2"><a></a><span class="dt">FILE</span> <span class="op">*</span>arquivo <span class="op">=</span> fopen<span class="op">(</span><span class="st">"aluno.txt"</span><span class="op">,</span> <span class="st">"r"</span><span class="op">);</span></span>
-<span id="cb64-3"><a></a></span>
-<span id="cb64-4"><a></a><span class="cf">if</span> <span class="op">(</span>arquivo <span class="op">==</span> NULL<span class="op">)</span>  <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb64-5"><a></a></span>
-<span id="cb64-6"><a></a>fscanf<span class="op">(</span>arquivo<span class="op">,</span> <span class="st">"</span><span class="sc">%d</span><span class="st"> </span><span class="sc">%s</span><span class="st"> </span><span class="sc">%lf</span><span class="st">"</span><span class="op">,</span>  <span class="op">&amp;</span>a<span class="op">.</span>ra<span class="op">,</span> a<span class="op">.</span>nome<span class="op">,</span> <span class="op">&amp;</span>a<span class="op">.</span>nota<span class="op">);</span></span>
-<span id="cb64-7"><a></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st"> </span><span class="sc">%s</span><span class="st"> </span><span class="sc">%.1f\n</span><span class="st">"</span><span class="op">,</span> a<span class="op">.</span>ra<span class="op">,</span> a<span class="op">.</span>nome<span class="op">,</span> a<span class="op">.</span>nota<span class="op">);</span></span>
-<span id="cb64-8"><a></a></span>
-<span id="cb64-9"><a></a></span>
-<span id="cb64-10"><a></a>fclose<span class="op">(</span>arquivo<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb73-1"><a></a>Aluno a<span class="op">;</span></span>
+<span id="cb73-2"><a></a><span class="dt">FILE</span> <span class="op">*</span>arquivo <span class="op">=</span> fopen<span class="op">(</span><span class="st">"aluno.txt"</span><span class="op">,</span> <span class="st">"r"</span><span class="op">);</span></span>
+<span id="cb73-3"><a></a></span>
+<span id="cb73-4"><a></a><span class="cf">if</span> <span class="op">(</span>arquivo <span class="op">==</span> NULL<span class="op">)</span>  <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb73-5"><a></a></span>
+<span id="cb73-6"><a></a>fscanf<span class="op">(</span>arquivo<span class="op">,</span> <span class="st">"</span><span class="sc">%d</span><span class="st"> </span><span class="sc">%s</span><span class="st"> </span><span class="sc">%lf</span><span class="st">"</span><span class="op">,</span>  <span class="op">&amp;</span>a<span class="op">.</span>ra<span class="op">,</span> a<span class="op">.</span>nome<span class="op">,</span> <span class="op">&amp;</span>a<span class="op">.</span>nota<span class="op">);</span></span>
+<span id="cb73-7"><a></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st"> </span><span class="sc">%s</span><span class="st"> </span><span class="sc">%.1f\n</span><span class="st">"</span><span class="op">,</span> a<span class="op">.</span>ra<span class="op">,</span> a<span class="op">.</span>nome<span class="op">,</span> a<span class="op">.</span>nota<span class="op">);</span></span>
+<span id="cb73-8"><a></a></span>
+<span id="cb73-9"><a></a></span>
+<span id="cb73-10"><a></a>fclose<span class="op">(</span>arquivo<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Os argumentos de <code>fscanf</code> seguem as <span class="red"><strong>mesmas regras do <code>scanf</code></strong></span>.</p>
 
 
