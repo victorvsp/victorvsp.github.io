@@ -1,0 +1,37 @@
+/* Ajustes locais para Listas ligadas.
+   Preserva a tipografia, as cores e os blocos de código de theme.scss. */
+.reveal .slides section .ll-question {
+  border-left: 5px solid #e34234;
+  padding: .15em .55em;
+  margin: .25em 0;
+  background: #fff5f3;
+  font-weight: 600;
+}
+.reveal .slides section .ll-question p { margin: .08em 0; }
+.reveal .slides section .ll-hint {
+  border-left: 4px solid #0d698b;
+  padding: .12em .5em;
+  margin-top: .20em;
+  background: #eef7fa;
+  font-size: .80em;
+}
+.reveal .slides section .ll-hint p { margin: .07em 0; }
+.reveal .slides section .ll-aside {
+  font-size: .66em;
+  color: #565e65;
+  margin-top: .45em;
+}
+.reveal .slides section .ll-aside p { margin: .12em 0; }
+.reveal .slides section img[src*="listas_ligadas_figs"] {
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+  max-height: 330px;
+  object-fit: contain;
+}
+.reveal .slides section h2 { margin-bottom: .55em; }
+.reveal .slides section .columns { align-items: flex-start; }
+.reveal .slides section table { font-size: .81em; }
+.reveal .slides section td, .reveal .slides section th { padding: .25em .35em; }
+.reveal .slides section pre { margin: .35em auto; }
+.reveal .slides section p { margin: .35em 0; }

@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bcbce66894bfa8e7e94e40e0186b9bb8.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.29">
+
+  <meta name="author" content="Victor S. Portella">
+  <meta name="dcterms.date" content="2026-11-06">
+  <title>PE 2026 - UFABC – Listas ligadas</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #24292e;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #24292e; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #d73a49; } /* Attribute */
+    code span.bn { color: #005cc5; } /* BaseN */
+    code span.bu { color: #d73a49; } /* BuiltIn */
+    code span.cf { color: #d73a49; } /* ControlFlow */
+    code span.ch { color: #032f62; } /* Char */
+    code span.cn { color: #005cc5; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #d73a49; } /* DataType */
+    code span.dv { color: #005cc5; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
+    code span.fl { color: #005cc5; } /* Float */
+    code span.fu { color: #6f42c1; } /* Function */
+    code span.im { color: #032f62; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #d73a49; } /* Keyword */
+    code span.op { color: #24292e; } /* Operator */
+    code span.ot { color: #6f42c1; } /* Other */
+    code span.pp { color: #d73a49; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #005cc5; } /* SpecialChar */
+    code span.ss { color: #032f62; } /* SpecialString */
+    code span.st { color: #032f62; } /* String */
+    code span.va { color: #e36209; } /* Variable */
+    code span.vs { color: #032f62; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-6bda67dbb19438becd7c5181063b4bb8.css">
+  <link rel="stylesheet" href="listas_ligadas.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script>
+  MathJax = {
+    options: {
+      menuOptions: {
+        settings: {
+          assistiveMml: false
+        }
+      }
+    }
+  };
+  </script>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Listas ligadas</h1>
+  <p class="subtitle">Programação Estruturada</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Victor S. Portella 
+</div>
+        <p class="quarto-title-affiliation">
+            UFABC
+          </p>
+    </div>
+</div>
+
+  <p class="date">2026-11-06</p>
+</section>
+<section>
+<section id="por-que-listas-ligadas" class="title-slide slide level1 center">
+<h1>Por que listas ligadas?</h1>
+
+</section>
+<section id="o-que-acontece-ao-inserir-em-um-vetor" class="slide level2">
+<h2>O que acontece ao inserir em um vetor?</h2>
+<p>Queremos inserir o valor <span class="red"><strong>20</strong></span> entre <code>10</code> e <code>30</code>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="listas_ligadas_figs/vetor_antes.svg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="listas_ligadas_figs/vetor_depois.svg" class="quarto-figure quarto-figure-center" style="margin-top: -90px; margin-bottom: -40px;;width:80.0%"></p>
+</figure>
+</div>
+<p><span class="red"><strong>Precisamos deslocar elementos.</strong></span></p>
+</div>
+</section>
+<section id="vetores-vantagens-e-limitações" class="slide level2">
+<h2>Vetores: vantagens e limitações</h2>
+<p><span class="green"><strong>Vantagens</strong></span></p>
+<ul>
+<li>Elementos em posições consecutivas da memória.</li>
+<li>Acesso direto a <code>v[i]</code> em tempo constante.</li>
+</ul>
+<div class="fragment">
+<p><span class="red"><strong>Desvantagens</strong></span></p>
+<ul>
+<li>Inserir ou remover pode exigir deslocamentos.</li>
+<li>Aumentar a capacidade pode exigir realocação e cópia.</li>
+</ul>
+</div>
+</section>
+<section id="uma-outra-maneira-de-guardar-uma-sequência" class="slide level2">
+<h2>Uma outra maneira de guardar uma sequência</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="listas_ligadas_figs/lista_basica.svg" class="quarto-figure quarto-figure-center" style="width:91.0%"></p>
+</figure>
+</div>
+<p>Ideia de <span class="blue"><strong>Listas Ligadas</strong></span>:</p>
+<ul>
+<li>Cada elemento guarda um valor e o <span class="green"><strong>endereço do próximo elemento</strong></span>.</li>
+<li>Os elementos não precisam estar próximos na memória.</li>
+<li>Inserções e remoções são feitas com ajustes de <strong>ponteiros</strong>.</li>
+</ul>
+</section>
+<section id="vetor-vs-lista-ligada" class="slide level2">
+<h2>Vetor vs Lista Ligada</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Vetor</th>
+<th>Lista ligada</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Acesso direto a <code>v[i]</code></td>
+<td>Para acessar uma posição, percorremos os nós</td>
+</tr>
+<tr class="even">
+<td>Inserção/deleção exige deslocamentos</td>
+<td>Inserção/deleção sem deslocamento</td>
+</tr>
+<tr class="odd">
+<td>Memória contígua</td>
+<td>Memória distribuida</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><br></p>
+<p><span class="red"><strong>Não existe uma representação melhor.</strong> Depende do caso.</span></p>
+</div>
+</section></section>
+<section>
+<section id="nós-ponteiros-e-listas" class="title-slide slide level1 center">
+<h1>Nós, ponteiros e listas</h1>
+
+</section>
+<section id="o-que-é-um-nó" class="slide level2">
+<h2>O que é um nó?</h2>
+<p>Um <span class="red"><strong>nó</strong></span> armazena:</p>
+<ul>
+<li>Um <span class="blue"><strong>valor</strong></span> (<code>valor</code>);</li>
+<li>Um ponteiro para o <span class="green"><strong>próximo nó</strong></span> (<code>prox</code>).</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb1-2"><a></a><span class="pp">#include </span><span class="im">&lt;stdlib.h&gt;</span></span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a><span class="kw">typedef</span> <span class="kw">struct</span> No <span class="op">{</span></span>
+<span id="cb1-5"><a></a>    <span class="dt">int</span> valor<span class="op">;</span></span>
+<span id="cb1-6"><a></a>    <span class="kw">struct</span> No <span class="op">*</span>prox<span class="op">;</span></span>
+<span id="cb1-7"><a></a><span class="op">}</span> No<span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="guardando-o-início-da-lista" class="slide level2">
+<h2>Guardando o início da lista</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="listas_ligadas_figs/lista_basica.svg" class="quarto-figure quarto-figure-center" style="margin-bottom: -40px;;width:91.0%"></p>
+</figure>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a></a>No <span class="op">*</span>inicio<span class="op">;</span>  <span class="co">// Ainda precisa ser inicializado!</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>inicio</code> guarda o <span class="blue"><strong>endereço do primeiro nó</strong></span>.</li>
+<li>O <span class="red"><strong>último nó</strong></span> tem <code>prox == NULL</code>.</li>
+</ul>
+<p>Basta saber o inicio da lista para maniplar ela!</p>
+</section>
+<section id="como-representar-uma-lista-vazia" class="slide level2">
+<h2>Como representar uma lista vazia?</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a></a>No <span class="op">*</span>inicio <span class="op">=</span> NULL<span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Nenhum nó foi criado.</li>
+<li><code>inicio</code> aponta para <code>NULL</code>.</li>
+</ul>
+</section>
+<section id="pergunta-construindo-uma-lista-à-mão" class="slide level2">
+<h2>Pergunta: Construindo uma lista à mão</h2>
+<p>Crie três nós (usando <code>malloc</code>), com valores <code>10</code>, <code>20</code> e <code>30</code>.</p>
+<p><strong>Objetivo:</strong> Criar lista onde <code>inicio</code> aponta para <code>10</code>, que aponta para <code>20</code>, que aponta para <code>30</code>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="listas_ligadas_figs/lista_basica.svg" class="quarto-figure quarto-figure-center" style="width:89.0%"></p>
+</figure>
+</div>
+</section>
+<section id="resposta-construindo-uma-lista-à-mão" class="slide level2 smallish">
+<h2>Resposta: Construindo uma lista à mão</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a></a>No <span class="op">*</span>a <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span> <span class="op">*</span>a<span class="op">);</span></span>
+<span id="cb4-2"><a></a>No <span class="op">*</span>b <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span> <span class="op">*</span>b<span class="op">);</span></span>
+<span id="cb4-3"><a></a>No <span class="op">*</span>c <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span> <span class="op">*</span>c<span class="op">);</span></span>
+<span id="cb4-4"><a></a></span>
+<span id="cb4-5"><a></a><span class="cf">if</span> <span class="op">(</span>a <span class="op">==</span> NULL <span class="op">||</span> b <span class="op">==</span> NULL <span class="op">||</span> c <span class="op">==</span> NULL<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-6"><a></a>    free<span class="op">(</span>a<span class="op">);</span> free<span class="op">(</span>b<span class="op">);</span> free<span class="op">(</span>c<span class="op">);</span></span>
+<span id="cb4-7"><a></a>    <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span>  <span class="co">// Dentro de main()</span></span>
+<span id="cb4-8"><a></a><span class="op">}</span></span>
+<span id="cb4-9"><a></a></span>
+<span id="cb4-10"><a></a>a<span class="op">-&gt;</span>valor <span class="op">=</span> <span class="dv">10</span><span class="op">;</span> a<span class="op">-&gt;</span>prox <span class="op">=</span> b<span class="op">;</span></span>
+<span id="cb4-11"><a></a>b<span class="op">-&gt;</span>valor <span class="op">=</span> <span class="dv">20</span><span class="op">;</span> b<span class="op">-&gt;</span>prox <span class="op">=</span> c<span class="op">;</span></span>
+<span id="cb4-12"><a></a>c<span class="op">-&gt;</span>valor <span class="op">=</span> <span class="dv">30</span><span class="op">;</span> c<span class="op">-&gt;</span>prox <span class="op">=</span> NULL<span class="op">;</span></span>
+<span id="cb4-13"><a></a></span>
+<span id="cb4-14"><a></a>No <span class="op">*</span>inicio <span class="op">=</span> a<span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section></section>
+<section>
+<section id="operações-básicas" class="title-slide slide level1 center">
+<h1>Operações básicas</h1>
+
+</section>
+<section id="inserção-no-início" class="slide level2">
+<h2>Inserção no início</h2>
+<p>Dada uma lista, queremos inserir o valor <code>5</code> como <strong>primeiro elemento</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="listas_ligadas_figs/lista_inserir_inicio.svg" class="quarto-figure quarto-figure-center" style="width:92.0%"></p>
+</figure>
+</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb5-1"><a></a>No <span class="op">*</span>inserir_inicio<span class="op">(</span>No <span class="op">*</span>inicio<span class="op">,</span> <span class="dt">int</span> valor<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="inserção-no-início-código" class="slide level2">
+<h2>Inserção no início (código)</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb6-1"><a></a>No <span class="op">*</span>inserir_inicio<span class="op">(</span>No <span class="op">*</span>inicio<span class="op">,</span> <span class="dt">int</span> valor<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-2"><a></a>    No <span class="op">*</span>novo <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span> <span class="op">*</span>novo<span class="op">);</span></span>
+<span id="cb6-3"><a></a>    <span class="cf">if</span> <span class="op">(</span>novo <span class="op">==</span> NULL<span class="op">)</span> <span class="cf">return</span> inicio<span class="op">;</span> <span class="co">// Alternativa: erro</span></span>
+<span id="cb6-4"><a></a></span>
+<span id="cb6-5"><a></a>    novo<span class="op">-&gt;</span>valor <span class="op">=</span> valor<span class="op">;</span></span>
+<span id="cb6-6"><a></a>    novo<span class="op">-&gt;</span>prox <span class="op">=</span> inicio<span class="op">;</span></span>
+<span id="cb6-7"><a></a>    <span class="cf">return</span> novo<span class="op">;</span></span>
+<span id="cb6-8"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Uso:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb7-1"><a></a>inicio <span class="op">=</span> inserir_inicio<span class="op">(</span>inicio<span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="por-que-retornar-o-novo-início" class="slide level2">
+<h2>Por que retornar o novo início?</h2>
+<p>Em C, <span class="red"><strong>os parâmetros são passados por valor</strong></span>.</p>
+<ul>
+<li class="fragment"><code>inicio</code> dentro da função é uma <strong>cópia</strong> do ponteiro.</li>
+<li class="fragment">A função pode devolver um <strong>novo primeiro nó</strong>.</li>
+<li class="fragment">O chamador precisa guardar o retorno.</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb8-1"><a></a>No <span class="op">*</span>inserir_inicio<span class="op">(</span>No <span class="op">*</span>inicio<span class="op">,</span> <span class="dt">int</span> valor<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb8-2"><a></a>    No <span class="op">*</span>novo <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span> <span class="op">*</span>novo<span class="op">);</span></span>
+<span id="cb8-3"><a></a>    <span class="cf">if</span> <span class="op">(</span>novo <span class="op">==</span> NULL<span class="op">)</span> <span class="cf">return</span> inicio<span class="op">;</span></span>
+<span id="cb8-4"><a></a></span>
+<span id="cb8-5"><a></a>    novo<span class="op">-&gt;</span>valor <span class="op">=</span> valor<span class="op">;</span></span>
+<span id="cb8-6"><a></a>    novo<span class="op">-&gt;</span>prox <span class="op">=</span> inicio<span class="op">;</span></span>
+<span id="cb8-7"><a></a>    <span class="cf">return</span> novo<span class="op">;</span></span>
+<span id="cb8-8"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="inserção-após-um-nó" class="slide level2">
+<h2>Inserção após um nó</h2>
+<p>Suponha que já temos o endereço do nó com valor <code>10</code>.</p>
+<p>Queremos inserir <code>20</code> <strong>depois dele</strong>, antes de <code>30</code>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="listas_ligadas_figs/lista_inserir_apos_antes.svg" class="quarto-figure quarto-figure-center" style="width:88.0%"></p>
+</figure>
+</div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb9-1"><a></a><span class="dt">int</span> inserir_apos<span class="op">(</span>No <span class="op">*</span>pos<span class="op">,</span> <span class="dt">int</span> valor<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="inserção-após-um-nó-código" class="slide level2">
+<h2>Inserção após um nó (código)</h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb10-1"><a></a><span class="co">// Retorna 1 em caso de sucesso; 0 caso contrário.</span></span>
+<span id="cb10-2"><a></a><span class="dt">int</span> inserir_apos<span class="op">(</span>No <span class="op">*</span>pos<span class="op">,</span> <span class="dt">int</span> valor<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-3"><a></a>    No <span class="op">*</span>novo <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span> <span class="op">*</span>novo<span class="op">);</span></span>
+<span id="cb10-4"><a></a>   <span class="cf">if</span> <span class="op">(</span>pos <span class="op">==</span> NULL <span class="op">||</span> novo <span class="op">==</span> NULL<span class="op">)</span> <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb10-5"><a></a></span>
+<span id="cb10-6"><a></a>    novo<span class="op">-&gt;</span>valor <span class="op">=</span> valor<span class="op">;</span></span>
+<span id="cb10-7"><a></a>    novo<span class="op">-&gt;</span>prox <span class="op">=</span> pos<span class="op">-&gt;</span>prox<span class="op">;</span></span>
+<span id="cb10-8"><a></a>    pos<span class="op">-&gt;</span>prox <span class="op">=</span> novo<span class="op">;</span></span>
+<span id="cb10-9"><a></a>    <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb10-10"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="listas_ligadas_figs/lista_inserir_apos_depois.svg" class="quarto-figure quarto-figure-center" style="width:73.0%"></p>
+</figure>
+</div>
+</section>
+<section id="a-ordem-das-atribuições-importa" class="slide level2">
+<h2>A ordem das atribuições importa!</h2>
+<p><span class="green"><strong>Correto:</strong></span></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb11-1"><a></a>novo<span class="op">-&gt;</span>prox <span class="op">=</span> pos<span class="op">-&gt;</span>prox<span class="op">;</span></span>
+<span id="cb11-2"><a></a>pos<span class="op">-&gt;</span>prox <span class="op">=</span> novo<span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><span class="red"><strong>Incorreto:</strong></span></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb12-1"><a></a>pos<span class="op">-&gt;</span>prox <span class="op">=</span> novo<span class="op">;</span></span>
+<span id="cb12-2"><a></a>novo<span class="op">-&gt;</span>prox <span class="op">=</span> pos<span class="op">-&gt;</span>prox<span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>No segundo caso, <code>novo-&gt;prox</code> aponta para o próprio <code>novo</code>!</p>
+<p><span class="tab"></span> Perdemos o caminho até os nós seguintes.</p>
+</section>
+<section id="percorrendo-a-lista" class="slide level2">
+<h2>Percorrendo a lista</h2>
+<p>Queremos imprimir <strong>todos os valores</strong>, do início ao fim.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="listas_ligadas_figs/lista_percurso.svg" class="quarto-figure quarto-figure-center" style="width:87.0%"></p>
+</figure>
+</div>
+<p>Resultado desejado:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a></a>10 20 30</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="percurso-iterativo-código" class="slide level2">
+<h2>Percurso iterativo (código)</h2>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb14-1"><a></a><span class="dt">void</span> imprimir<span class="op">(</span><span class="dt">const</span> No <span class="op">*</span>inicio<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb14-2"><a></a>    <span class="dt">const</span> No <span class="op">*</span>atual <span class="op">=</span> inicio<span class="op">;</span></span>
+<span id="cb14-3"><a></a></span>
+<span id="cb14-4"><a></a>    <span class="cf">while</span> <span class="op">(</span>atual <span class="op">!=</span> NULL<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb14-5"><a></a>        printf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st"> "</span><span class="op">,</span> atual<span class="op">-&gt;</span>valor<span class="op">);</span></span>
+<span id="cb14-6"><a></a>        atual <span class="op">=</span> atual<span class="op">-&gt;</span>prox<span class="op">;</span></span>
+<span id="cb14-7"><a></a>    <span class="op">}</span></span>
+<span id="cb14-8"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>atual</code> percorre a lista.</li>
+<li><code>inicio</code> continua apontando para o primeiro nó.</li>
+<li>O laço para em <code>NULL</code>.</li>
+</ul>
+</section>
+<section id="percurso-recursivo" class="slide level2">
+<h2>Percurso recursivo</h2>
+<p>Ideia de uma <span class="red">implementação recursiva</span>: imprimir o primeiro valor e depois imprimir <strong>a sublista restante</strong>.</p>
+<div class="fragment">
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb15-1"><a></a><span class="dt">void</span> imprimir_r<span class="op">(</span><span class="dt">const</span> No <span class="op">*</span>inicio<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb15-2"><a></a>    <span class="cf">if</span> <span class="op">(</span>inicio <span class="op">==</span> NULL<span class="op">)</span> <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb15-3"><a></a></span>
+<span id="cb15-4"><a></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st"> "</span><span class="op">,</span> inicio<span class="op">-&gt;</span>valor<span class="op">);</span></span>
+<span id="cb15-5"><a></a>    imprimir_r<span class="op">(</span>inicio<span class="op">-&gt;</span>prox<span class="op">);</span></span>
+<span id="cb15-6"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="info-box">
+<p>Em uma lista simplesmente ligada, <code>inicio-&gt;prox</code> é o início de <strong>outra lista</strong> (possivelmente vazia).</p>
+</div>
+</div>
+</section>
+<section id="buscando-em-uma-lista-ligada" class="slide level2">
+<h2>Buscando em uma lista ligada</h2>
+<p>Queremos procurar um valor e devolver o <strong>endereço do primeiro nó</strong> que o contém.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="listas_ligadas_figs/lista_busca.svg" class="quarto-figure quarto-figure-center" style="margin-top: -20px; margin-bottom: -40px;;width:86.0%"></p>
+</figure>
+</div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb16-1"><a></a>No <span class="op">*</span>buscar<span class="op">(</span>No <span class="op">*</span>inicio<span class="op">,</span> <span class="dt">int</span> valor<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Se encontrar, retorna um ponteiro para o nó.</li>
+<li>Se não encontrar, retorna <code>NULL</code>.</li>
+</ul>
+</section>
+<section id="busca-iterativa-código" class="slide level2">
+<h2>Busca iterativa (código)</h2>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb17-1"><a></a>No <span class="op">*</span>buscar<span class="op">(</span>No <span class="op">*</span>inicio<span class="op">,</span> <span class="dt">int</span> valor<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb17-2"><a></a>    No <span class="op">*</span>atual <span class="op">=</span> inicio<span class="op">;</span></span>
+<span id="cb17-3"><a></a></span>
+<span id="cb17-4"><a></a>    <span class="cf">while</span> <span class="op">(</span>atual <span class="op">!=</span> NULL<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb17-5"><a></a>        <span class="cf">if</span> <span class="op">(</span>atual<span class="op">-&gt;</span>valor <span class="op">==</span> valor<span class="op">)</span> <span class="cf">return</span> atual<span class="op">;</span></span>
+<span id="cb17-6"><a></a>        atual <span class="op">=</span> atual<span class="op">-&gt;</span>prox<span class="op">;</span></span>
+<span id="cb17-7"><a></a>    <span class="op">}</span></span>
+<span id="cb17-8"><a></a>    <span class="cf">return</span> NULL<span class="op">;</span></span>
+<span id="cb17-9"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Podemos usar a busca para <strong>encontrar onde inserir</strong>:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb18-1"><a></a>No <span class="op">*</span>pos <span class="op">=</span> buscar<span class="op">(</span>inicio<span class="op">,</span> <span class="dv">20</span><span class="op">);</span></span>
+<span id="cb18-2"><a></a><span class="cf">if</span> <span class="op">(</span>pos <span class="op">!=</span> NULL<span class="op">)</span> inserir_apos<span class="op">(</span>pos<span class="op">,</span> <span class="dv">25</span><span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="faznedo-busca-com-recursão" class="slide level2">
+<h2>Faznedo busca com recursão</h2>
+<p>Podemos fazer a busca de forma <span class="red"><strong>recursiva</strong></span></p>
+<ul>
+<li class="fragment">Se a lista é vazia, não encontramos o valor.</li>
+<li class="fragment">Se o primeiro nó tem o valor, encontramos!</li>
+<li class="fragment">Caso contrário, buscamos <strong>no restante da lista</strong>.</li>
+</ul>
+</section>
+<section id="busca-recursiva-código" class="slide level2">
+<h2>Busca recursiva (código)</h2>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb19-1"><a></a>No <span class="op">*</span>buscar_r<span class="op">(</span>No <span class="op">*</span>inicio<span class="op">,</span> <span class="dt">int</span> valor<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb19-2"><a></a>    <span class="cf">if</span> <span class="op">(</span>inicio <span class="op">==</span> NULL<span class="op">)</span> <span class="cf">return</span> NULL<span class="op">;</span></span>
+<span id="cb19-3"><a></a></span>
+<span id="cb19-4"><a></a>    <span class="cf">if</span> <span class="op">(</span>inicio<span class="op">-&gt;</span>valor <span class="op">==</span> valor<span class="op">)</span> <span class="cf">return</span> inicio<span class="op">;</span></span>
+<span id="cb19-5"><a></a></span>
+<span id="cb19-6"><a></a>    <span class="cf">return</span> buscar_r<span class="op">(</span>inicio<span class="op">-&gt;</span>prox<span class="op">,</span> valor<span class="op">);</span></span>
+<span id="cb19-7"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><span class="blue"><strong>A versão recursiva também percorre os nós até encontrar o valor.</strong></span></p>
+</section>
+<section id="liberar-a-lista" class="slide level2">
+<h2>Liberar a lista</h2>
+<p>Cada nó foi criado com <code>malloc</code>. Precisamos chamar <code>free</code> para <strong>cada um</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="listas_ligadas_figs/lista_liberar.svg" class="quarto-figure quarto-figure-center" style="width:86.0%"></p>
+</figure>
+</div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb20-1"><a></a><span class="dt">void</span> liberar<span class="op">(</span>No <span class="op">*</span>inicio<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Como liberar o nó atual sem perder o endereço do próximo?</p>
+</section>
+<section id="liberação-iterativa-código" class="slide level2">
+<h2>Liberação iterativa (código)</h2>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb21-1"><a></a><span class="dt">void</span> liberar<span class="op">(</span>No <span class="op">*</span>inicio<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb21-2"><a></a>    No <span class="op">*</span>atual <span class="op">=</span> inicio<span class="op">;</span></span>
+<span id="cb21-3"><a></a></span>
+<span id="cb21-4"><a></a>    <span class="cf">while</span> <span class="op">(</span>atual <span class="op">!=</span> NULL<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb21-5"><a></a>        No <span class="op">*</span>proximo <span class="op">=</span> atual<span class="op">-&gt;</span>prox<span class="op">;</span></span>
+<span id="cb21-6"><a></a>        free<span class="op">(</span>atual<span class="op">);</span></span>
+<span id="cb21-7"><a></a>        atual <span class="op">=</span> proximo<span class="op">;</span></span>
+<span id="cb21-8"><a></a>    <span class="op">}</span></span>
+<span id="cb21-9"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Uso:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb22-1"><a></a>liberar<span class="op">(</span>inicio<span class="op">);</span></span>
+<span id="cb22-2"><a></a>inicio <span class="op">=</span> NULL<span class="op">;</span>  <span class="co">// Evita manter um ponteiro inválido</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="cuidado-ao-usar-free" class="slide level2">
+<h2>Cuidado ao usar <code>free</code></h2>
+<p><span class="red"><strong>Incorreto:</strong></span></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb23-1"><a></a>free<span class="op">(</span>atual<span class="op">);</span></span>
+<span id="cb23-2"><a></a>atual <span class="op">=</span> atual<span class="op">-&gt;</span>prox<span class="op">;</span>  <span class="co">// Uso de memória já liberada!</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Após <code>free(atual)</code>, não podemos acessar <code>atual-&gt;prox</code>.</p>
+<p><span class="green"><strong>Correto:</strong></span></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb24-1"><a></a>No <span class="op">*</span>proximo <span class="op">=</span> atual<span class="op">-&gt;</span>prox<span class="op">;</span></span>
+<span id="cb24-2"><a></a>free<span class="op">(</span>atual<span class="op">);</span></span>
+<span id="cb24-3"><a></a>atual <span class="op">=</span> proximo<span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="liberação-recursiva-código" class="slide level2">
+<h2>Liberação recursiva (código)</h2>
+<p>Podemos liberar primeiro o <strong>restante da lista</strong> e depois o nó atual.</p>
+<div class="fragment">
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb25-1"><a></a><span class="dt">void</span> liberar_r<span class="op">(</span>No <span class="op">*</span>inicio<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb25-2"><a></a>    <span class="cf">if</span> <span class="op">(</span>inicio <span class="op">==</span> NULL<span class="op">)</span> <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb25-3"><a></a></span>
+<span id="cb25-4"><a></a>    liberar_r<span class="op">(</span>inicio<span class="op">-&gt;</span>prox<span class="op">);</span></span>
+<span id="cb25-5"><a></a>    free<span class="op">(</span>inicio<span class="op">);</span></span>
+<span id="cb25-6"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="note">
+<p>A recursão usa a <strong>pilha de chamadas</strong>. Para listas muito longas, a versão iterativa costuma ser mais segura.</p>
+</div>
+</div>
+</section>
+<section id="remover-um-valor" class="slide level2">
+<h2>Remover um valor</h2>
+<p>Queremos remover a <strong>primeira ocorrência</strong> de um valor.</p>
+<div class="quarto-figure quarto-figure-center" style="margin-top: -20px; margin-bottom: -40px;">
+<figure>
+<p><img data-src="listas_ligadas_figs/lista_remover_antes.svg" style="width:84.0%"></p>
+<figcaption>.</figcaption>
+</figure>
+</div>
+<p>Precisamos tratar casos diferentes: <span class="red">remover o primeiro</span>, <span class="green">um nó do meio</span>, <span class="blue">ou um valor inexistente</span>.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb26-1"><a></a>No <span class="op">*</span>remover<span class="op">(</span>No <span class="op">*</span>inicio<span class="op">,</span> <span class="dt">int</span> valor<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="remoção-o-que-muda" class="slide level2">
+<h2>Remoção: o que muda?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Antes</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="listas_ligadas_figs/lista_remover_antes.svg" style="width:100.0%"></p>
+<figcaption>Lista original com 10, 20 e 30.</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<p><strong>Depois</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="listas_ligadas_figs/lista_remover_depois.svg" style="width:100.0%"></p>
+<figcaption>Lista com 10 e 30 após remover 20.</figcaption>
+</figure>
+</div>
+</div></div>
+<ul>
+<li class="fragment"><code>anterior-&gt;prox</code> deve apontar para o próximo nó.</li>
+<li class="fragment">Depois, liberamos o nó removido.</li>
+<li class="fragment">E se <code>anterior == NULL</code>?</li>
+</ul>
+</section>
+<section id="remoção-iterativa-código" class="slide level2 smallish">
+<h2>Remoção iterativa (código)</h2>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb27-1"><a></a>No <span class="op">*</span>remover<span class="op">(</span>No <span class="op">*</span>inicio<span class="op">,</span> <span class="dt">int</span> valor<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb27-2"><a></a>    No <span class="op">*</span>anterior <span class="op">=</span> NULL<span class="op">;</span></span>
+<span id="cb27-3"><a></a>    No <span class="op">*</span>atual <span class="op">=</span> inicio<span class="op">;</span></span>
+<span id="cb27-4"><a></a></span>
+<span id="cb27-5"><a></a>    <span class="cf">while</span> <span class="op">(</span>atual <span class="op">!=</span> NULL <span class="op">&amp;&amp;</span> atual<span class="op">-&gt;</span>valor <span class="op">!=</span> valor<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb27-6"><a></a>        anterior <span class="op">=</span> atual<span class="op">;</span></span>
+<span id="cb27-7"><a></a>        atual <span class="op">=</span> atual<span class="op">-&gt;</span>prox<span class="op">;</span></span>
+<span id="cb27-8"><a></a>    <span class="op">}</span></span>
+<span id="cb27-9"><a></a>    <span class="cf">if</span> <span class="op">(</span>atual <span class="op">==</span> NULL<span class="op">)</span> <span class="cf">return</span> inicio<span class="op">;</span></span>
+<span id="cb27-10"><a></a></span>
+<span id="cb27-11"><a></a>    <span class="cf">if</span> <span class="op">(</span>anterior <span class="op">==</span> NULL<span class="op">)</span> inicio <span class="op">=</span> atual<span class="op">-&gt;</span>prox<span class="op">;</span></span>
+<span id="cb27-12"><a></a>    <span class="cf">else</span> anterior<span class="op">-&gt;</span>prox <span class="op">=</span> atual<span class="op">-&gt;</span>prox<span class="op">;</span></span>
+<span id="cb27-13"><a></a></span>
+<span id="cb27-14"><a></a>    free<span class="op">(</span>atual<span class="op">);</span></span>
+<span id="cb27-15"><a></a>    <span class="cf">return</span> inicio<span class="op">;</span></span>
+<span id="cb27-16"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="remoção-diferentes-casos-que-temos-que-lidar" class="slide level2">
+<h2>Remoção: diferentes casos que temos que lidar</h2>
+<ul>
+<li><strong>Lista vazia:</strong> não há nada a remover.</li>
+<li><strong>Valor ausente:</strong> a lista fica igual.</li>
+<li><strong>Primeiro nó:</strong> <code>inicio</code> precisa mudar.</li>
+</ul>
+<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb28-1"><a></a>inicio <span class="op">=</span> remover<span class="op">(</span>inicio<span class="op">,</span> <span class="dv">20</span><span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="note">
+<p>Se houver valores repetidos, removemos apenas <strong>a primeira ocorrência</strong>.</p>
+</div>
+</section>
+<section id="remoção-recursiva" class="slide level2">
+<h2>Remoção recursiva</h2>
+<p>Na recursão, remover um elemento pode <strong>mudar o início da sublista</strong>.</p>
+<div class="fragment">
+<p>Se a primeira posição contém o valor, o que devemos retornar? E se não contém?</p>
+</div>
+</section>
+<section id="remoção-recursiva-código" class="slide level2">
+<h2>Remoção recursiva (código)</h2>
+<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb29-1"><a></a>No <span class="op">*</span>remover_r<span class="op">(</span>No <span class="op">*</span>inicio<span class="op">,</span> <span class="dt">int</span> valor<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb29-2"><a></a>    <span class="cf">if</span> <span class="op">(</span>inicio <span class="op">==</span> NULL<span class="op">)</span> <span class="cf">return</span> NULL<span class="op">;</span></span>
+<span id="cb29-3"><a></a></span>
+<span id="cb29-4"><a></a>    <span class="cf">if</span> <span class="op">(</span>inicio<span class="op">-&gt;</span>valor <span class="op">==</span> valor<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb29-5"><a></a>        No <span class="op">*</span>resto <span class="op">=</span> inicio<span class="op">-&gt;</span>prox<span class="op">;</span></span>
+<span id="cb29-6"><a></a>        free<span class="op">(</span>inicio<span class="op">);</span></span>
+<span id="cb29-7"><a></a>        <span class="cf">return</span> resto<span class="op">;</span></span>
+<span id="cb29-8"><a></a>    <span class="op">}</span></span>
+<span id="cb29-9"><a></a></span>
+<span id="cb29-10"><a></a>    inicio<span class="op">-&gt;</span>prox <span class="op">=</span> remover_r<span class="op">(</span>inicio<span class="op">-&gt;</span>prox<span class="op">,</span> valor<span class="op">);</span></span>
+<span id="cb29-11"><a></a>    <span class="cf">return</span> inicio<span class="op">;</span></span>
+<span id="cb29-12"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="o-que-a-recursão-está-fazendo" class="slide level2">
+<h2>O que a recursão está fazendo?</h2>
+<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb30-1"><a></a>inicio<span class="op">-&gt;</span>prox <span class="op">=</span> remover_r<span class="op">(</span>inicio<span class="op">-&gt;</span>prox<span class="op">,</span> valor<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li class="fragment">Removemos o valor da <strong>sublista</strong> que começa em <code>inicio-&gt;prox</code>.</li>
+<li class="fragment">A função retorna o <strong>novo início dessa sublista</strong>.</li>
+<li class="fragment">Guardamos o resultado em <code>inicio-&gt;prox</code>.</li>
+</ul>
+<div class="fragment">
+<div class="info-box">
+<p>A ideia é a mesma da inserção no início: quando o primeiro nó muda, precisamos atualizar o ponteiro que aponta para ele.</p>
+</div>
+</div>
+</section></section>
+<section>
+<section id="inserção-no-final" class="title-slide slide level1 center">
+<h1>Inserção no final</h1>
+
+</section>
+<section id="inserir-no-final" class="slide level2">
+<h2>Inserir no final</h2>
+<p>Queremos adicionar <code>40</code> após o último nó.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="listas_ligadas_figs/lista_inserir_final.svg" class="quarto-figure quarto-figure-center" style="width:94.0%"></p>
+</figure>
+</div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb31-1"><a></a>No <span class="op">*</span>inserir_final<span class="op">(</span>No <span class="op">*</span>inicio<span class="op">,</span> <span class="dt">int</span> valor<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="inserção-no-final-iterativo-código" class="slide level2 smallish">
+<h2>Inserção no final iterativo (código)</h2>
+<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb32-1"><a></a>No <span class="op">*</span>inserir_final<span class="op">(</span>No <span class="op">*</span>inicio<span class="op">,</span> <span class="dt">int</span> valor<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb32-2"><a></a>    No <span class="op">*</span>novo <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span> <span class="op">*</span>novo<span class="op">);</span></span>
+<span id="cb32-3"><a></a>    <span class="cf">if</span> <span class="op">(</span>novo <span class="op">==</span> NULL<span class="op">)</span> <span class="cf">return</span> inicio<span class="op">;</span></span>
+<span id="cb32-4"><a></a>    novo<span class="op">-&gt;</span>valor <span class="op">=</span> valor<span class="op">;</span></span>
+<span id="cb32-5"><a></a>    novo<span class="op">-&gt;</span>prox <span class="op">=</span> NULL<span class="op">;</span></span>
+<span id="cb32-6"><a></a></span>
+<span id="cb32-7"><a></a>    <span class="cf">if</span> <span class="op">(</span>inicio <span class="op">==</span> NULL<span class="op">)</span> <span class="cf">return</span> novo<span class="op">;</span></span>
+<span id="cb32-8"><a></a></span>
+<span id="cb32-9"><a></a>    No <span class="op">*</span>atual <span class="op">=</span> inicio<span class="op">;</span></span>
+<span id="cb32-10"><a></a>    <span class="cf">while</span> <span class="op">(</span>atual<span class="op">-&gt;</span>prox <span class="op">!=</span> NULL<span class="op">)</span></span>
+<span id="cb32-11"><a></a>        atual <span class="op">=</span> atual<span class="op">-&gt;</span>prox<span class="op">;</span></span>
+<span id="cb32-12"><a></a></span>
+<span id="cb32-13"><a></a>    atual<span class="op">-&gt;</span>prox <span class="op">=</span> novo<span class="op">;</span></span>
+<span id="cb32-14"><a></a>    <span class="cf">return</span> inicio<span class="op">;</span></span>
+<span id="cb32-15"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="quanto-trabalho-é-necessário" class="slide level2">
+<h2>Quanto trabalho é necessário?</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="listas_ligadas_figs/lista_encontrar_fim.svg" class="quarto-figure quarto-figure-center" style="width:87.0%"></p>
+</figure>
+</div>
+<ul>
+<li class="fragment">Com <strong>3 nós</strong>, percorremos até o terceiro.</li>
+<li class="fragment">Com <strong>1.000 nós</strong>, percorremos até o milésimo.</li>
+<li class="fragment">Quanto maior a lista, maior o percurso.</li>
+</ul>
+<div class="fragment">
+<p><span class="red"><strong>O trabalho cresce proporcionalmente ao tamanho da lista.</strong></span></p>
+</div>
+</section>
+<section id="inserção-no-final-recursivo" class="slide level2">
+<h2>Inserção no final recursivo</h2>
+<p>Podemos pensar na inserção a partir da <strong>sublista</strong> <code>inicio-&gt;prox</code>.</p>
+<ul>
+<li>Lista vazia: o novo nó vira o primeiro.</li>
+<li>Lista não vazia: inserimos no final do restante.</li>
+</ul>
+<div class="ll-question">
+<p>Como atualizar <code>inicio-&gt;prox</code> ao voltar da chamada recursiva?</p>
+</div>
+</section>
+<section id="inserção-no-final-recursivo-código" class="slide level2">
+<h2>Inserção no final recursivo (código)</h2>
+<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb33-1"><a></a>No <span class="op">*</span>inserir_final_r<span class="op">(</span>No <span class="op">*</span>inicio<span class="op">,</span> <span class="dt">int</span> valor<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb33-2"><a></a>    <span class="cf">if</span> <span class="op">(</span>inicio <span class="op">==</span> NULL<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb33-3"><a></a>        No <span class="op">*</span>novo <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span> <span class="op">*</span>novo<span class="op">);</span></span>
+<span id="cb33-4"><a></a>        <span class="cf">if</span> <span class="op">(</span>novo <span class="op">==</span> NULL<span class="op">)</span> <span class="cf">return</span> NULL<span class="op">;</span></span>
+<span id="cb33-5"><a></a>        novo<span class="op">-&gt;</span>valor <span class="op">=</span> valor<span class="op">;</span></span>
+<span id="cb33-6"><a></a>        novo<span class="op">-&gt;</span>prox <span class="op">=</span> NULL<span class="op">;</span></span>
+<span id="cb33-7"><a></a>        <span class="cf">return</span> novo<span class="op">;</span></span>
+<span id="cb33-8"><a></a>    <span class="op">}</span></span>
+<span id="cb33-9"><a></a></span>
+<span id="cb33-10"><a></a>    inicio<span class="op">-&gt;</span>prox <span class="op">=</span> inserir_final_r<span class="op">(</span>inicio<span class="op">-&gt;</span>prox<span class="op">,</span> valor<span class="op">);</span></span>
+<span id="cb33-11"><a></a>    <span class="cf">return</span> inicio<span class="op">;</span></span>
+<span id="cb33-12"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="iterativo-ou-recursivo" class="slide level2">
+<h2>Iterativo ou recursivo?</h2>
+<p>As duas versões precisam <strong>chegar ao último nó</strong>.</p>
+<ul>
+<li><strong>Iterativa:</strong> percorre com uma variável <code>atual</code>.</li>
+<li><strong>Recursiva:</strong> percorre por chamadas de função.</li>
+<li>A versão recursiva usa memória extra na <strong>pilha de chamadas</strong> (as vezes otimizado pelo compilador).</li>
+</ul>
+<div class="fragment">
+<p>Podemos evitar o percurso se <strong>guardarmos o endereço do último nó</strong>?</p>
+</div>
+</section></section>
+<section>
+<section id="uma-struct-para-representar-a-lista" class="title-slide slide level1 center">
+<h1>Uma <code>struct</code> para representar a lista</h1>
+
+</section>
+<section id="uma-lista-também-pode-guardar-informações-auxiliares" class="slide level2">
+<h2>Uma lista também pode guardar informações auxiliares</h2>
+<p>Em vez de guardar só o primeiro nó, podemos guardar <strong>o primeiro e o último</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="listas_ligadas_figs/lista_wrapper.svg" class="quarto-figure quarto-figure-center" style="margin-bottom: -40px;;width:80.0%"></p>
+</figure>
+</div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb34-1"><a></a><span class="kw">typedef</span> <span class="kw">struct</span> <span class="op">{</span></span>
+<span id="cb34-2"><a></a>    No <span class="op">*</span>inicio<span class="op">;</span></span>
+<span id="cb34-3"><a></a>    No <span class="op">*</span>fim<span class="op">;</span></span>
+<span id="cb34-4"><a></a><span class="op">}</span> ListaLigada<span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="duas-representações-legítimas" class="slide level2 smaller">
+<h2>Duas representações legítimas</h2>
+<div class="columns">
+<div class="column" style="width:49%;">
+<p><span class="green"><strong>Apenas o primeiro ponteiro</strong></span></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb35-1"><a></a>No <span class="op">*</span>inicio <span class="op">=</span> NULL<span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Funções podem retornar um novo início:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb36-1"><a></a>inicio <span class="op">=</span> inserir_inicio<span class="op">(</span>inicio<span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:51%;">
+<p><span class="red"><strong>Estrutura auxiliar</strong></span></p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb37-1"><a></a>ListaLigada lista<span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Passamos o endereço da estrutura:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb38-1"><a></a>inicializar_lista<span class="op">(&amp;</span>lista<span class="op">);</span></span>
+<span id="cb38-2"><a></a>inserir_inicio_lista<span class="op">(&amp;</span>lista<span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="a-struct-listaligada-não-é-um-nó" class="slide level2">
+<h2>A <code>struct ListaLigada</code> não é um nó</h2>
+<ul>
+<li>Ela guarda <strong>ponteiros para nós</strong>.</li>
+<li>Não tem um campo <code>prox</code> para participar do encadeamento.</li>
+<li>Pode ser uma variável local: <code>ListaLigada lista;</code>.</li>
+<li><strong>Não precisa</strong> ser criada com <code>malloc</code>.</li>
+</ul>
+<div class="fragment">
+<div class="note">
+<p>Os <strong>nós</strong> ainda são alocados com <code>malloc</code>. A estrutura auxiliar e os nós têm papéis diferentes.</p>
+</div>
+</div>
+</section>
+<section id="inicializar-a-listaligada" class="slide level2">
+<h2>Inicializar a <code>ListaLigada</code></h2>
+<p>Lista vazia: os dois ponteiros devem valer <code>NULL</code>.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb39-1"><a></a><span class="dt">void</span> inicializar_lista<span class="op">(</span>ListaLigada <span class="op">*</span>lista<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb39-2"><a></a>    lista<span class="op">-&gt;</span>inicio <span class="op">=</span> NULL<span class="op">;</span></span>
+<span id="cb39-3"><a></a>    lista<span class="op">-&gt;</span>fim <span class="op">=</span> NULL<span class="op">;</span></span>
+<span id="cb39-4"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<p>Uso (dentro de <code>main</code>):</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb40-1"><a></a>ListaLigada lista<span class="op">;</span></span>
+<span id="cb40-2"><a></a>inicializar_lista<span class="op">(&amp;</span>lista<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="invariantes-da-representação" class="slide level2">
+<h2>Invariantes da representação</h2>
+<p><strong>Lista vazia:</strong></p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb41-1"><a></a>lista<span class="op">.</span>inicio <span class="op">==</span> NULL <span class="op">&amp;&amp;</span> lista<span class="op">.</span>fim <span class="op">==</span> NULL</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Lista não vazia:</strong></p>
+<ul>
+<li><code>inicio</code> aponta para o primeiro nó.</li>
+<li><code>fim</code> aponta para o <strong>último nó</strong>.</li>
+<li><code>fim-&gt;prox == NULL</code>.</li>
+</ul>
+<div class="fragment">
+<p><span class="red"><strong>Toda operação que modifica a lista deve preservar esses invariantes.</strong></span></p>
+</div>
+</section>
+<section id="inserir-no-início-com-listaligada" class="slide level2">
+<h2>Inserir no início com <code>ListaLigada</code></h2>
+<p>Queremos a mesma operação de antes, agora recebendo <code>ListaLigada *</code>.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb42-1"><a></a><span class="dt">int</span> inserir_inicio_lista<span class="op">(</span>ListaLigada <span class="op">*</span>lista<span class="op">,</span> <span class="dt">int</span> valor<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>lista-&gt;inicio</code> deve apontar para o novo nó.</li>
+<li><code>lista-&gt;fim</code> normalmente não muda.</li>
+</ul>
+</section>
+<section id="inserir-no-início-com-listaligada-código" class="slide level2">
+<h2>Inserir no início com <code>ListaLigada</code> (código)</h2>
+<div class="sourceCode" id="cb43"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb43-1"><a></a><span class="dt">int</span> inserir_inicio_lista<span class="op">(</span>ListaLigada <span class="op">*</span>lista<span class="op">,</span> <span class="dt">int</span> valor<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb43-2"><a></a>    No <span class="op">*</span>novo <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span> <span class="op">*</span>novo<span class="op">);</span></span>
+<span id="cb43-3"><a></a>    <span class="cf">if</span> <span class="op">(</span>novo <span class="op">==</span> NULL<span class="op">)</span> <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb43-4"><a></a></span>
+<span id="cb43-5"><a></a>    novo<span class="op">-&gt;</span>valor <span class="op">=</span> valor<span class="op">;</span></span>
+<span id="cb43-6"><a></a>    novo<span class="op">-&gt;</span>prox <span class="op">=</span> lista<span class="op">-&gt;</span>inicio<span class="op">;</span></span>
+<span id="cb43-7"><a></a>    lista<span class="op">-&gt;</span>inicio <span class="op">=</span> novo<span class="op">;</span></span>
+<span id="cb43-8"><a></a></span>
+<span id="cb43-9"><a></a>    <span class="cf">if</span> <span class="op">(</span>lista<span class="op">-&gt;</span>fim <span class="op">==</span> NULL<span class="op">)</span> lista<span class="op">-&gt;</span>fim <span class="op">=</span> novo<span class="op">;</span></span>
+<span id="cb43-10"><a></a>    <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb43-11"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="note">
+<p>Usando <code>ListaLigada</code>, usamos <code>1</code> para sucesso e <code>0</code> para falha. Não precisamos retornar o novo início.</p>
+</div>
+</section>
+<section id="inserir-no-final-com-listaligada" class="slide level2">
+<h2>Inserir no final com <code>ListaLigada</code></h2>
+<p>Agora sabemos o endereço do último nó: <code>lista-&gt;fim</code>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="listas_ligadas_figs/lista_wrapper.svg" style="width:94.0%"></p>
+<figcaption>Estrutura ListaLigada com ponteiros inicio e fim.</figcaption>
+</figure>
+</div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb44-1"><a></a><span class="dt">int</span> inserir_final_lista<span class="op">(</span>ListaLigada <span class="op">*</span>lista<span class="op">,</span> <span class="dt">int</span> valor<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="ll-question">
+<p>Como inserir sem percorrer a lista? O que fazer quando <code>fim == NULL</code>?</p>
+</div>
+</section>
+<section id="inserir-no-final-com-listaligada-código" class="slide level2">
+<h2>Inserir no final com <code>ListaLigada</code> (código)</h2>
+<div class="sourceCode" id="cb45"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb45-1"><a></a><span class="dt">int</span> inserir_final_lista<span class="op">(</span>ListaLigada <span class="op">*</span>lista<span class="op">,</span> <span class="dt">int</span> valor<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb45-2"><a></a>    No <span class="op">*</span>novo <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span> <span class="op">*</span>novo<span class="op">);</span></span>
+<span id="cb45-3"><a></a>    <span class="cf">if</span> <span class="op">(</span>novo <span class="op">==</span> NULL<span class="op">)</span> <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb45-4"><a></a>    novo<span class="op">-&gt;</span>valor <span class="op">=</span> valor<span class="op">;</span></span>
+<span id="cb45-5"><a></a>    novo<span class="op">-&gt;</span>prox <span class="op">=</span> NULL<span class="op">;</span></span>
+<span id="cb45-6"><a></a></span>
+<span id="cb45-7"><a></a>    <span class="cf">if</span> <span class="op">(</span>lista<span class="op">-&gt;</span>fim <span class="op">==</span> NULL<span class="op">)</span> lista<span class="op">-&gt;</span>inicio <span class="op">=</span> novo<span class="op">;</span></span>
+<span id="cb45-8"><a></a>    <span class="cf">else</span> lista<span class="op">-&gt;</span>fim<span class="op">-&gt;</span>prox <span class="op">=</span> novo<span class="op">;</span></span>
+<span id="cb45-9"><a></a></span>
+<span id="cb45-10"><a></a>    lista<span class="op">-&gt;</span>fim <span class="op">=</span> novo<span class="op">;</span></span>
+<span id="cb45-11"><a></a>    <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb45-12"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><span class="blue"><strong>Só alteramos alguns ponteiros, mesmo em listas grandes.</strong></span></p>
+</section>
+<section id="comparando-o-trabalho-das-operações" class="slide level2">
+<h2>Comparando o trabalho das operações</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Operação</th>
+<th>Trabalho necessário</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Inserir no início</td>
+<td>Constante</td>
+</tr>
+<tr class="even">
+<td>Inserir após um nó conhecido</td>
+<td>Constante</td>
+</tr>
+<tr class="odd">
+<td>Percorrer todos os nós</td>
+<td>Cresce com o tamanho da lista</td>
+</tr>
+<tr class="even">
+<td>Buscar ou remover por valor</td>
+<td>Pode exigir percorrer a lista</td>
+</tr>
+<tr class="odd">
+<td>Inserir no final, <strong>sem</strong> <code>fim</code></td>
+<td>Percorrer até o último nó</td>
+</tr>
+<tr class="even">
+<td>Inserir no final, <strong>com</strong> <code>fim</code></td>
+<td>Constante</td>
+</tr>
+</tbody>
+</table>
+<div class="note">
+<p>Em análise de algoritmos, dizemos que o tempo está em <span class="math inline">\(O(1)\)</span> quando é constante e em <span class="math inline">\(O(n)\)</span> quando o tempo cresce proporcional ao tamanho da lista <span class="math inline">\(n\)</span>.</p>
+</div>
+</section>
+<section id="cuidado-com-o-ponteiro-fim" class="slide level2">
+<h2>Cuidado com o ponteiro <code>fim</code></h2>
+<p>Suponha que removemos o <strong>último nó</strong>.</p>
+<ul>
+<li>Quem deve ser o novo <code>fim</code>? E se a lista ficar vazia?</li>
+</ul>
+<div class="fragment">
+<p><strong>Exercício:</strong> adapte <code>remover</code> e <code>liberar</code> para trabalhar com <code>ListaLigada *</code>.</p>
+<div class="note">
+<p>Devemos preservar também o invariante de <code>fim</code> em todas as operações.</p>
+</div>
+<!-- ## Uma conexão com o EP2
+
+No índice de palavras, cada entrada tem uma **lista de ocorrências**.
+
+```c
+// Nó de ocorrência: linha e número de aparições.
+typedef struct no_ocorrencia {
+    int linha;
+    int quantidade;
+    struct no_ocorrencia *prox;
+} NoOcorrencia;
+```
+
+- Linhas chegam em **ordem não decrescente**.
+- Uma linha aparece **uma vez** na lista de cada palavra.
+- Repetições na mesma linha incrementam `quantidade`.
+
+::: {.ll-hint}
+Um ponteiro para o último nó pode evitar percursos ao registrar novas linhas.
+::: -->
+</div>
+</section></section>
+<section>
+<section id="outras-variantes-de-listas-ligadas" class="title-slide slide level1 center">
+<h1>Outras variantes de listas ligadas</h1>
+
+</section>
+<section id="listas-com-nó-cabeça-sentinela" class="slide level2">
+<h2>Listas com nó cabeça (sentinela)</h2>
+<p>Um <strong>nó sentinela</strong> fica antes do primeiro elemento real.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="listas_ligadas_figs/lista_sentinela.svg" class="quarto-figure quarto-figure-center" style="width:89.0%"></p>
+</figure>
+</div>
+<ul>
+<li>Seu valor <strong>não faz parte</strong> dos dados.</li>
+<li>O primeiro elemento real é <code>cabeca-&gt;prox</code>.</li>
+<li>A sentinela continua existindo mesmo quando a lista está vazia.</li>
+</ul>
+</section>
+<section id="por-que-usar-uma-sentinela" class="slide level2">
+<h2>Por que usar uma sentinela?</h2>
+<p>Podemos inserir no começo <strong>após a sentinela</strong>.</p>
+<p>Exemplo dentro de <code>main</code>:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb46-1"><a></a>No cabeca <span class="op">=</span> <span class="op">{.</span>prox <span class="op">=</span> NULL<span class="op">};</span>  <span class="co">// Nó sentinela local</span></span>
+<span id="cb46-2"><a></a></span>
+<span id="cb46-3"><a></a>inserir_apos<span class="op">(&amp;</span>cabeca<span class="op">,</span> <span class="dv">10</span><span class="op">);</span></span>
+<span id="cb46-4"><a></a>inserir_apos<span class="op">(&amp;</span>cabeca<span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span>
+<span id="cb46-5"><a></a></span>
+<span id="cb46-6"><a></a><span class="co">// Sequência de dados: 5 -&gt; 10 -&gt; NULL</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A sentinela pode simplificar operações (tente com remoção!)</p>
+<div class="note">
+<p>Uma sentinela <strong>é um nó</strong>. A <code>struct ListaLigada</code> <strong>não era</strong> um nó.</p>
+</div>
+</section>
+<section id="listas-duplamente-ligadas" class="slide level2">
+<h2>Listas duplamente ligadas</h2>
+<p>Cada nó guarda ponteiros para o <strong>anterior</strong> e o <strong>próximo</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="listas_ligadas_figs/lista_dupla.svg" class="quarto-figure quarto-figure-center" style="margin-top: -20px; margin-bottom: -40px;;width:96.0%"></p>
+</figure>
+</div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb47-1"><a></a><span class="kw">typedef</span> <span class="kw">struct</span> NoDuplo <span class="op">{</span></span>
+<span id="cb47-2"><a></a>    <span class="dt">int</span> valor<span class="op">;</span></span>
+<span id="cb47-3"><a></a>    <span class="kw">struct</span> NoDuplo <span class="op">*</span>ant<span class="op">;</span></span>
+<span id="cb47-4"><a></a>    <span class="kw">struct</span> NoDuplo <span class="op">*</span>prox<span class="op">;</span></span>
+<span id="cb47-5"><a></a><span class="op">}</span> NoDuplo<span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="duplamente-ligada-o-que-muda" class="slide level2">
+<h2>Duplamente ligada: o que muda?</h2>
+<p><span class="green"><strong>Vantagem:</strong></span> podemos percorrer nos dois sentidos.</p>
+<p><span class="red"><strong>Desvantagem:</strong></span> cada nó guarda mais um ponteiro, e código fica mais complexo.</p>
+<div class="fragment">
+<p>Ao inserir ou remover um nó:</p>
+<ul>
+<li>Atualizamos os ponteiros <code>prox</code> necessários.</li>
+<li>Também precisamos ajustar os ponteiros <code>ant</code>.</li>
+</ul>
+</div>
+</section>
+<section id="listas-circulares" class="slide level2">
+<h2>Listas circulares</h2>
+<p>O último nó aponta de volta para o <strong>primeiro</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="listas_ligadas_figs/lista_circular.svg" class="quarto-figure quarto-figure-center" style="margin-top: -5px; margin-bottom: -30px;;width:95.0%"></p>
+</figure>
+</div>
+<ul>
+<li>Não há <code>NULL</code> no fim de uma lista circular <strong>não vazia</strong>.</li>
+<li>Precisamos mudar o critério de parada do percurso.</li>
+<li>Podemos fazer uma lista circular com sentinela também.</li>
+</ul>
+</section>
+<section id="percorrendo-uma-lista-circular" class="slide level2">
+<h2>Percorrendo uma lista circular</h2>
+<p>Se <code>inicio</code> é <code>NULL</code>, a lista está vazia. Caso contrário:</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb48-1"><a></a><span class="dt">void</span> imprimir_circular<span class="op">(</span><span class="dt">const</span> No <span class="op">*</span>inicio<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb48-2"><a></a>    <span class="cf">if</span> <span class="op">(</span>inicio <span class="op">==</span> NULL<span class="op">)</span> <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb48-3"><a></a></span>
+<span id="cb48-4"><a></a>    <span class="dt">const</span> No <span class="op">*</span>atual <span class="op">=</span> inicio<span class="op">;</span></span>
+<span id="cb48-5"><a></a>    <span class="cf">do</span> <span class="op">{</span></span>
+<span id="cb48-6"><a></a>        printf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st"> "</span><span class="op">,</span> atual<span class="op">-&gt;</span>valor<span class="op">);</span></span>
+<span id="cb48-7"><a></a>        atual <span class="op">=</span> atual<span class="op">-&gt;</span>prox<span class="op">;</span></span>
+<span id="cb48-8"><a></a>    <span class="op">}</span> <span class="cf">while</span> <span class="op">(</span>atual <span class="op">!=</span> inicio<span class="op">);</span></span>
+<span id="cb48-9"><a></a><span class="op">}</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><span class="blue"><strong>Paramos quando voltamos ao primeiro nó.</strong></span></p>
+</section>
+<section id="essas-escolhas-são-independentes" class="slide level2">
+<h2>Essas escolhas são independentes</h2>
+<p>Podemos escolher separadamente:</p>
+<ol type="1">
+<li><strong>Encadeamento:</strong> simples, duplo ou circular.</li>
+<li><strong>Representação externa:</strong> <code>No *inicio</code> ou uma <code>struct</code> auxiliar.</li>
+<li><strong>Sentinela:</strong> com ou sem nó cabeça.</li>
+</ol>
+<div class="info-box">
+<p>Por exemplo, uma lista pode ser <strong>simplesmente ligada</strong>, ter <strong>sentinela</strong> e ainda usar uma <code>struct</code> com ponteiro para o último nó.</p>
+</div>
+</section></section>
+<section>
+<section id="para-praticar" class="title-slide slide level1 center">
+<h1>Para praticar</h1>
+
+</section>
+<section id="exercícios" class="slide level2">
+<h2>Exercícios</h2>
+<ol type="1">
+<li>Faça <code>remover</code> funcionar com <code>ListaLigada *</code>. Lembre-se de atualizar <code>fim</code>.</li>
+<li>Adapte <code>liberar</code> para deixar <code>inicio</code> e <code>fim</code> iguais a <code>NULL</code>.</li>
+<li>Escreva uma função que insere um inteiro <strong>em ordem crescente</strong>.</li>
+<li><strong>Desafio:</strong> inverta uma lista sem criar novos nós.</li>
+<li>Adapte inserção, remoção, e busca para listas com sentinela, duplamente ligadas, e circulares (recomendo especialmente as versões com sentinela: ótimo para praticar e o código usualmente fica mais simples!)</li>
+</ol>
+</section>
+<section id="referências" class="slide level2">
+<h2>Referências</h2>
+<ul>
+<li>Paulo Henrique Pisani. <em>Listas ligadas — partes 1 e 2</em>. Material de Programação Estruturada, UFABC, 2021.</li>
+</ul>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': true,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: false,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copiada");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copiada");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
