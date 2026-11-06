@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.29">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>EP2 – Construindo um índice de palavras – PE 2026 - UFABC</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9724cf4b05150a4d2634f8236da9eae7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">PE 2026 - UFABC</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Procurar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Início</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../cronograma.html"> 
+<span class="menu-text">Cronograma e materiais</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-laboratórios" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Laboratórios</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-laboratórios">    
+        <li>
+    <a class="dropdown-item" href="../labs/lab1.html">
+ <span class="dropdown-text">Lab 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../labs/lab2a.html">
+ <span class="dropdown-text">Lab 2A</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../labs/lab2b.html">
+ <span class="dropdown-text">Lab 2B</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../labs/lab3.html">
+ <span class="dropdown-text">Lab 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../labs/lab4.html">
+ <span class="dropdown-text">Lab 4</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-eps" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">EPs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-eps">    
+        <li>
+    <a class="dropdown-item" href="../eps/ep1_fractais.html">
+ <span class="dropdown-text">EP 1</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#objetivo" id="toc-objetivo" class="nav-link active" data-scroll-target="#objetivo"><span class="header-section-number">1</span> Objetivo</a></li>
+  <li><a href="#arquivos-fornecidos" id="toc-arquivos-fornecidos" class="nav-link" data-scroll-target="#arquivos-fornecidos"><span class="header-section-number">2</span> Arquivos fornecidos</a></li>
+  <li><a href="#como-o-índice-funciona" id="toc-como-o-índice-funciona" class="nav-link" data-scroll-target="#como-o-índice-funciona"><span class="header-section-number">3</span> Como o índice funciona</a>
+  <ul class="collapse">
+  <li><a href="#tratamento-das-palavras" id="toc-tratamento-das-palavras" class="nav-link" data-scroll-target="#tratamento-das-palavras"><span class="header-section-number">3.1</span> Tratamento das palavras</a></li>
+  </ul></li>
+  <li><a href="#representação-do-índice-de-palavras" id="toc-representação-do-índice-de-palavras" class="nav-link" data-scroll-target="#representação-do-índice-de-palavras"><span class="header-section-number">4</span> Representação do índice de palavras</a></li>
+  <li><a href="#funções-de-indice.c-a-serem-implementadas" id="toc-funções-de-indice.c-a-serem-implementadas" class="nav-link" data-scroll-target="#funções-de-indice.c-a-serem-implementadas"><span class="header-section-number">5</span> Funções de <code>indice.c</code> a serem implementadas</a>
+  <ul class="collapse">
+  <li><a href="#inicialização-do-índice" id="toc-inicialização-do-índice" class="nav-link" data-scroll-target="#inicialização-do-índice"><span class="header-section-number">5.1</span> Inicialização do índice</a></li>
+  <li><a href="#inserção-de-uma-ocorrência-de-palavra" id="toc-inserção-de-uma-ocorrência-de-palavra" class="nav-link" data-scroll-target="#inserção-de-uma-ocorrência-de-palavra"><span class="header-section-number">5.2</span> Inserção de uma ocorrência de palavra</a></li>
+  <li><a href="#liberação-do-índice" id="toc-liberação-do-índice" class="nav-link" data-scroll-target="#liberação-do-índice"><span class="header-section-number">5.3</span> Liberação do índice</a></li>
+  </ul></li>
+  <li><a href="#representação-da-lista-de-ocorrências" id="toc-representação-da-lista-de-ocorrências" class="nav-link" data-scroll-target="#representação-da-lista-de-ocorrências"><span class="header-section-number">6</span> Representação da lista de ocorrências</a>
+  <ul class="collapse">
+  <li><a href="#definindo-listaocorrencias" id="toc-definindo-listaocorrencias" class="nav-link" data-scroll-target="#definindo-listaocorrencias"><span class="header-section-number">6.1</span> Definindo <code>ListaOcorrencias</code></a></li>
+  </ul></li>
+  <li><a href="#funções-de-ocorrencias.c-a-serem-implementadas" id="toc-funções-de-ocorrencias.c-a-serem-implementadas" class="nav-link" data-scroll-target="#funções-de-ocorrencias.c-a-serem-implementadas"><span class="header-section-number">7</span> Funções de <code>ocorrencias.c</code> a serem implementadas</a>
+  <ul class="collapse">
+  <li><a href="#inicialização-da-lista" id="toc-inicialização-da-lista" class="nav-link" data-scroll-target="#inicialização-da-lista"><span class="header-section-number">7.1</span> Inicialização da lista</a></li>
+  <li><a href="#registro-de-uma-ocorrência" id="toc-registro-de-uma-ocorrência" class="nav-link" data-scroll-target="#registro-de-uma-ocorrência"><span class="header-section-number">7.2</span> Registro de uma ocorrência</a></li>
+  <li><a href="#acesso-ao-primeiro-nó" id="toc-acesso-ao-primeiro-nó" class="nav-link" data-scroll-target="#acesso-ao-primeiro-nó"><span class="header-section-number">7.3</span> Acesso ao primeiro nó</a></li>
+  <li><a href="#liberação-da-lista" id="toc-liberação-da-lista" class="nav-link" data-scroll-target="#liberação-da-lista"><span class="header-section-number">7.4</span> Liberação da lista</a></li>
+  </ul></li>
+  <li><a href="#bônus-remoção-de-linhas-do-índice" id="toc-bônus-remoção-de-linhas-do-índice" class="nav-link" data-scroll-target="#bônus-remoção-de-linhas-do-índice"><span class="header-section-number">8</span> Bônus: remoção de linhas do índice</a>
+  <ul class="collapse">
+  <li><a href="#removendo-uma-ocorrência-de-linha" id="toc-removendo-uma-ocorrência-de-linha" class="nav-link" data-scroll-target="#removendo-uma-ocorrência-de-linha"><span class="header-section-number">8.1</span> Removendo uma ocorrência de linha</a></li>
+  <li><a href="#removendo-uma-linha-do-índice-inteiro" id="toc-removendo-uma-linha-do-índice-inteiro" class="nav-link" data-scroll-target="#removendo-uma-linha-do-índice-inteiro"><span class="header-section-number">8.2</span> Removendo uma linha do índice inteiro</a></li>
+  </ul></li>
+  <li><a href="#ordem-sugerida-de-implementação" id="toc-ordem-sugerida-de-implementação" class="nav-link" data-scroll-target="#ordem-sugerida-de-implementação"><span class="header-section-number">9</span> Ordem sugerida de implementação</a></li>
+  <li><a href="#programa-principal-e-formato-de-entrada" id="toc-programa-principal-e-formato-de-entrada" class="nav-link" data-scroll-target="#programa-principal-e-formato-de-entrada"><span class="header-section-number">10</span> Programa principal e formato de entrada</a></li>
+  <li><a href="#compilação" id="toc-compilação" class="nav-link" data-scroll-target="#compilação"><span class="header-section-number">11</span> Compilação</a></li>
+  <li><a href="#requisitos" id="toc-requisitos" class="nav-link" data-scroll-target="#requisitos"><span class="header-section-number">12</span> Requisitos</a></li>
+  <li><a href="#avaliação" id="toc-avaliação" class="nav-link" data-scroll-target="#avaliação"><span class="header-section-number">13</span> Avaliação</a></li>
+  <li><a href="#exemplos-de-entrada-e-saída" id="toc-exemplos-de-entrada-e-saída" class="nav-link" data-scroll-target="#exemplos-de-entrada-e-saída"><span class="header-section-number">14</span> Exemplos de entrada e saída</a>
+  <ul class="collapse">
+  <li><a href="#exemplo-1-construindo-e-consultando-um-índice" id="toc-exemplo-1-construindo-e-consultando-um-índice" class="nav-link" data-scroll-target="#exemplo-1-construindo-e-consultando-um-índice"><span class="header-section-number">14.1</span> Exemplo 1: construindo e consultando um índice</a></li>
+  <li><a href="#exemplo-2-remoção-de-uma-linha-bônus" id="toc-exemplo-2-remoção-de-uma-linha-bônus" class="nav-link" data-scroll-target="#exemplo-2-remoção-de-uma-linha-bônus"><span class="header-section-number">14.2</span> Exemplo 2: remoção de uma linha (bônus)</a></li>
+  <li><a href="#exemplo-3-maiúsculas-e-acentos" id="toc-exemplo-3-maiúsculas-e-acentos" class="nav-link" data-scroll-target="#exemplo-3-maiúsculas-e-acentos"><span class="header-section-number">14.3</span> Exemplo 3: maiúsculas e acentos</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">EP2 – Construindo um índice de palavras</h1>
+<p class="subtitle lead">Programação Estruturada 2026 - Victor Sanches Portella</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="objetivo" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Objetivo</h1>
+<p>Neste exercício-programa, você implementará parte de um programa que <strong>constrói um índice das palavras de um texto</strong>. Para cada palavra encontrada, o índice armazenará:</p>
+<ul>
+<li>quantas vezes ela aparece no texto inteiro (<strong>frequência</strong>);</li>
+<li>em quais linhas ela aparece;</li>
+<li>quantas vezes ela aparece em cada uma dessas linhas.</li>
+</ul>
+<p>O programa permitirá consultar uma palavra e imprimir as linhas originais em que ela aparece. Por exemplo, se o texto contiver a palavra <code>gato</code> duas vezes na linha 1 e uma vez na linha 3, o índice registrará frequência total 3 e ocorrências nas linhas 1 e 3. A linha 1 será exibida <strong>uma única vez</strong> na consulta, apesar de conter duas ocorrências.</p>
+<p>Para implementar o índice, você usará <strong>estruturas (<code>structs</code>), vetores alocados dinamicamente, strings e listas encadeadas</strong>. O programa principal, a leitura do arquivo e a separação do texto em palavras já estão implementados. Seu trabalho será desenvolver as estruturas de dados que armazenam e organizam as informações.</p>
+<p>O EP está dividido em uma parte <strong>obrigatória</strong>, que constrói e consulta o índice, e uma parte <strong>bônus</strong>, que permite remover linhas do índice. <strong>Não é necessário implementar o bônus para concluir a parte obrigatória.</strong></p>
+</section>
+<section id="arquivos-fornecidos" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Arquivos fornecidos</h1>
+<p>O código inicial do EP, disponível no Moodle, contém os seguintes arquivos:</p>
+<ul>
+<li><code>main.c</code>: lê o arquivo de texto, constrói o índice chamando suas funções e implementa o menu de interação com o usuário;</li>
+<li><code>texto.c</code> e <code>texto.h</code>: identificam as palavras de cada linha, incluindo palavras com acentos;</li>
+<li><code>documento.c</code> e <code>documento.h</code>: armazenam as linhas originais do texto para que possam ser exibidas nas buscas;</li>
+<li><code>utils.c</code> e <code>utils.h</code>: fornecem funções auxiliares para alocação dinâmica de memória;</li>
+<li><code>ocorrencias.c</code> e <code>ocorrencias.h</code>: definem a interface da lista encadeada que registra as linhas em que uma palavra aparece;</li>
+<li><code>indice.c</code> e <code>indice.h</code>: definem a interface do índice de palavras;</li>
+<li><code>Makefile</code>: facilita a compilação do programa.</li>
+</ul>
+<p>Você deverá modificar <strong>apenas</strong> <code>indice.c</code>, <code>ocorrencias.c</code> e a definição de <code>ListaOcorrencias</code> em <code>ocorrencias.h</code>. Os demais arquivos estão completos e não devem ser modificados.</p>
+<p>As funções <code>imprime_indice</code>, em <code>indice.c</code>, e <code>imprime_ocorrencias</code>, em <code>ocorrencias.c</code>, <strong>já estão implementadas e não devem ser modificadas</strong>. As outras funções desses dois arquivos contêm <em>stubs</em>: implementações provisórias, que permitem compilar o programa antes de você resolver o EP. Você deverá substituir os stubs indicados como obrigatórios por suas implementações.</p>
+<p>Você pode criar funções auxiliares e acrescentar declarações, desde que preserve as estruturas e as assinaturas públicas fornecidas (com a exceção da definição de <code>ListaOcorrencias</code>, conforme explicado adiante).</p>
+</section>
+<section id="como-o-índice-funciona" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Como o índice funciona</h1>
+<p>Considere o seguinte arquivo de texto:</p>
+<pre class="text"><code>gato gato dorme.
+cachorro e gato.
+gato dorme, cachorro.</code></pre>
+<p>Uma representação conceitual do índice construído a partir desse arquivo é:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Palavra</th>
+<th style="text-align: right;">Frequência total</th>
+<th>Ocorrências por linha</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>gato</code></td>
+<td style="text-align: right;">4</td>
+<td>linha 1: 2; linha 2: 1; linha 3: 1</td>
+</tr>
+<tr class="even">
+<td><code>dorme</code></td>
+<td style="text-align: right;">2</td>
+<td>linha 1: 1; linha 3: 1</td>
+</tr>
+<tr class="odd">
+<td><code>cachorro</code></td>
+<td style="text-align: right;">2</td>
+<td>linha 2: 1; linha 3: 1</td>
+</tr>
+<tr class="even">
+<td><code>e</code></td>
+<td style="text-align: right;">1</td>
+<td>linha 2: 1</td>
+</tr>
+</tbody>
+</table>
+<p>Note que <strong>a frequência total de uma palavra não é o número de linhas em que ela aparece</strong>. A palavra <code>gato</code>, por exemplo, aparece quatro vezes, distribuídas em três linhas.</p>
+<p>Também é importante distinguir o índice do documento original. O índice armazena palavras, frequências e números de linha; o módulo <code>Documento</code> guarda o texto original de cada linha. Para imprimir os resultados de uma busca, o programa consulta o índice e, em seguida, recupera as linhas originais usando o módulo <code>Documento</code>.</p>
+<section id="tratamento-das-palavras" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="tratamento-das-palavras"><span class="header-section-number">3.1</span> Tratamento das palavras</h2>
+<p>A função <code>tokeniza_linha</code>, já implementada em <code>texto.c</code>, extrai as palavras do texto. Para este EP, considere as seguintes regras:</p>
+<ul>
+<li>letras e números fazem parte das palavras;</li>
+<li>pontuação e outros caracteres não alfanuméricos separam palavras;</li>
+<li>letras acentuadas são preservadas;</li>
+<li><strong>maiúsculas e minúsculas são diferentes</strong>: <code>Casa</code> e <code>casa</code> são duas palavras distintas;</li>
+<li>palavras acentuadas e não acentuadas também são diferentes: <code>café</code> e <code>cafe</code> são distintas.</li>
+</ul>
+<p>Não é necessário implementar a tokenização, tratar UTF-8 ou modificar <code>texto.c</code>. As funções do índice recebem strings que já representam palavras individuais.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As linhas do documento são numeradas a partir de <strong>1</strong>, na ordem em que aparecem no arquivo. Linhas vazias também contam na numeração. O índice deve preservar esses números; eles não são posições no vetor de entradas.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="representação-do-índice-de-palavras" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Representação do índice de palavras</h1>
+<p>Em <code>indice.h</code>, são fornecidas as estruturas:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span> <span class="op">*</span>palavra<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> frequencia<span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    ListaOcorrencias ocorrencias<span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> Entrada<span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> <span class="op">{</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    Entrada <span class="op">*</span>entradas<span class="op">;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n<span class="op">;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> capacidade<span class="op">;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> Indice<span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Cada <code>Entrada</code> corresponde a <strong>uma palavra distinta</strong> e contém:</p>
+<ul>
+<li><code>palavra</code>: uma string com a palavra;</li>
+<li><code>frequencia</code>: a quantidade total de vezes que a palavra foi encontrada;</li>
+<li><code>ocorrencias</code>: uma lista encadeada com as informações das linhas.</li>
+</ul>
+<p>A estrutura <code>Indice</code> mantém um <strong>vetor dinâmico</strong> de entradas, isto é, um vetor cujo tamanho começa pequeno (nesse EP) e cujo tamanho dobra, usando <code>malloc</code> ou <code>realloc</code> para implementar a mudança de tamanho. O campo <code>n</code> indica quantas posições do vetor estão sendo utilizadas, enquanto <code>capacidade</code> indica quantas entradas cabem no espaço atualmente alocado. Portanto, sempre deve valer <code>0 &lt;= n &lt;= capacidade</code>.</p>
+<p>O programa começa com um índice vazio e <code>entradas == NULL</code>. Na inserção da primeira entrada, <code>entradas</code> deve ser alocado com tamanho <code>5</code>. Sempre que for necessário inserir uma nova entrada no vetor e o vetor estiver cheio (<code>n == capacidade</code>), o tamanho de <code>entradas</code> deve ser dobrado. Tome cuidado com <em>memory leaks</em>!</p>
+<p>Vale já notar que, beste EP, <strong>não iremos ordenar o índice</strong>: as entradas deverão permanecer na ordem em que as palavras foram encontradas pela primeira vez no texto.</p>
+</section>
+<section id="funções-de-indice.c-a-serem-implementadas" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Funções de <code>indice.c</code> a serem implementadas</h1>
+<p>Todas as funções desta seção são <strong>obrigatórias</strong>, exceto a função de remoção descrita na seção de bônus.</p>
+<section id="inicialização-do-índice" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="inicialização-do-índice"><span class="header-section-number">5.1</span> Inicialização do índice</h2>
+<p>Implemente:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> inicializa_indice<span class="op">(</span>Indice <span class="op">*</span>indice<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A função deve inicializar um índice vazio. Em particular, o índice deve começar com <code>entrada = NULL</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> busca_palavra<span class="op">(</span>Indice <span class="op">*</span>indice<span class="op">,</span> <span class="dt">char</span> <span class="op">*</span>palavra<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A função deve procurar <code>palavra</code> entre as <code>indice-&gt;n</code> entradas atualmente utilizadas, comparando strings com <code>strcmp</code>.</p>
+<ul>
+<li>Se encontrar a palavra, deve retornar sua <strong>posição no vetor</strong> <code>indice-&gt;entradas</code> (um inteiro entre <code>0</code> e <code>n - 1</code>).</li>
+<li>Se não encontrar, deve retornar <code>-1</code>.</li>
+</ul>
+<p>A função não deve modificar o índice. Não confunda a posição no vetor com os números das linhas do arquivo.</p>
+</section>
+<section id="inserção-de-uma-ocorrência-de-palavra" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="inserção-de-uma-ocorrência-de-palavra"><span class="header-section-number">5.2</span> Inserção de uma ocorrência de palavra</h2>
+<p>Implemente:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> insere_palavra<span class="op">(</span>Indice <span class="op">*</span>indice<span class="op">,</span> <span class="dt">char</span> <span class="op">*</span>palavra<span class="op">,</span> <span class="dt">int</span> linha<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Cada chamada informa que a palavra <code>palavra</code> apareceu <strong>mais uma vez</strong> na linha <code>linha</code> do documento. A função deverá atualizar o índice:</p>
+<ol type="1">
+<li>Se a palavra <strong>já estiver no índice</strong>, aumente sua frequência total em uma unidade e registre a nova ocorrência em sua lista de ocorrências.</li>
+<li>Se a palavra <strong>ainda não estiver no índice</strong>, crie uma nova entrada no vetor <code>entradas[]</code>, copie a palavra para uma nova string, inicialize sua lista de ocorrências usando <code>inicializa_ocorrencias</code> de <code>ocorrencias.h</code> e registre a primeira ocorrência usando <code>registra_ocorrencia</code>.</li>
+<li>Se for necessário criar uma entrada e o vetor estiver cheio, dobre capacidade antes de usar uma nova posição. Caso o vetor <code>entradas</code> não tenha sido alocado ainda, aloque um vetor com 5 posições.</li>
+<li>Assim, várias chamadas com a mesma palavra podem se referir à mesma linha ou a linhas diferentes. Em ambos os casos, a frequência total aumenta em uma unidade a cada chamada.</li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Aviso
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>O índice deve guardar sua própria cópia da palavra.</strong> O ponteiro recebido como argumento de <code>insere_palavra</code> aponta para uma string temporária, que será liberada pelo código fornecido após o processamento da linha. Guardar apenas esse ponteiro na entrada fará com que o índice passe a acessar memória já liberada.</p>
+</div>
+</div>
+<p>Você pode utilizar <code>malloc_safe</code> e <code>realloc_safe</code>, fornecidas em <code>utils.h</code>, para alocar e realocar memória. Essas funções encerram o programa se uma alocação falhar e evitam chamadas com comportamento ambíguo de <code>realloc</code>.</p>
+<p>Observe que as funções de impressão já percorrem as entradas existentes. Uma entrada não inicializada ou uma contagem <code>n</code> incorreta pode provocar falhas durante a impressão.</p>
+</section>
+<section id="liberação-do-índice" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="liberação-do-índice"><span class="header-section-number">5.3</span> Liberação do índice</h2>
+<p>Implemente:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> libera_indice<span class="op">(</span>Indice <span class="op">*</span>indice<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A função deve liberar <strong>toda a memória alocada que pertence ao índice</strong>, incluindo:</p>
+<ul>
+<li>a string de cada palavra;</li>
+<li>as listas de ocorrências de todas as entradas;</li>
+<li>o vetor dinâmico de entradas.</li>
+</ul>
+<p>Para liberar a lista de cada entrada, utilize <code>libera_ocorrencias</code>, que você implementará em <code>ocorrencias.c</code>.</p>
+<p>Não libere as linhas do documento original nessa função: elas pertencem ao módulo <code>Documento</code> e serão liberadas pelo código fornecido.</p>
+</section>
+</section>
+<section id="representação-da-lista-de-ocorrências" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Representação da lista de ocorrências</h1>
+<p>Em <code>ocorrencias.h</code>, é fornecida a estrutura de cada nó:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> no_ocorrencia <span class="op">{</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> linha<span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> quantidade<span class="op">;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">struct</span> no_ocorrencia <span class="op">*</span>prox<span class="op">;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> NoOcorrencia<span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Cada nó informa que uma determinada palavra aparece <code>quantidade</code> vezes na linha <code>linha</code>. O campo <code>prox</code> aponta para o próximo nó, ou é <code>NULL</code> no último nó da lista.</p>
+<p><strong>Deve existir no máximo um nó para cada número de linha.</strong> Por exemplo, se uma palavra aparecer três vezes na linha 5, a lista deve conter um único nó com <code>linha == 5</code> e <code>quantidade == 3</code>, e não três nós diferentes.</p>
+<p>Além disso, os nós de ocorrências <strong>devem estar em ordem crescente de número de linha</strong>. Isso garante que as consultas apresentem as linhas na mesma ordem em que aparecem no arquivo.</p>
+<section id="definindo-listaocorrencias" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="definindo-listaocorrencias"><span class="header-section-number">6.1</span> Definindo <code>ListaOcorrencias</code></h2>
+<p>Ainda em <code>ocorrencias.h</code>, você encontrará:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> <span class="op">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> reservado<span class="op">;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> ListaOcorrencias<span class="op">;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Esse campo <code>reservado</code> é apenas um marcador para permitir que o esqueleto compile. <strong>Você deverá substituí-lo pelos campos necessários para representar sua lista encadeada.</strong></p>
+<p>Você pode escolher, por exemplo, uma implementação com ou sem nó sentinela/cabeça. Se optar por uma sentinela, lembre-se de que ela não representa uma ocorrência real e não deve ser retornada por <code>primeira_ocorrencia</code>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Dica
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Durante a construção do índice, as chamadas a <code>registra_ocorrencia</code> para uma mesma palavra recebem números de linha em <strong>ordem não decrescente</strong>. Portanto, não é necessário procurar uma linha arbitrária no meio da lista a cada inserção: se a linha já existe, ela estará no <strong>último nó</strong>. Considere guardar um ponteiro para o final da lista, para que a inserção e a atualização da última ocorrência possam ser feitas sem percorrê-la inteira.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Aviso
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As estruturas <code>ListaOcorrencias</code> ficam dentro das entradas de um vetor que pode ser realocado quando cresce. Por isso, não suponha que uma determinada <code>Entrada</code> permanecerá sempre no mesmo endereço. Tome cuidado se sua representação armazenar ponteiros para campos internos dessas entradas.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="funções-de-ocorrencias.c-a-serem-implementadas" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Funções de <code>ocorrencias.c</code> a serem implementadas</h1>
+<section id="inicialização-da-lista" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="inicialização-da-lista"><span class="header-section-number">7.1</span> Inicialização da lista</h2>
+<p>Implemente:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> inicializa_ocorrencias<span class="op">(</span>ListaOcorrencias <span class="op">*</span>lista<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A função deve preparar uma lista vazia de acordo com a representação escolhida. Ela poderá realizar uma alocação para uma sentinela, caso essa seja sua escolha, mas não deve criar nós que representem ocorrências inexistentes.</p>
+</section>
+<section id="registro-de-uma-ocorrência" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="registro-de-uma-ocorrência"><span class="header-section-number">7.2</span> Registro de uma ocorrência</h2>
+<p>Implemente:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> registra_ocorrencia<span class="op">(</span>ListaOcorrencias <span class="op">*</span>lista<span class="op">,</span> <span class="dt">int</span> linha<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A função deve registrar <strong>mais uma ocorrência</strong> de uma palavra na linha indicada:</p>
+<ul>
+<li>se a última ocorrência registrada na lista já for da mesma linha, aumente seu campo <code>quantidade</code> em uma unidade;</li>
+<li>caso contrário, acrescente ao final da lista um novo nó com <code>linha</code> igual ao argumento e <code>quantidade</code> igual a 1.</li>
+</ul>
+<p>A função deve manter a lista em ordem crescente de linha e não deve criar dois nós referentes à mesma linha.</p>
+<p>Por exemplo, após as chamadas:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>registra_ocorrencia<span class="op">(&amp;</span>lista<span class="op">,</span> <span class="dv">2</span><span class="op">);</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>registra_ocorrencia<span class="op">(&amp;</span>lista<span class="op">,</span> <span class="dv">2</span><span class="op">);</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>registra_ocorrencia<span class="op">(&amp;</span>lista<span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>registra_ocorrencia<span class="op">(&amp;</span>lista<span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>registra_ocorrencia<span class="op">(&amp;</span>lista<span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>registra_ocorrencia<span class="op">(&amp;</span>lista<span class="op">,</span> <span class="dv">8</span><span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A lista deverá representar:</p>
+<pre class="text"><code>linha 2 (quantidade 2) -&gt; linha 5 (quantidade 3) -&gt; linha 8 (quantidade 1)</code></pre>
+</section>
+<section id="acesso-ao-primeiro-nó" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="acesso-ao-primeiro-nó"><span class="header-section-number">7.3</span> Acesso ao primeiro nó</h2>
+<p>Implemente:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>NoOcorrencia <span class="op">*</span>primeira_ocorrencia<span class="op">(</span>ListaOcorrencias <span class="op">*</span>lista<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A função deve retornar um ponteiro para o <strong>primeiro nó que representa uma ocorrência real</strong>. Se a lista estiver vazia, deve retornar <code>NULL</code>.</p>
+<p>Essa função é utilizada pelas funções de impressão fornecidas. Dessa forma, elas conseguem percorrer a lista sem depender da representação interna que você escolheu para <code>ListaOcorrencias</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>No esqueleto, <code>primeira_ocorrencia</code> já retorna provisoriamente <code>NULL</code>. Enquanto você ainda não implementou as listas vão simplesmente imprimir como se a lista estivesse vazia.</p>
+</div>
+</div>
+</section>
+<section id="liberação-da-lista" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="liberação-da-lista"><span class="header-section-number">7.4</span> Liberação da lista</h2>
+<p>Implemente:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> libera_ocorrencias<span class="op">(</span>ListaOcorrencias <span class="op">*</span>lista<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A função deve liberar todos os nós alocados dinamicamente para a lista, <strong>incluindo a sentinela, se houver</strong>. Não deve liberar a estrutura <code>ListaOcorrencias</code> recebida por argumento, pois ela pertence a uma <code>Entrada</code> do índice.</p>
+<p>Se optar por uma lista sem sentinela, a função também deverá funcionar corretamente quando a lista estiver vazia.</p>
+</section>
+</section>
+<section id="bônus-remoção-de-linhas-do-índice" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Bônus: remoção de linhas do índice</h1>
+<p>As duas funções desta seção são <strong>opcionais</strong>. O programa principal já apresenta a opção <code>2</code> no menu, mas ela não fará nada até que você implemente o bônus. O funcionamento da parte obrigatória não depende dessas funções.</p>
+<p>A funcionalidade bônus permite remover uma linha <strong>do índice</strong>, sem apagar o texto original armazenado pelo módulo <code>Documento</code>. Depois de remover uma linha, as consultas não devem mais mostrar essa linha, e as frequências das palavras devem diminuir conforme a quantidade de ocorrências removidas.</p>
+<section id="removendo-uma-ocorrência-de-linha" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="removendo-uma-ocorrência-de-linha"><span class="header-section-number">8.1</span> Removendo uma ocorrência de linha</h2>
+<p>Em <code>ocorrencias.c</code>, implemente:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> remove_ocorrencia<span class="op">(</span>ListaOcorrencias <span class="op">*</span>lista<span class="op">,</span> <span class="dt">int</span> linha<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A função deve procurar o nó correspondente à linha indicada e, se ele existir:</p>
+<ol type="1">
+<li>removê-lo da lista, mantendo os demais nós corretamente encadeados;</li>
+<li>liberar a memória desse nó;</li>
+<li>devolver a <strong>quantidade de ocorrências</strong> que ele registrava.</li>
+</ol>
+<p>Se a linha não estiver na lista, a função deve retornar <code>0</code> e deixar a lista inalterada.</p>
+<p>A remoção deve funcionar corretamente quando o nó removido for o primeiro, um nó intermediário, o último ou o único nó da lista. A representação deve continuar válida mesmo quando a lista ficar vazia.</p>
+</section>
+<section id="removendo-uma-linha-do-índice-inteiro" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="removendo-uma-linha-do-índice-inteiro"><span class="header-section-number">8.2</span> Removendo uma linha do índice inteiro</h2>
+<p>Em <code>indice.c</code>, implemente:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> remove_linha<span class="op">(</span>Indice <span class="op">*</span>indice<span class="op">,</span> <span class="dt">int</span> linha<span class="op">);</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A função deve remover todas as ocorrências da linha indicada, percorrendo as entradas do índice e utilizando <code>remove_ocorrencia</code>.</p>
+<p>Para cada palavra, sua frequência total deve diminuir exatamente da quantidade devolvida por <code>remove_ocorrencia</code>.</p>
+<p>Se uma palavra ficar com frequência zero, sua entrada deverá ser <strong>completamente removida do vetor</strong>. Nesse caso, libere os recursos que pertenciam à entrada e desloque as entradas seguintes para preencher a posição deixada vazia, preservando a ordem das demais palavras. Não é necessário diminuir a capacidade alocada do vetor.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Aviso
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ao remover uma entrada de um vetor, a próxima entrada passa a ocupar a posição que acabou de ser liberada. Tome cuidado para não deixar de examinar essa nova entrada durante o percurso do vetor.</p>
+</div>
+</div>
+<p>As remoções são realizadas apenas <strong>após</strong> a construção inicial do índice. Você não precisa implementar a inserção de novas palavras ou novas ocorrências depois de executar uma remoção. Remover novamente uma linha já removida não deve produzir novas alterações.</p>
+<p>A forma de contabilização da pontuação bônus será divulgada separadamente. <strong>A parte obrigatória poderá receber nota máxima sem a implementação do bônus.</strong></p>
+</section>
+</section>
+<section id="ordem-sugerida-de-implementação" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Ordem sugerida de implementação</h1>
+<p>O EP contém várias funções que dependem umas das outras. <strong>Você não precisa implementar tudo de uma vez</strong>. Recomendo fortemente a seguinte sequência:</p>
+<ol type="1">
+<li><strong>Construa primeiro o contador de palavras.</strong> Implemente <code>inicializa_indice</code>, <code>busca_palavra</code> e a parte de <code>insere_palavra</code> que mantém as palavras e suas frequências. Nesse momento, as funções de ocorrências podem continuar como stubs. A impressão do índice mostrará as frequências corretas, mas ainda não haverá informações sobre as linhas.</li>
+<li><strong>Implemente as listas encadeadas.</strong> Defina <code>ListaOcorrencias</code> e implemente <code>inicializa_ocorrencias</code>, <code>registra_ocorrencia</code> e <code>primeira_ocorrencia</code>. Teste essas funções separadamente, inclusive com inserções repetidas da mesma linha.</li>
+<li><strong>Integre as duas estruturas.</strong> Complete <code>insere_palavra</code> para que uma nova entrada inicialize sua lista e para que toda inserção também chame <code>registra_ocorrencia</code>. Agora a impressão do índice e a busca deverão mostrar as linhas corretas.</li>
+<li><strong>Implemente a liberação de memória.</strong> Complete <code>libera_ocorrencias</code> e <code>libera_indice</code>, conferindo que não há vazamentos nem acessos a memória liberada. Essas funções podem ser implementadas desde o início, de forma parcial, sempre garantindo que não existem <em>memory leaks</em>, para evitar problemas de memória difíceis de depurar.</li>
+<li><strong>Se desejar fazer o bônus</strong>, implemente <code>remove_ocorrencia</code> e depois <code>remove_linha</code>.</li>
+</ol>
+<p>O programa inicial compila mesmo antes de você implementar qualquer função. Isso permite que você avance por etapas e teste cada parte separadamente.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Dica
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Na primeira etapa, o índice já poderá armazenar as frequências mesmo que a busca ainda não imprima nenhuma linha. Isso <strong>não significa que há um problema</strong>: a impressão das linhas depende de <code>primeira_ocorrencia</code> e das listas encadeadas, que serão implementadas depois.</p>
+</div>
+</div>
+</section>
+<section id="programa-principal-e-formato-de-entrada" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Programa principal e formato de entrada</h1>
+<p>O arquivo <code>main.c</code> está pronto e não deve ser modificado. O programa recebe o caminho para um arquivo de texto como <strong>argumento da linha de comando</strong>:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./ep2</span> exemplo.txt</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>O arquivo deve conter texto em UTF-8. O programa lê suas linhas na ordem original, separa as palavras e chama <code>insere_palavra</code> uma vez para cada palavra encontrada.</p>
+<p>Depois de construir o índice, o programa apresenta este menu:</p>
+<pre class="text"><code>===== MENU =====
+1 &lt;palavra&gt;    - Buscar palavra
+2 &lt;linha&gt;      - Remover linha do indice (BONUS)
+3              - Imprimir indice completo
+0              - Sair
+&gt; </code></pre>
+<p>Para escolher uma operação, digite <strong>o número do comando e, quando necessário, seu argumento na mesma linha</strong>, separados por espaço:</p>
+<ul>
+<li><code>1 gato</code>: imprime as linhas originais que contêm a palavra <code>gato</code>, em ordem crescente de número de linha;</li>
+<li><code>2 3</code>: remove do índice todas as ocorrências da linha 3 (<strong>bônus</strong>);</li>
+<li><code>3</code>: imprime todas as palavras, suas frequências e as listas de ocorrências;</li>
+<li><code>0</code>: encerra o programa.</li>
+</ul>
+<p>A palavra usada na busca deve ser informada exatamente como aparece no índice, sem pontuação adicional. Por exemplo, <code>1 Casa</code> e <code>1 casa</code> fazem buscas distintas.</p>
+<p>A saída do comando <code>3</code> é produzida pelas funções <strong>já implementadas</strong> <code>imprime_indice</code> e <code>imprime_ocorrencias</code>. Para cada palavra, elas mostram sua frequência total e os nós da lista no formato <code>L:&lt;linha&gt; (x&lt;quantidade&gt;)</code>.</p>
+<p>A saída do comando <code>1</code> é produzida pela função <code>imprime_busca</code>, também já fornecida. Ela percorre a lista de ocorrências da palavra e consulta o texto original de cada linha.</p>
+</section>
+<section id="compilação" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Compilação</h1>
+<p>Na pasta contendo os arquivos do EP, você pode compilar o programa com:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>O comando criará o executável <code>ep2</code>. Para apagar os arquivos gerados durante a compilação, utilize:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> clean</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>O programa também pode ser compilado diretamente com:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gcc</span> <span class="at">-std</span><span class="op">=</span>c11 <span class="at">-Wall</span> <span class="at">-Wextra</span> <span class="at">-O1</span> <span class="dt">\</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    main.c texto.c documento.c utils.c indice.c ocorrencias.c <span class="at">-o</span> ep2</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Durante o desenvolvimento, pode ser útil compilar com o <strong>AddressSanitizer</strong> e o <strong>UndefinedBehaviorSanitizer</strong>:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gcc</span> <span class="at">-std</span><span class="op">=</span>c11 <span class="at">-Wall</span> <span class="at">-Wextra</span> <span class="at">-O1</span> <span class="dt">\</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-fsanitize</span><span class="op">=</span>address,undefined <span class="at">-fno-omit-frame-pointer</span> <span class="dt">\</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    main.c texto.c documento.c utils.c indice.c ocorrencias.c <span class="at">-o</span> ep2</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Essas ferramentas ajudam a identificar acessos inválidos à memória, uso de memória depois de <code>free</code> e outros problemas. Elas não substituem testes que verifiquem se as frequências e listas estão corretas.</p>
+<p>Caso deseje usar um depurador como <code>gdb</code>, substitua a flag de otimização <code>-O1</code> pela flag <code>-g</code>. Além disso, recomendo o uso de ferramentas como <code>valgrind</code> para detectar vazamentos de memória.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>O código fornecido utiliza <code>getline</code>, uma função disponível em ambientes POSIX (como Linux), e configura a locale <code>C.UTF-8</code>. Recomendamos compilar e executar o EP no ambiente Linux dos laboratórios ou em um ambiente compatível.</p>
+</div>
+</div>
+</section>
+<section id="requisitos" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Requisitos</h1>
+<ul>
+<li>Implemente todas as funções identificadas como <strong>obrigatórias</strong> em <code>indice.c</code> e <code>ocorrencias.c</code>.</li>
+<li>Modifique a definição de <code>ListaOcorrencias</code>, substituindo o campo provisório pelos campos necessários à sua implementação.</li>
+<li>Não modifique as funções já fornecidas, especialmente <code>main</code>, <code>imprime_indice</code> e <code>imprime_ocorrencias</code>.</li>
+<li>Não altere as declarações das funções públicas nem as definições fornecidas de <code>Entrada</code>, <code>Indice</code> e <code>NoOcorrencia</code>.</li>
+<li>Use um <strong>vetor dinâmico de <code>Entrada</code></strong> para o índice e uma <strong>lista simplesmente encadeada de <code>NoOcorrencia</code></strong> para cada palavra.</li>
+<li>Armazene uma única entrada por palavra distinta e, em cada lista, um único nó por linha distinta. Os nós devem permanecer em ordem crescente de linha.</li>
+<li>Preserve maiúsculas, minúsculas e acentos. A comparação entre palavras deve utilizar <code>strcmp</code>.</li>
+<li>Não é necessário ordenar as palavras. Preserve a ordem da primeira aparição de cada palavra no documento.</li>
+<li>Faça as cópias das strings necessárias e libere toda a memória dinâmica pertencente às estruturas que você implementar.</li>
+<li>Não utilize novas variáveis globais nem VLAs (<em>variable-length arrays</em>).</li>
+<li>Você pode criar funções auxiliares privadas, inclusive funções declaradas como <code>static</code>.</li>
+<li>As funções <code>remove_ocorrencia</code> e <code>remove_linha</code> são <strong>bônus</strong> e podem permanecer com seus stubs originais.</li>
+</ul>
+</section>
+<section id="avaliação" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> Avaliação</h1>
+<p>As funções poderão ser <strong>testadas separadamente</strong>, além dos testes completos que executam o programa principal. Os testes poderão verificar, entre outros casos:</p>
+<ul>
+<li>índice e lista inicialmente vazios;</li>
+<li>inserção da primeira palavra e crescimento do vetor de entradas;</li>
+<li>várias inserções da mesma palavra, na mesma linha e em linhas diferentes;</li>
+<li>existência de várias palavras distintas, incluindo palavras com maiúsculas e acentos;</li>
+<li>correção das frequências totais e das quantidades por linha;</li>
+<li>busca por palavras presentes e ausentes;</li>
+<li>listas com um único nó ou com vários nós;</li>
+<li>liberação completa da memória, sem acessos inválidos nem vazamentos.</li>
+</ul>
+<p>Os testes específicos de remoção serão considerados <strong>apenas para a pontuação bônus</strong>.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Aviso
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>O programa pode até imprimir resultados aparentemente corretos e, ainda assim, conter erros de memória. Por exemplo, guardar uma string temporária em vez de copiá-la pode provocar comportamento indefinido. Verifique com cuidado a propriedade de cada alocação e o momento em que cada recurso é liberado.</p>
+</div>
+</div>
+</section>
+<section id="exemplos-de-entrada-e-saída" class="level1" data-number="14">
+<h1 data-number="14"><span class="header-section-number">14</span> Exemplos de entrada e saída</h1>
+<p>Os exemplos a seguir mostram o comportamento esperado depois de concluída a parte obrigatória, exceto onde indicado como bônus. As linhas que começam com <code>&gt;</code> representam comandos digitados pelo usuário; o restante é impresso pelo programa fornecido.</p>
+<section id="exemplo-1-construindo-e-consultando-um-índice" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="exemplo-1-construindo-e-consultando-um-índice"><span class="header-section-number">14.1</span> Exemplo 1: construindo e consultando um índice</h2>
+<p>Considere um arquivo chamado <code>exemplo.txt</code> com o seguinte conteúdo:</p>
+<pre class="text"><code>gato gato dorme.
+cachorro e gato.
+gato dorme, cachorro.</code></pre>
+<p>Execute:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./ep2</span> exemplo.txt</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Se o usuário digitar, nessa ordem, <code>3</code>, <code>1 gato</code>, <code>1 peixe</code> e <code>0</code>, o programa deverá produzir:</p>
+<pre class="text"><code>===== MENU =====
+1 &lt;palavra&gt; - Buscar palavra
+2 &lt;linha&gt;   - Remover linha do indice (BONUS)
+3       - Imprimir indice completo
+0       - Sair
+&gt; 3
+
+===== INDICE COMPLETO =====
+[gato]: 4 ocorrencias
+    L:1 (x2) -&gt; L:2 (x1) -&gt; L:3 (x1)
+[dorme]: 2 ocorrencias
+    L:1 (x1) -&gt; L:3 (x1)
+[cachorro]: 2 ocorrencias
+    L:2 (x1) -&gt; L:3 (x1)
+[e]: 1 ocorrencias
+    L:2 (x1)
+
+===== MENU =====
+1 &lt;palavra&gt; - Buscar palavra
+2 &lt;linha&gt;   - Remover linha do indice (BONUS)
+3       - Imprimir indice completo
+0       - Sair
+&gt; 1 gato
+
+===== BUSCA: gato =====
+Linha 1: gato gato dorme.
+Linha 2: cachorro e gato.
+Linha 3: gato dorme, cachorro.
+
+===== MENU =====
+1 &lt;palavra&gt; - Buscar palavra
+2 &lt;linha&gt;   - Remover linha do indice (BONUS)
+3       - Imprimir indice completo
+0       - Sair
+&gt; 1 peixe
+
+===== BUSCA: peixe =====
+Palavra não está presente no índice!
+
+===== MENU =====
+1 &lt;palavra&gt; - Buscar palavra
+2 &lt;linha&gt;   - Remover linha do indice (BONUS)
+3       - Imprimir indice completo
+0       - Sair
+&gt; 0
+
+===== ENCERRANDO =====</code></pre>
+<p>Observe que <code>gato</code> tem frequência 4, mas sua busca imprime apenas três linhas, pois a palavra aparece duas vezes na linha 1. As entradas aparecem na ordem <code>gato</code>, <code>dorme</code>, <code>cachorro</code>, <code>e</code>, que é a ordem da primeira aparição dessas palavras no arquivo.</p>
+</section>
+<section id="exemplo-2-remoção-de-uma-linha-bônus" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="exemplo-2-remoção-de-uma-linha-bônus"><span class="header-section-number">14.2</span> Exemplo 2: remoção de uma linha (bônus)</h2>
+<p>Usando o <strong>mesmo arquivo</strong> <code>exemplo.txt</code>, considere uma nova execução na qual o usuário digita <code>2 2</code>, <code>3</code>, <code>1 e</code>, <code>1 cachorro</code> e <code>0</code>.</p>
+<p><strong>Este exemplo só precisa funcionar se você implementar o bônus.</strong> Sua saída será:</p>
+<pre class="text"><code>===== MENU =====
+1 &lt;palavra&gt; - Buscar palavra
+2 &lt;linha&gt;   - Remover linha do indice (BONUS)
+3       - Imprimir indice completo
+0       - Sair
+&gt; 2 2
+
+===== REMOVE: 2 =====
+
+===== MENU =====
+1 &lt;palavra&gt; - Buscar palavra
+2 &lt;linha&gt;   - Remover linha do indice (BONUS)
+3       - Imprimir indice completo
+0       - Sair
+&gt; 3
+
+===== INDICE COMPLETO =====
+[gato]: 3 ocorrencias
+    L:1 (x2) -&gt; L:3 (x1)
+[dorme]: 2 ocorrencias
+    L:1 (x1) -&gt; L:3 (x1)
+[cachorro]: 1 ocorrencias
+    L:3 (x1)
+
+===== MENU =====
+1 &lt;palavra&gt; - Buscar palavra
+2 &lt;linha&gt;   - Remover linha do indice (BONUS)
+3       - Imprimir indice completo
+0       - Sair
+&gt; 1 e
+
+===== BUSCA: e =====
+Palavra não está presente no índice!
+
+===== MENU =====
+1 &lt;palavra&gt; - Buscar palavra
+2 &lt;linha&gt;   - Remover linha do indice (BONUS)
+3       - Imprimir indice completo
+0       - Sair
+&gt; 1 cachorro
+
+===== BUSCA: cachorro =====
+Linha 3: gato dorme, cachorro.
+
+===== MENU =====
+1 &lt;palavra&gt; - Buscar palavra
+2 &lt;linha&gt;   - Remover linha do indice (BONUS)
+3       - Imprimir indice completo
+0       - Sair
+&gt; 0
+
+===== ENCERRANDO =====</code></pre>
+<p>Depois da remoção da linha 2, a palavra <code>e</code> desaparece completamente do índice, porque não aparece em nenhuma outra linha. Já <code>gato</code> e <code>cachorro</code> continuam presentes, mas com frequências menores. O texto original do arquivo não foi modificado.</p>
+</section>
+<section id="exemplo-3-maiúsculas-e-acentos" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="exemplo-3-maiúsculas-e-acentos"><span class="header-section-number">14.3</span> Exemplo 3: maiúsculas e acentos</h2>
+<p>Considere outro arquivo, <code>exemplo_maiusculas.txt</code>, com o conteúdo:</p>
+<pre class="text"><code>Casa casa, café!
+casa! Café, cafe.</code></pre>
+<p>A impressão do índice (<code>3</code>) deverá conter as seguintes entradas, nesta ordem:</p>
+<pre class="text"><code>===== INDICE COMPLETO =====
+[Casa]: 1 ocorrencias
+    L:1 (x1)
+[casa]: 2 ocorrencias
+    L:1 (x1) -&gt; L:2 (x1)
+[café]: 1 ocorrencias
+    L:1 (x1)
+[Café]: 1 ocorrencias
+    L:2 (x1)
+[cafe]: 1 ocorrencias
+    L:2 (x1)</code></pre>
+<p>Se o usuário buscar <code>1 café</code>, o programa deverá imprimir a linha 1. Já <code>1 Café</code> deverá imprimir a linha 2. As palavras <code>café</code>, <code>Café</code> e <code>cafe</code> são diferentes, assim como <code>Casa</code> e <code>casa</code>.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
