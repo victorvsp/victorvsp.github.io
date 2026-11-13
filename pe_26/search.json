@@ -2580,7 +2580,7 @@
     "href": "slides/listas_ligadas_aula2.html#problema-inserir-depois-de-um-nó",
     "title": "Listas ligadas (continuação)",
     "section": "Problema: inserir depois de um nó",
-    "text": "Problema: inserir depois de um nó\nJá temos o endereço do nó com valor 10 (pos).\nQueremos inserir o valor 20 depois dele.\n\n\n\n\n\nint inserir_apos_dupla(ListaDupla *lista, NoDuplo *pos,\n                      int valor);\nQuais ponteiros precisam mudar?"
+    "text": "Problema: inserir depois de um nó\nJá temos o endereço do nó com valor 10 (pos).\nQueremos inserir o valor 20 depois dele.\n\n\n\n\n\nint inserir_apos_dupla(NoDuplo *pos,\n                      int valor);\nQuais ponteiros precisam mudar?"
   },
   {
     "objectID": "slides/listas_ligadas_aula2.html#inserção-na-lista-dupla-código",
